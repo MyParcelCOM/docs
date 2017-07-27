@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./docker/hugo
+      dockerfile: Dockerfile
+    image: myparcel.com/hugo
+    working_dir: /opt/app
+    volumes:
+    - .:/opt/app
+    ports:
+    - $APP_PORT:$APP_PORT
+    command: hugo server --bind 0.0.0.0 --port $APP_PORT

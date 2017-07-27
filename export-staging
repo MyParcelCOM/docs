@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+hugo --baseURL 'https://staging-wiki.myparcel.com/'
+tar -czf export.tar.gz public
+scp -r export.tar.gz ubuntu@staging-wiki.myparcel.com:~/staging-wiki.myparcel.com/
+rm export.tar.gz

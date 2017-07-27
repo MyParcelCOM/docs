@@ -1,0 +1,43 @@
+baseURL = "https://docs.myparcel.com/"
+defaultContentLanguage = "en"
+disableHugoGeneratorInject = true
+enableEmoji = true
+enableGitInfo = true
+theme = "docdock"
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[Languages]
+[Languages.en]
+  title = "Docs :: MyParcel.com"
+[Languages.nl]
+
+[[menu.shortcuts]]
+  identifier = "website"
+  name = "<i class='fa fa-globe'></i> MyParcel.com"
+  pre = "<h3>Links</h3>"
+  url = "https://myparcel.com"
+  weight = 1
+
+[[menu.shortcuts]]
+  identifier = "specification"
+  name = "<i class='fa fa-file-text-o'></i> API Specification"
+  url = "https://docs.myparcel.com/api-specification"
+  weight = 2
+
+[[menu.shortcuts]]
+  identifier = "github"
+  name = "<i class='fa fa-github'></i> Github"
+  url = "https://github.com/MyParcelCOM"
+  weight = 3
+
+[[menu.shortcuts]]
+  identifier = "contact"
+  name = "<i class='fa fa-phone'></i> Contact us"
+  url = "https://myparcel.com/contact"
+  weight = 4
+
+[outputs]
+  home = ["HTML", "JSON"]
+  page = ["HTML"]

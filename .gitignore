@@ -1,0 +1,5 @@
+/.idea
+/public
+/themes
+.DS_Store
+/.env

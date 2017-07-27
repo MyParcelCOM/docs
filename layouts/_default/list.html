@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+
+<div id="mp-splash">
+    <i class="fa fa-spin fa-circle-o-notch"></i>
+</div>
+<div id="mp-preload">
+
+    {{ .Content }}
+
+    <footer class="footline">
+        {{ with .GitInfo }}
+        {{ with $.GitInfo.AuthorDate }}
+        <span class="page-edit-date">
+            <i class="fa fa-calendar"></i> {{ .Format "02-01-2006" }}
+        </span>
+        {{ end }}
+        {{ end }}
+
+    </footer>
+
+    {{if not .Content }}
+    {{ $paginator := .Paginator }}
+
+    <div class="extra-pagination inner">
+        {{ partial "pagination.html" $paginator }}
+    </div>
+
+    {{ range $index, $page := $paginator.Pages }}
+    {{ .Render "li" }}
+    {{ end }}
+
+    <div style="margin-bottom:2rem"></div>
+
+    {{ partial "pagination.html" $paginator }}
+    {{end}}
+
+    {{ partial "footer.html" . }}
+
+</div>
