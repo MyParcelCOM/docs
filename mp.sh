@@ -47,7 +47,23 @@ if [ $# -gt 0 ]; then
 
   # Setup the application.
   elif [ "$1" == "setup" ]; then
+    ${COMPOSE} ${DO} app rm -rf //opt/app/themes/docdock
     ${COMPOSE} ${DO} app git clone https://github.com/vjeantet/hugo-theme-docdock.git //opt/app/themes/docdock
+
+  # Export the application.
+  elif [ "$1" == "export" ]; then
+    if [ "$2" != "live" ] && [ "$2" != "staging" ]; then
+      echo "Unknown environment '$2' use live or staging"
+      exit
+    fi
+    SUBDOMAIN="docs"
+    if [ "$2" == "staging" ]; then
+      SUBDOMAIN="staging-docs"
+    fi
+    ${COMPOSE} ${DO} app hugo --baseURL "https://${SUBDOMAIN}.myparcel.com/"
+    tar -czf export.tar.gz public
+    scp -r export.tar.gz ubuntu@${SUBDOMAIN}.myparcel.com:~/${SUBDOMAIN}.myparcel.com/
+    rm export.tar.gz
 
   else
     ${COMPOSE} "$@"
