@@ -15,10 +15,9 @@
         </span>
         {{ end }}
         {{ end }}
-
     </footer>
 
-    {{if not .Content }}
+    {{ if not .Content }}
     {{ $paginator := .Paginator }}
 
     <div class="extra-pagination inner">
@@ -32,7 +31,7 @@
     <div style="margin-bottom:2rem"></div>
 
     {{ partial "pagination.html" $paginator }}
-    {{end}}
+    {{ end }}
 
     {{ partial "footer.html" . }}
 
