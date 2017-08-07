@@ -56,11 +56,11 @@ Content-Type: application/json
 You can now store this access token on your system to be attached to all MyParcel.com API calls.
 
 {{% notice tip %}}
-All requests to the MyParcel.com API after the access token has expired will be rejected. The easiest way to handle expiring access tokens is to let the server periodically requests a new access token from the authorization server before the current one expires. The overlap between the different tokens will not cause a problem with already running requests.
+All requests to the MyParcel.com API after the access token has expired will be rejected. The easiest way to handle expiring access tokens is to let the server periodically requests a new access token from the authorization server before the current one expires. The overlap between the different tokens will not cause a problem with running requests.
 {{% /notice %}}
 
 #### 3. Making a request to the MyParcel.com API
-To make a request to the MyParcel.com API you have to add your access token to the request. You do this by setting the access token as the Bearer token in the Authorization header.
+To make a request to the MyParcel.com API you have to add your access token to the request. You can do this by setting the access token as the Bearer token in the Authorization header.
 
 For example:
 ```
