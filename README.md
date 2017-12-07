@@ -7,6 +7,7 @@ MyParcel.com docs for external documentation and resources.
 
 ## Content
 - [Installation](#installation)
+- [Setup](#setup)
 - [Commands](#commands)
 - [Resources](#resources)
 

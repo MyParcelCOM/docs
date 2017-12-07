@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
 <div id="mp-splash">
     <i class="fa fa-spin fa-circle-o-notch"></i>
@@ -33,6 +33,6 @@
     {{ partial "pagination.html" $paginator }}
     {{ end }}
 
-    {{ partial "footer.html" . }}
-
 </div>
+
+{{ end }}
