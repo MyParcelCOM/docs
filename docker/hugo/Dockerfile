@@ -1,10 +1,12 @@
 FROM ubuntu:16.04
 
-LABEL author="Sam de Vries <sam@myparcel.com>"
+LABEL maintainer="MyParcel.com <info@myparcel.com>"
+
+ARG HUGO_VERSION
 
 RUN apt-get update \
     && apt-get install -y curl git \
-    && curl -o hugo.deb -L https://github.com/gohugoio/hugo/releases/download/v0.25.1/hugo_0.25.1_Linux-64bit.deb \
+    && curl -o hugo.deb -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb \
     && dpkg -i hugo.deb \
     && rm hugo.deb \
     && apt-get -y autoremove \

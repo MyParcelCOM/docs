@@ -3,38 +3,48 @@ defaultContentLanguage = "en"
 disableHugoGeneratorInject = true
 enableEmoji = true
 enableGitInfo = true
-theme = "docdock"
+ordersectionsby = "title"
+theme = "hugo-theme-docdock"
 
 [blackfriday]
   hrefTargetBlank = true
 
-[Languages]
-[Languages.en]
+[params]
+  disableLanguageSwitchingButton = true
+  disableNavChevron = true
+
+[languages]
+[languages.en]
+  languageName = "English"
   title = "Docs :: MyParcel.com"
-[Languages.nl]
+  weight = 1
+[languages.nl]
+  languageName = "Nederlands"
+  title = "Docs :: MyParcel.com"
+  weight = 2
 
 [[menu.shortcuts]]
   identifier = "specification"
-  name = "<i class='fa fa-file-text-o'></i> API Specification"
+  name = "<i class='fa fa-fw fa-file-text-o'></i> API Specification"
+  pre = "<h3>Links</h3>"
   url = "/api-specification"
   weight = 1
 
 [[menu.shortcuts]]
   identifier = "github"
-  name = "<i class='fa fa-github'></i> Github"
+  name = "<i class='fa fa-fw fa-github'></i> Github"
   url = "https://github.com/MyParcelCOM"
   weight = 2
 
 [[menu.shortcuts]]
   identifier = "website"
-  name = "<i class='fa fa-globe'></i> MyParcel.com"
-  pre = "<h3>Links</h3>"
+  name = "<i class='fa fa-fw fa-globe'></i> MyParcel.com"
   url = "https://myparcel.com"
   weight = 3
 
 [[menu.shortcuts]]
   identifier = "contact"
-  name = "<i class='fa fa-phone'></i> Contact us"
+  name = "<i class='fa fa-fw fa-phone'></i> Contact us"
   url = "https://myparcel.com/contact"
   weight = 4
 
