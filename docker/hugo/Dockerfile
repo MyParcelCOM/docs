@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-LABEL author="Sam de Vries <sam@myparcel.com>"
+LABEL maintainer="MyParcel.com <info@myparcel.com>"
 
 ARG HUGO_VERSION
 

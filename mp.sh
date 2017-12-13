@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eo pipefail
 
 function ownAllTheThings {
   ${COMPOSE} ${DO} app chown -R ${USER_ID}:${GROUP_ID} .
@@ -47,8 +48,13 @@ if [ $# -gt 0 ]; then
 
   # Setup the application.
   elif [ "$1" == "setup" ]; then
-    ${COMPOSE} ${DO} app rm -rf //opt/app/themes/docdock
-    ${COMPOSE} ${DO} app git clone https://github.com/vjeantet/hugo-theme-docdock.git //opt/app/themes/docdock
+    ${COMPOSE} ${DO} app bash -c "
+cd /opt/app/themes
+rm -rf hugo-theme-docdock
+git clone https://github.com/vjeantet/hugo-theme-docdock.git
+cd hugo-theme-docdock
+git checkout 84b60f185a7b8d43b182f993c5f4501740a4aa38
+"
 
   # Export the application.
   elif [ "$1" == "export" ]; then
@@ -56,13 +62,15 @@ if [ $# -gt 0 ]; then
       echo "Unknown environment '$2' use live or staging"
       exit
     fi
-    SUBDOMAIN="docs"
+    FILES="public"
+    DOMAIN="docs.myparcel.com"
     if [ "$2" == "staging" ]; then
-      SUBDOMAIN="staging-docs"
+      DOMAIN="staging-${DOMAIN}"
     fi
-    ${COMPOSE} ${DO} app hugo --baseURL "https://${SUBDOMAIN}.myparcel.com/"
-    tar -czf export.tar.gz public
-    scp -r export.tar.gz ubuntu@${SUBDOMAIN}.myparcel.com:~/${SUBDOMAIN}.myparcel.com/
+    ${COMPOSE} ${DO} app hugo --baseURL "https://${DOMAIN}/"
+    echo -e "\033[32mexporting \033[0m${FILES}\033[32m to ${DOMAIN}\033[0m"
+    tar -czf export.tar.gz ${FILES}
+    scp export.tar.gz ubuntu@${DOMAIN}:~/${DOMAIN}/
     rm export.tar.gz
 
   else

@@ -1,0 +1,7 @@
+<footer class="footline">
+  {{ with .GitInfo }}
+  {{ with $.GitInfo.AuthorDate }}
+  <i class="fa fa-calendar"></i> {{ .Format "02-01-2006" }}
+  {{ end }}
+  {{ end }}
+</footer>
