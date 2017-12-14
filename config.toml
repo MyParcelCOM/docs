@@ -25,9 +25,9 @@ theme = "hugo-theme-docdock"
 
 [[menu.shortcuts]]
   identifier = "specification"
-  name = "<i class='fa fa-fw fa-file-text-o'></i> API Specification"
+  name = "<i class='fa fa-fw fa-file-text-o'></i> API specification"
   pre = "<h3>Links</h3>"
-  url = "/api-specification"
+  url = "https://docs.myparcel.com/api-specification"
   weight = 1
 
 [[menu.shortcuts]]
