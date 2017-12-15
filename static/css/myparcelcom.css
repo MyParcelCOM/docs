@@ -151,3 +151,11 @@ th[align="right"] {
   color: #040707;
   text-shadow: none;
 }
+
+pre .copy-to-clipboard {
+  display: block;
+}
+
+.copy-to-clipboard {
+  display: none;
+}
