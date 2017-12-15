@@ -21,7 +21,7 @@ Requests/responses to/from the API always have the following structure:
   - **errors**: an array of [error objects](http://jsonapi.org/format/#errors)
   - **meta**: a [meta object](http://jsonapi.org/format/#document-meta) that contains non-standard meta-information
 
-For example, the request to our api root: <br>
+For example, the request to our API root: <br>
 (Ignore the links for now. We'll get to them later.)
 
 ```http
@@ -76,12 +76,12 @@ There are two links in the above example. The first one is the **self** link tha
 
 The other link looks very similar, but belongs to a relationship. It has the key **related** and points to the endpoint to retrieve the full resource. The reason this is not called **self** is because the self link would refer to the relationship itself, instead of the resource that is pointed towards.
 
-Aside from these **self** and **related** links, any kind of useful link could be provided. Just as seen in our api root request in the example above.
+Aside from these **self** and **related** links, any kind of useful link could be provided. Just as seen in our API root request in the example above.
 
 ### Pagination
 Most responses that serve multiple resource items use pagination. Our pagination has a few helpers to easily create your own pagination controls or retrieve all items in batches.
 
-As you can see below, the api provides you the total number of pages as well as the total records that can be retrieved. Alongside this is a list of links that correspond to all the actions normally provided by pagination. You could easily map your own pagination controls to these links (and for example show and hide the next/prev buttons based on the presence of the link in the current response).
+As you can see below, the API provides you the total number of pages as well as the total records that can be retrieved. Alongside this is a list of links that correspond to all the actions normally provided by pagination. You could easily map your own pagination controls to these links (and for example show and hide the next/prev buttons based on the presence of the link in the current response).
 
 You can easily retrieve all records available by looping through the pagination. As long as there is a **next** link, there are more records to retrieve. You are done retrieving records as soon as the next link is no longer present in the last response.
 
