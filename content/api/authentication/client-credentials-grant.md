@@ -10,8 +10,8 @@ Always make sure only your server has access to your client credentials or acces
 {{% /notice %}} 
 
 ## Flow
-The flow of the Client Credentials grant is fairly simple. You use your client credentials to request an access token from the authorization server and then use that access token in your requests to the API server. A more in depth explanation follows below.
-{{< figure src="/images/client-credentials-flow.png" title="Client Credentials authorization flow" alt="The client credentials authorization flow" >}}
+The flow of the Client Credentials grant is fairly simple. You use your client credentials to request an access token from the authentication server and then use that access token in your requests to the API server. A more in depth explanation follows below.
+{{< figure src="/images/client-credentials-flow.png" title="Client Credentials authentication flow" alt="The client credentials authentication flow" >}}
 
 #### 1. Requesting an access token.
 Send a `POST` request to `/access-token`. The body must contain the following:
@@ -34,12 +34,8 @@ Content-Type: application/json
 }
 ```
 
-{{% notice note %}}
-Although the MyParcel.com API uses the content type `application/vnd.api+json`, the authentication server does not. It uses regular `application/json` to be more in line with other OAuth 2.0 implementations.
-{{% /notice %}}
-
 #### 2. Response with new access token.
-The authorization server will respond with the following body:
+The authentication server will respond with the following body:
 
 - `token_type` with the value `Bearer`
 - `expires_in` with an integer representing the TTL of the access token
@@ -79,7 +75,7 @@ All requests to the MyParcel.com API with an expired or otherwise invalid access
 When using a valid token, the server will just give the expected response.
 
 {{% notice tip %}}
-Always check the response for an authorization error. If for some reason your server has not retrieved a new access token yet, or your access token was revoked, you don't want the request to fail. Just check for the error, fire a separate job to fetch the new token, and attach it to all pending requests.
+Always check the response for an authentication error. If for some reason your server has not retrieved a new access token yet, or your access token was revoked, you don't want the request to fail. Just check for the error, fire a separate job to fetch the new token, and attach it to all pending requests.
 {{% /notice %}}
 
 ## Expired access token
