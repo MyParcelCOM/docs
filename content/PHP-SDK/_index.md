@@ -53,7 +53,7 @@ $api = \MyParcelCom\Sdk\MyParcelComApi::getSingleton();
 ```
 
 ## Authentication
-Most interactions with the API will require authorization. A class for authentication using the `client_credentials` grant can be used to authenticate the user. A `client id` and `client secret` are needed to authenticate with the OAuth 2.0 server. A URL should be supplied to define the location of the  OAuth2.0 server.
+Most interactions with the API will require authorization. A class for authentication using the `client_credentials` grant can be used to authenticate the user. A `client id` and `client secret` are needed to authenticate with the OAuth 2.0 server. A URL should be supplied to define the location of the OAuth2.0 server.
 
 ```php
 $authenticator = new \MyParcelCom\Sdk\Authentication\ClientCredentials(
@@ -141,7 +141,7 @@ $carriers = $api->getCarriers();
 ```
 
 ### Services
-The services available in the API can be retrieved using the sdk. There are three ways to retrieve them. Either get all available services, the services available for a specific shipment, or all available services from a specific carrier.
+The services (eg 'DPD next day') available in the API can be retrieved using the sdk. There are three ways to retrieve them. Either get all available services, the services available for a specific shipment, or all available services from a specific carrier.
 
 ```php
 // Get all services.
@@ -155,7 +155,7 @@ $services = $api->getServicesForCarrier($carrier);
 ```
 
 ### Contracts
-Each service has contracts associated with it. A contract determines the price for the shipment and what options are available (eg 'sign on delivery'). These contracts can be retrieved from a service.
+Each service has contracts associated with it. A contract determines the price for the shipment and what options are available (eg 'sign on delivery'). You can use our offered contracts or use a contract you have directly with the carrier you want to use. These contracts can be retrieved from a service.
 
 ```php
 // Get the contracts for this service.

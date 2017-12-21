@@ -3,10 +3,10 @@ title = "API"
 weight = 1
 +++
 
-This part of the documentation describes how you could talk directly to our REST API. For convenience we advice you to use our [PHP-SDK](/php-sdk) whenever possible.
+This part of the documentation describes how you could talk directly to our REST API. For convenience we advise you to use our [PHP-SDK](/php-sdk) whenever possible.
 
 ## Getting Started
-Before you dive into our documentation and [API specification](https://docs.myparcel.com/api-specification) we want to give you a little introduction to the [JSON API specification](http://jsonapi.org/format/). If you already now it, implementing our API just got even easier. But don't worry if you don't. It is an easy spec to comprehend. We wrote up a quick reference with some pointers below as a quick crash course.
+Before you dive into our documentation and [API specification](https://docs.myparcel.com/api-specification) we want to give you a little introduction to the [JSON API specification](http://jsonapi.org/format/). If you already know it, implementing our API just got even easier. But don't worry if you don't. It is an easy spec to comprehend. We wrote up a reference with some pointers below as a quick crash course.
 
 ### Content-Type
 The JSON API specification describes its own content type. Whenever you use the `Content-Type` or `Accept` headers, it should be set to `application/vnd.api+json`. With small exceptions here and there where you are deliberately requesting other file formats. For example when requesting label files, you could use `Accept: application/pdf`.
@@ -81,9 +81,9 @@ Aside from these **self** and **related** links, any kind of useful link could b
 ### Pagination
 Most responses that serve multiple resource items use pagination. Our pagination has a few helpers to easily create your own pagination controls or retrieve all items in batches.
 
-As you can see below, the API provides you the total number of pages as well as the total records that can be retrieved. Alongside this is a list of links that correspond to all the actions normally provided by pagination. You could easily map your own pagination controls to these links (and for example show and hide the next/prev buttons based on the presence of the link in the current response).
+As you can see below, the API provides you the total number of pages as well as the total records that can be retrieved. Alongside this is a list of links that correspond to all the actions normally provided by pagination. You could map your own pagination controls to these links (and for example show and hide the next/prev buttons based on the presence of the link in the current response).
 
-You can easily retrieve all records available by looping through the pagination. As long as there is a **next** link, there are more records to retrieve. You are done retrieving records as soon as the next link is no longer present in the last response.
+You can retrieve all records available by looping through the pagination. As long as there is a **next** link, there are more records to retrieve. You are done retrieving records as soon as the next link is no longer present in the last response.
 
 ```json
 {

@@ -6,7 +6,7 @@ weight = 3
 The Delivery Plugin lets you easily integrate a popup into your website that allows your users to choose a pick-up or drop-off location near them.
 
 ## Example project
-If you would prefer to learn from example, we made an example project that implemented the plugin using our [PHP-SDK](/php-sdk) to retrieve the locations. The example is also heavily commented. You can find it [here](https://github.com/MyParcelCOM/delivery-plugin-example).
+If you would prefer to learn from example, we made an example project that implemented the plugin using our [PHP-SDK](/php-sdk) to retrieve the locations. The example is also heavily commented. You can find it on [GitHub](https://github.com/MyParcelCOM/delivery-plugin-example).
 
 ## Setup
 The first step in setting up the plugin is including the provided CSS and JavaScript files.
@@ -63,7 +63,7 @@ The key string you received from Google. See this [step](#google-maps-api-key)
 
 #### `retrievePickupLocationsCallback`
 **Called**: When the popup is opened. <br>
-**Parameters**: The `countryCode` and `postalCode` required to retrieve locations from the API.
+**Parameters**: The `countryCode` and `postalCode` required to retrieve locations from the API. <br>
 **Returns**: A promise that resolves to all available `pickupLocation` objects.
 
 #### `onSuccessCallback`
@@ -112,4 +112,4 @@ The popup has a `z-index` value of 1. If you are running into issues because you
 ```
 
 ## Support
-Do not hesitate to contact us if you have any further questions or feedback about our plugin. We would love to hear from you. You can get in touch [here](https://myparcel.com/contact).
+Do not hesitate to contact us if you have any further questions or feedback about our plugin. We would love to hear from you. You can get in touch through our [contact page](https://myparcel.com/contact).
