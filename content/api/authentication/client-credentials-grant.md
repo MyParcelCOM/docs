@@ -10,8 +10,8 @@ Always make sure only your server has access to your client credentials or acces
 {{% /notice %}} 
 
 ## Flow
-The flow of the Client Credentials grant is fairly simple. You use your client credentials to request an access token from the authorization server and then use that access token in your requests to the API server. A more in depth explanation follows below.
-{{< figure src="/images/client-credentials-flow.png" title="Client Credentials authorization flow" alt="The client credentials authorization flow" >}}
+The flow of the Client Credentials grant is fairly simple. You use your client credentials to request an access token from the authentication server and then use that access token in your requests to the API server. A more in depth explanation follows below.
+{{< figure src="/images/client-credentials-flow.png" title="Client Credentials authentication flow" alt="The client credentials authentication flow" >}}
 
 #### 1. Requesting an access token.
 Send a `POST` request to `/access-token`. The body must contain the following:
@@ -23,7 +23,7 @@ Send a `POST` request to `/access-token`. The body must contain the following:
 Don't forget the set the `Content-Type` header to `application/json`.
 
 For example:
-```
+```http
 POST /access-token HTTP/1.1
 Content-Type: application/json
 
@@ -35,14 +35,14 @@ Content-Type: application/json
 ```
 
 #### 2. Response with new access token.
-The authorization server will respond with the following body:
+The authentication server will respond with the following body:
 
 - `token_type` with the value `Bearer`
 - `expires_in` with an integer representing the TTL of the access token
 - `access_token` the access token itself
 
 For example:
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -55,15 +55,11 @@ Content-Type: application/json
 
 You can now store this access token on your system to be attached to all MyParcel.com API calls.
 
-{{% notice tip %}}
-All requests to the MyParcel.com API after the access token has expired will be rejected. The easiest way to handle expiring access tokens is to let the server periodically requests a new access token from the authorization server before the current one expires. The overlap between the different tokens will not cause a problem with running requests.
-{{% /notice %}}
-
 #### 3. Making a request to the MyParcel.com API
 To make a request to the MyParcel.com API you have to add your access token to the request. You can do this by setting the access token as the Bearer token in the Authorization header.
 
 For example:
-```
+```http
 POST /v1/shipments HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
@@ -73,11 +69,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb
 }
 ```
 
+All requests to the MyParcel.com API with an expired or otherwise invalid access token will be rejected. A convenient way to make sure you have an access token that has not expired is to let the server periodically request a new access token before the previous one expires. The overlap between the different tokens will not cause a problem with running requests.
+
 #### 4. The server response
 When using a valid token, the server will just give the expected response.
 
 {{% notice tip %}}
-Always check the response for an access token exception. If for some reason your server has not retrieved a new access token yet, you don't want the request to fail. Just check for the error, fire a separate job to fetch the new token and attach it to all pending requests.
+Always check the response for an authentication error. If for some reason your server has not retrieved a new access token yet, or your access token was revoked, you don't want the request to fail. Just check for the error, fire a separate job to fetch the new token, and attach it to all pending requests.
 {{% /notice %}}
 
 ## Expired access token
