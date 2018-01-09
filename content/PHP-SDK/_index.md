@@ -16,7 +16,7 @@ As the API is updated with new features, these features will be added to the sdk
   - shipments
   - files
   - carriers
-  - pickup-dropoff-locations
+  - pick-up/drop-off locations
 
 ## Installation
 
@@ -174,10 +174,16 @@ $contract->getOptions();
 
 When creating a shipment either a specific contract can be selected, or the sdk will select a preferred contract.
 
-### Pick-up drop-off locations
+### Pick-up/drop-off locations
 Most carriers allow the recipient to define a pick-up location and a sender to define a drop-off location. The sdk can retrieve these locations from the API and can easily be displayed using the [MyParcel.com Delivery Plugin](https://github.com/MyParcelCOM/delivery-plugin).
 
 Most carriers only need a postal code in a specific country, but some carriers also require a street name and number. It is therefore recommended to always supply all this information to the sdk.
+
+The last (optional) parameter is a specific carrier. Including this will return an array of the pick-up/drop-off locations for only that carrier. 
+
+When no specific carrier is defined, the pick-up/drop-off locations of all available carriers will be returned as an array of the carrier ids as keys and an array of their locations as the values. When requesting the locations from one of the carriers fails, the array of locations for that carrier is replaced with `null`. 
+
+Note that when you do specify a specific carrier an exception will be thrown when the request fails.
 
 ```php
 // Get all pick-up/drop-off locations near the area with postal code '1AR BR2'
