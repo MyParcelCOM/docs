@@ -6,7 +6,7 @@ services:
       context: ./docker/hugo
       dockerfile: Dockerfile
       args:
-        - HUGO_VERSION=0.31.1
+        - HUGO_VERSION=$HUGO_VERSION
     image: myparcelcom/hugo:v2
     working_dir: /opt/app
     volumes:

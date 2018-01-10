@@ -53,7 +53,7 @@ cd /opt/app/themes
 rm -rf hugo-theme-docdock
 git clone https://github.com/vjeantet/hugo-theme-docdock.git
 cd hugo-theme-docdock
-git checkout 84b60f185a7b8d43b182f993c5f4501740a4aa38
+git checkout ${HUGO_DOCDOCK_COMMIT_HASH}
 "
 
   # Export the application.
