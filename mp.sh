@@ -49,7 +49,8 @@ if [ $# -gt 0 ]; then
   # Setup the application.
   elif [ "$1" == "setup" ]; then
     ${COMPOSE} run --rm app bash -c "
-cd /opt/app/themes
+mkdir -p themes
+cd themes
 rm -rf hugo-theme-docdock
 git clone https://github.com/vjeantet/hugo-theme-docdock.git
 cd hugo-theme-docdock
