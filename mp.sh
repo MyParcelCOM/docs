@@ -55,7 +55,7 @@ rm -rf hugo-theme-docdock
 git clone https://github.com/vjeantet/hugo-theme-docdock.git
 cd hugo-theme-docdock
 git checkout ${HUGO_DOCDOCK_COMMIT_HASH}
-"
+" >/dev/null
 
   # Export the application.
   elif [ "$1" == "export" ]; then

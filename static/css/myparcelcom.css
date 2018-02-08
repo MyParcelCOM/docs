@@ -127,7 +127,15 @@ th[align="right"] {
 
 #sidebar .active li,
 #sidebar .parent li {
-  border-color: #fafafa;
+  border: none;
+}
+#sidebar .parent li a span:before {
+  content: "\f105";
+  font: normal normal normal 14px/1 FontAwesome;
+  margin-right: 4px;
+}
+#sidebar .parent li li a span:before {
+  content: "\f101";
 }
 
 #top-bar {

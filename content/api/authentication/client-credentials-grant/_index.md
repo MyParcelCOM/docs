@@ -20,7 +20,7 @@ Send a `POST` request to `/access-token`. The body must contain the following:
 - `client_id` with the client id as provided by MyParcel.com
 - `client_secret` with the client secret as provided by MyParcel.com
 
-Don't forget the set the `Content-Type` header to `application/json`.
+Don't forget to set the `Content-Type` header to `application/json`.
 
 For example:
 ```http
@@ -38,7 +38,7 @@ Content-Type: application/json
 The authentication server will respond with the following body:
 
 - `token_type` with the value `Bearer`
-- `expires_in` with an integer representing the TTL of the access token
+- `expires_in` with an integer representing the time to live (TTL) of the access token
 - `access_token` the access token itself
 
 For example:
@@ -82,7 +82,7 @@ Always check the response for an authentication error. If for some reason your s
 Another way to handle expired access tokens (aside from periodically requesting a new one) is to queue the incoming requests when you application notices that the access token has expired. Below is an example flow of how you could set this up.
 {{< figure src="/images/client-credentials-queue-flow.png" title="Client Credentials queue flow" alt="The client credentials queue flow" >}}
 
-Since the access token is a JWT, you can simply parse it with your favourite JWT library and get the exact UNIX timestamp when the access token expires. This means that you could queue your requests either on the user's device (step 1) or on your server (step 2) while a side job requests a new access token. When the new access token is received by the server it can be attached to all queued requests before they are executed again.
+Since the access token is a JSON Web Token ([JWT](https://jwt.io)), you can simply parse it with your favourite [JWT](https://jwt.io) library and get the exact UNIX timestamp when the access token expires. This means that you could queue your requests either on the user's device (step 1) or on your server (step 2) while a side job requests a new access token. When the new access token is received by the server it can be attached to all queued requests before they are executed again.
 
 {{% notice note %}}
 While you can requests access tokens more often than only just before it expires, this is not advised. Your requests will take longer to process if it has to authenticate on every request. Aside from that your server would also have to make more requests than necessary, increasing its load.
