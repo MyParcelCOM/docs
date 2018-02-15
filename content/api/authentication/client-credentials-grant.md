@@ -1,6 +1,6 @@
 +++
 title = "Client Credentials Grant"
-weight = 1
+weight = 21
 +++
 
 This grant is suitable for machine-to-machine communication where the application is the owner of the access token. This means that you store your OAuth client credentials on your machine (server) and users of your application would make requests through your server.

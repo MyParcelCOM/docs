@@ -1,6 +1,6 @@
 +++
 title = "Authentication"
-weight = 2
+weight = 20
 +++
 
 The MyParcel.com API uses OAuth 2.0 for authentication.

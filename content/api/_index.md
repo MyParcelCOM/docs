@@ -63,10 +63,10 @@ Below you will find an example of a simple resource object. It always contains t
       "service": {
         "data": {
           "type": "services",
-          "id": "[services-id]"
+          "id": "[service-id]"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/services/[services-id]"
+          "related": "https://api.myparcel.com/v1/services/[service-id]"
         }
       }
     }
@@ -105,6 +105,30 @@ You can retrieve all records available by looping through the pagination. As lon
   }
 }
 ```
+
+### Errors
+If the top level serrors attributes exists it can contain one of the following Errors:
+
+| Error code                    | Error number  | Description  |
+| ------------- |:-------------:|:----- |
+| NOT_FOUND                     | 10000         | Not Found |
+| INTERNAL_SERVER_ERROR         | 10001         | Internal Server Error |
+| RESOURCE_NOT_FOUND            | 10002         | Resource Not Found |
+| INVALID_JSON_SCHEMA           | 10003         | Invalid JSON Schema |
+| INVALID_REQUEST_HEADER        | 10004         | Invalid Request Header |
+| RESOURCE_CANNOT_BE_MODIFIED   | 10005         | Resource Cannot Be Modified |
+| INVALID_ERROR_SCHEMA          | 10006         | Invalid Error Schema |
+| RESOURCE_CONFLICT             | 10007         | Resource Conflict |
+| UNPROCESSABLE_ENTITY          | 10008         | Unprocessable entity |
+| EXTERNAL_REQUEST_ERROR        | 13001         | External Request Error |
+| CARRIER_API_ERROR             | 13002         | Carrier API Error |
+| INVALID_SECRET                | 13003         | Invalid Secret |
+| AUTH_INVALID_CLIENT           | 14000         | Invalid OAuth Client |
+| AUTH_INVALID_SCOPE            | 14001         | Scope Not Available To Client |
+| AUTH_INVALID_TOKEN            | 14002         | Access Token Is Invalid |
+| AUTH_MISSING_TOKEN            | 14003         | No Access Token Provided |
+| AUTH_MISSING_SCOPE            | 14004         | Access Token Is Invalid |
+| AUTH_SERVER_EXCEPTION         | 14050         | Unable To Process OAuth Request |
 
 ### Further Reading
 If you would like to dive deep into the fundamentals of the JSON API specification or our own API specification, you can do so following the links below.
