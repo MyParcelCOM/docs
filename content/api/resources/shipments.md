@@ -3,7 +3,7 @@ title = "Shipments"
 weight = 15
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/Shipments)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shipments)
 
 The shipment resources are used to set all the relationships and additional information necessary to create shipment labels.   
 

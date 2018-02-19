@@ -3,7 +3,7 @@ title = "Carrier Contracts"
 weight = 3
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/CarrierContracts)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/CarrierContracts)
 
 The resource carrier contracts combines a [carrier](/api/resources/carriers/) with a [service contract](/api/resources/service-contracts/).
 The carrier contract only contains the `currency` attribute, other data like pricing and options is linked throw the [service contract](/api/resources/service-contracts/).

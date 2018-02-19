@@ -3,10 +3,10 @@ title = "Carriers"
 weight = 2
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/Carriers)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Carriers)
 
 A carrier resource in this API represents one of the many postal carriers that MyParcel.com work with to provide you with the best [contracts](/api/resources/carrier-contracts).
-The list of supported postal carriers is always growing, to keep up with the supported carriers we and to obtain there reference id this resource is available.
+The list of postal carriers we supported is always growing, to get an updated list of what carriers we support this resource is available.
 
 ## Relations
 A carrier can support multiple [services](/api/resources/services) from the following types: `parcel`, `letter`, `letterbox`, `unstamped`.

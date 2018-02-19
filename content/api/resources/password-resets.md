@@ -3,7 +3,7 @@ title = "Password Resets"
 weight = 7
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/PasswordResets)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/PasswordResets)
 
 The password resets resource is available in order to change the password for an MyParcel.com `user`. You do this by providing the email address of the user you want to be able to change there password. If that email is available as an user with MyParcel.com an email with the reset link will be send to that email address. With this link the `user` can choose a new password.
 These reset links in the email are one time use and will only be valid for one day. If you sent a new link to the same email address that already had a link the old link will no longer work.

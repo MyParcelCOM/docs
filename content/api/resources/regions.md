@@ -3,7 +3,7 @@ title = "Regions"
 weight = 8
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/Regions)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Regions)
 
 The regions are MyParcel.com created locations that point to a geological area that can be restricted by `country code` or `region code`.
 

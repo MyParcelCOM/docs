@@ -3,7 +3,7 @@ title = "Invitations"
 weight = 6
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/Invitations)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Invitations)
 
 The invitations are used to invite new users to the MyParcel.com services. When you created an invitation it will be automatically send an email to the provided email address. If this invitation is used by a new user to register that new user will be linked to the account of the invitation creator.
 

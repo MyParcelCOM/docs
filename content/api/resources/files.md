@@ -3,7 +3,7 @@ title = "Files"
 weight = 5
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/Files)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Files)
 
 A file resource can represent all kind of file like `labels`, `barcodes`, or `logos` that can all be be available in multiple file formats. 
 

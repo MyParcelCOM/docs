@@ -3,7 +3,7 @@ title = "Services"
 weight = 9
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/Services)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Services)
 
 These are the services provided by the [carriers](/api/resources/carriers/) that can be used to sent your [shipments](/api/resources/shipments).  
 For each service a different `region_from` can restrict the [region](/api/resources/regions/) you can use this service from. The same goes for the `region_to` that restricts the usage of using this service to send something outside that [region](/api/resources/regions/).

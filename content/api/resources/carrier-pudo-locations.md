@@ -3,7 +3,7 @@ title = "Carrier PUDO locations"
 weight = 4
 +++
 
-<em class="fa fa-fw fa-file-text-o"></em>[API specification](https://docs.myparcel.com/api-specification#/CarrierContracts)
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/CarrierContracts)
 
 Carrier PUDO locations are the locations where you can drop your shipments off to send it(dropoff) and locations where the shipments can be picked up once retrieved(pickup).
 
