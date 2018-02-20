@@ -3,7 +3,7 @@ title = "Retrieving resources"
 weight = 2
 +++
 
-Most of the resources available in the API can be accessed using the sdk. All resources will be mapped to classes implementing their specific interface. These interfaces are all defined in the
+Most of the resources available in the API can be accessed using the SDK. All resources will be mapped to classes implementing their specific interface. These interfaces are all defined in the
 `\MyParcelCom\ApiSdk\Resources\Interfaces` namespace.
 
 ### Shops
@@ -18,9 +18,9 @@ $shop = $api->getDefaultShop();
 ```
 
 ### Shipments
-Shipments are the resources that you will interact with the most. Creating and retrieving shipments can be done through the sdk. As wel as retrieving the shipment status and any files associated with the shipment.
+Shipments are the resources that you will interact with the most. Creating and retrieving shipments can be done through the SDK. As wel as retrieving the shipment status and any files associated with the shipment.
 
-To create a shipment an object implementing `\MyParcelCom\ApiSdk\Resources\Interfaces\ShipmentInterface` should be created. A class implementing this interface has been provided in `\MyParcelCom\ApiSdk\Resources\Shipment`. At least a recipient address and a weight should be provided in the shipment. All other fields are optional or will be filled with defaults by the sdk.
+To create a shipment an object implementing `\MyParcelCom\ApiSdk\Resources\Interfaces\ShipmentInterface` should be created. A class implementing this interface has been provided in `\MyParcelCom\ApiSdk\Resources\Shipment`. At least a recipient address and a weight should be provided in the shipment. All other fields are optional or will be filled with defaults by the SDK.
 
 ```php
 use MyParcelCom\ApiSdk\Resources\Address;
@@ -104,7 +104,7 @@ $path = $file->getTemporaryFilePath('application/pdf');
 ```
 
 ### Carriers
-Services for different carriers are available through the API. The sdk can retrieve all the carriers the currently authenticated user can access. All carriers will be mapped to objects implementing `MyParcelCom\ApiSdk\Resources\Interfaces\CarrierInterface`.
+Services for different carriers are available through the API. The SDK can retrieve all the carriers the currently authenticated user can access. All carriers will be mapped to objects implementing `MyParcelCom\ApiSdk\Resources\Interfaces\CarrierInterface`.
 
 ```php
 // Get the carriers.
@@ -112,7 +112,7 @@ $carriers = $api->getCarriers();
 ```
 
 ### Services
-The services (eg 'DPD next day') available in the API can be retrieved using the sdk. There are three ways to retrieve them. Either get all available services, the services available for a specific shipment, or all available services from a specific carrier.
+The services (eg 'DPD next day') available in the API can be retrieved using the SDK. There are three ways to retrieve them. Either get all available services, the services available for a specific shipment, or all available services from a specific carrier.
 
 ```php
 // Get all services.
@@ -143,12 +143,12 @@ $contract->getServiceInsurances();
 $contract->getServiceOptions();
 ```
 
-When creating a shipment either a specific contract can be selected, or the sdk will select a preferred contract.
+When creating a shipment either a specific contract can be selected, or the SDK will select a preferred contract.
 
 ### Pick-up/drop-off locations
-Most carriers allow the recipient to define a pick-up location and a sender to define a drop-off location. The sdk can retrieve these locations from the API and can easily be displayed using the [MyParcel.com Delivery Plugin](https://github.com/MyParcelCOM/delivery-plugin).
+Most carriers allow the recipient to define a pick-up location and a sender to define a drop-off location. The SDK can retrieve these locations from the API and can easily be displayed using the [MyParcel.com Delivery Plugin](https://github.com/MyParcelCOM/delivery-plugin).
 
-Most carriers only need a postal code in a specific country, but some carriers also require a street name and number. It is therefore recommended to always supply all this information to the sdk.
+Most carriers only need a postal code in a specific country, but some carriers also require a street name and number. It is therefore recommended to always supply all this information to the SDK.
 
 The last (optional) parameter is a specific carrier. Including this will return an array of the pick-up/drop-off locations for only that carrier.
 
@@ -166,7 +166,7 @@ $locations = $api->getPickUpDropOffLocations('GB', '1AR BR2', 'Street name', 4, 
 ```
 
 ### Regions
-The API supports sending parcels from one country/state/province to another. These are split up into `regions` in the API. These are mostly used to define which services are available between what regions. A list of these regions as defined by the API can be retrieved through the sdk.
+The API supports sending parcels from one country/state/province to another. These are split up into `regions` in the API. These are mostly used to define which services are available between what regions. A list of these regions as defined by the API can be retrieved through the SDK.
 
 ```php
 // Get all the regions.

@@ -102,7 +102,7 @@ if ($status->getLevel() === 'success') {
 }
 ```
 
-Now that you know that the shipment has successfully been registered. You can retrieve the label through the API. You can find more information about files [here](/php-sdk/retrieving-resources/#files).
+Now that you know that the shipment has successfully been registered. You can retrieve the label through the API. You can find more information about files [here](/php-SDK/retrieving-resources/#files).
 
 ```php
 // Get the file resource that are of type label from the shipment.

@@ -4,7 +4,7 @@ weight = 6
 +++
 
 ## Caching
-By default the sdk uses the filesystem to cache both resources and access tokens. To use another type of caching, any cache instance implementing `Psr\SimpleCache\CacheInterface` can be used. This instance should be supplied at construction of `MyParcelComApi` and `ClientCredentials`.
+By default the SDK uses the filesystem to cache both resources and access tokens. To use another type of caching, any cache instance implementing `Psr\SimpleCache\CacheInterface` can be used. This instance should be supplied at construction of `MyParcelComApi` and `ClientCredentials`.
 
 ```php
 $redis = new RedisCache();
@@ -22,7 +22,7 @@ $authenticator = new \MyParcelCom\ApiSdk\Authentication\ClientCredentials(
 ```
 
 ## Configuring a different http client
-The sdk uses [Guzzle](http://guzzlephp.org/) to send http requests to the API. If the Guzzle Client needs to be configured differently for your setup (eg. you need to connect through a proxy), then you can supply the sdk with a different client.
+The SDK uses [Guzzle](http://guzzlephp.org/) to send http requests to the API. If the Guzzle Client needs to be configured differently for your setup (eg. you need to connect through a proxy), then you can supply the SDK with a different client.
 
 ```php
 // Create a Guzzle client that connects through a proxy.
@@ -39,7 +39,7 @@ $api->setHttpClient($client);
 ```
 
 ## Custom resource classes
-The sdk uses the `MyParcelCom\ApiSdk\Resources\ResourceFactory` to instantiate and hydrate all resource objects. If you want the sdk to instantiate your own classes and hydrate them, a `ResourceFactory` can be created and factory callables can be added to it to define how to instantiate a resource. Note that
+The SDK uses the `MyParcelCom\ApiSdk\Resources\ResourceFactory` to instantiate and hydrate all resource objects. If you want the SDK to instantiate your own classes and hydrate them, a `ResourceFactory` can be created and factory callables can be added to it to define how to instantiate a resource. Note that
 when using your custom classes, they should still implement the corresponding resource's interface.
 
 ```php
