@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ "$2" != "live" ] && [ "$2" != "staging" ]; then
+  echo "Unknown environment '$2' use live or staging"
+  exit
+fi
+FILES="public"
+DOMAIN="docs.myparcel.com"
+if [ "$2" == "staging" ]; then
+  DOMAIN="staging-${DOMAIN}"
+fi
+${COMPOSE} ${DO} app hugo --baseURL "https://${DOMAIN}/"
+echo -e "\033[32mexporting \033[0m${FILES}\033[32m to ${DOMAIN}\033[0m"
+tar -czf export.tar.gz ${FILES}
+scp export.tar.gz ubuntu@${DOMAIN}:~/${DOMAIN}/
+rm export.tar.gz
