@@ -29,14 +29,14 @@ use MyParcelCom\ApiSdk\Resources\Shipment;
 // Define the recipient address.
 $recipient = new Address();
 $recipient
-    ->setStreet1('Street name')
-    ->setStreetNumber(9)
-    ->setCity('City name')
-    ->setPostalCode('Postal code')
-    ->setFirstName('First name')
-    ->setLastName('Last name')
+    ->setStreet1('Baker Street')
+    ->setStreetNumber(221)
+    ->setCity('London')
+    ->setPostalCode('NW1 6XE')
+    ->setFirstName('Sherlock')
+    ->setLastName('Holmes')
     ->setCountryCode('GB')
-    ->setEmail('email@example.com');
+    ->setEmail('s.holmes@holmesinvestigations.com');
 
 // Define the weight.
 $shipment = new Shipment();
@@ -48,7 +48,7 @@ $shipment
 $createdShipment = $api->createShipment($shipment);
 ```
 
-If the shipment being created is invalid or there is no valid service available, an exception will be thrown.
+If the shipment being created is invalid or there is no valid service available, a `MyParcelCom\ApiSdk\Exceptions\InvalidResourceException` will be thrown.
 
 If you wish to use your own contracts with your shipment, you should assign it to the shipment before creating it.
 
@@ -154,15 +154,15 @@ The last (optional) parameter is a specific carrier. Including this will return 
 
 When no specific carrier is defined, the pick-up/drop-off locations of all available carriers will be returned as an array of the carrier ids as keys and an array of their locations as the values. When requesting the locations from one of the carriers fails, the array of locations for that carrier is replaced with `null`.
 
-Note that when you do specify a specific carrier an exception will be thrown when the request fails.
+Note that when you do specify a specific carrier a `GuzzleHttp\Exception\RequestException` will be thrown when the request fails.
 
 ```php
 // Get all pick-up/drop-off locations near the area with postal code '1AR BR2'
 // in the United Kingdom for all carriers.
-$locations = $api->getPickUpDropOffLocations('GB', '1AR BR2', 'Street name', 4);
+$locations = $api->getPickUpDropOffLocations('GB', 'NW1 6XE', 'Baker Street', 221);
 
 // Same as above, but for specified carrier.
-$locations = $api->getPickUpDropOffLocations('GB', '1AR BR2', 'Street name', 4, $carrier);
+$locations = $api->getPickUpDropOffLocations('GB', 'NW1 6XE', 'Baker Street', 221, $carrier);
 ```
 
 ### Regions
