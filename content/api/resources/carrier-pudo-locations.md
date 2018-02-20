@@ -1,17 +1,24 @@
 +++
 title = "Carrier PUDO locations"
+description = "The pickup and dropoff locations offered by the carriers."
 weight = 4
 +++
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/CarrierContracts)
+Carrier PUDO locations are locations where:
 
-Carrier PUDO locations are the locations where you can drop your shipments off to send it(dropoff) and locations where the shipments can be picked up once retrieved(pickup).
+- your shipments can be picked up once delivered (Pick Up)
+- you can drop the shipments you want to send (Drop Off)
 
-## Relations
-The location belongs to one [carrier](/api/resources/carriers/).
+## Pickup Dropoff Location
+
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_)
+
+Relation | Description
+-------- | -----------
+carrier  | Carrier offering the location.
 
 ## Retrieve carrier pickup and dropoff locations
-To get all the available the pickup and dropoff locations of a carrier call the [GET /carriers/{carrier_id}/contracts](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_) endpoint.
+To get all the available pickup and dropoff locations of a carrier call the [GET /carriers/{carrier_id}/contracts](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_) endpoint.
 This will contain the location `code` used as reference by the carrier, the opening hours, latitude/longitude position and the address.
 It wil also have a reference to the [carrier](/api/resources/carriers).
 
@@ -83,30 +90,20 @@ Content-Type: application/vnd.api+json
 }
 ```
 
-### Parameter
-With the two required path parameters country code and postal code you can specify which position you want set as the starting position for finding locations.
+### Parameters
+With the required path parameters you can specify the geographical position to start searching for locations. You can specify a more accurate position using optional query parameters.
 
-```http
-GET /carriers/[carrier_id]/pickup-dropoff-locations/GB/1234AB HTTP/1.1
-Content-Type: application/vnd.api+json
-```
+Parameter     | Type  | Value  | Description                       | Required
+------------- | ----- | ------ | --------------------------------- | --------
+carrier_id    | path  | string | To retrieve one specific carrier. | ✓
+country_code  | path  | string | The country code.                 | ✓
+postal_code   | path  | string | The postal code.                  | ✓
+street        | query | string | The street name.                  |
+street_number | query | string | The street number.                |
 
-| Parameter     | Type            | value    | Description                       | Required  |
-| ------------- |:--------------- |:-------- |:--------------------------------- |:--- |
-| {carrier_id}  | path            | (string) | To retrieve one specific carrier. | ✓   | 
-| {country_code}| path            | (string) | To retrieve one specific carrier. | ✓   | 
-| {postal_code} | path            | (string) | The country code.                 | ✓   | 
-
-### Filters
-You can filter the locations further on a the query parameters street and street number.
 If you add these filters the call would look something like this:
 
 ```http
 GET /carriers/[carrier_id]/pickup-dropoff-locations/GB/1234AB?street=somestreet&street_number=17 HTTP/1.1
 Content-Type: application/vnd.api+json
 ```
-
-| Parameter         | Type  | value     | Description        | Required  |
-| ----------------- |:----- |:--------- |:------------------ |:--------- |
-| {street}          | query | (string)  | The street name.   |           | 
-| {street_number}   | query | (integer) | The street number. |           | 

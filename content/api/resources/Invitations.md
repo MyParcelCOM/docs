@@ -1,22 +1,23 @@
 +++
 title = "Invitations"
+description = "Invitations you have sent to friends and the users you have connected this way."
 weight = 6
 +++
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Invitations)
 
-The invitations are used to invite new users to the MyParcel.com services. When you created an invitation it will be automatically send an email to the provided email address. If this invitation is used by a new user to register that new user will be linked to the account of the invitation creator.
+The invitations are used to invite new users to the MyParcel.com platform. When you create an invitation it will automatically send an email to the provided email address. If the link in this email is used to register a new user, that user will be linked to your account.
 
 ## Retrieve invitations
-To get all the invitations you have created in the past call the [GET /invitations](https://docs.myparcel.com/api-specification/#/Invitations/get_invitations) endpoint.
+To get all the invitations you have created call the [GET /invitations](https://docs.myparcel.com/api-specification/#/Invitations/get_invitations) endpoint.
 
-#### Sample request
+### Sample request
 ```http
 GET /invitations HTTP/1.1
 Content-Type: application/vnd.api+json
 ```
 
-#### Sample response
+### Sample response
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -43,9 +44,9 @@ Content-Type: application/vnd.api+json
 ```
 
 ## Create invitations
-To create an invitations you can create it with the endpoint [POST /carriers](https://docs.myparcel.com/api-specification#/Carriers/get_carriers).
+You can create an invitation with the endpoint [POST /invitations](https://docs.myparcel.com/api-specification#/Invitations/post_invitations).
 
-#### Sample request
+### Sample request
 ```http
 POST /invitations HTTP/1.1
 Content-Type: application/vnd.api+json

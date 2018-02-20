@@ -1,8 +1,31 @@
 +++
 title = "Webhooks"
+description = "The webhooks offered by our API. Shops can be subscribed to push messages upon these events."
 weight = 20
 +++
 
+Webhooks are triggers that listen to events in our system. You can subscribe to a webhook by creating a webhook subscription. When the listener detects an event, the corresponding event data will be sent to the callback url of the subscription.
+
+## Webhook
+
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Webhooks)
 
-Webhooks are triggers that listen to a specified events on the api. Every webhook can listen to a diverged event described in the webhook description. You can subscribe to the webhook with the [webhook subscription](/api/resources/webhook-subscriptions/) so that if the listener detects the event the updated data will be sent to the by you provided callback `url`.
+Attribute   | Description
+----------- | -----------
+code        | Event code, useful for programmers.
+name        | Event name, useful for displaying to users.
+description | Explanation when this event is triggered.
+
+## Webhook subscription
+
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops/get_shops__shop_id__webhook_subscriptions)
+
+Attribute   | Description
+----------- | -----------
+url         | Callback URL to receive push messages.
+created_at  | Unix timestamp when the subscription was created.
+
+Relation | Description
+-------- | -----------
+shop     | Owner of the subscription.
+webhook  | Event being watched.

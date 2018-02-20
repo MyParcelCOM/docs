@@ -1,14 +1,31 @@
 +++
 title = "Services"
+description = "All services provided by the carriers, possibly filtered on a specific region."
 weight = 9
 +++
 
+Services are provided by [carriers](/api/resources/carriers/) and can be used to send your [shipments](/api/resources/shipments). Services are offered from a specific region to a specific region. To limit the number of services, you can include several filters as parameters:
+
+- `filter[package_type]`
+- `filter[carrier]`
+- `filter[region_from]`
+- `filter[region_to]`
+
+## Service
+
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Services)
 
-These are the services provided by the [carriers](/api/resources/carriers/) that can be used to sent your [shipments](/api/resources/shipments).  
-For each service a different `region_from` can restrict the [region](/api/resources/regions/) you can use this service from. The same goes for the `region_to` that restricts the usage of using this service to send something outside that [region](/api/resources/regions/).
-The services also have a fixed `delivery_days` set to specify the days this service delivers on. This can however be expanded on with [service_options](/api/resources/service-options/) which can contain additional costs. 
+Attribute       | Description
+--------------- | -----------
+name            | Service name, useful for displaying to users.
+package_type    | Parcel, letterbox, letter or unstamped.
+delivery_days   | Textual representation of days of the week this service delivers shipments.
+transit_time    | The minimum and maximum time it takes to deliver the shipment.
+handover_method | Available methods to hand the shipment to the carrier.
+rating          | Generic rating which indicates a combination of popularity, price and quality.
 
-## Relations
-The service belongs to one [carriers](/api/resources/carriers/) and has one [region_from](/api/resources/regions/) and [region_to](/api/resources/regions/) to specify where this service can be used.
-This service can be added to a shipment trouw the [service_contract](/api/resources/service-contracts) resource which combined the service with a [carrier contract](/api/resources/carrier-contracts/).
+Relation    | Description
+----------- | -----------
+carrier     | Carrier offering the service.
+region_from | Region in which this service is available.
+region_to   | Region where shipments can be delivered.

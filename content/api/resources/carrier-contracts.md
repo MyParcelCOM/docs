@@ -1,19 +1,26 @@
 +++
 title = "Carrier Contracts"
+description = "The contracts offered by the carriers."
 weight = 3
 +++
 
+A carrier contract combines a [carrier](/api/resources/carriers/) with [service contracts](/api/resources/service-contracts/). It only contains a currency attribute, other data like pricing and options is linked through the [service contract](/api/resources/service-contracts/). While this looks like a pretty empty resource, it also contains all necessary credentials to communicate with this carrier. These credentials are write-only and will never be returned, they are only used by our internal systems.
+
+## Carrier Contract
+
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/CarrierContracts)
 
-The resource carrier contracts combines a [carrier](/api/resources/carriers/) with a [service contract](/api/resources/service-contracts/).
-The carrier contract only contains the `currency` attribute, other data like pricing and options is linked throw the [service contract](/api/resources/service-contracts/).
+Attribute         | Description
+----------------- | -----------
+currency          | The currency used for all prices for the attached service contracts.
 
-## Relations
-The carrier contract belongs to one [carrier](/api/resources/carriers/) and can have multiple [service contracts](/api/resources/service-contracts/).
+Relation          | Description
+----------------- | -----------
+carrier           | Carrier offering the contract.
+service_contracts | Contracts for services offered by the carrier, which define prices and options.
 
 ## Retrieve carrier contracts
 To get all the contracts of a carrier call the [GET /carrier-contracts/{carrier_contract_id}](https://docs.myparcel.com/api-specification#/CarrierContracts/get_carrier_contracts__carrier_contract_id_) endpoint.
-This will contain the contract `currency` used for all the prices for the [services](/api/resources/services) under this contract.
 
 #### Sample request
 ```http

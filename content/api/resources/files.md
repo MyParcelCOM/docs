@@ -1,25 +1,23 @@
 +++
 title = "Files"
+description = "PDF labels and other file resources returned by the carriers."
 weight = 5
 +++
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Files)
 
-A file resource can represent all kind of file like `labels`, `barcodes`, or `logos` that can all be be available in multiple file formats. 
+A file resource can represent all kinds of files like `labels`, `barcodes`, or `logos` that can be available in different file formats.
 
 ## Types
-If you call the file with the default file type `application/vnd.api+json` you will get a list of the supported file types for that file in the formats attribute.
-This list can contain the following file types:
+If you request a file using the default file type `application/vnd.api+json` as Accept header, you will get a list of the supported mime types for that file. This list can contain the following mime types:
 
-* application/vnd.api+json
-* application/pdf
-* image/png
-* image/jpeg
-
-If you call the [/files](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_) endpoint with any of the other file types the response wil be in that format.
+- application/vnd.api+json
+- application/pdf
+- image/png
+- image/jpeg
 
 ## Retrieving a file
-To get all specific files call the [GET /files/{file_id}](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_) endpoint.
+To get a specific file call the [GET /files/{file_id}](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_) endpoint.
 
 #### Sample request
 ```http

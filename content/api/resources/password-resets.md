@@ -1,15 +1,15 @@
 +++
 title = "Password Resets"
+description = "Functionality to create a new password for your account."
 weight = 7
 +++
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/PasswordResets)
 
-The password resets resource is available in order to change the password for an MyParcel.com `user`. You do this by providing the email address of the user you want to be able to change there password. If that email is available as an user with MyParcel.com an email with the reset link will be send to that email address. With this link the `user` can choose a new password.
-These reset links in the email are one time use and will only be valid for one day. If you sent a new link to the same email address that already had a link the old link will no longer work.
+The password reset resource is available in order to change the password for a MyParcel.com user. You can initiate a password reset by providing the email address of a user. If this email is recognized an email with a password reset link will be sent to that email address. The user should visit this link to choose a new password. These reset links are one time use and will only be valid for one day. If you send a new link to the same email address their old links will no longer work.
 
 ## Requesting email with password reset link
-You can call the [POST /password-resets](https://docs.myparcel.com/api-specification#/PasswordResets/post_password_resets) endpoint with a email address to send someone the emil with the reset link.
+You can call the [POST /password-resets](https://docs.myparcel.com/api-specification#/PasswordResets/post_password_resets) endpoint with a email address to send someone the email with the reset link.
 
 #### Sample request
 ```http
