@@ -1,9 +1,9 @@
 +++
-title = "File combining"
+title = "Label combining"
 weight = 5
 +++
 
-The SDK provides a class for combining files into 1 pdf. Using this you can create a pdf file with multiple labels for printing. The class takes an array of objects that implement `FileInterface` and returns a new object that implements `FileInterface`.
+The SDK provides a class for combining labels into 1 pdf. Using this you can create a pdf file with multiple labels for printing. The class takes an array of objects that implement `FileInterface` and returns a new object that implements `FileInterface`.
 
 ```php
 use MyParcelCom\ApiSdk\LabelCombiner;
