@@ -4,7 +4,7 @@ description = "All services provided by the carriers, possibly filtered on a spe
 weight = 9
 +++
 
-Services are provided by [carriers](/api/resources/carriers/) and can be used to send your [shipments](/api/resources/shipments). Services are offered from a specific region to a specific region. To limit the number of services, you can include several filters as parameters:
+Services are provided by [carriers](/api/resources/carriers/) and can be used to send [shipments](/api/resources/shipments). Services are offered from a specific region to a specific region. To limit the number of services, several filters can be included as parameters:
 
 - `filter[package_type]`
 - `filter[carrier]`

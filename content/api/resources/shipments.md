@@ -16,7 +16,7 @@ recipient_address            | [Address](/api/resources/addresses) object used a
 sender_address               | [Address](/api/resources/addresses) object used as return address.
 pickup_location              | [PUDO location](/api/resources/carrier-pudo-locations) object containing the `code` and `address` of the location.
 description                  | Short note, printed on the shipping label if specified in the shop settings (and if allowed by the carrier).
-price                        | Price of the shipment which will be charged on your invoice.
+price                        | Price of the shipment which will be charged on the invoice.
 insurance                    | Amount this shipment is insured up to.
 barcode                      | Code returned by the carrier, also printed on the shipping label.
 tracking_code                | Code returned by the carrier, used to retrieve status information.
@@ -30,7 +30,7 @@ updated_at                   | Unix timestamp when the shipment was updated with
 synced_at                    | Unix timestamp when the shipment was checked at the carrier.
 
 {{% notice note %}}
-Several relations can be **included** as resources in the `GET /shipments` response. This way you don't need additional requests to other endpoints to get the related objects and their attributes.
+Several relations can be **included** as resources in the `GET /shipments` response. This way no additional requests to other endpoints are needed to get the related objects and their attributes.
 {{% /notice %}}
 
 Relationship     | Description
@@ -55,7 +55,7 @@ incoterm       | Specify if the buyer or seller is responsible for charges and r
 
 ### Items
 
-You can include items even if no customs information is required. This way you can view the shipment contents in our back office.
+Items can be included even if no customs information is required. This way the shipment contents can be viewed in our back office.
 
 Attribute           | Description
 ------------------- | -----------

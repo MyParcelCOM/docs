@@ -4,7 +4,7 @@ description = "The webhooks offered by our API. Shops can be subscribed to push 
 weight = 20
 +++
 
-Webhooks are triggers that listen to events in our system. You can subscribe to a webhook by creating a webhook subscription. When the listener detects an event, the corresponding event data will be sent to the callback url of the subscription.
+Webhooks are triggers that listen to events in our system. A shop can subscribe to a webhook by creating a webhook subscription. When the listener detects an event, the corresponding event data will be sent to the callback url of the subscription.
 
 ## Webhook
 
