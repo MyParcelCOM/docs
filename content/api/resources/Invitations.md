@@ -13,7 +13,7 @@ The invitations are used to invite new users to the MyParcel.com platform. When 
 Attribute | Description
 --------- | -----------
 code      | Needed to link the new user to the user who created the invite.
-email     | A valid email address, used to send an email with invitation link.
+email     | A valid email address, used to send an email with the invitation link.
 name      | Name of the invited user.
 message   | Message to the invited user. This will be included in the email body.
 status    | If the invite is pending or accepted.

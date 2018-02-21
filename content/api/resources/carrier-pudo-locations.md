@@ -24,10 +24,6 @@ Relationship | Description
 ------------ | -----------
 carrier      | Carrier offering the location.
 
-## Retrieve carrier pickup and dropoff locations
-To get all the available pickup and dropoff locations of a carrier call the [GET /carriers/{carrier_id}/contracts](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_) endpoint.
-This will contain the location `code` used as reference by the carrier, the opening hours, latitude/longitude position and the address.
-
 ### Parameters
 With the required path parameters you can specify the geographical position to start searching for locations. You can specify a more accurate position using optional query parameters.
 
@@ -38,9 +34,3 @@ country_code  | path  | string | The country code.                 | ✓
 postal_code   | path  | string | The postal code.                  | ✓
 street        | query | string | The street name.                  |
 street_number | query | string | The street number.                |
-
-If you add these filters the call would look something like this:
-
-```http
-GET /carriers/[carrier_id]/pickup-dropoff-locations/GB/1234AB?street=somestreet&street_number=17 HTTP/1.1
-```

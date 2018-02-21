@@ -4,11 +4,11 @@ description = "All available regions with their region code and country code to 
 weight = 8
 +++
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Regions)
-
 Regions are geographical areas arranged in a tree-like structure with "Earth" being the root region. Countries are regions with a non-empty `country_code`. Carriers can offer their services in any region. Shipment addresses should always contain a `country_code` and a `region_code` from a region defined as a country.
 
 ## Region
+
+{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Regions)
 
 Attribute    | Description
 ------------ | -----------
@@ -22,50 +22,13 @@ Relationship | Description
 parent       | The parent region in the region tree.
 
 ## Retrieve regions
-To get all the available regions call the [GET /regions](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__contracts) endpoint
 
-#### Sample request
-```http
-GET /regions HTTP/1.1
-```
+For an example request and response, check our API specification:<br>
+{{< icon fa-file-text-o >}}[GET /regions](https://docs.myparcel.com/api-specification#/Regions/get_regions)
 
-#### Sample response
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
+### Parameters
 
-{
-  "data": [
-    {
-      "type": "regions",
-      "id": "[region-id]",
-      "attributes": {
-        "country_code": "GB",
-        "region_code": "NIR",
-        "currency": "EUR",
-        "name": "The Netherlands"
-      },
-      "relationships": {
-        "parent": {
-          "data": {
-            "type": "regions",
-            "id": "[region-id]"
-          },
-          "links": {
-            "related": "http://localhost:8080/v1/regions/[region-id]"
-          }
-        }
-      },
-      "links": {
-        "self": "http://localhost:8080/v1/regions/[region-id]"
-      }
-    }
-  ]
-}
-```
-
-### Filters
-You can filter the regions on a the query parameters parent, country_code, region_code and name.
+You can filter the regions on a parent, country_code, region_code and name.
 If you add these filters the call would look something like this:
 
 ```http
