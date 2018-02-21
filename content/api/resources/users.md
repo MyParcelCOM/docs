@@ -25,5 +25,5 @@ The meta below does not belong to the resource. It is only available for the **P
 
 Meta            | Description
 --------------- | -----------
-shop_name       | Provide when you want to create a first shop for this new account.
-invitation_code | Provide when accepting an invite, this account will be linked to the inviter.
+shop_name       | Provide when you want to create a first shop for this new user.
+invitation_code | Provide when accepting an invite, this user will be linked to the inviter.

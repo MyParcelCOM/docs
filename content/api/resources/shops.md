@@ -1,6 +1,6 @@
 +++
 title = "Shops"
-description = "An account needs at least one shop to be able to create shipments."
+description = "A user needs at least one shop to be able to create shipments."
 weight = 16
 +++
 

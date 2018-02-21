@@ -6,7 +6,7 @@ weight = 6
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Invitations)
 
-The invitations are used to invite new users to the MyParcel.com platform. When you create an invitation it will automatically send an email to the provided email address. If the link in this email is used to register a new user, that user will be linked to your account.
+The invitations are used to invite new users to the MyParcel.com platform. When you create an invitation it will automatically send an email to the provided email address. If the link in this email is used to complete a registration, the new user will be linked to your user.
 
 ## Retrieve invitations
 To get all the invitations you have created call the [GET /invitations](https://docs.myparcel.com/api-specification/#/Invitations/get_invitations) endpoint.

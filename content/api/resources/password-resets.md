@@ -1,6 +1,6 @@
 +++
 title = "Password Resets"
-description = "Functionality to create a new password for your account."
+description = "Functionality to create a new password for your user."
 weight = 7
 +++
 
