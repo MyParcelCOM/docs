@@ -17,9 +17,9 @@ region_code  | A tree letter region code, if the region is within a country.
 currency     | The default currency used in this region.
 name         | Region name, useful for displaying to users.
 
-Relation | Description
--------- | -----------
-parent   | The parent region in the region tree.
+Relationship | Description
+------------ | -----------
+parent       | The parent region in the region tree.
 
 ## Retrieve regions
 To get all the available regions call the [GET /regions](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__contracts) endpoint
@@ -27,7 +27,6 @@ To get all the available regions call the [GET /regions](https://docs.myparcel.c
 #### Sample request
 ```http
 GET /regions HTTP/1.1
-Content-Type: application/vnd.api+json
 ```
 
 #### Sample response
@@ -71,7 +70,6 @@ If you add these filters the call would look something like this:
 
 ```http
 GET /regions?filter[country_code]=GB&filter[region_code]=SCT HTTP/1.1
-Content-Type: application/vnd.api+json
 ```
 
 Parameter    | Type  | Value   | Description

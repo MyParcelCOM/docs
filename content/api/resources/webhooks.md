@@ -25,7 +25,7 @@ Attribute   | Description
 url         | Callback URL to receive push messages.
 created_at  | Unix timestamp when the subscription was created.
 
-Relation | Description
--------- | -----------
-shop     | Owner of the subscription.
-webhook  | Event being watched.
+Relationship | Description
+------------ | -----------
+shop         | Owner of the subscription.
+webhook      | Event being watched.

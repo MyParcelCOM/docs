@@ -76,7 +76,7 @@ There are two links in the above example. The first one is the **self** link tha
 
 The other link looks very similar, but belongs to a relationship. It has the key **related** and points to the endpoint to retrieve the full resource. The reason this is not called **self** is because the self link would refer to the relationship itself, instead of the resource that it is pointed towards.
 
-Aside from these **self** and **related** links, any kind of useful link could be provided. Like the **specification** relation seen in our earlier [API root](#document-structure) request example above.
+Aside from these **self** and **related** links, any kind of useful link could be provided. Like the **specification** link seen in our earlier [API root](#document-structure) request example above.
 
 ### Pagination
 Most responses that serve multiple resource items use pagination. Our pagination has a few helpers to easily create your own pagination controls or retrieve all items in batches.

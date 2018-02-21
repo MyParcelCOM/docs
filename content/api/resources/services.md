@@ -24,8 +24,8 @@ transit_time    | The minimum and maximum time it takes to deliver the shipment.
 handover_method | Available methods to hand the shipment to the carrier.
 rating          | Generic rating which indicates a combination of popularity, price and quality.
 
-Relation    | Description
------------ | -----------
-carrier     | Carrier offering the service.
-region_from | Region in which this service is available.
-region_to   | Region where shipments can be delivered.
+Relationship | Description
+------------ | -----------
+carrier      | Carrier offering the service.
+region_from  | Region in which this service is available.
+region_to    | Region where shipments can be delivered.

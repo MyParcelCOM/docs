@@ -19,6 +19,6 @@ billing_address | [Address](/api/resources/addresses) object used for financial 
 return_address  | [Address](/api/resources/addresses) object used as return address for new shipments.
 created_at      | Unix timestamp when the shop was created.
 
-Relation | Description
--------- | -----------
-region   | Region defined by the country_code and region_code of the billing address.
+Relationship | Description
+------------ | -----------
+region       | Region defined by the country_code and region_code of the billing address.

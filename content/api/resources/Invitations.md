@@ -14,7 +14,6 @@ To get all the invitations you have created call the [GET /invitations](https://
 ### Sample request
 ```http
 GET /invitations HTTP/1.1
-Content-Type: application/vnd.api+json
 ```
 
 ### Sample response

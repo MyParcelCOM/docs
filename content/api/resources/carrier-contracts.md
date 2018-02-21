@@ -14,54 +14,7 @@ Attribute         | Description
 ----------------- | -----------
 currency          | The currency used for all prices for the attached service contracts.
 
-Relation          | Description
+Relationship      | Description
 ----------------- | -----------
 carrier           | Carrier offering the contract.
 service_contracts | Contracts for services offered by the carrier, which define prices and options.
-
-## Retrieve carrier contracts
-To get all the contracts of a carrier call the [GET /carrier-contracts/{carrier_contract_id}](https://docs.myparcel.com/api-specification#/CarrierContracts/get_carrier_contracts__carrier_contract_id_) endpoint.
-
-#### Sample request
-```http
-GET /carrier-contracts/{carrier_contract_id} HTTP/1.1
-Content-Type: application/vnd.api+json
-```
-
-#### Sample response
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
-
-{
-  "data": {
-      "type": "carrier-contracts",
-      "id": "[carrier-contract-id]",
-      "attributes": {
-        "currency": "EUR"
-      },
-      "relationships": {
-        "carrier": {
-          "data": {
-            "type": "carriers",
-            "id": "[carrier-id]"
-          },
-          "links": {
-            "related": "http://localhost:8080/v1/carriers/[carrier-id]"
-          }
-        },
-        "service_contracts": {
-          "data": [
-            {
-              "type": "service-contracts",
-              "id": "[service-contracts-id]",
-              "links": {
-                "related": "http://localhost:8080/v1/services/[service-id]/contracts/[contract-id]"
-              }
-            }
-          ]
-        }
-      }
-    }
-}
-```

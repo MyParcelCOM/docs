@@ -33,7 +33,7 @@ synced_at                    | Unix timestamp when the shipment was checked at t
 Several relations can be **included** as resources in the `GET /shipments` response. This way you don't need additional requests to other endpoints to get the related objects and their attributes.
 {{% /notice %}}
 
-Relation         | Description
+Relationship     | Description
 ---------------- | -----------
 service_options  | Chosen options belonging to the chosen contract.
 parent           | Returned shipments have a parent indicating their origin.

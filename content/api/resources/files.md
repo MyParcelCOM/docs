@@ -4,48 +4,40 @@ description = "PDF labels and other file resources returned by the carriers."
 weight = 5
 +++
 
+A file resource can represent all kinds of files like shipment labels, available in different file formats.
+
+## File
+
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Files)
 
-A file resource can represent all kinds of files like `labels`, `barcodes`, or `logos` that can be available in different file formats.
+Attribute     | Description
+------------- | -----------
+document_type | Category the file belongs to, for example label or invoice.
+formats       | List of [Format](/api/resources/files/format) objects holding the extension and mime type in which the file is available.
 
-## Types
-If you request a file using the default file type `application/vnd.api+json` as Accept header, you will get a list of the supported mime types for that file. This list can contain the following mime types:
+### Format
+If you request a file using the default Accept header `application/vnd.api+json`, you will get a list of the supported formats of that file. This list can contain the following mime types:
 
 - application/vnd.api+json
 - application/pdf
 - image/png
-- image/jpeg
 
-## Retrieving a file
-To get a specific file call the [GET /files/{file_id}](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_) endpoint.
+## Retrieve a file in a specific format
 
-#### Sample request
+{{< icon fa-file-text-o >}}[GET /files/{file_id}](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_)
+
+Use these mime types as Accept header to retrieve the actual file as binary data.
+
 ```http
 GET /files/[file-id] HTTP/1.1
-Content-Type: application/vnd.api+json
+Accept: application/pdf
 ```
 
-#### Sample response
+The response will be of the same mime type and contain the raw file data.
+
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
+Content-Type: application/pdf
 
-{
-  "data": {
-    "type": "files",
-    "id": "[file-id]",
-    "attributes": {
-      "document_type": "label",
-      "formats": [
-        {
-          "extension": "pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    "links": {
-      "self": "/files/[file-id]"
-    }
-  }
-}
+%PDF-1.4 [...] %%EOF
 ```

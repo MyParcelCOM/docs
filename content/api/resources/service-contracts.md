@@ -10,7 +10,7 @@ A service contract is a combination of a [service](/api/resources/services/) wit
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/ServiceContracts)
 
-Relation              | Description
+Relationship          | Description
 --------------------- | -----------
 service               | The service.
 carrier_contract      | The carrier contract offering this service.
@@ -29,7 +29,7 @@ price      | Price of this group which will be your shipment base price.
 step_price | Price of additional weight units (grams) which will be added to your shipment price. Used for services which transport by air where extra weight is expensive.
 step_size  | The amount of weight units (grams) every time a step_price will be added.
 
-Relation         | Description
+Relationship     | Description
 ---------------- | -----------
 service_contract | The service contract offering this weight group.
 
@@ -42,7 +42,7 @@ Attribute | Description
 covered   | Value up to which is covered by this insurance.
 price     | Price of the insurance which will be added to your shipment price.
 
-Relation         | Description
+Relationship     | Description
 ---------------- | -----------
 service_contract | The service contract offering this insurance.
 
@@ -55,7 +55,7 @@ Attribute | Description
 price     | Price of the option which will be added to your shipment price.
 required  | If this is a default option included with the service. In this case the price will most likely be 0.
 
-Relation         | Description
+Relationship     | Description
 ---------------- | -----------
 service_contract | The service contract offering this option.
 service_option   | The service option offered.
