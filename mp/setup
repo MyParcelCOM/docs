@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+${COMPOSE} run --rm app bash -c "
+mkdir -p themes
+cd themes
+rm -rf hugo-theme-docdock
+git clone https://github.com/vjeantet/hugo-theme-docdock.git
+cd hugo-theme-docdock
+git checkout ${HUGO_DOCDOCK_COMMIT_HASH}
+" >/dev/null

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo -e "\033[0;30;47m Starting containers \033[0m"
+${COMPOSE} up -d
+
+echo -e "\033[0;30;47m Hugo server running on \033[0m http://localhost:${APP_PORT}"
