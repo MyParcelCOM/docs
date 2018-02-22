@@ -10,8 +10,8 @@ Service options can be added to a [shipment](/api/resources/shipments). The adde
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/ServiceOptions)
 
-Attribute     | Description
-------------- | -----------
-name          | Option name, useful for displaying to users.
-category      | If the option belongs to a specific category like `delivery-day` or `handover-method`, useful to filter on and display options in groups.
-code          | Option code, useful for programmers.
+Attribute | Description
+--------- | -----------
+name      | Option name, useful for displaying to users.
+category  | Category like `delivery-day` or `handover-method`, useful to filter on and display options in groups.
+code      | Option code, which will be used in our request to the carrier.

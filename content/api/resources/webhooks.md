@@ -12,7 +12,7 @@ Webhooks are triggers that listen to events in our system. A shop can subscribe 
 
 Attribute   | Description
 ----------- | -----------
-code        | Event code, useful for programmers.
+code        | Event code, used in our event handlers.
 name        | Event name, useful for displaying to users.
 description | Explanation when this event is triggered.
 

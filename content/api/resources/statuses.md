@@ -12,7 +12,7 @@ Statuses are informative states which some resource can have attached as a relat
 
 Attribute     | Description
 ------------- | -----------
-code          | Status code, useful for programmers.
+code          | Status code, which will be used in our request to the carrier.
 resource_type | Resources which can have this status attached.
 level         | If the status is pending, success or failed.
 name          | Status name, useful for displaying to users.

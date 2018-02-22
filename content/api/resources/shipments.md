@@ -15,7 +15,7 @@ Attribute                    | Description
 recipient_address            | [Address](/api/resources/addresses) object used as delivery address if no pickup location is specified.
 sender_address               | [Address](/api/resources/addresses) object used as return address.
 pickup_location              | [PUDO location](/api/resources/carrier-pudo-locations) object containing the `code` and `address` of the location.
-description                  | Short note, printed on the shipping label if specified in the shop settings (and if allowed by the carrier).
+description                  | Short note where you could store some information from your system.
 price                        | Price of the shipment which will be charged on the invoice.
 insurance                    | Amount this shipment is insured up to.
 barcode                      | Code returned by the carrier, also printed on the shipping label.

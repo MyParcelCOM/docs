@@ -4,7 +4,7 @@ description = "A service can have one or multiple contracts, this resource speci
 weight = 10
 +++
 
-A service contract is a combination of a [service](/api/resources/services/) with a [carrier_contract](/api/resources/carrier-contracts/). Each combination contains an unique recipe to send a shipment. One of the weight groups should be applicable, an insurance might be available or already included. Also extra options might be available and increase the base price with a certain amount.
+A service contract is a combination of a [service](/api/resources/services/) with a [carrier_contract](/api/resources/carrier-contracts/). Each combination contains a unique recipe to send a shipment. The weight of the shipment defines which service group is applicable and an insurance might be available or already included. Also, extra options might be available and increase the base price with a certain amount.
 
 ## Service Contract
 

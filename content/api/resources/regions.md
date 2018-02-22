@@ -29,7 +29,7 @@ For an example request and response, check our API specification:<br>
 ### Parameters
 
 You can filter the regions on a parent, country_code, region_code and name.
-If you add these filters the call would look something like this:
+If you add these filters the request would look something like this:
 
 ```http
 GET /regions?filter[country_code]=GB&filter[region_code]=SCT HTTP/1.1

@@ -29,7 +29,7 @@ If you request a file using the default Accept header `application/vnd.api+json`
 Use these mime types as Accept header to retrieve the actual file as binary data.
 
 ```http
-GET /files/[file-id] HTTP/1.1
+GET /files/a9e3852c-b8b2-4066-a32a-651ea661ba30 HTTP/1.1
 Accept: application/pdf
 ```
 
