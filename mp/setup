@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-${COMPOSE} run --rm app bash -c "
+${COMPOSE} run --rm hugo bash -c "
 mkdir -p themes
 cd themes
 rm -rf hugo-theme-docdock
