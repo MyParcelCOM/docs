@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  app:
+  hugo:
     build:
       context: ./docker/hugo
       dockerfile: Dockerfile
       args:
         - HUGO_VERSION=$HUGO_VERSION
-    image: myparcelcom/hugo:v2
-    working_dir: /opt/app
+    image: myparcelcom/hugo:v4
+    working_dir: /opt/hugo
     volumes:
-      - .:/opt/app
+      - .:/opt/hugo
     ports:
       - $APP_PORT:$APP_PORT
     command: hugo server --disableFastRender --bind 0.0.0.0 --port $APP_PORT

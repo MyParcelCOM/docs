@@ -9,6 +9,11 @@ body,
   background: #fafafa;
 }
 
+code {
+  padding: 3px 4px 1px;
+  vertical-align: middle;
+}
+
 footer {
   text-align: center;
   color: #ddd;
@@ -36,6 +41,14 @@ mark.highlight {
 pre,
 .hljs {
   background: #333;
+}
+
+pre .copy-to-clipboard {
+  display: block;
+}
+
+.copy-to-clipboard {
+  display: none;
 }
 
 table {
@@ -165,12 +178,4 @@ th[align="right"] {
   background: #ffe128;
   color: #040707;
   text-shadow: none;
-}
-
-pre .copy-to-clipboard {
-  display: block;
-}
-
-.copy-to-clipboard {
-  display: none;
 }
