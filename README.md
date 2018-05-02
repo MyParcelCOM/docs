@@ -22,5 +22,5 @@ Most resources for working with this setup can be found in the theme documentati
 - [Hugo](https://gohugo.io)
 - [Hugo DocDock Theme](https://themes.gohugo.io/theme/docdock)
 
-## Licence
-All software by MyParcel.com is licenced under the [MyParcel.com general terms and conditions](https://www.myparcel.com/terms). 
+## License
+All software by MyParcel.com is licensed under the [MyParcel.com general terms and conditions](https://www.myparcel.com/terms).
