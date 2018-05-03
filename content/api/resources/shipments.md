@@ -38,7 +38,7 @@ Relationship     | Description
 service_options  | Chosen options belonging to the chosen contract.
 parent           | Returned shipments have a parent indicating their origin.
 shop             | Owner of this shipment.
-status           | Current shipment status. There is a [shipment statuses endpoint](https://docs.myparcel.com/api-specification#/Shipments/get_shipments__shipment_id__statuses) to retrieve all statuses from a shipment.
+shipment_status  | Current shipment status, which is the most recent event received from the carrier. There is a [shipment statuses endpoint](https://docs.myparcel.com/api-specification#/Shipments/get_shipments__shipment_id__statuses) to retrieve all shipment statuses from the shipment.
 service_contract | Chosen service contract (including the carrier).
 files            | Available files, often shipping labels in PDF format. There is a [shipment files endpoint](https://docs.myparcel.com/api-specification#/Shipments/get_shipments__shipment_id__files) to retrieve all files from a shipment.
 
