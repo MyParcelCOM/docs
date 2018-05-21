@@ -12,10 +12,9 @@ The MyParcel.com API is used mainly for creating shipments and retrieving labels
 ## Creating the shipment
 To create a new shipment, you should create a new instance of a `MyParcelCom\ApiSdk\Resources\Shipment`, set the required properties on the shipment and have it sent to the MyParcel.com API by calling the method `MyParcelCom\ApiSdk\MyParcelComApi::createShipment()`.
 
-The minimal required properties to set on a shipment are a sender address and a weight. There are however a lot more properties you can (and should) set on the shipment. These are the shop, sender address and service contract. Whenever these are not set, the SDK will automatically set them for you. The default shop will be chosen and that shop's return address will be used as a sender address. For the service contract, the cheapest one will be calculated and selected.
+The minimal required properties to set on a shipment are a recipient address and a weight. There are however a lot more properties you can (and should) set on the shipment. These are the shop, sender address and service contract. Whenever these are not set, the SDK will automatically set them for you. The default shop will be chosen and that shop's return address will be used as a sender address. For the service contract, the cheapest one will be calculated and selected.
 
-This behaviour is not a problem for when you only have one shop and don't mind what carrier you use. However, when you have more than one shop, have multiple locations you want to send from or want to select the service (and contract) to use, you should set (one or more of) these values.
-
+This behavior is not a problem for when you only have one shop and don't mind what carrier you use. However, when you have more than one shop, have multiple locations you want to send from or want to select the service (and contract) to use, you should set (one or more of) these values.
 
 ```php
 use MyParcelCom\ApiSdk\Resources\Address;
@@ -76,7 +75,17 @@ $createdShipment = $api->createShipment($shipment);
 Now that you've created a shipment, you should store its id (`$createdShipment->getId()`) somewhere so you can later retrieve any files associated with the shipment and check for status updates.
 
 ## Downloading the shipment label
-When you create a shipment, it's status will be `shipment_concept`. The shipment will be registered at the carrier as soon as possible and then transition to `shipment_registered`. This should normally not take more than a minute, but depending on the carrier, it can take a little bit longer. To check the status of a shipment you can retrieve the shipment through the API and then retrieve the status.
+When you create a shipment, it's status will be `shipment_concept`. While the shipment has this status it can be modified. When you are ready to register the shipment with the carrier, you should set the `register_at` property. This can be set into the future if you want to schedule registering the shipment or you can use the current time to register it immediatly. This should normally not take more than a minute, but depending on the carrier, it can take a little bit longer.
+
+```php
+// Set register_at to now to have the shipment registered immediately.
+$shipment->setRegisterAt(new \DateTime());
+
+// Update the shipment at the api to start registering.
+$api->updateShipment($shipment);
+```
+
+Once the shipment has been registered at the carrier the status will transition to `shipment_registered`.  To check the status of a shipment you can retrieve the shipment through the API and then retrieve the status.
 
 ```php
 // Retrieve the shipment id from where you stored it.
@@ -86,7 +95,7 @@ $id = ...
 $shipment = $api->getShipment($id);
 
 // Get the shipment status.
-$shipmentStatus = $shipment->getStatus();
+$shipmentStatus = $shipment->getShipmentStatus();
 
 // This can hold extra data given by the carrier, like the carrier's status code
 // description.
