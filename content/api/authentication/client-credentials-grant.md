@@ -19,6 +19,7 @@ Send a `POST` request to `/access-token`. The body must contain the following:
 - `grant_type` with the value `client_credentials`
 - `client_id` with the client id as provided by MyParcel.com
 - `client_secret` with the client secret as provided by MyParcel.com
+- `scope` with one or more [scopes](/api/authentication/scopes) separated by spaces, or a `*` to include all scopes available to your user
 
 Don't forget to set the `Content-Type` header to `application/json`.
 
@@ -30,7 +31,8 @@ Content-Type: application/json
 {
   "grant_type": "client_credentials",
   "client_id": "b4460113-f097-49ae-9225-f741a7bf07ed",
-  "client_secret": "QgKgOXOwCvffUbMJKD4Lu21sZAmvw1pHGpKv1Zb6OdXBn2rkDLcyKz0JYSsFitIw"
+  "client_secret": "QgKgOXOwCvffUbMJKD4Lu21sZAmvw1pHGpKv1Zb6OdXBn2rkDLcyKz0JYSsFitIw",
+  "scope": "*"
 }
 ```
 
