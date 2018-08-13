@@ -26,7 +26,7 @@ For example, the request to our API root: <br>
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
+Accept: application/vnd.api+json
 
 {
     "meta": {
@@ -50,21 +50,27 @@ Below you will find an example of a simple resource object. It always contains t
 {
   "data": {
     "type": "shipments",
-    "id": "[shipment-id]",
+    "id": "7b808eee-bf1c-40cd-98f2-3c335a06417e",
     "attributes": {
-      // ... this shipment's attributes
+      "description": "Order #8008135",
+      "barcode": "3SABCD0123456789",
+      "tracking_code": "3SABCD0123456789",
+      "price": {
+        "amount": 999,
+        "currency": "EUR"
+      }
     },
     "links": {
-      "self": "https://api.myparcel.com/v1/shipments/[shipment-id]"
+      "self": "https://api.myparcel.com/v1/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
     },
     "relationships": {
       "service": {
         "data": {
           "type": "services",
-          "id": "[service-id]"
+          "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/services/[service-id]"
+          "related": "https://api.myparcel.com/v1/services/35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       }
     }
@@ -109,24 +115,43 @@ If the top level errors attributes exists it can contain one of the following er
 
 Error code                  | Error number | Description
 --------------------------- |:------------:|:-----------
-NOT_FOUND                   | 10000        | Not Found
-INTERNAL_SERVER_ERROR       | 10001        | Internal Server Error
-RESOURCE_NOT_FOUND          | 10002        | Resource Not Found
-INVALID_JSON_SCHEMA         | 10003        | Invalid JSON Schema
-INVALID_REQUEST_HEADER      | 10004        | Invalid Request Header
-RESOURCE_CANNOT_BE_MODIFIED | 10005        | Resource Cannot Be Modified
-INVALID_ERROR_SCHEMA        | 10006        | Invalid Error Schema
-RESOURCE_CONFLICT           | 10007        | Resource Conflict
-UNPROCESSABLE_ENTITY        | 10008        | Unprocessable entity
-EXTERNAL_REQUEST_ERROR      | 13001        | External Request Error
-CARRIER_API_ERROR           | 13002        | Carrier API Error
-INVALID_SECRET              | 13003        | Invalid Secret
-AUTH_INVALID_CLIENT         | 14000        | Invalid OAuth Client
-AUTH_INVALID_SCOPE          | 14001        | Scope Not Available To Client
-AUTH_INVALID_TOKEN          | 14002        | Access Token Is Invalid
-AUTH_MISSING_TOKEN          | 14003        | No Access Token Provided
-AUTH_MISSING_SCOPE          | 14004        | Access Token Is Invalid
-AUTH_SERVER_EXCEPTION       | 14050        | Unable To Process OAuth Request
+NOT_FOUND                   | 10000        | The requested endpoint could not be found, either it does not exist or you don't have permission to see it.
+INTERNAL_SERVER_ERROR       | 10001        | An internal server error has occurred, this is a generic error with no specific information about the cause. 
+RESOURCE_NOT_FOUND          | 10002        | The resource you are trying to get the data off could not found or does not belong to you.
+INVALID_JSON_SCHEMA         | 10003        | The data is no JSON, it is malformed or it does not contain the minimal requirements for that endpoint.
+INVALID_REQUEST_HEADER      | 10004        | Either one or more of your send request headers is invalid, or you are missing some required headers. 
+RESOURCE_CANNOT_BE_MODIFIED | 10005        | Either this resource cant be modified or you do not have the permission to do this.
+INVALID_ERROR_SCHEMA        | 10006        | An error was thrown during the request to the external source. We cannot provide more information since the returned error was improperly formatted.
+RESOURCE_CONFLICT           | 10007        | The type or id of one of the resources was not computable or the resource id is not valid.
+UNPROCESSABLE_ENTITY        | 10008        | The server understands the content type and the syntax is correct but the server was unable to process the contained instructions.
+MISSING_BILLING_INFORMATION | 11000        | In order to complete this request we first need some missing billing Information. 
+EXTERNAL_REQUEST_ERROR      | 13001        | An error occurred while making a request to an external service. When available, details can be found in the meta of this request.
+CARRIER_API_ERROR           | 13002        | There was a problem with the request to the carrier. The original response can be found in the meta under `carrier_response`.
+INVALID_SECRET              | 13003        | The provided secret does not seem to be valid.
+AUTH_INVALID_CLIENT         | 14000        | The supplied client credentials are invalid or the client does not have access to this grant type.
+AUTH_INVALID_SCOPE          | 14001        | The requested scope are not available for your client.
+AUTH_INVALID_TOKEN          | 14002        | The provided access token does not seem to be valid.
+AUTH_MISSING_TOKEN          | 14003        | An access token is required but no access token was profiled.
+AUTH_MISSING_SCOPE          | 14004        | The used access token does not contain the required scope(s).
+AUTH_SERVER_EXCEPTION       | 14050        | Unable to process the OAuth request. This is a generic OAuth error with no direct known cause.
+
+The error object exists af one array with all the errors that are thrown.
+This error contains an http status code and a custom error code that you can use in your own code to know what went wrong. 
+You can also get some more information about what the error means by reading the detail attribute of the errors. 
+
+
+```json
+{
+    "errors": [
+        {
+            "status": "401",
+            "code": "14002",
+            "title": "Access Token Is Invalid",
+            "detail": "Token could not be verified"
+        }
+    ]
+}
+```
 
 ### Further Reading
 If you would like to dive deep into the fundamentals of the JSON API specification or our own API specification, you can do so following the links below.
