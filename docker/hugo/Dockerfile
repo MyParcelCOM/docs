@@ -1,12 +1,8 @@
 FROM ubuntu:16.04
 
-LABEL maintainer="MyParcel.com <info@myparcel.com>"
-
-ARG HUGO_VERSION
-
 RUN apt-get update \
     && apt-get install -y curl git \
-    && curl -o hugo.deb -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb \
+    && curl -o hugo.deb -L https://github.com/gohugoio/hugo/releases/download/v0.46/hugo_0.46_Linux-64bit.deb \
     && dpkg -i hugo.deb \
     && rm hugo.deb \
     && apt-get -y autoremove \
@@ -14,5 +10,3 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 1313
-
-CMD hugo server --bind 0.0.0.0
