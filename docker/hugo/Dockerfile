@@ -1,7 +1,5 @@
 FROM ubuntu:16.04
 
-LABEL maintainer="MyParcel.com <info@myparcel.com>"
-
 ARG HUGO_VERSION
 
 RUN apt-get update \
@@ -14,5 +12,3 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 1313
-
-CMD hugo server --bind 0.0.0.0
