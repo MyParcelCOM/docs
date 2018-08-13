@@ -5,8 +5,6 @@ services:
     build:
       context: ./docker/hugo
       dockerfile: Dockerfile
-      args:
-        - HUGO_VERSION=$HUGO_VERSION
     image: myparcelcom/hugo:v5
     working_dir: /opt/hugo
     volumes:

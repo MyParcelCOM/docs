@@ -19,8 +19,11 @@ The following commands are available for development:
 
 ## Resources
 Most resources for working with this setup can be found in the theme documentation.
-- [Hugo](https://gohugo.io)
-- [Hugo DocDock Theme](https://themes.gohugo.io/theme/docdock)
+
+dependency                                             | version
+------------------------------------------------------ | -------
+[Hugo](https://gohugo.io)                              | v0.46
+[Hugo docDock Theme](https://themes.gohugo.io/docdock) | v1
 
 ## License
 All software by MyParcel.com is licensed under the [MyParcel.com general terms and conditions](https://www.myparcel.com/terms).
