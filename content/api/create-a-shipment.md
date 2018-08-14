@@ -9,7 +9,6 @@ Creating such a shipment is done by making a POST request to the following endpo
 
 In order to be able to create a shipment in the MyParcel.com API, the `shipments.manage` [scope](/api/authentication/scopes) is required in the access token.
 
-
 {{%expand "See example domestic shipment request" %}}
 ```http
 POST /shipments HTTP/1.1
@@ -94,12 +93,119 @@ Content-Type: application/vnd.api+json
 ```
 {{% /expand %}}
 
+{{% expand "See example shipment response" %}}
+```http
+HTTP/1.1 201 Created
+Content-Type: application/vnd.api+json
+
+{
+  "data": {
+    "type": "shipments",
+    "id": "6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8",
+    "attributes": {
+      "recipient_address": {
+        "street_1": "Baker Street",
+        "street_2": "Marylebone",
+        "street_number": 221,
+        "street_number_suffix": "B",
+        "postal_code": "NW1 6XE",
+        "city": "London",
+        "region_code": "ENG",
+        "country_code": "GB",
+        "first_name": "Sherlock",
+        "last_name": "Holmes",
+        "company": "Holmes Investigations",
+        "email": "s.holmes@holmesinvestigations.com",
+        "phone_number": "+44 234 567 890"
+      },
+      "return_address": {
+        "street_1": "Baker Street",
+        "street_2": "Marylebone",
+        "street_number": 221,
+        "street_number_suffix": "B",
+        "postal_code": "NW1 6XE",
+        "city": "London",
+        "region_code": "ENG",
+        "country_code": "GB",
+        "first_name": "Sherlock",
+        "last_name": "Holmes",
+        "company": "Holmes Investigations",
+        "email": "s.holmes@holmesinvestigations.com",
+        "phone_number": "+44 234 567 890"
+      },
+      "sender_address": {
+        "street_1": "Baker Street",
+        "street_2": "Marylebone",
+        "street_number": 221,
+        "street_number_suffix": "B",
+        "postal_code": "NW1 6XE",
+        "city": "London",
+        "region_code": "ENG",
+        "country_code": "GB",
+        "first_name": "Sherlock",
+        "last_name": "Holmes",
+        "company": "Holmes Investigations",
+        "email": "s.holmes@holmesinvestigations.com",
+        "phone_number": "+44 234 567 890"
+      },
+      "description": "Order #8008135",
+      "physical_properties": {
+        "height": 150,
+        "width": 300,
+        "length": 500,
+        "volume": 22.5,
+        "weight": 5000
+      },
+      "register_at": 1504801719
+    },
+    "links": {
+      "self": "https://api.myparcel.com/v1/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
+    },
+    "relationships": {
+      "shop": {
+        "data": {
+          "type": "shops",
+          "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
+        },
+        "links": {
+          "related": "https://api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+        }
+      },
+      "service_contract": {
+        "data": {
+          "type": "service-contracts",
+          "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
+        },
+        "links": {
+          "related": "https://api.myparcel.com/v1/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f"
+        }
+      },
+      "shipment_status": {
+        "data": {
+          "id": "5781d596-1bf2-44ba-bcaf-d356117cbb94",
+          "type": "shipment-statuses"
+        },
+        "links": {
+          "related": "https://api.myparcel.com/v1/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
+        }
+      },
+      "files": {
+        "links": {
+          "related": "https://api.myparcel.com/v1/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
+        }
+      }
+    }
+  }
+}
+```
+{{% /expand %}}
+
 
 ## Minimum shipment requirements
 In order to successfully register a shipment with a carrier, some information is always required.
 
 #### Attributes
-The following attributes should always be included in a shipment request:
+The following attributes should always be included in a shipment request
 
 Attribute           | Description      
 ------------------- | ----------------- 
@@ -114,7 +220,7 @@ For more information, see our page about **[carrier specific requirements](/api/
 {{% /notice %}}
 
 #### Relationships
-The following relationships should always be included in a shipment request:
+The following relationships should always be included in a shipment request
 
 Relationship        | Description
 ------------------- | ------------------
@@ -226,6 +332,18 @@ Content-Type: application/vnd.api+json
 }
 ```
 {{% /expand %}}
+
+## Choosing a service contract
+Every shipment resource has to have a [service contract](/api/resources/service-contracts) relationship. 
+Choosing the right service contract depends on a few factors and can be a little complicated. 
+A service contract is a connection between a [service](/api/resources/services) resource and a [carrier contract](/api/resources/carrier-contracts) resource.
+Choosing a service contract therefore depends on your choice of carrier, but also the [regions](/api/resources/regions) that your shipment should be shipping to and from.
+To make things a little easier for you, we've listed the required calls to retrieve a service contract resource below.
+
+### Step 1: Retrieving the region resources for your shipments
+Since a service contract is specific for one service, we need to retrieve the service resource before we can retrieve the service contract.
+Every service resource in the MyParcel.com API is specific for an origin region and destination region, so step one would be to retrieve the region resources for your shipments origin and destination. 
+A region can be retrieved using either the name of a country
 
 ## Registering the shipment with the carrier
 Creating your shipment resource is step one. The next step is the registration of your shipment with the carrier that corresponds to the chosen `service_contract`.
