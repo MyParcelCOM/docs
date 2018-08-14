@@ -21,12 +21,12 @@ Requests to and responses from the API always have the following structure:
   - **errors**: an array of [error objects](http://jsonapi.org/format/#errors)
   - **meta**: a [meta object](http://jsonapi.org/format/#document-meta) that contains non-standard meta-information
 
-For example, the request to our API root: <br>
+For example, the response from our API root: <br>
 (ignore the links for now, we will get to them later)
 
 ```http
 HTTP/1.1 200 OK
-Accept: application/vnd.api+json
+Content-Type: application/vnd.api+json
 
 {
     "meta": {
@@ -115,43 +115,26 @@ If the top level errors attributes exists it can contain one of the following er
 
 Error code                  | Error number | Description
 --------------------------- |:------------:|:-----------
-NOT_FOUND                   | 10000        | The requested endpoint could not be found, either it does not exist or you don't have permission to see it.
-INTERNAL_SERVER_ERROR       | 10001        | An internal server error has occurred, this is a generic error with no specific information about the cause. 
+NOT_FOUND                   | 10000        | The requested endpoint could not be found.
+INTERNAL_SERVER_ERROR       | 10001        | An internal server error has occurred, this is usually a problem on the MyParcel.com end. Please contact support if it persists.
 RESOURCE_NOT_FOUND          | 10002        | The resource you are trying to get the data off could not found or does not belong to you.
-INVALID_JSON_SCHEMA         | 10003        | The data is no JSON, it is malformed or it does not contain the minimal requirements for that endpoint.
-INVALID_REQUEST_HEADER      | 10004        | Either one or more of your send request headers is invalid, or you are missing some required headers. 
-RESOURCE_CANNOT_BE_MODIFIED | 10005        | Either this resource cant be modified or you do not have the permission to do this.
-INVALID_ERROR_SCHEMA        | 10006        | An error was thrown during the request to the external source. We cannot provide more information since the returned error was improperly formatted.
+INVALID_JSON_SCHEMA         | 10003        | The request does not conform to our [API specification](/api-specification).
+INVALID_REQUEST_HEADER      | 10004        | One or more of your request headers is invalid. 
+RESOURCE_CANNOT_BE_MODIFIED | 10005        | Either this resource can't be modified or it does not belong to you.
+INVALID_ERROR_SCHEMA        | 10006        | An error was thrown during the request to an external source. We cannot provide more information since the returned error was improperly formatted.
 RESOURCE_CONFLICT           | 10007        | The type or id of one of the resources was not computable or the resource id is not valid.
 UNPROCESSABLE_ENTITY        | 10008        | The server understands the content type and the syntax is correct but the server was unable to process the contained instructions.
 MISSING_BILLING_INFORMATION | 11000        | In order to complete this request we first need some missing billing Information. 
-EXTERNAL_REQUEST_ERROR      | 13001        | An error occurred while making a request to an external service. When available, details can be found in the meta of this request.
+EXTERNAL_REQUEST_ERROR      | 13001        | An error occurred while making a request to an external service. When available, details can be found in the meta of the response.
 CARRIER_API_ERROR           | 13002        | There was a problem with the request to the carrier. The original response can be found in the meta under `carrier_response`.
-INVALID_SECRET              | 13003        | The provided secret does not seem to be valid.
 AUTH_INVALID_CLIENT         | 14000        | The supplied client credentials are invalid or the client does not have access to this grant type.
-AUTH_INVALID_SCOPE          | 14001        | The requested scope are not available for your client.
+AUTH_INVALID_SCOPE          | 14001        | The requested scope is not available for your client.
 AUTH_INVALID_TOKEN          | 14002        | The provided access token does not seem to be valid.
-AUTH_MISSING_TOKEN          | 14003        | An access token is required but no access token was profiled.
+AUTH_MISSING_TOKEN          | 14003        | An access token is required but no access token was provided.
 AUTH_MISSING_SCOPE          | 14004        | The used access token does not contain the required scope(s).
-AUTH_SERVER_EXCEPTION       | 14050        | Unable to process the OAuth request. This is a generic OAuth error with no direct known cause.
+AUTH_SERVER_EXCEPTION       | 14050        | Unable to process the OAuth request. This is a generic OAuth error with no direct known cause. Please contact us if the problem persists.
 
-The error object exists af one array with all the errors that are thrown.
-This error contains an http status code and a custom error code that you can use in your own code to know what went wrong. 
-You can also get some more information about what the error means by reading the detail attribute of the errors. 
-
-
-```json
-{
-    "errors": [
-        {
-            "status": "401",
-            "code": "14002",
-            "title": "Access Token Is Invalid",
-            "detail": "Token could not be verified"
-        }
-    ]
-}
-```
+The error responses conform to the JSON API standard. For more information about what they might contain, visit [the errors section of the specification](http://jsonapi.org/format/#errors).
 
 ### Further Reading
 If you would like to dive deep into the fundamentals of the JSON API specification or our own API specification, you can do so following the links below.
