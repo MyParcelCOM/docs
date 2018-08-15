@@ -3,7 +3,7 @@ title = "API"
 weight = 1
 +++
 
-This part of the documentation describes how you could talk directly to our REST API. For convenience we advise you to use our [PHP-SDK](/php-sdk) whenever possible. If you think you are ready to dive right in but just want to see all the available resources in more detail you can look at the [API resources](/api/resources/). For more structural details and examples of the endpoints see our [OpenAPI specification](https://docs.myparcel.com/api-specification).
+This part of the documentation describes how you could communicate directly with the MyParcel.com API. For convenience we advise you to use the [PHP-SDK](/php-sdk) whenever possible. If you think you are ready to dive right in but just want to see all the available resources in more detail you can look at the [API resources](/api/resources/). For more structural details and examples of the endpoints see the [API specification](https://docs.myparcel.com/api-specification).
 
 ## Getting Started
 This section is devoted to give you a little introduction to the [JSON API specification](http://jsonapi.org/format/). This specification defines how resources should be requested and responses should be formatted. In case you are not familiar with this specification, we wrote up a reference with some pointers below as a quick crash course.
