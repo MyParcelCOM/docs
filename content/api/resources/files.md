@@ -18,15 +18,14 @@ formats       | List of [Format](/api/resources/files/format) objects holding th
 ### Format
 If you request a file using the default Accept header `application/vnd.api+json`, you will get a list of the supported formats of that file. This list can contain the following mime types:
 
-- application/vnd.api+json
-- application/pdf
-- image/png
+- `application/pdf`
+- `image/png`
 
 ## Retrieve a file in a specific format
 
 {{< icon fa-file-text-o >}}[GET /files/{file_id}](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_)
 
-Use these mime types as Accept header to retrieve the actual file as binary data.
+Use one of the available formats in the Accept header to retrieve the actual file as binary data. For example:
 
 ```http
 GET /files/a9e3852c-b8b2-4066-a32a-651ea661ba30 HTTP/1.1
