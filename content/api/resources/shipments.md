@@ -17,7 +17,6 @@ sender_address               | [Address](/api/resources/addresses) object used a
 pickup_location              | [PUDO location](/api/resources/carrier-pudo-locations) object containing the `code` and `address` of the location.
 description                  | Short note where you could store some information from your system.
 price                        | Price of the shipment which will be charged on the invoice.
-insurance                    | Amount this shipment is insured up to.
 barcode                      | Code returned by the carrier, also printed on the shipping label.
 tracking_code                | Code returned by the carrier, used to retrieve status information.
 tracking_url                 | Consumer URL to check the status on the website of the carrier.
