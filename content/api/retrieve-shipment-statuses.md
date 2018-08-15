@@ -10,33 +10,6 @@ Shipments always have at least one shipment status. A [shipment status resource]
 2. Information about the [carrier specific status](#carrier-specific-status) like a status code, description and timestamp.
 
 You receive the [current shipment status](#current-status) within every shipment resource. A complete [status history](#status-history) can be retrieved separately. 
-{{% expand "Example of a shipment status resource" %}}
-```json
-{
-  "type": "shipment-statuses",
-  "id": "9e6d8dba-7c45-4351-a9fc-b55a0cbafbad",
-  "attributes": {
-    "carrier_status_code": "9001",
-    "carrier_status_description": "Confirmed at destination",
-    "carrier_timestamp": 1504801719
-  },
-  "relationships": {
-    "status": {
-      "data": {
-        "type": "statuses",
-        "id": "5c868557-0827-4d21-a7f4-9820f01769f4"
-      }
-    },
-    "shipment": {
-      "data": {
-        "type": "shipments",
-        "id": "7b808eee-bf1c-40cd-98f2-3c335a06417e"
-      }
-    }
-  }
-}
-```
-{{% /expand %}} 
 
 ## Generic status
 
@@ -117,8 +90,7 @@ To get the complete [shipment status](/api/resources/shipment-statuses) resource
 A complete list of all shipment statuses belonging to a shipment can be retrieved using a separate endpoint.
 
 ```http
-GET /shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses HTTP/1.1
-Accept: application/vnd.api+json
+GET /v1/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses HTTP/1.1
 ```
 
 Check the [MyParcel.com API Specification](https://docs.myparcel.com/api-specification/#/Shipments/get_shipments__shipment_id__statuses) for a complete description of this shipment status endpoint.
