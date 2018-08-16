@@ -91,7 +91,7 @@ Below you will find an example of a simple resource object. It always contains t
 }
 ```
 
-There are two types links in the above example. The first one is the `self` link that points to the url where you can request the given resource. Most of the time you won't be needing this since you already have the resource. But it is there for when you do need it.
+There are two types of links in the above example. The first one is the `self` link that points to the url where you can request the given resource. Most of the time you won't be needing this since you already have the resource. But it is there for when you do need it.
 
 The other link looks very similar, but belongs to a relationship. It has the key `related` and points to the endpoint to retrieve the full resource. The reason this is not called `self` is because the self link would refer to the relationship itself, instead of the resource that it is pointed towards.
 
@@ -146,10 +146,10 @@ Error code                  | Error number | Description
 --------------------------- |:------------:|:-----------
 NOT_FOUND                   | 10000        | The requested endpoint could not be found.
 INTERNAL_SERVER_ERROR       | 10001        | An internal server error has occurred, this is usually a problem on the MyParcel.com end. Please contact support if it persists.
-RESOURCE_NOT_FOUND          | 10002        | The resource you are trying to get the data of could not be found, or you do not have permission to retrieve it.
+RESOURCE_NOT_FOUND          | 10002        | The resource you are trying to get the data of could not be found.
 INVALID_JSON_SCHEMA         | 10003        | The request does not conform to the [MyParcel.com API specification](/api-specification).
 INVALID_REQUEST_HEADER      | 10004        | One or more of your request headers is invalid. 
-RESOURCE_CANNOT_BE_MODIFIED | 10005        | Either this resource can't be modified or you do not have permission to do modify this resource.
+RESOURCE_CANNOT_BE_MODIFIED | 10005        | Either this resource can't be modified or you do not have permission to modify this resource.
 INVALID_ERROR_SCHEMA        | 10006        | An error was thrown during the request to an external source. No more information can be provided since the returned error was improperly formatted.
 RESOURCE_CONFLICT           | 10007        | The `type` or `id` of one of the resources was not computable or the resource `id` is not valid.
 UNPROCESSABLE_ENTITY        | 10008        | The server understands the content type and the syntax is correct, but the server was unable to process the contained instructions.
