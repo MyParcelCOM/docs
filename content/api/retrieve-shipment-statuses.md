@@ -87,7 +87,7 @@ To get the complete [shipment status](/api/resources/shipment-statuses) resource
 
 ## Status history
 
-A complete list of all shipment statuses belonging to a shipment can be retrieved using the shipment status endpoint. You will need the `shipments.show` or `shipments.manage` scope in your access token.
+A complete list of all shipment statuses belonging to a shipment can be retrieved using the shipment status endpoint. You will need the `shipments.show` or `shipments.manage` scope in your access token in order to access this endpoint.
 
 ```http
 GET /v1/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses HTTP/1.1
