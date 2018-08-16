@@ -88,7 +88,7 @@ An example response of the domestic shipment request is also provided.
 {{%expand "See example domestic shipment request" %}}
 ```http
 POST /v1/shipments HTTP/1.1
-Authorization: Bearer [access-token]
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
 Content-Type: application/vnd.api+json
 
 {
@@ -172,7 +172,7 @@ Content-Type: application/vnd.api+json
 {{%expand "See example international shipment request that includes customs" %}}
 ```http
 POST /v1/shipments HTTP/1.1
-Authorization: Bearer [access-token]
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
 Content-Type: application/vnd.api+json
 
 {
