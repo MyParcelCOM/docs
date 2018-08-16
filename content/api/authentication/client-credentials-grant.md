@@ -71,7 +71,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb
 }
 ```
 
-All requests to the MyParcel.com API with an expired or otherwise invalid access token will be rejected. A convenient way to make sure you have an access token that has not expired is to let the server periodically request a new access token before the previous one expires. The overlap between the different tokens will not cause a problem with running requests.
+All requests to the MyParcel.com API with an expired or otherwise invalid access token will be rejected. A convenient way to make sure you have an access token that has not expired, is to let the server periodically request a new access token before the previous one expires. The overlap between the different tokens will not cause a problem with running requests.
 
 #### 4. The server response
 When using a valid token, the server will just give the expected response.
@@ -87,5 +87,5 @@ Another way to handle expired access tokens (aside from periodically requesting 
 Since the access token is a JSON Web Token ([JWT](https://jwt.io)), you can simply parse it with your favourite [JWT](https://jwt.io) library and get the exact UNIX timestamp when the access token expires. This means that you could queue your requests either on the user's device (step 1) or on your server (step 2) while a side job requests a new access token. When the new access token is received by the server it can be attached to all queued requests before they are executed.
 
 {{% notice note %}}
-While you can requests access tokens more often than only just before it expires, this is not advised. Your requests will take longer to process if it has to authenticate on every request. Aside from that your server would also have to make more requests than necessary, increasing its load.
+While you can requests access tokens more often than only just before it expires, this is not advised. Your requests will take longer to process if it has to authenticate on every request. Aside from that, your server would also have to make more requests than necessary, increasing its load.
 {{% /notice %}}
