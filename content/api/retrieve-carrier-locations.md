@@ -14,16 +14,20 @@ These [carrier locations](/api/resources/carrier-pudo-locations) can be retrieve
 ## Carrier locations endpoint
 
 To retrieve the carrier locations for a carrier, the following API endpoint can be used. The endpoint accepts a couple of parameters to specify from which area carrier locations should be retrieved.
+
 **Path parameters (required)**
-- carrier_id: the identifier of the carrier to retrieve locations for
-- country_code: the country code of the area to retrieve locations from
-- postal_code: the postal code of the area to retrieve locations for
+
+- *carrier_id: the identifier of the carrier to retrieve locations for*
+- *country_code: the country code of the area to retrieve locations from*
+- *postal_code: the postal code of the area to retrieve locations for*
 
 **Query parameters (optional)**
-- street: the street name to further specify the area to retrieve locations for
-- street_number: the house number to further specify the area to retrieve locations for
+
+- *street: the street name to further specify the area to retrieve locations for*
+- *street_number: the house number to further specify the area to retrieve locations for*
 
 **Example**
+
 The example below will retrieve locations for a carrier, with identifier `be7f6752-34e0-49a1-a832-bcc209450ea9`, closest to `221B Baker street` in `London`, with the postal code `NW1 6XE`.
 
 ```http
@@ -44,7 +48,7 @@ GET /v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/G
 
 ## Pick-up locations
 
-Some carriers offer the option to have parcels delivered at one of their locations. This is indicated by the `delivery_method` of the chosen service, which in that case contains the value `pick-up`. Parcels can only be delivered to locations that belong to the `pick-up` category. The `code` and `address` of the chosen pick-up location must be specified in the `pickup_location` property of a shipment, when creating a new shipment.
+Some carriers offer the option to have parcels delivered at one of their locations, so the recipient can collect the parcel there. This is indicated by the `delivery_method` of the chosen service, which in that case contains the value `pick-up`. Parcels can only be delivered to locations that belong to the `pick-up` category. The `code` and `address` of the chosen pick-up location must be specified in the `pickup_location` property of a shipment, when creating a new shipment.
 
 To only retrieve `pick-up` locations, use the `filter[categories]` query parameter with value `pick-up`:
 
