@@ -17,21 +17,21 @@ To retrieve the carrier locations for a carrier, the following API endpoint can 
 
 **Path parameters (required)**
 
-- *carrier_id: the identifier of the carrier to retrieve locations for*
-- *country_code: the country code of the area to retrieve locations from*
-- *postal_code: the postal code of the area to retrieve locations for*
+- *`carrier_id`: the identifier of the carrier to retrieve locations for*
+- *`country_code`: the country code of the area to retrieve locations from*
+- *`postal_code`: the postal code of the area to retrieve locations for*
 
 **Query parameters (optional)**
 
-- *street: the street name to further specify the area to retrieve locations for*
-- *street_number: the house number to further specify the area to retrieve locations for*
+- *`street`: the street name to further specify the area to retrieve locations for*
+- *`street_number`: the house number to further specify the area to retrieve locations for*
 
 **Example**
 
-The example below will retrieve locations for a carrier, with identifier `be7f6752-34e0-49a1-a832-bcc209450ea9`, closest to `221B Baker street` in `London`, with the postal code `NW1 6XE`.
+The example below will retrieve locations for a carrier, with identifier `be7f6752-34e0-49a1-a832-bcc209450ea9`, closest to `221B Baker Street` in `London`, with the postal code `NW1 6XE`.
 
 ```http
-GET /v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?street=Baker%20street&street_number=221B HTTP/1.1
+GET /v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?street=Baker%20Street&street_number=221B HTTP/1.1
 ```
 
 To retrieve locations for multiple carrier, separate calls can be made for each carrier, with their respective `carrier_id`. Check the [API Specification](https://docs.myparcel.com/api-specification/#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_) for a complete description of this endpoint.
