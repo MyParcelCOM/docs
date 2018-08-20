@@ -9,11 +9,15 @@ Before you can hand your shipment over to the carrier, the parcel must be provid
 
 Before you can retrieve files for your shipment, it first needs to be registered with the carrier that will ship the parcel. The MyParcel.com API can then retrieve or create the necessary files for you. Shipments that were just registered have a status with the code `shipment_registered`. But all shipments with a status of level `success` should have any necessary files available.
 
-You can learn more about [retrieving shipment statuses](#todo) and [registering a shipment](#todo) at their corresponding sections.
+You can learn more about [retrieving shipment statuses](/api/retrieve-shipment-statuses) and [registering a shipment](/api/create-a-shipment/#registering-your-shipment-with-the-carrier) at their corresponding sections.
 
 ## Retrieving available files
 
-Before you can download a file, you should check what files are available for the given shipment. To request the files, send a `GET` request to `/v1/shipments/{shipment_id}/files`. For example:
+Before you can download a file, you should check what files are available for the given shipment. To request the files, send a `GET` request to `/v1/shipments/{shipment_id}/files`.
+
+{{% notice note %}}
+To request shipment files, you need either the `shipments.show` or `shipments.manage` scope.
+{{% /notice %}}
 
 ```http
 GET /v1/shipments/c41f6c38-d55b-41fb-9f74-096f92e41b13/files HTTP/1.1
