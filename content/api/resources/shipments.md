@@ -12,8 +12,8 @@ Shipments are used to retrieve shipment labels from carriers. When requesting al
 
 Attribute                    | Description
 ---------------------------- | -----------
-recipient_address            | [Address](/api/resources/addresses) object used as delivery address if no pickup location is specified.
-sender_address               | [Address](/api/resources/addresses) object used as return address.
+recipient_address            | [Address](#Address) object used as delivery address if no pickup location is specified.
+sender_address               | [Address](#Address) object used as return address.
 pickup_location              | [PUDO location](/api/resources/carrier-pudo-locations) object containing the `code` and `address` of the location.
 description                  | Short note where you could store some information from your system.
 price                        | Price of the shipment which will be charged on the invoice.
@@ -40,6 +40,24 @@ shop             | Owner of this shipment.
 shipment_status  | Current shipment status, which is the most recent event received from the carrier. There is a [shipment statuses endpoint](https://docs.myparcel.com/api-specification#/Shipments/get_shipments__shipment_id__statuses) to retrieve all shipment statuses from the shipment.
 service_contract | Chosen service contract (including the carrier).
 files            | Available files, often shipping labels in PDF format. There is a [shipment files endpoint](https://docs.myparcel.com/api-specification#/Shipments/get_shipments__shipment_id__files) to retrieve all files from a shipment.
+
+### Address
+
+Attribute               | Required                   | Description
+----------------------- | -------------------------- | ----------------
+street_1                | Yes                        | The street name and optionally street number of the address.
+street_2                | No                         | Additional information about the address, like "Unit 2" or "Room 5".
+street_number           | No                         | Street number of the address.
+street_number_suffix    | No                         | Addition to the street number, like "B" or "II". 
+postal_code             | Yes                        | Postal code of the address.
+city                    | Yes                        | City name of the address.
+region_code             | No                         | Three letter region code of a region within a country, for example "ENG" for England.
+country_code            | Yes                        | Two letter country code of a country, for example "GB" for Great Britain.
+first_name              | Only for recipient address | First name of the concerned person at this address.
+last_name               | Only for recipient address | Last name of the concerned person at this address.
+company                 | No                         | Name of the company at this address.
+email                   | No                         | Email address of the concerned person at this address.
+phone_number            | Sometimes                  | Phone number of the concernerd person at this address.
 
 ### Customs
 
