@@ -130,14 +130,31 @@ You can retrieve all available records by looping through the pagination. As lon
     "total_records": 373
   },
   "links": {
-    "self": "https://api.myparcel.com/v1/shipments?page[number]=3&page[size]=30",
-    "first": "https://api.myparcel.com/v1/shipments?page[number]=1&page[size]=30",
-    "prev": "https://api.myparcel.com/v1/shipments?page[number]=2&page[size]=30",
-    "next": "https://api.myparcel.com/v1/shipments?page[number]=4&page[size]=30",
-    "last": "https://api.myparcel.com/v1/shipments?page[number]=13&page[size]=30"
+    "self": "https://api.myparcel.com/v1/shipments?page[size]=30&page[number]=3",
+    "first": "https://api.myparcel.com/v1/shipments?page[size]=30&page[number]=1",
+    "prev": "https://api.myparcel.com/v1/shipments?page[size]=30&page[number]=2",
+    "next": "https://api.myparcel.com/v1/shipments?page[size]=30&page[number]=4",
+    "last": "https://api.myparcel.com/v1/shipments?page[size]=30&page[number]=13"
   }
 }
 ```
+
+##### Pagination parameters
+These are the parameters used for pagination:
+
+Parameter                  | Description | Value | Default
+-------------------------- |:------------:|:-----------:|:-----:
+page[size]                 | Determines how many record you retrieve per page        | Any number higher than 0 and lower or the same as the max record size. | 30
+page[number]               | Indicates from which page the records are retrieved     | Any number higher than 0. | 1
+
+When an unsupported value is used for one of the parameters the default value will be used instead. If an positive page number is used that is higher than the amount of excising pages, the API wont be able to find any records and will simply return an empty record set instead.
+
+##### Max record size
+The default max record size is **30**. There are some resources listed below that override the default max record size with a different value:
+
+Resource                  | Max record size 
+------------------------- |:------------:
+Regions                   | **500**     
 
 ### Errors
 If the top level `errors` attribute exists, it can contain one of the following errors:
