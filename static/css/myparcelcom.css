@@ -10,8 +10,7 @@ body,
 }
 
 code {
-  padding: 3px 4px 1px;
-  vertical-align: middle;
+  padding: 0 6px;
 }
 
 footer {
@@ -22,6 +21,10 @@ footer {
 h1 {
   font-size: 3rem;
   text-align: left;
+}
+
+h2 {
+  text-transform: none;
 }
 
 h1,
@@ -40,7 +43,8 @@ mark.highlight {
 
 pre,
 .hljs {
-  background: #333;
+  background: #333 !important;
+  color: #fafafa;
 }
 
 pre .copy-to-clipboard {
@@ -73,7 +77,7 @@ th[align="right"] {
 }
 
 #body-inner {
-  max-width: 850px;
+  max-width: 1000px;
 }
 
 .fa {

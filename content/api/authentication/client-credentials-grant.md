@@ -40,7 +40,7 @@ Content-Type: application/json
 The authentication server will respond with the following body:
 
 - `token_type` with the value `Bearer`
-- `expires_in` with an integer representing the time to live (TTL) of the access token
+- `expires_in` with an integer representing the time to live (TTL) of the access token (in seconds)
 - `access_token` the access token itself
 
 For example:
@@ -63,7 +63,7 @@ To make a request to the MyParcel.com API you have to add your access token to t
 For example:
 ```http
 POST /v1/shipments HTTP/1.1
-Content-Type: application/json
+Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
 
 {
@@ -71,21 +71,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb
 }
 ```
 
-All requests to the MyParcel.com API with an expired or otherwise invalid access token will be rejected. A convenient way to make sure you have an access token that has not expired is to let the server periodically request a new access token before the previous one expires. The overlap between the different tokens will not cause a problem with running requests.
+All requests to the MyParcel.com API with an expired or otherwise invalid access token will be rejected. A convenient way to make sure you have an access token that has not expired, is to let the server periodically request a new access token before the previous one expires. The overlap between the different tokens will not cause a problem with running requests.
 
 #### 4. The server response
 When using a valid token, the server will just give the expected response.
 
 {{% notice tip %}}
-Always check the response for an authentication error. If for some reason your server has not retrieved a new access token yet, or your access token was revoked, you don't want the request to fail. Just check for the error, fire a separate job to fetch the new token, and attach it to all pending requests.
+Always check the response for an authentication error. If for some reason your server has not retrieved a new access token yet, or your access token was revoked, you don't want the request to fail. Just check for the error, fire a separate job to fetch the new token, and attach the new token to all pending requests.
 {{% /notice %}}
 
 ## Expired access token
 Another way to handle expired access tokens (aside from periodically requesting a new one) is to queue the incoming requests when you application notices that the access token has expired. Below is an example flow of how you could set this up.
 {{< figure src="/images/client-credentials-queue-flow.png" title="Client Credentials queue flow" alt="The client credentials queue flow" >}}
 
-Since the access token is a JSON Web Token ([JWT](https://jwt.io)), you can simply parse it with your favourite [JWT](https://jwt.io) library and get the exact UNIX timestamp when the access token expires. This means that you could queue your requests either on the user's device (step 1) or on your server (step 2) while a side job requests a new access token. When the new access token is received by the server it can be attached to all queued requests before they are executed again.
+Since the access token is a JSON Web Token ([JWT](https://jwt.io)), you can simply parse it with your favourite [JWT](https://jwt.io) library and get the exact UNIX timestamp when the access token expires. This means that you could queue your requests either on the user's device (step 1) or on your server (step 2) while a side job requests a new access token. When the new access token is received by the server it can be attached to all queued requests before they are executed.
 
 {{% notice note %}}
-While you can requests access tokens more often than only just before it expires, this is not advised. Your requests will take longer to process if it has to authenticate on every request. Aside from that your server would also have to make more requests than necessary, increasing its load.
+While you can requests access tokens more often than only just before it expires, this is not advised. Your requests will take longer to process if it has to authenticate on every request. Aside from that, your server would also have to make more requests than necessary, increasing its load.
 {{% /notice %}}

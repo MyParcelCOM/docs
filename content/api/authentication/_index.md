@@ -9,7 +9,7 @@ The MyParcel.com API uses OAuth 2.0 for authentication.
 [OAuth 2.0](https://oauth.net/2) is the industry-standard protocol for authentication. This makes it easy to implement because there are many tutorials, explanations and libraries available to help out. In these chapters we will explain the flow to work with the MyParcel.com authentication server and highlight a few important caveats when implementing it in your own project.
 
 {{% notice note %}}
-Although the MyParcel.com API uses the content type `application/vnd.api+json`, the authentication server does not. It uses regular `application/json` to be more in line with other OAuth 2.0 implementations.
+Although the MyParcel.com API uses the media type `application/vnd.api+json`, the authentication server does not. It uses regular `application/json` to be more in line with other OAuth 2.0 implementations.
 {{% /notice %}}
 
 ### Grant Types

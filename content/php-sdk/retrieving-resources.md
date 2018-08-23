@@ -136,9 +136,6 @@ $contract = $contracts[0];
 // Get the weight groups for this contract and the prices.
 $contract->getServiceGroups();
 
-// Get the insurance groups for this contract and the prices.
-$contract->getServiceInsurances();
-
 // Get the options for this contract (eg 'sign on delivery').
 $contract->getServiceOptions();
 ```

@@ -4,6 +4,7 @@ disableHugoGeneratorInject = true
 enableEmoji = true
 enableGitInfo = true
 ordersectionsby = "title"
+pygmentsCodeFences = true
 theme = "hugo-theme-docdock"
 
 [blackfriday]

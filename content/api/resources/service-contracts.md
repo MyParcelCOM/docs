@@ -4,7 +4,7 @@ description = "A service can have one or multiple contracts, this resource speci
 weight = 10
 +++
 
-A service contract is a combination of a [service](/api/resources/services/) with a [carrier_contract](/api/resources/carrier-contracts/). Each combination contains a unique recipe to send a shipment. The weight of the shipment defines which service group is applicable and an insurance might be available or already included. Also, extra options might be available and increase the base price with a certain amount.
+A service contract is a combination of a [service](/api/resources/services/) with a [carrier_contract](/api/resources/carrier-contracts/). Each combination contains a unique recipe to send a shipment. The weight of the shipment defines which service group is applicable. Also, extra options might be available and increase the base price with a certain amount.
 
 ## Service Contract
 
@@ -16,7 +16,6 @@ service               | The service.
 carrier_contract      | The carrier contract offering this service.
 service_groups        | A list of service [Group](/api/resources/service-contracts/#group) objects
 service_option_prices | A list of service [Option Price](/api/resources/service-contracts/#option-price) objects
-service_insurances    | A list of service [Insurance](/api/resources/service-contracts/#insurance) objects
 
 ### Group
 
@@ -32,19 +31,6 @@ step_size  | The amount of weight units (grams) every time a step_price will be 
 Relationship     | Description
 ---------------- | -----------
 service_contract | The service contract offering this weight group.
-
-### Insurance
-
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/ServiceInsurances)
-
-Attribute | Description
---------- | -----------
-covered   | Value up to which is covered by this insurance.
-price     | Price of the insurance which will be added to the shipment price.
-
-Relationship     | Description
----------------- | -----------
-service_contract | The service contract offering this insurance.
 
 ### Option Price
 
