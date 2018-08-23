@@ -139,21 +139,23 @@ You can retrieve all available records by looping through the pagination. As lon
 }
 ```
 
-##### Pagination parameters
-These are the parameters used for pagination:
+#### Pagination query parameters
+These are the query parameters used for pagination:
 
 Parameter                  | Description | Value | Default
--------------------------- |:------------:|:-----------:|:-----:
-page[size]                 | Determines how many record you retrieve per page        | Any number higher than 0 and lower or the same as the max record size. | 30
-page[number]               | Indicates from which page the records are retrieved     | Any number higher than 0. | 1
+-------------------------- |--------------|-------------|-------
+`page[size]`                 | Determines how many records to retrieve per page        | Any number higher than 0 and lower than or equal to the max record size | 30
+`page[number]`               | Indicates from which page the records should be retrieved     | Any number higher than 0 | 1
 
-When an unsupported value is used for one of the parameters the default value will be used instead. If an positive page number is used that is higher than the amount of excising pages, the API wont be able to find any records and will simply return an empty record set instead.
+Together, these parameters will cause the API to return a specific range of resources based on your input. For example, a combination of `page[size]=8` and `page[number]=3` will retrieve 8 records: number 17 to 24.
 
-##### Max record size
+When an unsupported value (-1 for example) is used for one of the parameters the default value will be used instead. If a positive page number is used that is higher than the amount of existing pages, the API won't be able to find any records and will simply return an empty records set instead.
+
+#### Max record size
 The default max record size is **30**. There are some resources listed below that override the default max record size with a different value:
 
 Resource                  | Max record size 
-------------------------- |:------------:
+------------------------- |-------------
 Regions                   | **500**     
 
 ### Errors
