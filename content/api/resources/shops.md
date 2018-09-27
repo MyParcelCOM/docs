@@ -26,6 +26,8 @@ organization | [Organization](https://docs.myparcel.com/api-specification/#/Orga
 
 {{%expand "Fetching shops" %}}
 A list of shops can be retrieved with the following endpoint:
+
+**Request**
 ```http
 GET /shops HTTP/1.1
 Accept: application/vnd.api+json
@@ -104,6 +106,8 @@ Accept: application/vnd.api+json
 
 {{%expand "Fetching a specific shop" %}}
 A list of shops can be retrieved with the following endpoint:
+
+**Request**
 ```http
 GET /shops/{shop_id} HTTP/1.1
 Accept: application/vnd.api+json
@@ -170,12 +174,12 @@ Example: /shops/35eddf50-1d84-47a3-8479-6bfda729cd99
 
 {{%expand "Creating a shop" %}}
 A shop can be created with the following endpoint:
+
+**Request**
 ```http
 POST /shops HTTP/1.1
 Accept: application/vnd.api+json
 ```
-
-**Request**
 ```json
 {
   "data": {
@@ -285,15 +289,18 @@ Accept: application/vnd.api+json
 {{%expand "Updating a shop" %}}
 A shop can be updated (patched) with the following endpoint. Patching means that only the changed the changed
 attributes should be provided in the request body.
+
+**Request**
+
+*In this example we're changing the name of the shop to "Sherlock Holmes' trinkets"*
+
 ```http
 PATCH /shops/{shop_id} HTTP/1.1
 Accept: application/vnd.api+json
 Example: /shops/35eddf50-1d84-47a3-8479-6bfda729cd99
 ```
 
-**Request**
 
-*In this example we're changing the name of the shop to "Sherlock Holmes' trinkets"*
 ```json
 {
   "data": {
