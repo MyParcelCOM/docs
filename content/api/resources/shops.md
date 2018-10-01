@@ -287,7 +287,7 @@ Accept: application/vnd.api+json
 {{% /expand%}}
 
 {{%expand "Updating a shop" %}}
-A shop can be updated (patched) with the following endpoint. Patching means that only the changed the changed
+A shop can be updated (patched) with the following endpoint. Patching means that only the changed
 attributes should be provided in the request body.
 
 **Request**
