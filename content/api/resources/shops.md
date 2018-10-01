@@ -13,7 +13,7 @@ is always associated with a shop.
 
 Attribute      |  Value                                              | Description                                              | Required
 -------------- | --------------------------------------------------- | -------------------------------------------------------- | --------
-name           | string                                              | First name.                                              | ✓
+name           | string                                              | Name of the shop                                         | ✓
 website        | string                                              | Website of the shop                                      |
 return_address | [Address](/api/resources/common-objects/addresses/) | The address a parcel is returned to when delivery fails. |
 sender_address | [Address](/api/resources/common-objects/addresses/) | The address parcels for this shop are sent from.         |
