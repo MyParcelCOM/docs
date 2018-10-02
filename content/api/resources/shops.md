@@ -14,7 +14,7 @@ is always associated with a shop.
 Attribute      |  Value                                              | Description                                              | Required
 -------------- | --------------------------------------------------- | -------------------------------------------------------- | --------
 name           | string                                              | Name of the shop                                         | ✓
-website        | string                                              | Website of the shop                                      |
+website        | string                                              | URL of the website of the shop                           |
 return_address | [Address](/api/resources/common-objects/addresses/) | The address a parcel is returned to when delivery fails. |
 sender_address | [Address](/api/resources/common-objects/addresses/) | The address parcels for this shop are sent from.         |
 created_at     | integer                                             | Unix timestamp when the shop was created.                |
@@ -29,8 +29,9 @@ A list of shops can be retrieved with the following endpoint:
 
 **Request**
 ```http
-GET /shops HTTP/1.1
+GET /v1/shops HTTP/1.1
 Accept: application/vnd.api+json
+Example: https://sandbox-api.myparcel.com/v1/shops
 ```
 
 **Response**
@@ -80,38 +81,38 @@ Accept: application/vnd.api+json
             "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
           },
           "links": {
-            "related": "https://api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+            "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
           }
         }
       },
       "links": {
-        "self": "https://api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+        "self": "https://sandbox-api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
       }
     }
   ],
   "meta": {
-    "total_pages": 13,
+    "total_pages": 30,
     "total_records": 373
   },
   "links": {
-    "self": "https://api.myparcel.com/v1/shops?page[number]=3&page[size]=30",
-    "first": "https://api.myparcel.com/v1/shops?page[number]=1&page[size]=30",
-    "prev": "https://api.myparcel.com/v1/shops?page[number]=2&page[size]=30",
-    "next": "https://api.myparcel.com/v1/shops?page[number]=4&page[size]=30",
-    "last": "https://api.myparcel.com/v1/shops?page[number]=13&page[size]=30"
+    "self": "https://sandbox-api.myparcel.com/v1/shops?page[number]=3&page[size]=2",
+    "first": "https://sandbox-api.myparcel.com/v1/shops?page[number]=1&page[size]=1",
+    "prev": "https://sandbox-api.myparcel.com/v1/shops?page[number]=2&page[size]=1",
+    "next": "https://sandbox-api.myparcel.com/v1/shops?page[number]=4&page[size]=3",
+    "last": "https://sandbox-api.myparcel.com/v1/shops?page[number]=13&page[size]=30"
   }
 }
 ```
 {{% /expand%}}
 
 {{%expand "Fetching a specific shop" %}}
-A list of shops can be retrieved with the following endpoint:
+A specific shop can be retrieved with the following endpoint:
 
 **Request**
 ```http
-GET /shops/{shop_id} HTTP/1.1
+GET /v1/shops/{shop_id} HTTP/1.1
 Accept: application/vnd.api+json
-Example: /shops/35eddf50-1d84-47a3-8479-6bfda729cd99
+Example: https://sandbox-api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99
 ```
 
 **Response**
@@ -160,12 +161,12 @@ Example: /shops/35eddf50-1d84-47a3-8479-6bfda729cd99
           "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
       }
     },
     "links": {
-      "self": "https://api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+      "self": "https://sandbox-api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
     }
   }
 }
@@ -179,6 +180,7 @@ A shop can be created with the following endpoint:
 ```http
 POST /shops HTTP/1.1
 Accept: application/vnd.api+json
+Example: https://sandbox-api.myparcel.com/v1/shops
 ```
 ```json
 {
@@ -274,12 +276,12 @@ Accept: application/vnd.api+json
           "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
       }
     },
     "links": {
-      "self": "https://api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+      "self": "https://sandbox-api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
     }
   }
 }
@@ -297,7 +299,7 @@ attributes should be provided in the request body.
 ```http
 PATCH /shops/{shop_id} HTTP/1.1
 Accept: application/vnd.api+json
-Example: /shops/35eddf50-1d84-47a3-8479-6bfda729cd99
+Example: https://sandbox-api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99
 ```
 
 
@@ -359,12 +361,12 @@ Example: /shops/35eddf50-1d84-47a3-8479-6bfda729cd99
           "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
       }
     },
     "links": {
-      "self": "https://api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+      "self": "https://sandbox-api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
     }
   }
 }
