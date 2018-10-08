@@ -13,14 +13,14 @@ You can learn more about [retrieving shipment statuses](/api/retrieve-shipment-s
 
 ## Retrieving available files
 
-Before you can download a file, you should check what files are available for the given shipment. To request the files, send a `GET` request to `/v1/shipments/{shipment_id}/files`.
+Before you can download a file, you should check what files are available for the given shipment. To request the files, send a `GET` request to `/shipments/{shipment_id}/files`.
 
 {{% notice note %}}
 To request shipment files, you need either the `shipments.show` or `shipments.manage` scope.
 {{% /notice %}}
 
 ```http
-GET /v1/shipments/c41f6c38-d55b-41fb-9f74-096f92e41b13/files HTTP/1.1
+GET /shipments/c41f6c38-d55b-41fb-9f74-096f92e41b13/files HTTP/1.1
 ```
 
 Will give a response that looks like:
@@ -44,7 +44,7 @@ Content-Type: application/vnd.api+json
         ]
       },
       "links": {
-        "self": "https://api.myparcel.com/v1/files/dd42199a-4553-4b6c-a40a-55000269998d"
+        "self": "https://api.myparcel.com/files/dd42199a-4553-4b6c-a40a-55000269998d"
       }
     }
   ]
@@ -73,7 +73,7 @@ To download a file, simply send a `GET` request to the corresponding `files` end
 The request should contain an `Accept` header for the `format` in which you want to receive the file. To download the above label in pdf, you would do the following request:
 
 ```http
-GET https://api.myparcel.com/v1/files/dd42199a-4553-4b6c-a40a-55000269998d HTTP/1.1
+GET https://api.myparcel.com/files/dd42199a-4553-4b6c-a40a-55000269998d HTTP/1.1
 Accept: application/pdf
 ```
 
