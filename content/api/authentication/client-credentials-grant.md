@@ -62,7 +62,7 @@ To make a request to the MyParcel.com API you have to add your access token to t
 
 For example:
 ```http
-POST /v1/shipments HTTP/1.1
+POST /shipments HTTP/1.1
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
 

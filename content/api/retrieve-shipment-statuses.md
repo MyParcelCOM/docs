@@ -68,7 +68,7 @@ The current status of a shipment can be found in the `relationships` of a [shipm
           "id": "9e6d8dba-7c45-4351-a9fc-b55a0cbafbad"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses/9e6d8dba-7c45-4351-a9fc-b55a0cbafbad"
+          "related": "https://api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses/9e6d8dba-7c45-4351-a9fc-b55a0cbafbad"
         }
       },
       "shop": {
@@ -83,14 +83,14 @@ The current status of a shipment can be found in the `relationships` of a [shipm
 To get the complete [shipment status](/api/resources/shipment-statuses) resource, you will need to either:
 
 - fetch it, using the `related` link from the `shipment_status` relationship, or
-- include it in the `GET /v1/shipments/{shipment_id}` request using the `include` query parameter: `?include=shipment_status`.
+- include it in the `GET /shipments/{shipment_id}` request using the `include` query parameter: `?include=shipment_status`.
 
 ## Status history
 
 A complete list of all shipment statuses belonging to a shipment can be retrieved using the shipment status endpoint. You will need the `shipments.show` or `shipments.manage` scope in your access token in order to access this endpoint.
 
 ```http
-GET /v1/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses HTTP/1.1
+GET /shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses HTTP/1.1
 ```
 
 Check the [MyParcel.com API Specification](https://docs.myparcel.com/api-specification/#/Shipments/get_shipments__shipment_id__statuses) for a complete description of this shipment status endpoint.

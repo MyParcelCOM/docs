@@ -5,7 +5,7 @@ weight = 2
 +++
 
 Before printing a label to put on your parcel, a [shipment](/api/resources/shipments) resource should be created in the MyParcel.com API.  
-Creating such a shipment is done by making a `POST` request to the `/v1/shipments` endpoint.  
+Creating such a shipment is done by making a `POST` request to the `/shipments` endpoint.  
 
 In order to be able to create a shipment in the MyParcel.com API, the `shipments.manage` [scope](/api/authentication/scopes) is required in the access token.
 
@@ -39,7 +39,7 @@ Additionally you could add a `service_options` relationship if you would like to
 
 #### Shop relationship
 A shipment is always created for a shop. The shop's `uuid` should therefore always be included the shipment request. 
-To retrieve your shop's `uuid`, simply call the `/v1/shops` endpoint to retrieve all `shops` resources available to you.
+To retrieve your shop's `uuid`, simply call the `/shops` endpoint to retrieve all `shops` resources available to you.
 You can then include the desired shop's `uuid` in the shipment request.
 
 #### Service contract relationship
@@ -54,7 +54,7 @@ To make things a little easier for you, here's a list of required steps in order
 3. [Retrieve the desired service](https://docs.myparcel.com/api-specification#Services) for your shipment based on the regions, desired carrier and other wishes for your shipment.
 4. [Retrieve the shop](https://docs.myparcel.com/api-specification#Shops) for which you would like to create a shipment.
 
-With this information, you can now call the `/v1/service-contracts/` endpoint to retrieve the available service contracts for your shipment.
+With this information, you can now call the `/service-contracts/` endpoint to retrieve the available service contracts for your shipment.
 To filter the service contracts based on the information above, you should use the following `filter` query parameters:
 
 1. `filter[shop]={shop_id}` to filter service contracts available for that shop.
@@ -87,7 +87,7 @@ An example response of the domestic shipment request is also provided.
 
 {{%expand "See example domestic shipment request" %}}
 ```http
-POST /v1/shipments HTTP/1.1
+POST /shipments HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
 Content-Type: application/vnd.api+json
 
@@ -171,7 +171,7 @@ Content-Type: application/vnd.api+json
 
 {{%expand "See example international shipment request that includes customs" %}}
 ```http
-POST /v1/shipments HTTP/1.1
+POST /shipments HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ
 Content-Type: application/vnd.api+json
 
@@ -335,7 +335,7 @@ Content-Type: application/vnd.api+json
       "register_at": 1504801719
     },
     "links": {
-      "self": "https://api.myparcel.com/v1/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
+      "self": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
     },
     "relationships": {
       "shop": {
@@ -344,7 +344,7 @@ Content-Type: application/vnd.api+json
           "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+          "related": "https://api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       },
       "service_contract": {
@@ -353,7 +353,7 @@ Content-Type: application/vnd.api+json
           "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f"
+          "related": "https://api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f"
         }
       },
       "shipment_status": {
@@ -362,12 +362,12 @@ Content-Type: application/vnd.api+json
           "type": "shipment-statuses"
         },
         "links": {
-          "related": "https://api.myparcel.com/v1/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
+          "related": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
         }
       },
       "files": {
         "links": {
-          "related": "https://api.myparcel.com/v1/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
+          "related": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
         }
       }
     }

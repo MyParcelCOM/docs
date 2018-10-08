@@ -31,7 +31,7 @@ To retrieve the carrier locations for a carrier, the following API endpoint can 
 The example below will retrieve locations for a carrier, with identifier `be7f6752-34e0-49a1-a832-bcc209450ea9`, closest to `221B Baker Street` in `London`, with the postal code `NW1 6XE`.
 
 ```http
-GET /v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?street=Baker%20Street&street_number=221B HTTP/1.1
+GET /carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?street=Baker%20Street&street_number=221B HTTP/1.1
 ```
 
 To retrieve locations for multiple carrier, separate calls can be made for each carrier, with their respective `carrier_id`. Check the [API Specification](https://docs.myparcel.com/api-specification/#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_) for a complete description of this endpoint.
@@ -43,7 +43,7 @@ Most carriers offer the option to drop off parcels at one of their locations. Th
 To only retrieve drop-off locations, use the `filter[categories]` query parameter with value `drop-off`:
 
 ```http
-GET /v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?filter[categories]=drop-off HTTP/1.1
+GET /carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?filter[categories]=drop-off HTTP/1.1
 ```
 
 ## Pick-up locations
@@ -53,5 +53,5 @@ Some carriers offer the option to have parcels delivered at one of their locatio
 To only retrieve `pick-up` locations, use the `filter[categories]` query parameter with value `pick-up`:
 
 ```http
-GET /v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?filter[categories]=pick-up HTTP/1.1
+GET /carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?filter[categories]=pick-up HTTP/1.1
 ```
