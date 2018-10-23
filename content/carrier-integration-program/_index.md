@@ -1,13 +1,13 @@
 +++
-title = "Carrier Integration Program"
+title = "Carrier Integration Programme"
 weight = 4
 +++
 
-Welcome to the documentation of the Carrier Integration Program.
+Welcome to the documentation of the Carrier Integration Programme.
 
 ## Introduction
 
-More and more developers are looking for ways to connect to different carrier services through one well documented and easy to use API. MyParcel.com has initiated the Carrier Integration Program to allow third party developers to add their own carrier integrations into the MyParcel.com carrier library. This library can be accessed for free by both developers and online sellers across the world.  
+More and more developers are looking for ways to connect to different carrier services through one well documented and easy to use API. MyParcel.com has initiated the Carrier Integration Programme to allow third party developers to add their own carrier integrations into the MyParcel.com carrier library. This library can be accessed for free by both developers and online sellers across the world.  
 
 ## Getting started
 
