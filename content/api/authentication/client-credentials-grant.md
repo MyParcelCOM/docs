@@ -14,7 +14,7 @@ The flow of the Client Credentials grant is fairly simple. You use your client c
 {{< figure src="/images/client-credentials-flow.png" title="Client Credentials authentication flow" alt="The client credentials authentication flow" >}}
 
 #### 1. Requesting an access token.
-Send a `POST` request to `/access-token`. The body must contain the following:
+Send a `POST` request to `https://auth.myparcel.com/access-token` or `https://sandbox-auth.myparcel.com/access-token`. The body must contain the following:
 
 - `grant_type` with the value `client_credentials`
 - `client_id` with the client id as provided by MyParcel.com
@@ -50,7 +50,7 @@ Content-Type: application/json
 
 {
   "token_type": "Bearer",
-  "expires_in": 3600,
+  "expires_in": 86400,
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJhZG1pbiI6dHJ1ZX0.OLvs36KmqB9cmsUrMpUutfhV52_iSz4bQMYJjkI_TLQ"
 }
 ```
