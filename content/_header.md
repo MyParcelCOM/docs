@@ -1,1 +1,1 @@
-![logo](https://www.myparcel.com/images/myparcel-logo-white.png)
+![logo](https://cdn.myparcel.com/images/myparcelcom-white.png)
