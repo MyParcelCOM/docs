@@ -5,15 +5,15 @@ jobs:
       image: circleci/classic:edge
 
     steps:
+    - add_ssh_keys:
+        fingerprints:
+          - "1c:5c:08:53:84:9c:23:a1:aa:d5:d4:83:29:ad:86:fb"
+
     - checkout
 
     - run:
         name: Install dependencies
         command: ./mp.sh setup
-
-    - add_ssh_keys:
-        fingerprints:
-          - "1c:5c:08:53:84:9c:23:a1:aa:d5:d4:83:29:ad:86:fb"
 
     - run:
         name: Deploy to staging server
