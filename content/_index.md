@@ -4,7 +4,7 @@ title = "Home"
 
 # Welcome
 
-Welcome to the documentation for the MyParcel.com API and related software.
+Welcome to the documentation for the MyParcel.com API and related software!
 
 ## Getting Started
 
