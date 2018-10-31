@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  deploy_develop:
+    machine:
+      image: circleci/classic:edge
+
+    steps:
+    - checkout
+
+    - run:
+        name: Install dependencies
+        command: ./mp.sh setup
+
+    - add_ssh_keys:
+        fingerprints:
+          - "1c:5c:08:53:84:9c:23:a1:aa:d5:d4:83:29:ad:86:fb"
+
+    - run:
+        name: Deploy to staging server
+        command: ./mp.sh deploy staging ~/.ssh/id_rsa
+
+workflows:
+  version: 2
+
+  deploy_to_staging:
+    jobs:
+      - deploy_develop:
+          filters:
+            branches:
+              only:
+                - develop
+                - feature/automate-staging-deployment
