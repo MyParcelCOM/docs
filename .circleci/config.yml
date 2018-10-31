@@ -18,8 +18,8 @@ jobs:
     - run:
         name: Deploy to staging server
         command: |
-          SSH_KEY_NAME=$($(ls ~/.ssh | grep id_rsa_) || echo "id_rsa")
-          ./mp.sh deploy staging ~/.ssh/${SSH_KEY_NAME}
+          SSH_KEY_NAME=$(ls ~/.ssh | grep id_rsa_)
+          ./mp.sh deploy staging ~/.ssh/${SSH_KEY_NAME:-id_rsa}
 
 workflows:
   version: 2
