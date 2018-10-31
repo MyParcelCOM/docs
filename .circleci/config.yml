@@ -29,6 +29,4 @@ workflows:
       - deploy_develop:
           filters:
             branches:
-              only:
-                - develop
-                - feature/automate-staging-deployment
+              only: develop
