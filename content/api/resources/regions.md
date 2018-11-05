@@ -45,6 +45,6 @@ postal_code  | query | string  | A postal code.
 
 
 {{% notice note %}}
-If a postal code exists in more than one country, multiple regions are returned. You can use the `postal_code` filter
-in combination with the `country_code` filter, to get more specific results.
+If a postal code exists in more than one country, multiple regions are returned. The `postal_code` filter
+can be used in combination with the `country_code` filter to get more specific results.
 {{% /notice %}}
