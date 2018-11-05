@@ -40,4 +40,5 @@ Parameter    | Type  | Value   | Description
 parent       | query | string  | The id of the parent region.
 country_code | query | string  | A two letter country code.
 region_code  | query | string  | A tree letter region code.
-name         | query | integer | A region name.
+name         | query | string  | A region name.
+postal_code  | query | string  | A postal code.
