@@ -40,4 +40,11 @@ Parameter    | Type  | Value   | Description
 parent       | query | string  | The id of the parent region.
 country_code | query | string  | A two letter country code.
 region_code  | query | string  | A tree letter region code.
-name         | query | integer | A region name.
+name         | query | string  | A region name.
+postal_code  | query | string  | A postal code.
+
+
+{{% notice note %}}
+If a postal code exists in more than one country, multiple regions are returned. The `postal_code` filter
+can be used in combination with the `country_code` filter to get more specific results.
+{{% /notice %}}
