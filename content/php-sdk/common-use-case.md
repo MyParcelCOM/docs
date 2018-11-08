@@ -64,7 +64,7 @@ $shipment = new Shipment();
 $shipment
     ->setSenderAddress($sender)
     ->setRecipientAddress($recipient)
-    ->setShop($myShopp)
+    ->setShop($myShop)
     ->setServiceContract($myServiceContract)
     ->setWeight(500, Shipment::WEIGHT_GRAM);
 
