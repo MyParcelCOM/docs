@@ -65,7 +65,7 @@ Below you will find an example of a simple resource object. It always contains t
       "physical_properties": "..."
     },
     "links": {
-      "self": "https://api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
     },
     "relationships": {
       "service-contract": {
@@ -74,7 +74,7 @@ Below you will find an example of a simple resource object. It always contains t
           "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         },
         "links": {
-          "related": "https://api.myparcel.com/service-contracts/35eddf50-1d84-47a3-8479-6bfda729cd99"
+          "related": "https://sandbox-api.myparcel.com/service-contracts/35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       },
       "shop": {
@@ -83,7 +83,7 @@ Below you will find an example of a simple resource object. It always contains t
           "id": "68738eb4-7f25-43bb-81a9-2d78b9aef9df"
         },
         "links": {
-          "related": "https://api.myparcel.com/shops/68738eb4-7f25-43bb-81a9-2d78b9aef9df"
+          "related": "https://sandbox-api.myparcel.com/shops/68738eb4-7f25-43bb-81a9-2d78b9aef9df"
         }
       }
     }
@@ -130,11 +130,11 @@ You can retrieve all available records by looping through the pagination. As lon
     "total_records": 373
   },
   "links": {
-    "self": "https://api.myparcel.com/shipments?page[size]=30&page[number]=3",
-    "first": "https://api.myparcel.com/shipments?page[size]=30&page[number]=1",
-    "prev": "https://api.myparcel.com/shipments?page[size]=30&page[number]=2",
-    "next": "https://api.myparcel.com/shipments?page[size]=30&page[number]=4",
-    "last": "https://api.myparcel.com/shipments?page[size]=30&page[number]=13"
+    "self": "https://sandbox-api.myparcel.com/shipments?page[size]=30&page[number]=3",
+    "first": "https://sandbox-api.myparcel.com/shipments?page[size]=30&page[number]=1",
+    "prev": "https://sandbox-api.myparcel.com/shipments?page[size]=30&page[number]=2",
+    "next": "https://sandbox-api.myparcel.com/shipments?page[size]=30&page[number]=4",
+    "last": "https://sandbox-api.myparcel.com/shipments?page[size]=30&page[number]=13"
   }
 }
 ```

@@ -337,7 +337,7 @@ Content-Type: application/vnd.api+json
       "register_at": 1504801719
     },
     "links": {
-      "self": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
+      "self": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
     },
     "relationships": {
       "shop": {
@@ -346,7 +346,7 @@ Content-Type: application/vnd.api+json
           "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         },
         "links": {
-          "related": "https://api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+          "related": "https://sandbox-api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       },
       "service": {
@@ -355,16 +355,17 @@ Content-Type: application/vnd.api+json
           "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
         },
         "links": {
-          "related": "https://api.myparcel.com/services/af5e65b6-a709-4f61-a565-7c12a752482f"
+          "related": "https://sandbox-api.myparcel.com/services/af5e65b6-a709-4f61-a565-7c12a752482f"
+        }
       },
       "contract": {
         "data": {
           "type": "contracts",
           "id": "448e55b3-0829-4783-a9ca-1078697cdb46"
-        }
+        },
         "links": {
-          "related": "https://api.myparcel.com/contracts/448e55b3-0829-4783-a9ca-1078697cdb46"
-      },
+          "related": "https://sandbox-api.myparcel.com/contracts/448e55b3-0829-4783-a9ca-1078697cdb46"
+        }
       },
       "shipment_status": {
         "data": {
@@ -372,12 +373,12 @@ Content-Type: application/vnd.api+json
           "id": "5781d596-1bf2-44ba-bcaf-d356117cbb94"
         },
         "links": {
-          "related": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
+          "related": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
         }
       },
       "files": {
         "links": {
-          "related": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
+          "related": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
         }
       }
     }
