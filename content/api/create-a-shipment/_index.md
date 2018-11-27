@@ -4,10 +4,10 @@ description = "The resources to use when creating a shipment."
 weight = 2
 +++
 
-Before printing a label to put on your parcel, a [shipment](/api/resources/shipments) resource should be created in the MyParcel.com API.  
+Before printing a label to put on a parcel, a [shipment](/api/resources/shipments) resource should be created in the MyParcel.com API.  
 Creating such a shipment is done by making a `POST` request to the `/shipments` endpoint.  
 
-In order to be able to create a shipment in the MyParcel.com API, the `shipments.manage` [scope](/api/authentication/scopes) is required in the access token.
+In order to be able to create a shipment in the MyParcel.com API, the `shipments.manage` [scope](/api/authentication/scopes) needs to be present in the access token used in the request.
 
 ## Minimum shipment requirements
 In order to successfully register a shipment with a carrier, some information is always required.
@@ -17,9 +17,9 @@ The following attributes should always be included in a shipment request:
 
 Attribute           | Description      
 ------------------- | ----------------- 
-recipient_address   | [Address](/api/resources/shipments#address) object containing information of the shipments recipient address.
-sender_address      | [Address](/api/resources/shipments#address) object containing information about where the shipment is sent from.
-return_address      | [Address](/api/resources/shipments#address) object containing information about where the shipment should be returned to.
+recipient_address   | [Address](/api/resources/common-objects/addresses) object containing information of the shipments recipient address.
+sender_address      | [Address](/api/resources/common-objects/addresses) object containing information about where the shipment is sent from.
+return_address      | [Address](/api/resources/common-objects/addresses) object containing information about where the shipment should be returned to.
 physical_properties | [Physical properties](/api/resources/shipments#physical-properties) object containing information about the dimensions and weight of the shipment.
 
 {{% notice note %}}
@@ -33,34 +33,24 @@ The following relationships should always be included in a shipment request:
 Relationship        | Description
 ------------------- | ------------------
 shop                | A [shop](/api/resources/shops) relationship object containing the uuid of the shop for which this shipment should be created.
-service_contract    | A [service contract](/api/resources/service-contracts) relationship object containing the uuid of the desired service contract.
+service             | A [service](/api/resources/services) relationship object containing the uuid of the desired service.
+contract             | A [contract](/api/resources/contracts) relationship object containing the uuid of the desired contract.
 
 Additionally you could add a `service_options` relationship if you would like to add service options to the shipment. For more information, see the [service options resource page](/api/resources/service-options).
 
 #### Shop relationship
 A shipment is always created for a shop. The shop's `uuid` should therefore always be included the shipment request. 
 To retrieve your shop's `uuid`, simply call the `/shops` endpoint to retrieve all `shops` resources available to you.
-You can then include the desired shop's `uuid` in the shipment request.
+You can then include the desired shop's `uuid` in the shipment request. For an overview of the shop resource, it's attributes and relationships and how to retrieve them, visit the [resource page on shops](/api/resources/shops).
 
-#### Service contract relationship
-Every shipment resource has to have a [service contract](/api/resources/service-contracts) relationship. 
-Choosing the right service contract depends on a few factors and can be a little complicated. 
-A service contract is a connection between a [service](/api/resources/services) resource and a [carrier contract](/api/resources/carrier-contracts) resource.
-Choosing a service contract therefore depends on your choice of carrier, but also the [regions](/api/resources/regions) that your shipment should be shipping to and from.
-To make things a little easier for you, here's a list of required steps in order to retrieve the resources needed for choosing a service contract.
+#### Service relationship
+Carriers often have different services available to ship parcels with. These are defined in the MyParcel.com API and should be included as a relationship when creating a shipment. Since services are [region](/api/resources/regions) specific they should be chosen with the shipment's `sender_address` and `recipient_address` attributes in mind. A shipment from England to England will not be valid if the chosen service has Spain as destination. For an overview of the service resource, it's attributes and relationships and how to retrieve them, visit the [resource page on services](/api/resources/services). 
 
-1. [Retrieve the origin and destination regions](https://docs.myparcel.com/api-specification#Regions) for your shipment.
-2. [Retrieve the desired carrier](https://docs.myparcel.com/api-specification#Carriers) with whom you want to ship your shipment.
-3. [Retrieve the desired service](https://docs.myparcel.com/api-specification#Services) for your shipment based on the regions, desired carrier and other wishes for your shipment.
-4. [Retrieve the shop](https://docs.myparcel.com/api-specification#Shops) for which you would like to create a shipment.
+#### Contract relationship
+Besides a service and a shop, a shipment needs a contract relationship. Contracts are used to communicate to the carrier which party is making the request. The carrier then bills that party accordingly. Different contracts can have different credentials, rates and even services, so it might be the case that a service is available for two different prices or it might not be available at all. This is what the contracts relationship is for. To create a valid shipment, the related contract of a shipment should be for the same carrier as the chosen service. For an overview of the contract resource, it's attributes and relationships and how to retrieve them, visit the [resource page on contracts](/api/resources/contracts).
 
-With this information, you can now call the `/service-contracts/` endpoint to retrieve the available service contracts for your shipment.
-To filter the service contracts based on the information above, you should use the following `filter` query parameters:
-
-1. `filter[shop]={shop_id}` to filter service contracts available for that shop.
-2. `filter[service]={service_id}` to filter service contracts based on the chosen service.
-
-You can then include the desired service contract's `uuid` in the shipment request.
+#### Service rates
+A service rate can not be linked to a shipment directly, but should instead be used to consider which service or contract to use for a shipment. The service rate resource is a combination of a service and contract and details the specifics of said service and contract. It contains information on the price, maximum dimensions, weight range and lists which service options are available for this specific combination of service and contract. More information on service rates can be found on the [service rate resource page](/api/resources/service-rates).
 
 ### Customs information
 When shipping from one country to another, chances are that your parcel will have to go through customs. 
@@ -70,7 +60,7 @@ Futhermore, a `phone_number` of the recipient and `description` of the shipment 
 A customs declaration form will be automatically generated and returned when printing the label for this shipment.
 
 ## Registering your shipment with the carrier
-After a shipment is created, the next step is the registration of your shipment with the carrier that corresponds to the chosen `service_contract`.
+After a shipment is created, the next step is the registration of your shipment with the carrier that corresponds to the chosen `service` and `contract`.
 That's where the `register_at` attribute comes in. The `register_at` attribute expects a unix timestamp as integer value. 
 Sending in a timestamp that lies in the future will queue the registration of the shipment for that exact time. 
 Otherwise, sending in a timestamp that lies in the past or corresponds to the current time, will cause the shipment to be queued for registration immediately.
@@ -157,10 +147,16 @@ Content-Type: application/vnd.api+json
           "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       },
-      "service_contract": {
+      "service": {
         "data": {
-          "type": "service-contracts",
+          "type": "services",
           "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
+        }
+      },
+      "contract": {
+        "data": {
+          "type": "contracts",
+          "id": "448e55b3-0829-4783-a9ca-1078697cdb46"
         }
       }
     }
@@ -257,10 +253,16 @@ Content-Type: application/vnd.api+json
           "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       },
-      "service_contract": {
+      "service": {
         "data": {
-          "type": "service-contracts",
+          "type": "services",
           "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
+        }
+      },
+      "contract": {
+        "data": {
+          "type": "contracts",
+          "id": "448e55b3-0829-4783-a9ca-1078697cdb46"
         }
       }
     }
@@ -335,7 +337,7 @@ Content-Type: application/vnd.api+json
       "register_at": 1504801719
     },
     "links": {
-      "self": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
+      "self": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
     },
     "relationships": {
       "shop": {
@@ -344,30 +346,39 @@ Content-Type: application/vnd.api+json
           "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
         },
         "links": {
-          "related": "https://api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
+          "related": "https://sandbox-api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729cd99"
         }
       },
-      "service_contract": {
+      "service": {
         "data": {
-          "type": "service-contracts",
+          "type": "services",
           "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
         },
         "links": {
-          "related": "https://api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f"
+          "related": "https://sandbox-api.myparcel.com/services/af5e65b6-a709-4f61-a565-7c12a752482f"
+        }
+      },
+      "contract": {
+        "data": {
+          "type": "contracts",
+          "id": "448e55b3-0829-4783-a9ca-1078697cdb46"
+        },
+        "links": {
+          "related": "https://sandbox-api.myparcel.com/contracts/448e55b3-0829-4783-a9ca-1078697cdb46"
         }
       },
       "shipment_status": {
         "data": {
-          "id": "5781d596-1bf2-44ba-bcaf-d356117cbb94",
-          "type": "shipment-statuses"
+          "type": "shipment-statuses",
+          "id": "5781d596-1bf2-44ba-bcaf-d356117cbb94"
         },
         "links": {
-          "related": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
+          "related": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
         }
       },
       "files": {
         "links": {
-          "related": "https://api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
+          "related": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
         }
       }
     }
