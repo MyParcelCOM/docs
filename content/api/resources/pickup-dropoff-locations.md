@@ -1,5 +1,5 @@
 +++
-title = "Carrier PUDO locations"
+title = "Pickup Dropoff Locations"
 description = "The pickup and dropoff locations offered by the carriers."
 weight = 4
 +++
