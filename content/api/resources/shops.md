@@ -111,7 +111,7 @@ Example: https://sandbox-api.myparcel.com/shops
 ```
 {{% /expand%}}
 
-{{%expand "GET /shops/shop_id" %}}
+{{%expand "GET /shops/{shop_id}" %}}
 Retrieve a specific shop.
 
 **Scope**
@@ -305,7 +305,7 @@ Example: https://sandbox-api.myparcel.com/shops
 ```
 {{% /expand%}}
 
-{{%expand "PATCH /shops/shop_id" %}}
+{{%expand "PATCH /shops/{shop_id}" %}}
 Update an existing shop.
 
 **Scope**
