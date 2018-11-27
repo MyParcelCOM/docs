@@ -11,10 +11,10 @@ is always associated with a shop.
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops)
 
-Attribute      |  Type                                              | Description                                              | Required
+Attribute      |  Type                                              | Description                                               | Required
 -------------- | --------------------------------------------------- | -------------------------------------------------------- | --------
-name           | string                                              | Name of the shop                                         | ✓
-website        | string                                              | URL of the website of the shop                           |
+name           | string                                              | Name of the shop.                                        | ✓
+website        | string                                              | URL of the website of the shop.                          |
 return_address | [address](/api/resources/common-objects/addresses/) | The address a parcel is returned to when delivery fails. |
 sender_address | [address](/api/resources/common-objects/addresses/) | The address parcels for this shop are sent from.         |
 created_at     | integer                                             | Unix timestamp when the shop was created.                |
