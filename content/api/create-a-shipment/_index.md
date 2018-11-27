@@ -355,7 +355,7 @@ Content-Type: application/vnd.api+json
           "id": "af5e65b6-a709-4f61-a565-7c12a752482f"
         },
         "links": {
-          "related": https://api.myparcel.com/services/af5e65b6-a709-4f61-a565-7c12a752482f"
+          "related": "https://api.myparcel.com/services/af5e65b6-a709-4f61-a565-7c12a752482f"
       },
       "contract": {
         "data": {
@@ -363,7 +363,7 @@ Content-Type: application/vnd.api+json
           "id": "448e55b3-0829-4783-a9ca-1078697cdb46"
         }
         "links": {
-          "related": https://api.myparcel.com/contracts/448e55b3-0829-4783-a9ca-1078697cdb46"
+          "related": "https://api.myparcel.com/contracts/448e55b3-0829-4783-a9ca-1078697cdb46"
       },
       },
       "shipment_status": {
