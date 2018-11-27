@@ -6,8 +6,6 @@ weight = 18
 
 A user has access to service rates that are related to the contracts the user has access to.
 
-Service rates
-
 ## Attributes
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops)
@@ -26,9 +24,9 @@ step_price | [price](/api/resources/common-objects/prices/) | The price per incr
 
 Relationship    | Type                                                                                                | Description                          | Required
 --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------ | --------
-contract        | [contracts](https://docs.myparcel.com/api-specification/#/Contracts/get_contracts)                  | The contract this rate belongs to    | ✓
-service         | [services](https://docs.myparcel.com/api-specification/#/Services/get_services)                     | The service this rate belongs to     | ✓
-service_options | [service-options](https://docs.myparcel.com/api-specification/#/ServiceOptions/get_service_options) | The service service options that are available for this contract and service combination. The price and wheter it is always included are available in the meta |
+contract        | [contracts](/api/resources/contracts)                  | The contract this rate belongs to    | ✓
+service         | [services](/api/resources/services/)                     | The service this rate belongs to     | ✓
+service_options | [service-options](/api/resources/service-options/) | The service service options that are available for this contract and service combination. The price and wheter it is always included are available in the meta |
 
 ## Endpoints
 
