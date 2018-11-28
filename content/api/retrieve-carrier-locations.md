@@ -9,7 +9,7 @@ Carriers often have several physical locations, as part of their services. There
 - [Drop-off locations](#drop-off-locations) where parcels can be handed over to the carrier by the **sender**.
 - [Pick-up locations](#pick-up-locations) where parcels can be collected by the **recipient**.
 
-These [carrier locations](/api/resources/pickup-dropoff-locations) can be retrieved for each carrier using the [carrier locations endpoint](#carrier-locations-endpoint).
+These [carrier locations](/api/resources/carrier-pudo-locations) can be retrieved for each carrier using the [carrier locations endpoint](#carrier-locations-endpoint).
 
 ## Carrier locations endpoint
 
