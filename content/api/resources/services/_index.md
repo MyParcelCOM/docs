@@ -36,18 +36,18 @@ No scopes are required for retrieving services.
 **Request parameters**  
 For more specific requests, the following parameters can be included as query parameters.
 
-Parameter                                   | Possible values                                                                | Description
---------------------------------------------|--------------------------------------------------------------------------------|-------------------------
-filter[package_type]                        | Comma separated string of `package_types`                                      | Retrieve services based on a package type (eg. `letterbox`).
-filter[carrier]                             | Comma separated string of carrier ids                                          | Retrieve services for specific carriers.
-filter[region_from]                         | Comma separated string of region ids                                           | Retrieve services which have the given region as origin.
-filter[region_to]                           | Comma separated string of region ids                                           | Retrieve services which have the given region as destination.
-filter[address_from][country_code]          | [2-letter ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)  | Retrieve services for which the given country code corresponds to the origin region of the service.
-filter[address_from][postal_code]           | Postal code                                                                    | Retrieve services for which the given postal code corresponds to the origin region of the service (may result in multiple services if postal code exists in different regions).
-filter[address_to][country_code]            | [2-letter ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)  | Retrieve services for which the given country code corresponds to the destination region of the service.
-filter[address_to][postal_code]             | Postal code                                                                    | Retrieve services for which the given postal code corresponds to the destination region of the service (may result in multiple services if postal code exists in different regions).
-filter[has_active_contract]                 | Boolean                                                                        | A `true` value will filter services that have **active** [contract](/api/resources/contracts) associations. `false` will result in services that do **not** have active contract associations. To retrieve **all** services regardless of contract, omit this filter.
-filter[delivery_method]                     | `pick-up` or `delivery`                                                        | Using filter `pick-up` will result in services that deliver to a [pickup-dropoff-location](/api/resources/pickup-dropoff-locations). Using `delivery` filters services for which the carrier delivers the shipment to the `recipient_address`.
+Parameter                          | Type    | Description
+-----------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------
+filter[package_type]               | string  | Comma separated string of `package_types` to filter the services on (eg. `letterbox`). 
+filter[carrier]                    | string  | Comma separated string of ids of carrier to filter the services on
+filter[region_from]                | string  | Comma separated string of ids of regions that the requested services should be sending from
+filter[region_to]                  | string  | Comma separated string of ids of regions that the requested services should be sending to
+filter[address_from][country_code] | string  | Retrieve services for which the given [2-letter ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) corresponds to the origin region of the service.
+filter[address_from][postal_code]  | string  | Retrieve services for which the given postal code corresponds to the origin region of the service (may result in multiple services if postal code exists in different regions).
+filter[address_to][country_code]   | string  | Retrieve services for which the given [2-letter ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) corresponds to the destination region of the service.
+filter[address_to][postal_code]    | string  | Retrieve services for which the given postal code corresponds to the destination region of the service (may result in multiple services if postal code exists in different regions).
+filter[has_active_contract]        | boolean | A `true` value will filter services that have **active** [contract](/api/resources/contracts) associations. `false` will result in services that do **not** have active contract associations. To retrieve **all** services regardless of contract, omit this filter.
+filter[delivery_method]            | string  | Using filter value `pick-up` will result in services that deliver to a [pickup-dropoff-location](/api/resources/pickup-dropoff-locations). Using `delivery` filters services for which the carrier delivers the shipment to the `recipient_address`.
 
 **Request**  
 ```http
