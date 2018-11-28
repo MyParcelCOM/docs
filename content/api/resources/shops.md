@@ -7,33 +7,25 @@ weight = 16
 A user can have one or more shops and be able to read or manage attached resources like shipments. A shipment
 is always associated with a shop.
 
-## Attributes
+## Shop
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops)
 
-Attribute      |  Type                                              | Description                                              | Required
+Attribute      |  Value                                              | Description                                              | Required
 -------------- | --------------------------------------------------- | -------------------------------------------------------- | --------
 name           | string                                              | Name of the shop                                         | ✓
 website        | string                                              | URL of the website of the shop                           |
-return_address | [address](/api/resources/common-objects/addresses/) | The address a parcel is returned to when delivery fails. |
-sender_address | [address](/api/resources/common-objects/addresses/) | The address parcels for this shop are sent from.         |
+return_address | [Address](/api/resources/common-objects/addresses/) | The address a parcel is returned to when delivery fails. |
+sender_address | [Address](/api/resources/common-objects/addresses/) | The address parcels for this shop are sent from.         |
 created_at     | integer                                             | Unix timestamp when the shop was created.                |
 
-Relationship | Type                                                                                         | Description                          | Required
+Relationship | Value                                                                                         | Description                          | Required
 ------------ | --------------------------------------------------------------------------------------------- | ------------------------------------ | --------
-organization | [organizations](https://docs.myparcel.com/api-specification/#/Organizations/get_organizations) | The organization the shop belongs to | ✓
+organization | [Organization](https://docs.myparcel.com/api-specification/#/Organizations/get_organizations) | The organization the shop belongs to | ✓
 
-## Endpoints
 
-{{%expand "GET /shops" %}}
-Retrieving a list of shops.
-
-**Scope**
-
-Any of the following scopes:
-
-- `shops.show`
-- `shops.manage`
+{{%expand "Fetching shops" %}}
+A list of shops can be retrieved with the following endpoint:
 
 **Request**
 ```http
@@ -99,27 +91,22 @@ Example: https://sandbox-api.myparcel.com/shops
     }
   ],
   "meta": {
-    "total_pages": 1,
-    "total_records": 1
+    "total_pages": 30,
+    "total_records": 373
   },
   "links": {
-    "self": "https://sandbox-api.myparcel.com/shops?page[number]=1&page[size]=30",
-    "first": "https://sandbox-api.myparcel.com/shops?page[number]=1&page[size]=30",
-    "last": "https://sandbox-api.myparcel.com/shops?page[number]=1&page[size]=30"
+    "self": "https://sandbox-api.myparcel.com/shops?page[number]=3&page[size]=2",
+    "first": "https://sandbox-api.myparcel.com/shops?page[number]=1&page[size]=1",
+    "prev": "https://sandbox-api.myparcel.com/shops?page[number]=2&page[size]=1",
+    "next": "https://sandbox-api.myparcel.com/shops?page[number]=4&page[size]=3",
+    "last": "https://sandbox-api.myparcel.com/shops?page[number]=13&page[size]=30"
   }
 }
 ```
 {{% /expand%}}
 
-{{%expand "GET /shops/{shop_id}" %}}
-Retrieve a specific shop.
-
-**Scope**
-
-Any of the following scopes:
-
-- `shops.show`
-- `shops.manage`
+{{%expand "Fetching a specific shop" %}}
+A specific shop can be retrieved with the following endpoint:
 
 **Request**
 ```http
@@ -186,12 +173,8 @@ Example: https://sandbox-api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729
 ```
 {{% /expand%}}
 
-{{%expand "POST shops" %}}
-Create a shop.
-
-**Scope**
-
-- `shops.manage`
+{{%expand "Creating a shop" %}}
+A shop can be created with the following endpoint:
 
 **Request**
 ```http
@@ -305,12 +288,9 @@ Example: https://sandbox-api.myparcel.com/shops
 ```
 {{% /expand%}}
 
-{{%expand "PATCH /shops/{shop_id}" %}}
-Update an existing shop.
-
-**Scope**
-
-- `shops.manage`
+{{%expand "Updating a shop" %}}
+A shop can be updated (patched) with the following endpoint. Patching means that only the changed
+attributes should be provided in the request body.
 
 **Request**
 

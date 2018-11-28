@@ -1,6 +1,5 @@
 +++
 title = "Common objects"
-description = "Not resources, but reusable building blocks for resources."
 weight = 99
 +++
 
