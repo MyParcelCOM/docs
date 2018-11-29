@@ -1,10 +1,10 @@
 +++
 title = "Contracts"
-description = "A carrier can be used through different contracts."
+description = "Contracts define the service and prices available for a carrier."
 weight = 10
 +++
 
-A carrier can be used through different contracts. Each contract has its own prices, available services and available service options. A contract might be available because it is shared with you or because you added your own contract (including API credentials for that carrier).
+Contracts define the service, service options and prices available for a carrier. A contract might be available because it is shared with you or because you added your own contract (including API credentials for that carrier).
 
 ## Attributes
 
