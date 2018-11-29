@@ -14,7 +14,7 @@ Attribute | Type                                                                
 --------- | ------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------- |----------------
 name      | string                                                                  | Option name, useful for displaying to users.                                                                              | ✓
 code      | string                                                                  | Option code, which will be used in the request to the carrier.                                                            | ✓
-category  | string enum: delivery-window<br> handover-method<br> proof-of-delivery  | The category in which a service option belongs. Note that only one service option per category can be set on a shipment.  |
+category  | string enum: `delivery-window`<br> `handover-method`<br> `proof-of-delivery`  | The category in which a service option belongs. Note that only one service option per category can be set on a shipment.  |
 
 ## Endpoints
 
