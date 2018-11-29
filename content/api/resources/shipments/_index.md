@@ -602,7 +602,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
 ```
 {{% /expand%}}
 
-{{%expand "POST shipments" %}}
+{{%expand "POST /shipments" %}}
 Create a shipment.
 
 **Scope**

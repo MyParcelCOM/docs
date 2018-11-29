@@ -186,7 +186,7 @@ Example: https://sandbox-api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729
 ```
 {{% /expand%}}
 
-{{%expand "POST shops" %}}
+{{%expand "POST /shops" %}}
 Create a shop.
 
 **Scope**

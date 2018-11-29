@@ -21,7 +21,7 @@ transit_time    | [transit time](/api/resources/services/transit-time)          
 
 Relationship | Type                                 | Description                                | Required
 ------------ | ------------------------------------ |------------------------------------------- | ---------------
-carrier      | [carrier](/api/resources/carriers)   | Carrier offering the service.              | ✓
+carrier      | [carriers](/api/resources/carriers)  | Carrier offering the service.              | ✓
 region_from  | [regions](/api/resources/regions)    | Region in which this service is available. | ✓       
 region_to    | [regions](/api/resources/regions)    | Region where shipments can be delivered.   | ✓  
 
