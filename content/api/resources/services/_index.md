@@ -31,7 +31,13 @@ region_to    | [regions](/api/resources/regions)    | Region where shipments can
 Retrieving a list of services.
 
 **Scope**  
-No scopes are required for retrieving services.
+
+Any of the following scopes:
+
+- `shipments.show`
+- `shipments.manage`
+- `brokers.show`
+- `brokers.manage`
 
 **Request parameters**  
 For more specific requests, the following parameters can be included as query parameters.
@@ -132,7 +138,13 @@ Example: https://sandbox-api.myparcel.com/services
 Retrieve a specific service.
 
 **Scope**  
-No scopes are required for retrieving services.
+
+Any of the following scopes:
+
+- `shipments.show`
+- `shipments.manage`
+- `brokers.show`
+- `brokers.manage`
 
 **Request**  
 ```http

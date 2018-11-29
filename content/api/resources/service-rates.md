@@ -41,6 +41,8 @@ Any of the following scopes:
 - `shipments.manage`
 - `organizations.show`
 - `organizations.manage`
+- `brokers.show`
+- `brokers.manage`
 
 **Request parameters**  
 For more specific requests, the following parameters can be included as query parameters.
@@ -154,6 +156,8 @@ Any of the following scopes:
 - `shipments.manage`
 - `organizations.show`
 - `organizations.manage`
+- `brokers.show`
+- `brokers.manage`
 
 **Request**
 ```http
