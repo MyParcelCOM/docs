@@ -145,6 +145,9 @@ If the shipment being created is invalid or there is no valid service available,
 
 If you wish to specify which service to use with your shipment, you should assign it to the shipment before creating it.
 ```php
+use MyParcelCom\ApiSdk\Resources\Shipment;
+use MyParcelCom\ApiSdk\Resources\Interfaces\PhysicalPropertiesInterface;
+
 $shipment = new Shipment();
 $shipment
     ->setRecipientAddress($recipient)
@@ -158,6 +161,8 @@ $createdShipment = $api->createShipment($shipment);
 If you wish to add service options to a shipment before creating it in the API, you can do this in two ways. Either by setting all service options at once, or adding them one by one.
 
 ```php
+use MyParcelCom\ApiSdk\Resources\Shipment;
+
 $shipment = new Shipment();
 
 // Setting a service option one by one.
