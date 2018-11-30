@@ -26,7 +26,7 @@ $carriers = $api->getCarriers();
 ```
 
 ### Pick-up/drop-off locations
-Most carriers allow the recipient to define a pick-up location and a sender to define a drop-off location. The SDK can retrieve these locations from the API and can easily be displayed using the [MyParcel.com Delivery Plugin](https://github.com/MyParcelCOM/delivery-plugin).
+Most carriers allow the recipient to define a pick-up location and a sender to define a drop-off location. The SDK can retrieve these locations from the API after which they can easily be displayed using the [MyParcel.com Delivery Plugin](https://github.com/MyParcelCOM/delivery-plugin).
 
 Most carriers only need a postal code in a specific country, but some carriers also require a street name and number. It is therefore recommended to always supply all this information to the SDK.
 
