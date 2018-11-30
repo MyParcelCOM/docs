@@ -12,7 +12,6 @@ As the API is updated with new features, these features will be added to the SDK
 - Shipment creation.
 - Resource retrieval of the following types:
   - [Carriers](/api/resources/carriers)
-  - [Contracts](/api/resources/contracts)
   - [Files](/api/resources/files)
   - [Pick-up/drop-off locations](/api/resources/pickup-dropoff-locations)
   - [Regions](/api/resources/regions)
