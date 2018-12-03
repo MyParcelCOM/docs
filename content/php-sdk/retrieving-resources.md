@@ -37,7 +37,7 @@ When no specific carrier is defined, the pick-up/drop-off locations of all avail
 Note that when you do specify a specific carrier a `GuzzleHttp\Exception\RequestException` will be thrown when the request fails.
 
 ```php
-// Get all pick-up/drop-off locations near the area with postal code '1AR BR2'
+// Get all pick-up/drop-off locations near the area with postal code 'NW1 6XE'
 // in the United Kingdom for all carriers.
 $locations = $api->getPickUpDropOffLocations('GB', 'NW1 6XE', 'Baker Street', 221);
 
@@ -81,7 +81,7 @@ $services = $api->getServicesForCarrier($carrier);
 ```
 
 ### Service rates
-The price of a service is detailed in a related service rate resource. A service resource can have multiple related service rate resources, each with different attributes like weight range or relationships like [contract](/api/resources/contracts) or [service option](/api/resources/service-options). Learn more about service rates on the [service rates resource page](/api/resources/service-rates).
+The price of a service is detailed in a related service rate resource. A service resource can have multiple related service rate resources, each with different attributes like weight range or relationships like [contract](/api/resources/contracts) or [service options](/api/resources/service-options). Learn more about service rates on the [service rates resource page](/api/resources/service-rates).
 
 There are currently three ways to retrieve service rates. Either get all available service rates, the service rates available for a shipment, or all available service rates belonging to a specific service. Service rates will be mapped to the `\MyParcelCom\ApiSdk\Resources\Interfaces\ServiceRateInterface`.
 
@@ -136,8 +136,7 @@ $shipment
     ->setRecipientAddress($recipient)
     ->setWeight(500, PhysicalPropertiesInterface::WEIGHT_GRAM);
 
-// Have the SDK determine the cheapest service and post the shipment
-// to the MyParcel.com API.
+// Have the SDK determine the cheapest service and post the shipment to the MyParcel.com API.
 $createdShipment = $api->createShipment($shipment);
 ```
 
