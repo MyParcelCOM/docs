@@ -44,7 +44,7 @@ Content-Type: application/vnd.api+json
         ]
       },
       "links": {
-        "self": "https://api.myparcel.com/files/dd42199a-4553-4b6c-a40a-55000269998d"
+        "self": "https://sandbox-api.myparcel.com/files/dd42199a-4553-4b6c-a40a-55000269998d"
       }
     }
   ]
@@ -73,7 +73,7 @@ To download a file, simply send a `GET` request to the corresponding `files` end
 The request should contain an `Accept` header for the `format` in which you want to receive the file. To download the above label in pdf, you would do the following request:
 
 ```http
-GET https://api.myparcel.com/files/dd42199a-4553-4b6c-a40a-55000269998d HTTP/1.1
+GET https://sandbox-api.myparcel.com/files/dd42199a-4553-4b6c-a40a-55000269998d HTTP/1.1
 Accept: application/pdf
 ```
 
