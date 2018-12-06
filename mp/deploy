@@ -19,6 +19,7 @@ fi
 
 echo ""
 echo "MP: Generating Hugo dist"
+${COMPOSE} run --rm hugo rm -rf public
 ${COMPOSE} run --rm hugo hugo --baseURL "https://${DOMAIN}/"
 
 echo ""
