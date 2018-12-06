@@ -10,7 +10,7 @@ Creating such a shipment is done by making a `POST` request to the `/shipments` 
 In order to be able to create a shipment in the MyParcel.com API, the `shipments.manage` [scope](/api/authentication/scopes) needs to be present in the access token used in the request.
 
 ## Minimum shipment requirements
-In order to successfully register a shipment with a carrier, some information is always required.
+In order to successfully register a shipment with a carrier, the following attributes and relationships are always required.
 
 ### Attributes
 The following attributes should always be included in a shipment request:
@@ -44,7 +44,7 @@ To retrieve your shop's `uuid`, simply call the `/shops` endpoint to retrieve al
 You can then include the desired shop's `uuid` in the shipment request. For an overview of the shop resource, it's attributes and relationships and how to retrieve them, visit the [resource page on shops](/api/resources/shops).
 
 #### Service relationship
-Carriers often have different services available to ship parcels with. These are defined in the MyParcel.com API and should be included as a relationship when creating a shipment. Since services are [region](/api/resources/regions) specific they should be chosen with the shipment's `sender_address` and `recipient_address` attributes in mind. A shipment from England to England will not be valid if the chosen service has Spain as destination. For an overview of the service resource, it's attributes and relationships and how to retrieve them, visit the [resource page on services](/api/resources/services). 
+Carriers often have different services available to ship parcels with. These are defined in the MyParcel.com API and should be included as a relationship when creating a shipment. Since services are [region](/api/resources/regions) specific they should be chosen with the shipments `sender_address` and `recipient_address` attributes in mind. A shipment from England to England will not be valid if the chosen service only has Spain as destination. For an overview of the service resource, its attributes and relationships and how to retrieve them, visit the [resource page on services](/api/resources/services). 
 
 #### Contract relationship
 Besides a service and a shop, a shipment needs a contract relationship. Contracts are used to communicate to the carrier which party is making the request. The carrier then bills that party accordingly. Different contracts can have different credentials, rates and even services, so it might be the case that a service is available for two different prices or it might not be available at all. This is what the contracts relationship is for. To create a valid shipment, the related contract of a shipment should be for the same carrier as the chosen service. For an overview of the contract resource, it's attributes and relationships and how to retrieve them, visit the [resource page on contracts](/api/resources/contracts).
