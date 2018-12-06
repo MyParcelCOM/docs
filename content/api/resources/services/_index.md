@@ -12,7 +12,7 @@ Services are provided by [carriers](/api/resources/carriers) and can be used to 
 
 Attribute       | Type              | Description                                                                                                                                       | Required
 --------------- |-------------------| -----------------------------------------------------------------------------------------------------------------------------------------------   | --------------
-name            | string            | Service name, useful for displaying to users.                                                                                                     | ✓
+name            | string            | Service name (eg. Next Day), useful for displaying to users.                                                                                                     | ✓
 package_type    | string enum: `parcel`<br> `letterbox`<br> `letter`<br> `unstamped`              | Type of package (eg. letter).                                                               | ✓
 handover_method | string enum: `collection`<br> `drop-off`                                    | Available methods to hand the shipment to the carrier. Value `collection` means the carrier will pick up the shipment at the shipment's sender address while drop-off means the sender has to drop the shipment at a pickup-dropoff-location.                                     | ✓
 delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery method for the carrier. Services with value `pick-up` means the carrier delivers the shipment at a pickup-dropoff-location while `delivery` means they deliver at the shipment's recipient address).   | ✓
