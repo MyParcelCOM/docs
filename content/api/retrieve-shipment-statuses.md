@@ -68,7 +68,7 @@ The current status of a shipment can be found in the `relationships` of a [shipm
           "id": "9e6d8dba-7c45-4351-a9fc-b55a0cbafbad"
         },
         "links": {
-          "related": "https://api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses/9e6d8dba-7c45-4351-a9fc-b55a0cbafbad"
+          "related": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses/9e6d8dba-7c45-4351-a9fc-b55a0cbafbad"
         }
       },
       "shop": {
