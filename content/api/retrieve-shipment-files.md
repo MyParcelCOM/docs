@@ -7,7 +7,7 @@ Before you can hand your shipment over to the carrier, the parcel must be provid
 
 ## Shipment registration required
 
-Before you can retrieve files for your shipment, it first needs to be registered with the carrier that will ship the parcel. The MyParcel.com API can then retrieve or create the necessary files for you. Shipments that were just registered have a status with the code `shipment_registered`. But all shipments with a status of level `success` should have any necessary files available.
+Before you can retrieve files for your shipment, it first needs to be registered with the carrier that will ship the parcel. The MyParcel.com API can then retrieve or create the necessary files for you. Shipments that were just registered have a status with the code `shipment-registered`. But all shipments with a status of level `success` should have any necessary files available.
 
 You can learn more about [retrieving shipment statuses](/api/retrieve-shipment-statuses) and [registering a shipment](/api/create-a-shipment/#registering-your-shipment-with-the-carrier) at their corresponding sections.
 

@@ -17,23 +17,23 @@ Within the MyParcel.com API, a list of generic [status resources](/api/resources
 Status resources can be of the following levels:
 
 - pending
+- in-progress
 - success
 - failed
 
 The list of status codes for the shipment resource is:
 
-code                | level   | description
-------------------- | ------  | -----------
-shipment_concept    | pending | The shipment is created, but not yet registered with the carrier.
-shipment_registered | success | The shipment is registered with the carrier.
-shipment_at_carrier | success | The shipment is handed to the carrier.
-shipment_at_sorting | success | The shipment is at the sorting center.
-shipment_at_courier | success | The shipment is picked up by the courier.
-shipment_delivered  | success | The shipment is delivered.
-shipment_inactive   | failed  | The shipment is inactive.
-shipment_failed     | failed  | The carrier has failed to process the shipment.
-shipment_completed  | success | No further status tracking will be available.
-shipment_rejected   | failed  | Something went wrong when registering the shipment. Please create a new shipment.
+code                                | level         | description
+----------------------------------- | ------------- | ------------------------------------------------------------------------------
+shipment-concept                    | pending       | The shipment was created, but has not been registered with the carrier (yet).
+shipment-registered                 | in-progress   | The shipment was registered with the carrier. Files (such as a label) are available.
+shipment-received-by-carrier        | in-progress   | The shipment was collected by or handed over to the carrier.
+shipment-at-sorting                 | in-progress   | The shipment is in the sorting process of the carrier.
+shipment-with-courier               | in-progress   | The shipment is with the courier and on it's way to the destination.
+shipment-delivered                  | success       | The shipment was delivered successfully.
+shipment-failed                     | failed        | The shipping process failed. The shipping process will not continue. The shipment has to be resend. Errors are available.
+shipment-created-without-tracking   | success       | The shipment was registered and has files available, but no further tracking is available.
+shipment-registration-failed        | failed        | The concept shipment was rejected by the carrier and might need to be updated before trying to register again.
 
 An up-to-date list of the generic statuses can be retrieved using the [GET /statuses endpoint](https://docs.myparcel.com/api-specification/#/Statuses/get_statuses).
 
