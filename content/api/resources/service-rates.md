@@ -37,12 +37,7 @@ Retrieving a list of all the service rates available to the current user.
 **Scope**  
 Any of the following scopes:
 
-- `shipments.show`
-- `shipments.manage`
-- `organizations.show`
 - `organizations.manage`
-- `brokers.show`
-- `brokers.manage`
 
 **Request parameters**  
 For more specific requests, the following parameters can be included as query parameters.
@@ -152,12 +147,7 @@ Retrieve a specific service rate.
 
 Any of the following scopes:
 
-- `shipments.show`
-- `shipments.manage`
-- `organizations.show`
 - `organizations.manage`
-- `brokers.show`
-- `brokers.manage`
 
 **Request**
 ```http

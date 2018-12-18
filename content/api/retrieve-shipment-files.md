@@ -16,7 +16,7 @@ You can learn more about [retrieving shipment statuses](/api/retrieve-shipment-s
 Before you can download a file, you should check what files are available for the given shipment. To request the files, send a `GET` request to `/shipments/{shipment_id}/files`.
 
 {{% notice note %}}
-To request shipment files, you need either the `shipments.show` or `shipments.manage` scope.
+To request shipment files, you need the `shipments.manage` scope.
 {{% /notice %}}
 
 ```http

@@ -32,12 +32,7 @@ Retrieving a list of contracts.
 
 Any of the following scopes:
 
-- `shipments.show`
-- `shipments.manage`
-- `organizations.show`
 - `organizations.manage`
-- `brokers.show`
-- `brokers.manage`
 
 **Request**
 ```http
@@ -104,12 +99,8 @@ Retrieving a specific contract.
 
 Any of the following scopes:
 
-- `shipments.show`
 - `shipments.manage`
-- `organizations.show`
 - `organizations.manage`
-- `brokers.show`
-- `brokers.manage`
 
 **Request**
 
@@ -166,7 +157,6 @@ Create a contract.
 Any of the following scopes:
 
 - `organizations.manage`
-- `brokers.manage`
 
 **Request**
 
@@ -253,7 +243,6 @@ Update an existing contract.
 Any of the following scopes:
 
 - `organizations.manage`
-- `brokers.manage`
 
 **Request**
 
