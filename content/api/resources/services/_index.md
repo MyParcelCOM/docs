@@ -32,12 +32,7 @@ Retrieving a list of services.
 
 **Scope**  
 
-Any of the following scopes:
-
-- `shipments.show`
-- `shipments.manage`
-- `brokers.show`
-- `brokers.manage`
+No scopes are required to retrieve services.
 
 **Request parameters**  
 For more specific requests, the following parameters can be included as query parameters.
@@ -139,12 +134,7 @@ Retrieve a specific service.
 
 **Scope**  
 
-Any of the following scopes:
-
-- `shipments.show`
-- `shipments.manage`
-- `brokers.show`
-- `brokers.manage`
+No scopes are required to retrieve services.
 
 **Request**  
 ```http

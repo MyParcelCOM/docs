@@ -47,7 +47,6 @@ Retrieving a list of shipments.
 
 Any of the following scopes:
 
-- `shipments.show`
 - `shipments.manage`
 
 **Request**
@@ -412,7 +411,6 @@ Retrieve a specific shipment.
 
 Any of the following scopes:
 
-- `shipments.show`
 - `shipments.manage`
 
 **Request**

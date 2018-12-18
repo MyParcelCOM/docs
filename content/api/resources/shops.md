@@ -32,8 +32,8 @@ Retrieving a list of shops.
 
 Any of the following scopes:
 
-- `shops.show`
-- `shops.manage`
+- `organizations.manage`
+- `shipments.manage`
 
 **Request**
 ```http
@@ -118,8 +118,8 @@ Retrieve a specific shop.
 
 Any of the following scopes:
 
-- `shops.show`
-- `shops.manage`
+- `organizations.manage`
+- `shipments.manage`
 
 **Request**
 ```http

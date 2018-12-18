@@ -7,15 +7,10 @@ This is a list of scopes which can be included when requesting an access token.
 
 Scope                | The application will be able to
 -------------------- | -----------
-organizations.make   | create new organizations
-organizations.manage | see all organization details as well as create, update and delete organizations
-organizations.show   | see all details relating to this organization
-shipments.manage     | see all shipment details as well as create, update and delete shipments
-shipments.show       | see all details relating to the shipments of this shop
-shops.manage         | see all shop details as well as create, update and delete shops
-shops.show           | see all details relating to this shop
-users.manage         | see all user details as well as update user information
-users.show           | see all details relating to the user
+organizations.manage | Manage organization related resources on behalf of a single organization or all organizations belonging to a broker.
+shipments.manage     | Manage shipments on behalf of all shops belonging to a single organization or all shops belonging to a broker.
+system.manage        | Manage all system related resources.
+experimental         | This scope contains all permissions for experimental endpoints.
 
 {{% notice tip %}}
 When requesting a token from the auth server, you can use a wildcard `*` to include all scopes available to your user.
