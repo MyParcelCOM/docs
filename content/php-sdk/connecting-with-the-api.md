@@ -7,9 +7,19 @@ To start communicating with the MyParcel.com API, you need to create an instance
 
 ```php
 $api = new \MyParcelCom\ApiSdk\MyParcelComApi(
+    null,
     'https://sandbox-api.myparcel.com'
 );
 ```
+
+## Http Clients
+The first parameter of the MyParcelComApi constructor method can be any HTTP client that implements the [PSR-18 interface](https://www.php-fig.org/psr/psr-18/). 
+If an HTTP client is not provided, the SDK will try to detect which HTTP clients are available and attempt to use one of those through an adapter.
+Currently, the following are supported:
+- Guzzle 5 (`composer require php-http/guzzle5-adapter`)
+- Guzzle 6 (`composer require php-http/guzzle6-adapter`)
+- Curl (`composer require php-http/curl-client`)
+ 
 
 ## Authentication
 
@@ -37,6 +47,7 @@ $api = \MyParcelCom\ApiSdk\MyParcelComApi::createSingleton(
         'client-secret',
         'https://sandbox-auth.myparcel.com'
     ),
+    null,
     'https://sandbox-api.myparcel.com'
 );
 
