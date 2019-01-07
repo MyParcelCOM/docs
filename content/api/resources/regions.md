@@ -16,6 +16,7 @@ country_code | A two letter country code, if the region is a country.
 region_code  | A tree letter region code, if the region is within a country.
 currency     | The default currency used in this region.
 name         | Region name, useful for displaying to users.
+category     | Present if the region is part of a common geographical group.
 
 Relationship | Description
 ------------ | -----------
