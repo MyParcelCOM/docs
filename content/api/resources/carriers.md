@@ -11,7 +11,8 @@ Carriers are included as relationships of [services](/api/resources/services/), 
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Carriers)
 
-Attribute | Description
---------- | -----------
-name      | Carrier name, useful for displaying to users.
+Attribute          | Description
+------------------ | -----------
+name               | Carrier name, useful for displaying to users.
+code               | Unique slugified version of the carrier name.
 credentials_format | The format of credentials for this carrier's contracts described using [JSON Schema](https://json-schema.org/).
