@@ -13,7 +13,7 @@ As the API is updated with new features, these features will be added to the SDK
 - Resource retrieval of the following types:
   - [Carriers](/api/resources/carriers)
   - [Files](/api/resources/files)
-  - [Pick-up/drop-off locations](/api/resources/pickup-dropoff-locations)
+  - [Pick-up/drop-off locations](/api/resources/carrier-pudo-locations)
   - [Regions](/api/resources/regions)
   - [Services](/api/resources/services)
   - [Service options](/api/resources/service-options)

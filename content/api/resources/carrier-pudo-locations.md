@@ -19,6 +19,7 @@ code          | Unique identifier used by the carrier.
 address       | [Address](/api/resources/addresses) object.
 opening_hours | List of objects containing the days and hours on which the location is accessible.
 position      | Object holding the latitude, longitude and distance from the given geographical location.
+categories    | The location can function as a `pick-up` or `drop-off` location, or both.
 
 Relationship | Description
 ------------ | -----------
