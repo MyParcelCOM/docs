@@ -26,3 +26,11 @@ $price = $calculator->calculate($shipment, $serviceRate);
 {{% notice warning %}}
 If the shipment contains service options that are not available in the specified service rate, the price calculator will throw a `MyParcelCom\ApiSdk\Exceptions\CalculationException`.
 {{% /notice %}}
+
+{{% notice warning %}}
+If the service rate of the shipment itself or the service rate in the second parameter has a price amount of `null` the price calculator will also return `null`.
+{{% /notice %}}
+
+{{% notice warning %}}
+If one of the options of the shipment has a price amount of `null` the price calculator will also return `null`, because in that case it can not calculate the correct total price.
+{{% /notice %}}
