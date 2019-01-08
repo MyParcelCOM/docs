@@ -28,9 +28,9 @@ If the shipment contains service options that are not available in the specified
 {{% /notice %}}
 
 {{% notice warning %}}
-If the serviceRate of the shipment itself or the serviceRate in the second parameter has a price amount of `null` the price calculator will also return `null`.
+If the service rate of the shipment itself or the service rate in the second parameter has a price amount of `null` the price calculator will also return `null`.
 {{% /notice %}}
 
 {{% notice warning %}}
-If one of the options of the shipment has a price amount of `null` the price calculator will also return `null` because we are not sure about the correct total price in that case.
+If one of the options of the shipment has a price amount of `null` the price calculator will also return `null`, because in that case it can not calculate the correct total price.
 {{% /notice %}}
