@@ -48,7 +48,7 @@ $authenticator = new MyParcelCom\ApiSdk\Authentication\ClientCredentials(
 );
 ```
 
-The example above uses the `php-http/curl-client` package, which is an implementation of the httplug.
+The example above uses the `php-http/curl-client` package, which is an implementation of the `php-http/httplug` package.
 
 ## Custom resource classes
 The SDK uses the `MyParcelCom\ApiSdk\Resources\ResourceFactory` to instantiate and hydrate all resource objects. If you want the SDK to instantiate your own classes and hydrate them, a `ResourceFactory` can be created and factory callables can be added to it to define how to instantiate a resource. Note that

@@ -10,7 +10,7 @@ $api = new \MyParcelCom\ApiSdk\MyParcelComApi(
     'https://sandbox-api.myparcel.com'
 );
 ```
- 
+
 ## Authentication
 
 Most interactions with the API will require authorization. A class for authentication using the `client_credentials` grant can be used to authenticate the user. A `client id` and `client secret` are needed to authenticate with the OAuth 2.0 server. A URL should be supplied to define the location of the OAuth2.0 server. This will also default to our sandbox URL and should be changed for production.
