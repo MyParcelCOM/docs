@@ -9,8 +9,8 @@ By default the SDK uses the filesystem to cache both resources and access tokens
 ```php
 $redis = new RedisCache();
 $api = new \MyParcelCom\ApiSdk\MyParcelComApi(
-    null,
     'https://sandbox-api.myparcel.com',
+    null,
     $redis
 );
 
@@ -23,7 +23,7 @@ $authenticator = new \MyParcelCom\ApiSdk\Authentication\ClientCredentials(
 ```
 
 ## Configuring a different http client
-By default The SDK will try to use any of the [supported HTTP clients](/php-sdk/connecting-with-the-api#http-clients), given that its required adapter package has been installed.
+By default The SDK will try to use any of the installed Http clients, given that the client is an [implementation of php-http/httplug](https://packagist.org/providers/php-http/client-implementation).
 To use a different HTTP client, either inject it through the constructor method, or use the `setHttpClient()` method. 
 
 ```php
@@ -33,9 +33,22 @@ $client = new Http\Client\Curl\Client();
 // Add the client to the authenticator and api.
 $authenticator->setHttpClient($client);
 $api->setHttpClient($client);
+
+// Or inject it through the constructor
+$api = new MyParcelCom\ApiSdk\MyParcelComApi(
+    'https://sandbox-api.myparcel.com',
+    $client
+);
+$authenticator = new MyParcelCom\ApiSdk\Authentication\ClientCredentials(
+    'your-client-id',
+    'your-client-secret',
+    'https://sandbox-auth.myparcel.com',
+    null,
+    $client
+);
 ```
 
-The example above uses the `php-http/curl-client` package, which implements the PSR-18 interface.
+The example above uses the `php-http/curl-client` package, which is an implementation of the httplug.
 
 ## Custom resource classes
 The SDK uses the `MyParcelCom\ApiSdk\Resources\ResourceFactory` to instantiate and hydrate all resource objects. If you want the SDK to instantiate your own classes and hydrate them, a `ResourceFactory` can be created and factory callables can be added to it to define how to instantiate a resource. Note that
