@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+if [ "$1" != "live" ] && [ "$1" != "staging" ]; then
+  echo "Unknown environment '$1' use live or staging"
+  exit
+fi
+
+if [ "$2" == "" ]; then
+  echo "Please supply a path to your ssh key as the second parameter."
+  exit
+fi
+SSH_KEY="$2"
+
+FILES="public"
+DOMAIN="docs.myparcel.com"
+if [ "$1" == "staging" ]; then
+  DOMAIN="staging-${DOMAIN}"
+fi
+
+echo ""
+echo "MP: Generating Hugo dist"
+${COMPOSE} run --rm hugo rm -rf public
+${COMPOSE} run --rm hugo hugo --baseURL "https://${DOMAIN}/"
+
+echo ""
+echo "MP: Bundling files"
+tar -cvzf export.tar.gz ${FILES}
+
+echo ""
+echo "MP: Uploading bundle to server"
+scp -C -i ${SSH_KEY} export.tar.gz ubuntu@${DOMAIN}:~/${DOMAIN}/
+
+# Check if scp was successful.
+SCP_CODE=$?
+if [ $SCP_CODE != 0 ]; then
+  echo "scp seems to have failed with code $SCP_CODE"
+  exit $SCP_CODE
+fi
+
+echo ""
+echo "MP: Trigger server side deploy script"
+ssh -i ${SSH_KEY} ubuntu@${DOMAIN} 'bash -s' < ${ROOT_DIR}/deployment/server_unpacking.sh
+
+# Check if ssh was successful.
+SSH_CODE=$?
+if [ $SSH_CODE != 0 ]; then
+  echo "ssh seems to have failed with code $SSH_CODE"
+  exit $SSH_CODE
+fi
+
+echo ""
+echo "MP: Cleaning up export bundle"
+rm ${ROOT_DIR}/export.tar.gz
+
+echo ""
+echo "MP: Done!"

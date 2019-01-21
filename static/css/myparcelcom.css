@@ -36,6 +36,15 @@ h6 {
   color: #040707;
 }
 
+.expand-label {
+  font-size: 1.4rem;
+}
+
+.expand-label .fa-chevron-right, .expand-label .fa-chevron-down {
+  position: relative;
+  top: -4px;
+}
+
 mark.highlight {
   background: #ffe128;
   color: #040707;

@@ -4,6 +4,7 @@ weight = 4
 +++
 
 The MyParcel.com API is used mainly for creating shipments and retrieving labels for the shipments. There are a couple of steps you will have to do for each shipment:
+
 - Create a shipment resource.
 - Wait for the status to transition from `shipment_concept` to `shipment_registered`.
 - Download the label.
@@ -12,13 +13,14 @@ The MyParcel.com API is used mainly for creating shipments and retrieving labels
 ## Creating the shipment
 To create a new shipment, you should create a new instance of a `MyParcelCom\ApiSdk\Resources\Shipment`, set the required properties on the shipment and have it sent to the MyParcel.com API by calling the method `MyParcelCom\ApiSdk\MyParcelComApi::createShipment()`.
 
-The minimal required properties to set on a shipment are a recipient address and a weight. There are however a lot more properties you can (and should) set on the shipment. These are the shop, sender address and service contract. Whenever these are not set, the SDK will automatically set them for you. The default shop will be chosen and that shop's return address will be used as a sender address. For the service contract, the cheapest one will be calculated and selected.
+The minimal required properties to set on a shipment are a recipient address and a weight. There are however a lot more properties you can (and should) set on the shipment. Some of these are the shop, sender address and service. Whenever these are not set, the SDK will automatically set them for you. The default shop will be chosen and that shop's return address will be used as a sender address. For the service, the cheapest one will be calculated and selected.
 
-This behavior is not a problem for when you only have one shop and don't mind what carrier you use. However, when you have more than one shop, have multiple locations you want to send from or want to select the service (and contract) to use, you should set (one or more of) these values.
+This behavior is not a problem for when you only have one shop and don't mind what carrier you use. However, when you have more than one shop, have multiple locations you want to send from or want to select the service to use, you should set (one or more of) these values.
 
 ```php
 use MyParcelCom\ApiSdk\Resources\Address;
 use MyParcelCom\ApiSdk\Resources\Shipment;
+use MyParcelCom\ApiSdk\Resources\Interfaces\PhysicalPropertiesInterface;
 
 // Define the sender address.
 $sender = new Address();
@@ -50,25 +52,22 @@ $shops = $api->getShops();
 // Select one of the shops to use.
 $myShop = ...
 
-
-// Get the available services from the API.
-$services = $api->getServices();
-
-// From the services select the service and the contract.
-// (use the `PriceCalculator` if you want to base your choice on the price)
-$myServiceContract = ...
-
-
-// Define the weight.
+// Prepare your shipment.
 $shipment = new Shipment();
 $shipment
     ->setSenderAddress($sender)
     ->setRecipientAddress($recipient)
-    ->setShop($myShopp)
-    ->setServiceContract($myServiceContract)
-    ->setWeight(500, Shipment::WEIGHT_GRAM);
+    ->setShop($myShop)
+    ->setWeight(500, PhysicalPropertiesInterface::WEIGHT_GRAM);
 
-// Create the shipment
+// Get the available services for this shipment from the API.
+$services = $api->getServices($shipment);
+
+// Choose a service and set it on the shipment. 
+// You can use the price calculator if you want to base your choice on the price.
+$shipment->setService($service);
+
+// Create the shipment.
 $createdShipment = $api->createShipment($shipment);
 ```
 
