@@ -23,6 +23,27 @@ A hook listens to certain [triggers](/api/resources/hooks/trigger) and performs 
 |---------------|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------|
 | Owner         | brokers <br> OR <br> [organizations](/api/resources/organizations) <br> OR <br> [shops](/api/resources/shops) | The owner (generally the creator) of the hook.    | ✓          |
 
+### Hook ordering
+Multiple hooks can be triggered by the same resource action. This means that the hooks will take turns resolving.  
+The order of the hooks is determined by two things: the owner of the hook and the `order` attribute of the hook.
+
+#### The owner of the hook
+Hooks follow hierarchy in the API. This means that if the owner of a hook is of type `organizations`, 
+all (child) shops that relate to that organization will automatically have the hook applied as well.  
+As mentioned before, the order in which the hooks are executed is influenced by the owner of the hook, 
+prioritizing lower ranked owners first.
+This means that first all hooks created by a shop will be executed, then all hooks created by the shop's parent organization and then the hooks belonging to the organization's parent broker will execute.
+
+#### The order attribute
+The order in which hooks with the **same** owner are executed is influenced by the `order` attribute of the hook. 
+Hooks with a lower `order` are executed earlier. 
+
+{{% notice warning %}}
+If two hooks have the same owner and the same value for `order`, they will be executed in effectively random order!
+{{% /notice %}}
+
+
+
 ## Endpoints
 
 {{%expand "GET /hooks" %}}
