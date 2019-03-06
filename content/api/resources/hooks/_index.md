@@ -4,7 +4,8 @@ description = "Hooks are there to automate processes on the API."
 weight = 6
 +++
 
-Hooks define the automation rules that will be applied on the resources if their conditions are met.
+Hooks are used to automate processes in the API.  
+A hook listens to certain [triggers](/api/resources/hooks/trigger) and performs its associated [action](/api/resources/hooks/action).  
 
 ## Attributes
 
