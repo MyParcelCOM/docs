@@ -355,4 +355,3 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
 ```
 
 {{% /expand %}}
-
