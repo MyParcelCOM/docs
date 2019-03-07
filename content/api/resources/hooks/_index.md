@@ -5,11 +5,11 @@ weight = 6
 +++
 
 Hooks are used to automate processes in the API.  
-A hook listens to certain [triggers](/api/resources/hooks/trigger) and performs its associated [action](/api/resources/hooks/action).  
+A hook listens to certain [triggers](/api/resources/hooks/trigger) and executes its associated [action](/api/resources/hooks/action).  
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](/api-specification#/Hooks)
+{{< icon fa-file-text-o >}}[API specification](/api-specification#Hooks)
 
 | Attribute     | Type                                                                  | Description                                                                                                               | Required  |
 |---------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|
@@ -24,7 +24,7 @@ A hook listens to certain [triggers](/api/resources/hooks/trigger) and performs 
 | Owner         | brokers <br> OR <br> [organizations](/api/resources/organizations) <br> OR <br> [shops](/api/resources/shops) | The owner (generally the creator) of the hook.    | ✓          |
 
 ### Hook ordering
-Multiple hooks can be triggered by the same resource action. This means that the hooks will take turns resolving.  
+Multiple hooks can be triggered by the same resource action. This means that the hooks will take turns executing.  
 The order of the hooks is determined by two things: the owner of the hook and the `order` attribute of the hook.
 
 #### The owner of the hook
@@ -38,10 +38,17 @@ This means that first all hooks created by a shop will be executed, then all hoo
 The order in which hooks with the **same** owner are executed is influenced by the `order` attribute of the hook. 
 Hooks with a lower `order` are executed earlier. 
 
-{{% notice warning %}}
-If two hooks have the same owner and the same value for `order`, they will be executed in effectively random order!
+{{% notice tip %}}
+To avoid having to adjust the order of all other hooks when creating a new hook that should be executed before existing ones, the value of the `order` attribute should be multiplications of 100.
+This makes it easier to "insert" a new hook between/before existing ones.
 {{% /notice %}}
 
+{{% notice warning %}}
+If two hooks have the same `owner` and the same value for `order`, they will be executed in effectively random order!
+{{% /notice %}}
+
+The diagram below shows the order in which hooks are executed in a more visual manner.
+{{< figure src="/images/hooks-order.png" title="The order in which hooks are executed" alt="Hooks ordering" >}}
 
 
 ## Endpoints
@@ -72,7 +79,7 @@ Example: https://sandbox-api.myparcel.com/hooks
       "id": "be7f6752-34e0-49a1-a832-bcc209450ea9",
       "attributes": {
         "name": "DPD Next Day for medium packages",
-        "order": 3,
+        "order": 300,
         "active": true,
         "trigger": {
           "resource_type": "shipments",
@@ -148,7 +155,7 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
     "id": "be7f6752-34e0-49a1-a832-bcc209450ea9",
     "attributes": {
       "name": "DPD Next Day for medium packages",
-      "order": 3,
+      "order": 300,
       "active": true,
       "trigger": {
         "resource_type": "shipments",
@@ -212,7 +219,7 @@ Example: https://sandbox-api.myparcel.com/hooks
     "type": "hooks",
     "attributes": {
       "name": "DPD Next Day for medium packages",
-      "order": 3,
+      "order": 300,
       "active": true,
       "trigger": {
         "resource_type": "shipments",
@@ -256,7 +263,7 @@ Example: https://sandbox-api.myparcel.com/hooks
     "id": "be7f6752-34e0-49a1-a832-bcc209450ea9",
     "attributes": {
       "name": "DPD Next Day for medium packages",
-      "order": 3,
+      "order": 300,
       "active": true,
       "trigger": {
         "resource_type": "shipments",
@@ -322,7 +329,7 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
     "type": "hooks",
     "id": "be7f6752-34e0-49a1-a832-bcc209450ea9",
     "attributes": {
-      "order": 1
+      "order": 100
     }
   }
 }
@@ -337,7 +344,7 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
     "id": "be7f6752-34e0-49a1-a832-bcc209450ea9",
     "attributes": {
       "name": "DPD Next Day for medium packages",
-      "order": 1,
+      "order": 100,
       "active": true,
       "trigger": {
         "resource_type": "shipments",

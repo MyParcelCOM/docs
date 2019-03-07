@@ -13,5 +13,5 @@ A hook action specifies what should happen when a hook is triggered.
 | values       | array of [value](#value) objects  |  |           |
 
 {{% notice info %}}
-At this time, only hooks that are triggered by the **shipments** resource_type are supported.
+At this time, only hooks that are triggered by the `shipments` `resource_type` are supported.
 {{% /notice %}}

@@ -15,7 +15,7 @@ It determines what resource and action should trigger the hook.
 | predicates        | array of [predicate](#predicate) objects                 | Used to more specifically trigger hooks based on the target resource. |           |
 
 {{% notice info %}}
-At this time, only hooks that are triggered by the **shipments** resource_type will actually be executed!
+At this time, only hooks that are triggered by the `shipments` `resource_type` are supported.
 {{% /notice %}}
 
 ### Predicate
