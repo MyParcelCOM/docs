@@ -98,6 +98,10 @@ Example: https://sandbox-api.myparcel.com/hooks
             {
               "pointer": "/relationships/service/data/id",
               "value": "8321796d-5205-4e13-963f-61bf7db34390"
+            },
+            {
+              "pointer": "/relationships/service/data/type",
+              "value": "services"
             }
           ]
         }
@@ -174,6 +178,10 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
           {
             "pointer": "/relationships/service/data/id",
             "value": "8321796d-5205-4e13-963f-61bf7db34390"
+          },
+          {
+            "pointer": "/relationships/service/data/type",
+            "value": "services"
           }
         ]
       }
@@ -238,6 +246,10 @@ Example: https://sandbox-api.myparcel.com/hooks
           {
             "pointer": "/relationships/service/data/id",
             "value": "8321796d-5205-4e13-963f-61bf7db34390"
+          },
+          {
+            "pointer": "/relationships/service/data/type",
+            "value": "services"
           }
         ]
       }
@@ -282,6 +294,10 @@ Example: https://sandbox-api.myparcel.com/hooks
           {
             "pointer": "/relationships/service/data/id",
             "value": "8321796d-5205-4e13-963f-61bf7db34390"
+          },
+          {
+            "pointer": "/relationships/service/data/type",
+            "value": "services"
           }
         ]
       }
@@ -363,6 +379,10 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
           {
             "pointer": "/relationships/service/data/id",
             "value": "8321796d-5205-4e13-963f-61bf7db34390"
+          },
+          {
+            "pointer": "/relationships/service/data/type",
+            "value": "services"
           }
         ]
       }
