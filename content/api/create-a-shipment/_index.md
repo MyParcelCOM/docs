@@ -23,18 +23,18 @@ return_address      | [Address](/api/resources/common-objects/addresses) object 
 physical_properties | [Physical properties](/api/resources/shipments#physical-properties) object containing information about the dimensions and weight of the shipment.
 
 {{% notice note %}}
-Depending on the carrier, more information may be required. 
+Depending on the carrier, additional information may be required. 
 For more information, see our page about **[carrier specific requirements](/api/carrier-specific-requirements)**.
 {{% /notice %}}
 
 ### Relationships
-The following relationships should always be included in a shipment request:
+The following relationships are required before a shipment can be registered with a carrier:
 
 Relationship        | Description
 ------------------- | ------------------
 shop                | A [shop](/api/resources/shops) relationship object containing the uuid of the shop for which this shipment should be created.
 service             | A [service](/api/resources/services) relationship object containing the uuid of the desired service.
-contract             | A [contract](/api/resources/contracts) relationship object containing the uuid of the desired contract.
+contract            | A [contract](/api/resources/contracts) relationship object containing the uuid of the desired contract.
 
 Additionally you could add a `service_options` relationship if you would like to add service options to the shipment. For more information, see the [service options resource page](/api/resources/service-options).
 
