@@ -70,7 +70,7 @@ $api->getRegions([
     'region_code'  => 'SCH'
 ]);
 
-// Get the region for given postal code
+// Get the region for a specific postal code
 $api->getRegions([
     'country_code' => 'GB', 
     'postal_code'  => 'NW1 6XE'
