@@ -64,7 +64,7 @@ $api->getRegions([
     'country_code' => 'GB'
 ]);
 
-// Get the region for Scotland.
+// Get the region for the Scottish Highlands.
 $api->getRegions([
     'country_code' => 'GB', 
     'region_code'  => 'SCH'
