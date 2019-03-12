@@ -127,13 +127,13 @@ which will create a [hooks resource](/api/resources/hooks) in the MyParcel.com A
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/attributes/recipient_address/country_code",
+            "operator": "==",
             "value": "GB"
           },
           {
-            "operator": "==",
             "pointer": "/attributes/recipient_address/region_code",
+            "operator": "==",
             "value": "ENG"
           }
         ]
@@ -193,13 +193,13 @@ This hooks resource will only set the service of a shipment to England, but not 
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/attributes/recipient_address/country_code",
+            "operator": "==",
             "value": "GB"
           },
           {
-            "operator": "==",
             "pointer": "/attributes/recipient_address/region_code",
+            "operator": "==",
             "value": "ENG"
           }
         ]
@@ -247,8 +247,8 @@ This contract will now be set for **all** shipments that are created with servic
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/relationships/service/data/id",
+            "operator": "==",
             "value": "ea7bf0c0-2eb5-4348-b90d-2fabd03c424c"
           }
         ]
