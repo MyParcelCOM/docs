@@ -29,14 +29,14 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | updated_at          | integer                                                              | Unix timestamp for when the shipment resource was last updated.                                                              |                                                          |
 | synced_at           | integer                                                              | Unix timestamp for when the shipment status was last checked with the carrier.                                               |                                                          |
 
-| Relationship    | Type                                                        | Description                                                                             | Required |
-|-----------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------|----------|
-| shop            | [shops](/api/resources/shops/)                              | The shop the shipment belongs to.                                                       | ✓        |
-| service         | [services](/api/resources/services/)                        | The service used to send the shipment.                                                  | ✓        |
-| contract        | [contracts](/api/resources/contracts/)                      | The contract to use for the chosen service.                                             | ✓        |
-| service_options | array of [service-options](/api/resources/service-options/) | The service options chosen for the shipment.                                            |          |
-| shipment_status | [shipment-statuses](/api/resources/shipment-statuses/)      | The current shipment status for the shipment.                                           |          |
-| files           | array of [files](/api/resources/files/)                     | The files available for the shipment. Such as the label and possible customs documents. |          |
+| Relationship    | Type                                                        | Description                                                                             | Required                                            |
+|-----------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------|
+| shop            | [shops](/api/resources/shops/)                              | The shop the shipment belongs to.                                                       | ✓                                                   |
+| service         | [services](/api/resources/services/)                        | The service used to send the shipment.                                                  | Required for registration with the carrier       |
+| contract        | [contracts](/api/resources/contracts/)                      | The contract to use for the chosen service.                                             | Required for registration with the carrier       |
+| service_options | array of [service-options](/api/resources/service-options/) | The service options chosen for the shipment.                                            |                                                     |
+| shipment_status | [shipment-statuses](/api/resources/shipment-statuses/)      | The current shipment status for the shipment.                                           |                                                     |
+| files           | array of [files](/api/resources/files/)                     | The files available for the shipment. Such as the label and possible customs documents. |                                                     |
 
 ## Endpoints
 
