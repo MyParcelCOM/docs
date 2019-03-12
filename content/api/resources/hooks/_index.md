@@ -19,20 +19,25 @@ A hook listens to certain [triggers](/api/resources/hooks/trigger) and executes 
 | trigger       | [hook trigger](/api/resources/hooks/trigger)                          | Specification of what resource (and action) the hook listens to and additional optional predicates.                       | ✓         |
 | action        | [hook action](/api/resources/hooks/action)                            | Specification of what should be performed when the hook gets executed.                                                    | ✓         |
 
-| Relationship  | Type                                                                                                          | Description                                                                                                       | Required   |
-|---------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------|
-| owner         | brokers <br> OR <br> [organizations](/api/resources/organizations) <br> OR <br> [shops](/api/resources/shops) | The owner (generally the creator) of the hook. The owner influences when a hook is triggered and its priority.    | ✓          |
+| Relationship  | Type                                                                                      | Description                                                                                                               | Required   |
+|---------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------|
+| owner         | [organizations](/api/resources/organizations) <br> OR <br> [shops](/api/resources/shops)  | The owner (generally the creator) of the hook. The owner influences when a hook is triggered and its priority.    | ✓          |
 
 ### Hook ordering
-Multiple hooks can be triggered by the same resource action. This means that the hooks will take turns executing.  
+Multiple hooks can be triggered by the same resource action. This means that the hooks will take turns executing.
 The order of the hooks is determined by two things: the owner of the hook and the `order` attribute of the hook.
+
+{{% notice warning %}}
+A hook will not overwrite any values. If multiple hooks set the same resource property using the [update-resource action](/api/resources/hooks/action/#update-resource), 
+the first hook to execute will set the value. All subsequent hooks will not overwrite the same property.
+{{% /notice %}}
 
 #### The owner of the hook
 Hooks follow hierarchy in the API. This means that if the owner of a hook is of type `organizations`, 
-all (child) shops that relate to that organization will automatically have the hook applied as well.  
+all (child) shops that relate to that organization will automatically have the hook applied as well.
 As mentioned before, the order in which the hooks are executed is influenced by the owner of the hook, 
 prioritizing lower ranked owners first.
-This means that first all hooks created by a shop will be executed, then all hooks created by the shop's parent organization and then the hooks belonging to the organization's parent broker will execute.
+This means that first all hooks created by a shop will be executed and then all hooks created by the shop's parent organization will execute.
 
 #### The order attribute
 The order in which hooks with the **same** owner are executed is influenced by the `order` attribute of the hook. 
@@ -50,9 +55,7 @@ If two hooks have the same `owner` and the same value for `order`, they will be 
 The diagram below shows the order in which hooks are executed in a more visual manner.
 {{< figure src="/images/hooks-order.png" title="The order in which hooks are executed" alt="Hooks ordering" >}}
 
-
 ## Endpoints
-
 {{%expand "GET /hooks" %}}
 
 Retrieving a list of hooks.

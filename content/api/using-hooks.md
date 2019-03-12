@@ -101,12 +101,11 @@ For more information about hook actions, see the resource page on [hook actions]
 
 ### Hook ownership
 In order for a hook to trigger on a shipment creation, the shop creating the shipment should have access to it.
-Because hooks follow hierarchy, the hook in this example should be owned by either the shop creating the shipment or its parent organization or broker.
+Because hooks follow hierarchy, the hook in this example should be owned by either the shop creating the shipment or its parent organization.
 In this case the shop creating the shipment is the owner of the hook. The uuid `1bb3e441-8a70-4be8-b910-1315460859f2` is used as shop id.
 
 {{% notice note %}}
-A `shops` type resource has a parent resource of type `organizations`. An `organizations` type resource has a parent resource of type `brokers`. 
-This means that if a hook is owned by a broker, all organizations and shops will automatically use that hook. 
+A `shops` type resource has a parent resource of type `organizations`. This means that if a hook is owned by an organization, all shops will automatically use that hook. 
 {{% /notice %}}
 
 ### Creating the hooks resource
