@@ -176,9 +176,10 @@ The code block above shows what the request body for a hook that sets a service 
 
 ## Chaining hooks and ordering
 Multiple hooks can be triggered by the same resource action. 
-Using the example from before, it would be possible to use two hooks. 
-One for setting the service relationship if the destination is England, and another one to set the contract if that specific service is used.
+Using the example from before, it would be possible to use two hooks: 
 
+{{% expand "A hook for setting the service relationship if the destination is England" %}}
+This hook resource will only set the service of a shipment to England, but not the contract.
 ```json
 {
   "data": {
@@ -228,9 +229,11 @@ One for setting the service relationship if the destination is England, and anot
   }
 }
 ```
-
-The above hook resource will only set the service of a shipment to England, but not the contract.
-
+{{% /expand %}}
+ 
+{{% expand "A hook to set the desired contract when a shipment is created with the mentioned service" %}}
+This hook will trigger when a shipment is created with service id `ea7bf0c0-2eb5-4348-b90d-2fabd03c424c` and set the contract relationship accordingly. 
+This contract will now be set for **all** shipments that are created with service id `ea7bf0c0-2eb5-4348-b90d-2fabd03c424c`, but have no contract.
 ```json
 {
   "data": {
@@ -275,9 +278,7 @@ The above hook resource will only set the service of a shipment to England, but 
   }
 }
 ```
-
-The hook above will trigger when a shipment is created with service id `ea7bf0c0-2eb5-4348-b90d-2fabd03c424c` and set the contract relationship accordingly. 
-This contract will now be set for **all** shipments that are created with service id `ea7bf0c0-2eb5-4348-b90d-2fabd03c424c`, but without a contract.
+{{% /expand %}}
 
 In order for the second hook (to set the contract relationship) to trigger, the first hook needs to be executed first. 
 The `order` attribute of the hooks resource determines the priority of a hook when multiple hooks apply. 
