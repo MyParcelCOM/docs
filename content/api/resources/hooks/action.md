@@ -13,7 +13,7 @@ A hook action specifies what should happen when a hook is executed.
 | values       | array of objects               | An array of objects containing specific data depending on the `action_type`.  | ✓        |
 
 {{% notice info %}}
-Different `action_types` require differently formatted objects as `values`.  
+Different `action_types` might require differently formatted objects as `values` in the future when more `action_types` are supported.  
 {{% /notice %}}
 
 ### Update resource
@@ -21,10 +21,10 @@ At this time, the only supported `action_type` is `update-resource`.
 This action type is used to update the resource that triggered the hook with the specified `values`. 
 The format for a value object for `action_type` `update-resource` is shown in the table below.
 
-| Attribute | Type                                              | Description                                                                                   | Required  |
-| --------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------- |
-| pointer   | string                                            | JSON pointer formatted string pointing to the resource property that should be assigned.      | ✓         | 
-| value     | string, integer, float, boolean, array or object  | The new value that the resource property, resolved by the `pointer` attribute, should get.    | ✓         |
+| Attribute | Type                                              | Description                                                                                                                       | Required  |
+| --------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| pointer   | string                                            | [JSON pointer](https://tools.ietf.org/html/rfc6901) formatted string pointing to the resource property that should be assigned.   | ✓         | 
+| value     | string, integer, float, boolean, array or object  | The new value that the resource property, resolved by the `pointer` attribute, should get.                                        | ✓         |
 
 {{% notice warning %}}
 Using a hook to update a resource will not overwrite already set resource properties!

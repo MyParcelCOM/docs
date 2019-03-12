@@ -13,15 +13,15 @@ A hook listens to certain [triggers](/api/resources/hooks/trigger) and executes 
 
 | Attribute     | Type                                                                  | Description                                                                                                               | Required  |
 |---------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|
-| Name          | string                                                                | A name for users to recognize the hook by.                                                                                | ✓         |
-| Order         | integer                                                               | Position of the hook in the queue of hooks when multiple hooks apply (lower order indicates it will be executed earlier). | ✓         |
-| Active        | boolean                                                               | Whether or not the hook should executed.                                                                                  | ✓         |
-| Trigger       | [hook trigger](/api/resources/hooks/trigger)                          | Specification of what resource (and action) the hook listens to and additional optional predicates.                       | ✓         |
-| Action        | [hook action](/api/resources/hooks/action)                            | Specification of what should be performed when the hook gets executed.                                                    | ✓         |
+| name          | string                                                                | A name for users to recognize the hook by.                                                                                | ✓         |
+| order         | integer                                                               | Position of the hook in the queue of hooks when multiple hooks apply (lower order indicates it will be executed earlier). | ✓         |
+| active        | boolean                                                               | Whether or not the hook should executed.                                                                                  | ✓         |
+| trigger       | [hook trigger](/api/resources/hooks/trigger)                          | Specification of what resource (and action) the hook listens to and additional optional predicates.                       | ✓         |
+| action        | [hook action](/api/resources/hooks/action)                            | Specification of what should be performed when the hook gets executed.                                                    | ✓         |
 
-| Relationship  | Type                                                                                                          | Description                                       | Required   |
-|---------------|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------|
-| Owner         | brokers <br> OR <br> [organizations](/api/resources/organizations) <br> OR <br> [shops](/api/resources/shops) | The owner (generally the creator) of the hook.    | ✓          |
+| Relationship  | Type                                                                                                          | Description                                                                                                       | Required   |
+|---------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------|
+| owner         | brokers <br> OR <br> [organizations](/api/resources/organizations) <br> OR <br> [shops](/api/resources/shops) | The owner (generally the creator) of the hook. The owner influences when a hook is triggered and its priority.    | ✓          |
 
 ### Hook ordering
 Multiple hooks can be triggered by the same resource action. This means that the hooks will take turns executing.  
@@ -86,8 +86,8 @@ Example: https://sandbox-api.myparcel.com/hooks
           "resource_action": "create",
           "predicates": [
             {
-              "operator": "==",
               "pointer": "/attributes/physical_properties/weight",
+              "operator": "==",
               "value": 1000
             }
           ]
@@ -166,8 +166,8 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/attributes/physical_properties/weight",
+            "operator": "==",
             "value": 1000
           }
         ]
@@ -234,8 +234,8 @@ Example: https://sandbox-api.myparcel.com/hooks
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/attributes/physical_properties/weight",
+            "operator": "==",
             "value": 1000
           }
         ]
@@ -282,8 +282,8 @@ Example: https://sandbox-api.myparcel.com/hooks
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/attributes/physical_properties/weight",
+            "operator": "==",
             "value": 1000
           }
         ]
@@ -367,8 +367,8 @@ Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc20945
         "resource_action": "create",
         "predicates": [
           {
-            "operator": "==",
             "pointer": "/attributes/physical_properties/weight",
+            "operator": "==",
             "value": 1000
           }
         ]

@@ -28,7 +28,9 @@ For more information, see our page about **[carrier specific requirements](/api/
 {{% /notice %}}
 
 ### Relationships
-The following relationships are required before a shipment can be registered with a carrier:
+The shop relationship is always required in any shipment creation request. 
+The service and contract relationships are required for registering the shipment with the carrier, 
+but do not necessarily have to be set in the initial shipment creation request.
 
 Relationship        | Description
 ------------------- | ------------------

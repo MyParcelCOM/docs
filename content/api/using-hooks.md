@@ -7,12 +7,12 @@ weight = 5
 Hooks are used to automate processes on the API. They decrease the amount of manual actions a user performs.  
   
 An example use case for hooks would be to automatically set a service and contract on a shipment when it is created.
-This use case could be interesting for an England based business that ships most of its products to England (and therefore always using the same service).
-A hook could be created to automatically set the desired service and contract on all shipments to England, 
-which eliminates a big part of the shipment creation process.
+This use case could be interesting for an England based business that ships most of its products to England (and therefore always uses the same service).
+A hook could be created to automatically set the desired service and contract when a shipment to England is created, 
+thus eliminating a big part of the shipment creation process.
 
 ## Building a hook
-Creating a [hook](/api/resources/hooks) resource can be complicated, but can be split up by asking two questions:
+Creating a [hooks](/api/resources/hooks) resource can be complicated, but can be split up by asking two questions:
 
 - When should the hook be executed ([triggers](#triggers))?
 - What should happen when the hook is executed ([actions](#actions))?
@@ -48,7 +48,7 @@ For more information about triggers, see the resource page on [hook triggers](/a
 {{% /notice %}}
 
 ### Actions
-Looking at the example above, the actions for this hook would be to set a service and contract on the shipment resource when it is created.
+Looking at the example above, the actions for this hook would be to set a service and contract on the shipments resource when it is created.
 First, the uuid of the chosen service needs to be retrieved. In this case, an imaginary uuid will be used to represent the chosen service: `ea7bf0c0-2eb5-4348-b90d-2fabd03c424c`.
 
 Secondly, a contract should be retrieved to set on the shipment that contains prices for the chosen service. 
@@ -85,7 +85,7 @@ A hook action for the example used above would have to set the service and contr
 ```
 
 The `action_type` property indicates what kind of action the hook would perform when it is triggered.
-In this case it should update a shipment resource with the service and contract relation ships.
+In this case it should update a shipments resource with the service and contract relationships.
 The `values` property can contain multiple values that the hook needs to set.
 In this case, the `pointer` properties of each value object resolve to the service and contract's relationships objects.
 The `value` properties contain what value should be set on the resource property indicated by the `pointer`. 
@@ -109,10 +109,10 @@ A `shops` type resource has a parent resource of type `organizations`. An `organ
 This means that if a hook is owned by a broker, all organizations and shops will automatically use that hook. 
 {{% /notice %}}
 
-### Creating the hook resource
+### Creating the hooks resource
 After establishing when a hook should trigger and what it should do, the hook can be created.
 A hook is created by calling the POST [/hooks endpoint](/api/resources/hooks/#endpoints), 
-which will create a [hook resource](/api/resources/hooks) in the MyParcel.com API.
+which will create a [hooks resource](/api/resources/hooks) in the MyParcel.com API.
 
 ```json
 {
@@ -179,7 +179,7 @@ Multiple hooks can be triggered by the same resource action.
 Using the example from before, it would be possible to use two hooks: 
 
 {{% expand "A hook for setting the service relationship if the destination is England" %}}
-This hook resource will only set the service of a shipment to England, but not the contract.
+This hooks resource will only set the service of a shipment to England, but not the contract.
 ```json
 {
   "data": {

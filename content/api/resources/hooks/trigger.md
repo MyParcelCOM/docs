@@ -23,11 +23,11 @@ A predicate is a statement that contains variables and resolves to be either `tr
 To resolve a predicate, an `operator`, a `pointer` and a `value` are required.
 If all predicates resolve to `true` the [hook action](/api/resources/hooks/action) will be executed.
 
-| Attribute | Type                                                              | Description                                                                                                                               | Required  |
-| --------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| operator  | string enum: `==` <br> `!=` <br> `>` <br> `<` <br> `>=` <br> `<=` | Mathematical operator used to compare two values.                                                                                         | ✓         |
-| pointer   | string                                                            | JSON pointer formatted string pointing to the resource property that should be compared with the `value` attribute using the `operator`.  | ✓         |
-| value     | string, float or integer                                          | The value to compare the resource property indicated by the `pointer` attribute to.                                                       | ✓         |
+| Attribute | Type                                                              | Description                                                                                                                                                                       | Required  |
+| --------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| pointer   | string                                                            | [JSON pointer](https://tools.ietf.org/html/rfc6901) formatted string pointing to the resource property that should be compared with the `value` attribute using the `operator`.   | ✓         |
+| operator  | string enum: `==` <br> `!=` <br> `>` <br> `<` <br> `>=` <br> `<=` | Comparison operator used to compare two values.                                                                                                                                   | ✓         |
+| value     | string, float or integer                                          | The value to compare the resource property indicated by the `pointer` attribute to.                                                                                               | ✓         |
 
 ## Examples
 The trigger listed below, will cause a hook to activate whenever any shipment is updated.
@@ -55,7 +55,7 @@ The following trigger contains predicates and will cause its associated hook to 
 }
 ```
 
-A trigger can has many predicates as the user might find necessary.  
+A trigger can have as many predicates as the user might find necessary.  
 The below trigger will cause a hook to trigger when a shipment is created that weighs less than 5 kg and is sent to anywhere in Spain but Madrid.
 
 ```json
