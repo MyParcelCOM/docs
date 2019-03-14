@@ -12,6 +12,8 @@ To make sure the correct address is being used for a shipment, the `suggest-addr
 
 The attributes that are required for an address suggestion differ per country. The endpoint will respond with a `422 Unprocessable Entity` when not all required attributes are supplied for the country and will list all required attributes.
 
+**Scope:** `addresses.suggest`
+
 | Attribute              | Type   | Required |
 |------------------------|--------|----------|
 | `country_code`         | string | ✓        |
