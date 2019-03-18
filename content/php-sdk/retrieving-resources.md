@@ -60,10 +60,21 @@ The API supports sending parcels from one country/state/province to another. The
 $api->getRegions();
 
 // Get all the regions in the United Kingdom.
-$api->getRegions('GB');
+$api->getRegions([
+    'country_code' => 'GB'
+]);
 
-// Get the region for Scotland.
-$api->getRegions('GB', 'SCH');
+// Get the region for the Scottish Highlands.
+$api->getRegions([
+    'country_code' => 'GB', 
+    'region_code'  => 'SCH'
+]);
+
+// Get the region for a specific postal code
+$api->getRegions([
+    'country_code' => 'GB', 
+    'postal_code'  => 'NW1 6XE'
+]);
 ```
 
 ### Services

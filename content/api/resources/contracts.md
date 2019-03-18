@@ -32,6 +32,7 @@ Retrieving a list of contracts.
 
 Any of the following scopes:
 
+- `shipments.manage`
 - `organizations.manage`
 
 **Request**
@@ -258,7 +259,7 @@ Example: https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e
 ```json
 {
   "data": {
-    "type": "shops",
+    "type": "contracts",
     "id": "2cb32706-5762-4b96-9212-327e6afaeeff",
     "attributes": {
       "status": "inactive"
