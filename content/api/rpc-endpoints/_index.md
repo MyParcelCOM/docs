@@ -8,7 +8,7 @@ The MyParcel.com API consists mostly of RESTful endpoints that work with resourc
 
 ## RPC structure
 
-RESTful endpoints consists solely of nouns. But RPC endpoints take the following form:
+While RESTful endpoints consist solely of nouns, RPC endpoints take the following form:
 
 ```
 verb-noun
