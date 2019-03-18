@@ -64,3 +64,5 @@ The API will try to suggest all possible matches using the data provided.
   ]
 }
 ```
+
+When no address can be found to suggest, the data array will be empty.
