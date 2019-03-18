@@ -18,7 +18,7 @@ The attributes that are required for an address suggestion differ per country. T
 |------------------------|--------|----------|
 | `country_code`         | string | ✓        |
 | `postal_code`          | string |          |
-| `street_number`        | string |          |
+| `street_number`        | integer |          |
 | `street_number_suffix` | string |          |
 
 ```http
@@ -31,7 +31,7 @@ Example: https://sandbox-api.myparcel.com/suggest-address
   "data": {
     "country_code": "NL",
     "postal_code": "2131 BC",
-    "street_number": "679",
+    "street_number": 679,
     "street_number_suffix": "A1"
   }
 }
@@ -45,7 +45,7 @@ The API will try to suggest all possible matches using the data provided.
 |------------------------|--------|----------|
 | `country_code`         | string | ✓        |
 | `postal_code`          | string |          |
-| `street_number`        | string |          |
+| `street_number`        | integer |          |
 | `street_number_suffix` | string |          |
 | `city`                 | string |          |
 | `street_name`          | string |          |
@@ -56,7 +56,7 @@ The API will try to suggest all possible matches using the data provided.
     {
       "country_code": "NL",
       "postal_code": "2131 BC",
-      "street_number": "679",
+      "street_number": 679,
       "city": "Hoofddorp",
       "street_name": "Hoofdweg",
       "street_number_suffix": "A1"
