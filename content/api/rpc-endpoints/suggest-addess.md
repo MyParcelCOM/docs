@@ -14,12 +14,11 @@ The attributes that are required for an address suggestion differ per country. T
 
 **Required Scope:** `addresses.suggest`
 
-| Attribute              | Type   | Required |
-|------------------------|--------|----------|
-| `country_code`         | string | ✓        |
-| `postal_code`          | string |          |
+| Attribute              | Type    | Required |
+|------------------------|---------|----------|
+| `country_code`         | string  | ✓        |
+| `postal_code`          | string  |          |
 | `street_number`        | integer |          |
-| `street_number_suffix` | string |          |
 
 ```http
 POST /suggest-address HTTP/1.1
@@ -31,8 +30,7 @@ Example: https://sandbox-api.myparcel.com/suggest-address
   "data": {
     "country_code": "NL",
     "postal_code": "2131 BC",
-    "street_number": 679,
-    "street_number_suffix": "A1"
+    "street_number": 679
   }
 }
 ```
@@ -41,14 +39,15 @@ Example: https://sandbox-api.myparcel.com/suggest-address
 
 The API will try to suggest all possible matches using the data provided.
 
-| Attribute              | Type   | Required |
-|------------------------|--------|----------|
-| `country_code`         | string | ✓        |
-| `postal_code`          | string |          |
+| Attribute              | Type    | Required |
+|------------------------|---------|----------|
+| `country_code`         | string  | ✓        |
+| `postal_code`          | string  |          |
 | `street_number`        | integer |          |
-| `street_number_suffix` | string |          |
-| `city`                 | string |          |
-| `street_name`          | string |          |
+| `street_number_suffix` | string  |          |
+| `city`                 | string  |          |
+| `street_1`             | string  |          |
+| `street_2`             | string  |          |
 
 ```json
 {
@@ -57,9 +56,10 @@ The API will try to suggest all possible matches using the data provided.
       "country_code": "NL",
       "postal_code": "2131 BC",
       "street_number": 679,
+      "street_number_suffix": "A1",
       "city": "Hoofddorp",
-      "street_name": "Hoofdweg",
-      "street_number_suffix": "A1"
+      "street_1": "Hoofdweg",
+      "street_2": "Haarlemmermeer"
     }
   ]
 }
