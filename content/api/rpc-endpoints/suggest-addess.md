@@ -17,8 +17,8 @@ The attributes that are required for an address suggestion differ per country. T
 | Attribute              | Type    | Required |
 |------------------------|---------|----------|
 | `country_code`         | string  | ✓        |
-| `postal_code`          | string  |          |
-| `street_number`        | integer |          |
+| `postal_code`          | string  | ✓        |
+| `street_number`        | integer | ✓        |
 
 ```http
 POST /suggest-address HTTP/1.1
