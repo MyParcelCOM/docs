@@ -8,6 +8,10 @@ weight = 7
 
 To make sure the correct address is being used for a shipment, the `suggest-address` endpoint allows you to verify and possibly suggest the address of a shipment. This endpoints differs a bit from the other endpoints, since it is an [RPC endpoint](/api/rpc-endpoints).
 
+{{% notice info %}}
+For now, the only supported country to suggest addresses for is the Netherlands (NL).
+{{% /notice %}}
+
 ## Request
 
 The attributes that are required for an address suggestion differ per country. The endpoint will respond with a `422 Unprocessable Entity` when not all required attributes are supplied for the country and will list all required attributes.
