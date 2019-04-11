@@ -18,11 +18,12 @@ The attributes that are required for an address suggestion differ per country. T
 
 **Required Scope:** `addresses.suggest`
 
-| Attribute              | Type    | Required |
-|------------------------|---------|----------|
-| `country_code`         | string  | ✓        |
-| `postal_code`          | string  | ✓        |
-| `street_number`        | integer | ✓        |
+| Attribute                     | Type    | Required |
+|-------------------------------|---------|----------|
+| `country_code`                | string  | ✓        |
+| `postal_code`                 | string  | ✓        |
+| `street_number`               | integer | ✓        |
+| `street_number_suffix`        | string  |          |
 
 ```http
 POST /suggest-address HTTP/1.1
@@ -34,7 +35,8 @@ Example: https://sandbox-api.myparcel.com/suggest-address
   "data": {
     "country_code": "NL",
     "postal_code": "2131 BC",
-    "street_number": 679
+    "street_number": 679,
+    "street_number_suffix": "A1"
   }
 }
 ```
