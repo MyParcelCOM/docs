@@ -48,7 +48,9 @@ filter[address_from][postal_code]  | string  | Retrieve services for which the g
 filter[address_to][country_code]   | string  | Retrieve services for which the given [2-letter ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) corresponds to the destination region of the service.
 filter[address_to][postal_code]    | string  | Retrieve services for which the given postal code corresponds to the destination region of the service (may result in multiple services if postal code exists in different regions).
 filter[has_active_contract]        | boolean | A `true` value will filter services that have **active** [contract](/api/resources/contracts) associations. `false` will result in services that do **not** have active contract associations. To retrieve **all** services regardless of contract, omit this filter.
-filter[delivery_method]            | string  | Using filter value `pick-up` will result in services that deliver to a [pickup-dropoff-location](/api/resources/pickup-dropoff-locations). Using `delivery` filters services for which the carrier delivers the shipment to the `recipient_address`.
+filter[delivery_method]            | string  | Using filter value `pick-up` will result in services that deliver to a [pickup-dropoff-location](/api/resources/carrier-pudo-locations/). Using `delivery` filters services for which the carrier delivers the shipment to the `recipient_address`.
+filter[code]                       | string  | Retrieve services for which the given filter 'code' corresponds to the code of the service.
+
 
 **Request**  
 ```http

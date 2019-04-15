@@ -1,13 +1,12 @@
 +++
 title = "Addresses"
 description = "A commonly used model structure that represents an address."
-weight = 16
+weight = 1
 +++
 
-Technically, an address is not a resource, but it is often used withing our API and follows the
-following structure:
+Technically, an address is not a resource, but it is often used within our API and has the following structure:
 
-Attribute            |  Value  | Description                                                                | Required
+Attribute            | Value   | Description                                                                | Required
 -------------------- | ------- | -------------------------------------------------------------------------- | --------
 street_1             | string  | First address line.                                                        | ✓
 street_2             | string  | Second address line.                                                       |
