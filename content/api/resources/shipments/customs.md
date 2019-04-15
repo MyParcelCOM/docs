@@ -1,7 +1,7 @@
 +++
 title = "Customs"
 description = "Information required for the shipment to pass customs."
-weight = 4
+weight = 1
 +++
 
 Information required for international shipments to pass customs.
