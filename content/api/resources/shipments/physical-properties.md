@@ -10,8 +10,8 @@ Information about the dimensions of the shipment.
 
 | Attribute | Type    | Description             | Required
 |-----------|---------|-------------------------|---------
+| weight    | integer | Weight in grams.        | ✓
 | height    | integer | Height in millimeters.  | 
 | width     | integer | Width in millimeters.   |
 | length    | integer | Length in millimeters.  |
 | volume    | float   | Volume in liters. (dm3) |
-| weight    | integer | Weight in grams.        | ✓
