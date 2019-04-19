@@ -42,7 +42,7 @@ Moreover, the table below lists the required attributes and their types for city
 
 
 {{% notice info %}}
-Note that the attribute `street_1` represents name of a street.
+Note that the attribute `street_1` represents the name of a street.
 {{% /notice %}}
 
 ```http
