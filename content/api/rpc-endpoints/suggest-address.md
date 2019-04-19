@@ -18,12 +18,32 @@ The attributes that are required for an address suggestion differ per country. T
 
 **Required Scope:** `addresses.suggest`
 
+Address suggestions can be queried based on postal code or combination of city and name of a street. Both use cases, however, require country code.
+
+The following table displays required attributes and their types for postal code-based address suggestion:
+
 | Attribute                     | Type    | Required |
 |-------------------------------|---------|----------|
 | `country_code`                | string  | ✓        |
 | `postal_code`                 | string  | ✓        |
 | `street_number`               | integer | ✓        |
 | `street_number_suffix`        | string  |          |
+
+
+Moreover, the table below lists the required attributes and their types for city and street name-based address suggestion:
+
+| Attribute                     | Type    | Required |
+|-------------------------------|---------|----------|
+| `country_code`                | string  | ✓        |
+| `city`                        | string  | ✓        |
+| `street_1`                    | string  | ✓        |
+| `street_number`               | integer | ✓        |
+| `street_number_suffix`        | string  |          |
+
+
+{{% notice info %}}
+Note that the attribute `street_1` represents name of a street.
+{{% /notice %}}
 
 ```http
 POST /suggest-address HTTP/1.1
