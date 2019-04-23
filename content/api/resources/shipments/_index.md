@@ -20,6 +20,7 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | description         | string                                                               | Short custom description that will be printed on the label when possible.                                                    | Required for international shipments                     |
 | items               | array of [items](/api/resources/shipments/items)                     | The contents of the shipment.                                                                                                | Required for international shipments                     |
 | customs             | [customs](/api/resources/shipments/customs/)                         | Information required for the shipment to pass customs.                                                                       | Required for international shipments                     |
+| channel             | string                                                               | Name of the application (and potentially version number) used to create the shipment.                                        |                                                          |
 | price               | [price](/api/resources/common-objects/prices/)                       | The price of the shipment.                                                                                                   |                                                          |
 | barcode             | string                                                               | Textual representation of the barcode present on the label.                                                                  |                                                          |
 | tracking_code       | string                                                               | Used to request tracking status from the carrier.                                                                            |                                                          |
@@ -124,6 +125,7 @@ Example: https://sandbox-api.myparcel.com/shipments
           }
         },
         "description": "Order #8008135",
+        "channel": "MyParcel.com Back Office",
         "price": {
           "amount": 995,
           "currency": "EUR"
@@ -288,6 +290,7 @@ Example: https://sandbox-api.myparcel.com/shipments
           }
         },
         "description": "Order #8008135",
+        "channel": "MyParcel.com Back Office",
         "price": {
           "amount": 995,
           "currency": "EUR"
@@ -491,6 +494,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         }
       },
       "description": "Order #8008135",
+      "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
         "width": 300,
@@ -683,6 +687,7 @@ Example: https://sandbox-api.myparcel.com/shipments
         }
       },
       "description": "Order #8008135",
+      "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
         "width": 300,
@@ -817,6 +822,7 @@ Example: https://sandbox-api.myparcel.com/shipments
         }
       },
       "description": "Order #8008135",
+      "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
         "width": 300,
@@ -1036,6 +1042,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         }
       },
       "description": "Order #8008135",
+      "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
         "width": 300,
