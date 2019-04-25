@@ -9,6 +9,7 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Building and Pushing Docker images
           command: |
@@ -38,6 +39,8 @@ jobs:
             export NS=$(env_namespace)
             export IMAGE_TAG=$(image_tag)
             export ENV_HOST=$(env_host)
+
+            eval $(aws-ssm-params ${NS}/${CIRCLE_PROJECT_REPONAME}) # fetch project settings
 
             envsubst < kube/deployment.template.yaml > kube/deployment.yaml
             envsubst < kube/service.template.yaml > kube/service.yaml
