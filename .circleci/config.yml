@@ -1,6 +1,56 @@
 version: 2
 jobs:
-  deploy_develop:
+  build:
+    docker:
+      - image: myparcelcom/kubectl-aws
+        auth:
+          username: ${DOCKER_USER}
+          password: ${DOCKER_PASSWORD}
+    working_directory: ~/project
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Building and Pushing Docker images
+          command: |
+            IMAGE_TAG=$(image_tag)
+            docker build -t myparcelcom/docs:${IMAGE_TAG} -f docker/build/Dockerfile .
+            docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+            docker push myparcelcom/docs:${IMAGE_TAG}
+
+  deploy:
+    docker:
+      - image: myparcelcom/kubectl-aws
+        auth:
+          username: ${DOCKER_USER}
+          password: ${DOCKER_PASSWORD}
+    steps:
+      - checkout
+      - run:
+          name: Bootstrap AWS EKS and kubectl
+          command: |
+            export CLUSTER=$(cluster_name)
+            export AWS_ACCESS_KEY=${AWS_ACCESS_KEY_ID}
+            export AWS_SECRET_KEY=${AWS_SECRET_ACCESS_KEY}
+            bootstrap
+      - run:
+          name: Process templates
+          command: |
+            export NS=$(env_namespace)
+            export IMAGE_TAG=$(image_tag)
+            export ENV_HOST=$(env_host)
+
+            eval $(aws-ssm-params ${NS}/${CIRCLE_PROJECT_REPONAME}) # fetch project settings
+
+            envsubst < kube/deployment.template.yaml > kube/deployment.yaml
+            envsubst < kube/service.template.yaml > kube/service.yaml
+      - run:
+          name: Deploy
+          command: |
+            kubectl apply -f kube/deployment.yaml
+            kubectl apply -f kube/service.yaml
+
+  deploy_staging:
     machine:
       image: circleci/classic:edge
 
@@ -24,9 +74,23 @@ jobs:
 workflows:
   version: 2
 
-  deploy_to_staging:
+  deploy:
     jobs:
-      - deploy_develop:
+      - build:
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+      - deploy:
+          requires:
+            - build
           filters:
             branches:
               only: develop
+      - deploy_staging:
+          filters:
+            branches:
+              only: master
