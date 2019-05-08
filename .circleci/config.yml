@@ -24,7 +24,7 @@ jobs:
             IMAGE_TAG=$(image_tag)
             docker build \
               -t myparcelcom/docs:${IMAGE_TAG} \
-              --build-arg DOMAIN=${APP_DOMAIN}
+              --build-arg DOMAIN=${APP_DOMAIN} \
               -f docker/build/Dockerfile .
             docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
             docker push myparcelcom/docs:${IMAGE_TAG}
