@@ -1,7 +1,6 @@
 FROM ubuntu:18.04 as build
 
-ADD . /opt/hugo
-WORKDIR /opt/hugo
+ARG DOMAIN="docs.myparcel.com"
 
 RUN apt-get update \
     && apt-get install -y curl git \
@@ -12,6 +11,8 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+WORKDIR /opt/hugo
+
 RUN mkdir -p themes \
     && cd themes \
     && rm -rf hugo-theme-docdock \
@@ -19,7 +20,9 @@ RUN mkdir -p themes \
     && cd hugo-theme-docdock \
     && git checkout tags/v1
 
-RUN hugo
+ADD . /opt/hugo
+
+RUN hugo --baseURL "https://${DOMAIN}/"
 
 FROM nginx:1.15-alpine
 
