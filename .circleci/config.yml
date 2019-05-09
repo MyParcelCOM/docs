@@ -11,10 +11,21 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Authenticate AWS
+          command: |
+            export AWS_ACCESS_KEY=${AWS_ACCESS_KEY_ID}
+            export AWS_SECRET_KEY=${AWS_SECRET_ACCESS_KEY}
+            aws-login
+      - run:
           name: Building and Pushing Docker images
           command: |
+            NS=$(env_namespace)
+            eval $(aws-ssm-params ${NS}/${CIRCLE_PROJECT_REPONAME}) # fetch project settings
             IMAGE_TAG=$(image_tag)
-            docker build -t myparcelcom/docs:${IMAGE_TAG} -f docker/build/Dockerfile .
+            docker build \
+              -t myparcelcom/docs:${IMAGE_TAG} \
+              --build-arg DOMAIN=${APP_DOMAIN} \
+              -f docker/build/Dockerfile .
             docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
             docker push myparcelcom/docs:${IMAGE_TAG}
 
@@ -38,7 +49,6 @@ jobs:
           command: |
             export NS=$(env_namespace)
             export IMAGE_TAG=$(image_tag)
-            export ENV_HOST=$(env_host)
 
             eval $(aws-ssm-params ${NS}/${CIRCLE_PROJECT_REPONAME}) # fetch project settings
 
