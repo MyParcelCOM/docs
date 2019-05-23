@@ -30,14 +30,15 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | updated_at          | integer                                                              | Unix timestamp for when the shipment resource was last updated.                                                              |                                                          |
 | synced_at           | integer                                                              | Unix timestamp for when the shipment status was last checked with the carrier.                                               |                                                          |
 
-| Relationship    | Type                                                        | Description                                                                             | Required                                            |
-|-----------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------|
-| shop            | [shops](/api/resources/shops/)                              | The shop the shipment belongs to.                                                       | ✓                                                   |
-| service         | [services](/api/resources/services/)                        | The service used to send the shipment.                                                  | Required for registration with the carrier       |
-| contract        | [contracts](/api/resources/contracts/)                      | The contract to use for the chosen service.                                             | Required for registration with the carrier       |
-| service_options | array of [service-options](/api/resources/service-options/) | The service options chosen for the shipment.                                            |                                                     |
-| shipment_status | [shipment-statuses](/api/resources/shipment-statuses/)      | The current shipment status for the shipment.                                           |                                                     |
-| files           | array of [files](/api/resources/files/)                     | The files available for the shipment. Such as the label and possible customs documents. |                                                     |
+| Relationship    | Type                                                        | Description                                                                                                  | Required                                            |
+|-----------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| shop            | [shops](/api/resources/shops/)                              | The shop the shipment belongs to.                                                                            | ✓                                                   |
+| service         | [services](/api/resources/services/)                        | The service used to send the shipment.                                                                       | Required for registration with the carrier          |
+| contract        | [contracts](/api/resources/contracts/)                      | The contract to use for the chosen service.                                                                  | Required for registration with the carrier          |
+| service_options | array of [service-options](/api/resources/service-options/) | The service options chosen for the shipment.                                                                 |                                                     |
+| shipment_status | [shipment-statuses](/api/resources/shipment-statuses/)      | The current shipment status for the shipment.                                                                |                                                     |
+| files           | array of [files](/api/resources/files/)                     | The files available for the shipment. Such as the label and possible customs documents.                      |                                                     |
+| hook_logs       | array of [hook-logs](/api/resources/hooks/logs/)            | The logs of the hooks that were applied to this this shipment. Such as updating the service or the contract. |                                                     |
 
 ## Endpoints
 
@@ -220,6 +221,14 @@ Example: https://sandbox-api.myparcel.com/shipments
           "links": {
             "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
           }
+        },
+        "hook_logs": {
+          "data": [
+            {
+              "type": "hook_logs",
+              "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+            }
+          ]
         }
       },
       "links": {
@@ -385,6 +394,14 @@ Example: https://sandbox-api.myparcel.com/shipments
           "links": {
             "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
           }
+        },
+        "hook_logs": {
+          "data": [
+            {
+              "type": "hook_logs",
+              "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+            }
+          ]
         }
       },
       "links": {
@@ -594,6 +611,14 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "links": {
           "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
         }
+      },
+      "hook_logs": {
+        "data": [
+          {
+            "type": "hook_logs",
+            "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+          }
+        ]
       }
     },
     "links": {
@@ -922,6 +947,14 @@ Example: https://sandbox-api.myparcel.com/shipments
         "links": {
           "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
         }
+      },
+      "hook_logs": {
+        "data": [
+          {
+            "type": "hook_logs",
+            "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+          }
+        ]
       }
     },
     "links": {
@@ -1142,6 +1175,14 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "links": {
           "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
         }
+      },
+      "hook_logs": {
+        "data": [
+          {
+            "type": "hook_logs",
+            "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+          }
+        ]
       }
     },
     "links": {
