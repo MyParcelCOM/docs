@@ -38,7 +38,7 @@ shipment-registration-failed        | failed        | The concept shipment was r
 
 {{% notice info %}}
 After initial shipment creation and shipment updates through PATCH requests, the shipment will get the status `shipment-processing`.
-This indicates that the shipment is undergoing internal processes like processing any [hooks](/api/using-hooks) the user might have set up.
+This indicates that the shipment is undergoing internal processes, for example any [hooks](/api/using-hooks) the user might have set up.
 The status will automatically update to `shipment-concept` when the internal processes are finished.
 {{% /notice %}}
 
