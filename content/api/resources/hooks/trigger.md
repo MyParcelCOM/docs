@@ -1,7 +1,7 @@
 +++
 title = "Hook trigger"
 description = "Hook trigger"
-weight = 3
+weight = 4
 +++
 
 A hook trigger contains the criteria for when a hook should trigger.  
