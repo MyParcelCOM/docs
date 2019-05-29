@@ -2,10 +2,11 @@ html,
 body,
 #body {
   height: 100%;
+  background: #fafafa;
+  background-image: linear-gradient(to bottom, #fafafa, #f5f5f5);
   word-break: keep-all;
 }
 
-body,
 #sidebar ul li.active > a {
   background: #fafafa;
 }
@@ -35,6 +36,14 @@ h4,
 h5,
 h6 {
   color: #040707;
+}
+
+.autocomplete-suggestions {
+  overflow-y: scroll;
+}
+
+.autocomplete-suggestion.selected {
+  background: #3a2efe;
 }
 
 .expand-label {
@@ -107,6 +116,16 @@ th[align="right"] {
   margin-top: 8px;
 }
 
+#header-wrapper {
+  background: none;
+  border: 0;
+}
+
+.searchbox {
+  background: rgba(0, 0, 0, 0.15);
+  border: 0;
+}
+
 .searchbox input:focus {
   box-shadow: none;
 }
@@ -114,6 +133,11 @@ th[align="right"] {
 .searchbox label,
 .searchbox span {
   top: 1px;
+}
+
+#sidebar {
+  background: #3a2efe;
+  background-image: linear-gradient(to bottom, #3a2efe, #4750d5);
 }
 
 #sidebar a:hover,
@@ -140,6 +164,11 @@ th[align="right"] {
 
 #sidebar ul.topics ul {
   padding: 0;
+}
+
+#sidebar ul.topics > li.parent,
+#sidebar ul.topics > li.active {
+  background: rgba(0, 0, 0, 0.15);
 }
 
 #sidebar #shortcuts h3,
