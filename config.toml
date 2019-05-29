@@ -13,15 +13,16 @@ theme = "hugo-theme-docdock"
 [params]
   disableLanguageSwitchingButton = true
   disableNavChevron = true
+  themeStyle = "original"
 
 [languages]
 [languages.en]
   languageName = "English"
-  title = "Docs :: MyParcel.com"
+  title = "Documentation | MyParcel.com"
   weight = 1
 [languages.nl]
   languageName = "Nederlands"
-  title = "Docs :: MyParcel.com"
+  title = "Documentatie | MyParcel.com"
   weight = 2
 
 [[menu.shortcuts]]
