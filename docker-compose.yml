@@ -5,7 +5,7 @@ services:
     build:
       context: ./docker/hugo
       dockerfile: Dockerfile
-    image: myparcelcom/hugo:v5
+    image: myparcelcom/hugo:v6
     working_dir: /opt/hugo
     volumes:
       - .:/opt/hugo
