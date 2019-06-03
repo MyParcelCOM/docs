@@ -18,7 +18,7 @@ RUN mkdir -p themes \
     && rm -rf hugo-theme-docdock \
     && git clone https://github.com/vjeantet/hugo-theme-docdock.git \
     && cd hugo-theme-docdock \
-    && git checkout tags/v1
+    && git checkout tags/v1.1
 
 ADD . /opt/hugo
 
