@@ -165,15 +165,9 @@ Example: https://sandbox-api.myparcel.com/shipments
           "data": [
             {
               "type": "service-options",
-              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0",
-              "links": {
-                "self": "https://sandbox-api.myparcel.com/service-options/4c675b1a-516c-4410-abff-d237fd45bcd0"
-              }
+              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-          }
+          ]
         },
         "service": {
           "data": {
@@ -217,22 +211,20 @@ Example: https://sandbox-api.myparcel.com/shipments
               "type": "files",
               "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-          }
+          ]
         },
         "hook_logs": {
           "data": [
             {
-              "type": "hook_logs",
+              "type": "hook-logs",
               "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
             }
           ]
         }
       },
       "links": {
-        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+        "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
       }
     },
     {
@@ -338,15 +330,9 @@ Example: https://sandbox-api.myparcel.com/shipments
           "data": [
             {
               "type": "service-options",
-              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0",
-              "links": {
-                "self": "https://sandbox-api.myparcel.com/service-options/4c675b1a-516c-4410-abff-d237fd45bcd0"
-              }
+              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-          }
+          ]
         },
         "service": {
           "data": {
@@ -390,22 +376,20 @@ Example: https://sandbox-api.myparcel.com/shipments
               "type": "files",
               "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-          }
+          ]
         },
         "hook_logs": {
           "data": [
             {
-              "type": "hook_logs",
+              "type": "hook-logs",
               "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
             }
           ]
         }
       },
       "links": {
-        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+        "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
       }
     }
   ],
@@ -560,10 +544,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       },
       "shop": {
         "data": {
@@ -607,22 +588,20 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "files",
             "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-        }
+        ]
       },
       "hook_logs": {
         "data": [
           {
-            "type": "hook_logs",
+            "type": "hook-logs",
             "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
           }
         ]
       }
     },
     "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+      "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
     }
   }
 }
@@ -896,10 +875,7 @@ Example: https://sandbox-api.myparcel.com/shipments
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       },
       "shop": {
         "data": {
@@ -943,22 +919,20 @@ Example: https://sandbox-api.myparcel.com/shipments
             "type": "files",
             "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-        }
+        ]
       },
       "hook_logs": {
         "data": [
           {
-            "type": "hook_logs",
+            "type": "hook-logs",
             "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
           }
         ]
       }
     },
     "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+      "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
     }
   }
 }
@@ -1124,10 +1098,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       },
       "shop": {
         "data": {
@@ -1171,22 +1142,20 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "files",
             "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-        }
+        ]
       },
       "hook_logs": {
         "data": [
           {
-            "type": "hook_logs",
+            "type": "hook-logs",
             "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
           }
         ]
       }
     },
     "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+      "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
     }
   }
 }
