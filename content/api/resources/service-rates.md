@@ -103,9 +103,6 @@ Example: https://sandbox-api.myparcel.com/service-rates
             {
               "type": "service-options",
               "id": "4c675b1a-516c-4410-abff-d237fd45bcd0",
-              "links": {
-                "self": "https://sandbox-api.myparcel.com/service-options/4c675b1a-516c-4410-abff-d237fd45bcd0"
-              },
               "meta": {
                 "price": {
                   "amount": 995,
@@ -114,10 +111,7 @@ Example: https://sandbox-api.myparcel.com/service-rates
                 "included": true
               }
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-          }
+          ]
         }
       },
       "links": {
@@ -203,9 +197,6 @@ Example: https://sandbox-api.myparcel.com/service-rates/09a8f83a-bc8d-4598-81e6-
           {
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0",
-            "links": {
-              "self": "https://sandbox-api.myparcel.com/service-options/4c675b1a-516c-4410-abff-d237fd45bcd0"
-            },
             "meta": {
               "price": {
                 "amount": 995,
@@ -214,10 +205,7 @@ Example: https://sandbox-api.myparcel.com/service-rates/09a8f83a-bc8d-4598-81e6-
               "included": true
             }
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       }
     },
     "links": {

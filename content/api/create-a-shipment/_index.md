@@ -338,9 +338,6 @@ Content-Type: application/vnd.api+json
       },
       "register_at": 1504801719
     },
-    "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8"
-    },
     "relationships": {
       "shop": {
         "data": {
@@ -377,12 +374,11 @@ Content-Type: application/vnd.api+json
         "links": {
           "related": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/statuses/5781d596-1bf2-44ba-bcaf-d356117cbb94"
         }
-      },
-      "files": {
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
-        }
       }
+    },
+    "links": {
+      "self": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8",
+      "files": "https://sandbox-api.myparcel.com/shipments/6b5db4f9-37ea-437a-b2f9-7f2d146d5bb8/files"
     }
   }
 }
