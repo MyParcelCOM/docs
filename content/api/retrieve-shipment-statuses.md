@@ -25,6 +25,7 @@ The list of status codes for the shipment resource is:
 
 code                                | level         | description
 ----------------------------------- | ------------- | ------------------------------------------------------------------------------
+shipment-processing                 | pending       | The shipment is being processed internally.
 shipment-concept                    | pending       | The shipment was created, but has not been registered with the carrier (yet).
 shipment-registered                 | in-progress   | The shipment was registered with the carrier. Files (such as a label) are available.
 shipment-received-by-carrier        | in-progress   | The shipment was collected by or handed over to the carrier.
@@ -34,6 +35,12 @@ shipment-delivered                  | success       | The shipment was delivered
 shipment-failed                     | failed        | The shipping process failed. The shipping process will not continue. The shipment has to be resend. Errors are available.
 shipment-created-without-tracking   | success       | The shipment was registered and has files available, but no further tracking is available.
 shipment-registration-failed        | failed        | The concept shipment was rejected by the carrier and might need to be updated before trying to register again.
+
+{{% notice info %}}
+After initial shipment creation and shipment updates through PATCH requests, the shipment will get the status `shipment-processing`.
+This indicates that the shipment is undergoing internal processes, for example any [hooks](/api/using-hooks) the user might have set up.
+The status will automatically update to `shipment-concept` when the internal processes are finished.
+{{% /notice %}}
 
 An up-to-date list of the generic statuses can be retrieved using the [GET /statuses endpoint](https://docs.myparcel.com/api-specification/#/Statuses/get_statuses).
 

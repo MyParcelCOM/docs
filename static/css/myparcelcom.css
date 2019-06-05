@@ -2,9 +2,11 @@ html,
 body,
 #body {
   height: 100%;
+  background: #fafafa;
+  background-image: linear-gradient(to bottom, #fafafa, #f5f5f5);
+  word-break: keep-all;
 }
 
-body,
 #sidebar ul li.active > a {
   background: #fafafa;
 }
@@ -36,11 +38,20 @@ h6 {
   color: #040707;
 }
 
+.autocomplete-suggestions {
+  overflow-y: scroll;
+}
+
+.autocomplete-suggestion.selected {
+  background: #3a2efe;
+}
+
 .expand-label {
   font-size: 1.4rem;
 }
 
-.expand-label .fa-chevron-right, .expand-label .fa-chevron-down {
+.expand-label .fa-chevron-right,
+.expand-label .fa-chevron-down {
   position: relative;
   top: -4px;
 }
@@ -86,7 +97,7 @@ th[align="right"] {
 }
 
 #body-inner {
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .fa {
@@ -105,33 +116,14 @@ th[align="right"] {
   margin-top: 8px;
 }
 
-#mp-preload {
-  display: none;
+#header-wrapper {
+  background: none;
+  border: 0;
 }
 
-#mp-splash {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-
-#mp-splash .fa {
-  width: 50px;
-  font-size: 50px;
-  margin: 0 auto;
-  color: #2053ab;
+.searchbox {
+  background: rgba(0, 0, 0, 0.15);
+  border: 0;
 }
 
 .searchbox input:focus {
@@ -143,17 +135,46 @@ th[align="right"] {
   top: 1px;
 }
 
+#sidebar {
+  background: #3a2efe;
+  background-image: linear-gradient(to bottom, #3a2efe, #4750d5);
+}
+
 #sidebar a:hover,
 #sidebar ul li .category-icon {
   color: #fafafa;
 }
 
-#sidebar ul li.active > a {
+#sidebar ul li .category-icon {
+  margin-top: -24px;
+}
+
+#sidebar ul li div a {
+  width: 100%;
+}
+
+#sidebar ul li.active > div > a,
+#sidebar ul li.active > div > a:hover {
   color: #040707 !important;
+}
+
+#sidebar ul.topics {
+  margin: 0;
 }
 
 #sidebar ul.topics ul {
   padding: 0;
+}
+
+#sidebar ul.topics > li.parent,
+#sidebar ul.topics > li.active {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+#sidebar #shortcuts h3,
+#sidebar ul li a,
+#sidebar ul li > div > a {
+  padding-left: 1rem;
 }
 
 #sidebar .active li,
@@ -161,20 +182,19 @@ th[align="right"] {
   border: none;
 }
 
-#sidebar .parent li a span:before {
-  content: "\f105";
-  font: normal normal normal 14px/1 FontAwesome;
-  margin-right: 4px;
-}
-
-#sidebar .parent li li a span:before {
-  content: "\f101";
+#sidebar #shortcuts {
+  margin-bottom: 16px;
 }
 
 #top-bar {
-  max-width: calc(850px + 2em);
+  max-width: calc(1200px + 1em);
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+#sidebar ul.topics hr,
+#footer {
+  display: none;
 }
 
 ::-moz-selection,

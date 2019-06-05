@@ -30,14 +30,15 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | updated_at          | integer                                                              | Unix timestamp for when the shipment resource was last updated.                                                              |                                                          |
 | synced_at           | integer                                                              | Unix timestamp for when the shipment status was last checked with the carrier.                                               |                                                          |
 
-| Relationship    | Type                                                        | Description                                                                             | Required                                            |
-|-----------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------|
-| shop            | [shops](/api/resources/shops/)                              | The shop the shipment belongs to.                                                       | ✓                                                   |
-| service         | [services](/api/resources/services/)                        | The service used to send the shipment.                                                  | Required for registration with the carrier       |
-| contract        | [contracts](/api/resources/contracts/)                      | The contract to use for the chosen service.                                             | Required for registration with the carrier       |
-| service_options | array of [service-options](/api/resources/service-options/) | The service options chosen for the shipment.                                            |                                                     |
-| shipment_status | [shipment-statuses](/api/resources/shipment-statuses/)      | The current shipment status for the shipment.                                           |                                                     |
-| files           | array of [files](/api/resources/files/)                     | The files available for the shipment. Such as the label and possible customs documents. |                                                     |
+| Relationship    | Type                                                        | Description                                                                                                  | Required                                            |
+|-----------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| shop            | [shops](/api/resources/shops/)                              | The shop the shipment belongs to.                                                                            | ✓                                                   |
+| service         | [services](/api/resources/services/)                        | The service used to send the shipment.                                                                       | Required for registration with the carrier          |
+| contract        | [contracts](/api/resources/contracts/)                      | The contract to use for the chosen service.                                                                  | Required for registration with the carrier          |
+| service_options | array of [service-options](/api/resources/service-options/) | The service options chosen for the shipment.                                                                 |                                                     |
+| shipment_status | [shipment-statuses](/api/resources/shipment-statuses/)      | The current shipment status for the shipment.                                                                |                                                     |
+| files           | array of [files](/api/resources/files/)                     | The files available for the shipment. Such as the label and possible customs documents.                      |                                                     |
+| hook_logs       | array of [hook-logs](/api/resources/hooks/logs/)            | The logs of the hooks that were applied to this this shipment. Such as updating the service or the contract. |                                                     |
 
 ## Endpoints
 
@@ -164,15 +165,9 @@ Example: https://sandbox-api.myparcel.com/shipments
           "data": [
             {
               "type": "service-options",
-              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0",
-              "links": {
-                "self": "https://sandbox-api.myparcel.com/service-options/4c675b1a-516c-4410-abff-d237fd45bcd0"
-              }
+              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-          }
+          ]
         },
         "service": {
           "data": {
@@ -216,14 +211,20 @@ Example: https://sandbox-api.myparcel.com/shipments
               "type": "files",
               "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-          }
+          ]
+        },
+        "hook_logs": {
+          "data": [
+            {
+              "type": "hook-logs",
+              "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+            }
+          ]
         }
       },
       "links": {
-        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+        "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
       }
     },
     {
@@ -329,15 +330,9 @@ Example: https://sandbox-api.myparcel.com/shipments
           "data": [
             {
               "type": "service-options",
-              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0",
-              "links": {
-                "self": "https://sandbox-api.myparcel.com/service-options/4c675b1a-516c-4410-abff-d237fd45bcd0"
-              }
+              "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-          }
+          ]
         },
         "service": {
           "data": {
@@ -381,14 +376,20 @@ Example: https://sandbox-api.myparcel.com/shipments
               "type": "files",
               "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
             }
-          ],
-          "links": {
-            "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-          }
+          ]
+        },
+        "hook_logs": {
+          "data": [
+            {
+              "type": "hook-logs",
+              "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+            }
+          ]
         }
       },
       "links": {
-        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+        "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+        "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
       }
     }
   ],
@@ -543,10 +544,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       },
       "shop": {
         "data": {
@@ -590,14 +588,20 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "files",
             "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-        }
+        ]
+      },
+      "hook_logs": {
+        "data": [
+          {
+            "type": "hook-logs",
+            "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+          }
+        ]
       }
     },
     "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+      "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
     }
   }
 }
@@ -871,10 +875,7 @@ Example: https://sandbox-api.myparcel.com/shipments
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       },
       "shop": {
         "data": {
@@ -918,14 +919,20 @@ Example: https://sandbox-api.myparcel.com/shipments
             "type": "files",
             "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-        }
+        ]
+      },
+      "hook_logs": {
+        "data": [
+          {
+            "type": "hook-logs",
+            "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+          }
+        ]
       }
     },
     "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+      "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
     }
   }
 }
@@ -1091,10 +1098,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "service-options",
             "id": "4c675b1a-516c-4410-abff-d237fd45bcd0"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/service-contracts/af5e65b6-a709-4f61-a565-7c12a752482f/options"
-        }
+        ]
       },
       "shop": {
         "data": {
@@ -1138,14 +1142,20 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
             "type": "files",
             "id": "0f621db6-d239-4ae9-b85d-8e97469b10ce"
           }
-        ],
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
-        }
+        ]
+      },
+      "hook_logs": {
+        "data": [
+          {
+            "type": "hook-logs",
+            "id": "8e141db6-d638-9ae0-e33d-8e97469b10ce"
+          }
+        ]
       }
     },
     "links": {
-      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e"
+      "self": "https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e",
+      "files": "https://sandbox-api.myparcel.com/shipments/0f621db6-d239-4ae9-b85d-8e97469b10ce/files"
     }
   }
 }
