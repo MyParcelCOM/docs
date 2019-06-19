@@ -16,6 +16,7 @@ name            | string            | Service name (eg. Next Day), useful for di
 package_type    | string enum: `parcel`<br> `letterbox`<br> `letter`<br> `unstamped`              | Type of package (eg. letter).                                                               | ✓
 handover_method | string enum: `collection`<br> `drop-off`                                    | Available methods to hand the shipment to the carrier. Value `collection` means the carrier will pick up the shipment at the shipment's sender address while drop-off means the sender has to drop the shipment at a pickup-dropoff-location.                                     | ✓
 delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery method for the carrier. Services with value `pick-up` means the carrier delivers the shipment at a pickup-dropoff-location while `delivery` means they deliver at the shipment's recipient address).   | ✓
+uses_volumetric_weight | boolean | Whether the carrier also takes the shipment's volumetric weight into account when determining the price of the chosen service. | ✓ | 
 delivery_days   | array of string enum: `Monday`<br> `Tuesday`<br> `Wednesday`<br> `Thursday`<br> `Friday`<br> `Saturday`<br> `Sunday`  | Textual representation of days of the week this service delivers shipments.                                                                       | 
 transit_time    | [transit time](/api/resources/services/transit-time)                 | The minimum and maximum time it takes to deliver the shipment.                                 |
 
@@ -83,7 +84,8 @@ Example: https://sandbox-api.myparcel.com/services
           "max": 3
         },
         "handover_method": "drop-off",
-        "delivery_method": "pick-up"
+        "delivery_method": "pick-up",
+        "uses_volumetric_weight": true
       },
       "relationships": {
         "carrier": {
@@ -168,7 +170,8 @@ Example: https://sandbox-api.myparcel.com/service/175a235f-aff5-4e44-87b5-3657b7
         "max": 3
       },
       "handover_method": "drop-off",
-      "delivery_method": "pick-up"
+      "delivery_method": "pick-up",
+      "uses_volumetric_weight": true
     },
     "relationships": {
       "carrier": {
