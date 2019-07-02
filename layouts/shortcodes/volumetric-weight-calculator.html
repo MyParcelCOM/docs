@@ -1,4 +1,4 @@
-<div style="display: flex; background: #3a2efe; color: white; flex-direction: column; align-items: center; justify-content: center; width: 40%; border-radius: 8px;">
+<section id="calculator">
   <script>
     function calculate () {
       const dimensionUnit = document.getElementById('dimension-unit').value
@@ -23,37 +23,116 @@
     }
   </script>
 
-  <h4 style="color: white; font-weight: bold; background: #3a2efe;">Volumetric Weight Calculator</h4>
+  <style>
+    #calculator {
+      display: flex;
+      background: #3a2efe;
+      color: white;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 40%;
+      border-radius: 8px;
+    }
 
-  <div style="display: flex; align-items: center; flex-direction: column;">
+    label {
+      color: white;
+    }
 
-    <label for="dimension-unit" style="display: flex;">
+    #dimensions label {
+      width: 25%;
+    }
+
+    input {
+      color: black;
+      font-weight: 400;
+    }
+
+    .inline-select {
+      display: flex;
+    }
+
+    select {
+      border-radius: 5px;
+      background: white;
+      color: black;
+      margin-left: 5px;
+      font-weight: 400;
+      margin-bottom: 0;
+      padding: 2px;
+    }
+
+    button {
+      margin: 13px 0;
+      background: #fdb915;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px
+    }
+
+    #dimensions {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #volumetric-weight {
+      margin-right: 20px;
+      margin-left: 20px;
+      display: inline-block;
+      width: 50%;
+    }
+
+    #calculator main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #calculator h4 {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+
+  <h4>Volumetric Weight Calculator</h4>
+
+  <main>
+    <label for="dimension-unit" class="inline-select">
       Dimension unit:
-      <select id="dimension-unit" style="border-radius:5px; margin-bottom: 0px; margin-left: 5px; background: white; color: black;" onchange="calculate()">
+      <select id="dimension-unit" onchange="calculate()">
         <option value="mm">mm</option>
         <option value="cm">cm</option>
       </select>
     </label>
 
-    <label for="length">Length</label>
-    <input style="color: black;" type="number" id="length">
+    <div id="dimensions">
+      <label for="length">
+        Length
+        <input type="number" id="length">
+      </label>
 
-    <label for="width">Width</label>
-    <input style="color: black;" type="number" id="width">
 
-    <label for="height">Height</label>
-    <input style="color: black;" type="number" id="height">
+      <label for="width">
+        Width
+        <input type="number" id="width">
+      </label>
 
-    <button style="margin: 13px 0; background: #fdb915; font-weight: bold; padding: 10px 20px; border-radius:5px" onclick="calculate()">Calculate</button>
+      <label for="height">
+        Height
+        <input type="number" id="height">
+      </label>
+    </div>
 
-    <label style="display: flex; margin-bottom: 10px;" for="volumetric-weight">
+    <button onclick="calculate()">Calculate</button>
+
+    <label for="volumetric-weight" class="inline-select">
       Volumetric weight in
-      <select id="volumetric-weight-unit" style="border-radius:5px; background: white; color: black; margin-left: 5px; font-weight: 400; margin-bottom: 0;" onchange="calculate()">
+      <select id="volumetric-weight-unit" onchange="calculate()">
         <option value="grams">grams</option>
         <option value="kg">KG</option>
       </select>
     </label>
 
-    <input style="color: black;" type="number" id="volumetric-weight" disabled>
-  </div>
-</div>
+    <input type="number" id="volumetric-weight">
+  </main>
+</section>
