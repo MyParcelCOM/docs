@@ -19,12 +19,33 @@ delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery me
 uses_volumetric_weight | boolean | Whether the carrier also takes the shipment's volumetric weight into account when determining the price of the chosen service. | ✓ | 
 delivery_days   | array of string enum: `Monday`<br> `Tuesday`<br> `Wednesday`<br> `Thursday`<br> `Friday`<br> `Saturday`<br> `Sunday`  | Textual representation of days of the week this service delivers shipments.                                                                       | 
 transit_time    | [transit time](/api/resources/services/transit-time)                 | The minimum and maximum time it takes to deliver the shipment.                                 |
+regions_from    | array of [address rules](/api/resources/services/#address-rules)    | Region in which this service is available. | ✓       
+regions_to      | array of [address rules](/api/resources/services/#address-rules)    | Region where shipments can be delivered.   | ✓  
 
 Relationship | Type                                 | Description                                | Required
 ------------ | ------------------------------------ |------------------------------------------- | ---------------
 carrier      | [carriers](/api/resources/carriers)  | Carrier offering the service.              | ✓
-region_from  | [regions](/api/resources/regions)    | Region in which this service is available. | ✓       
-region_to    | [regions](/api/resources/regions)    | Region where shipments can be delivered.   | ✓  
+⚠ region_from  | [regions](/api/resources/regions)    | Region in which this service is available. | ✓       
+⚠ region_to    | [regions](/api/resources/regions)    | Region where shipments can be delivered.   | ✓  
+
+
+{{% notice warning %}}
+⚠ The Relation region_from and region_to are deprecated and will be removed from the API response soon. <br>
+Make sure that if you are still using these that you switch to using the `service` attributes `regions_from` and `regions_to` instead.
+{{% /notice %}}
+
+## Address rules 
+These are objects that contain a list of requirement rules the address should match in order to be able to use this service.<br>
+They all contain a valid regular expression. For a service that can ship to The Netherlands and England for instance there will be a country_code of `NL|GB`.
+These are used for the `regions_from` and `regions_to` of the `service` resource.
+```json
+{
+   "country_code": "GB",
+   "region_code": "ENG",
+   "postal_code": "NW1.*"
+}
+```
+
 
 ## Endpoints
 
@@ -85,7 +106,19 @@ Example: https://sandbox-api.myparcel.com/services
         },
         "handover_method": "drop-off",
         "delivery_method": "pick-up",
-        "uses_volumetric_weight": true
+        "uses_volumetric_weight": true,
+        "regions_from": [
+          {
+            "country_code": "GB",
+            "region_code": "ENG"
+          }
+        ],
+        "regions_to": [
+          {
+            "country_code": "GB",
+            "region_code": "ENG"
+          }
+        ]
       },
       "relationships": {
         "carrier": {
@@ -171,7 +204,19 @@ Example: https://sandbox-api.myparcel.com/service/175a235f-aff5-4e44-87b5-3657b7
       },
       "handover_method": "drop-off",
       "delivery_method": "pick-up",
-      "uses_volumetric_weight": true
+      "uses_volumetric_weight": true,
+      "regions_from": [
+        {
+          "country_code": "GB",
+          "region_code": "ENG"
+        }
+      ],
+      "regions_to": [
+        {
+          "country_code": "GB",
+          "region_code": "ENG"
+        }
+      ]
     },
     "relationships": {
       "carrier": {
