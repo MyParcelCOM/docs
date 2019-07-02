@@ -1,0 +1,59 @@
+<div style="display: flex; background: #3a2efe; color: white; flex-direction: column; align-items: center; justify-content: center; width: 40%; border-radius: 8px;">
+  <script>
+    function calculate () {
+      const dimensionUnit = document.getElementById('dimension-unit').value
+
+      const length = document.getElementById('length').value
+      const width = document.getElementById('width').value
+      const height = document.getElementById('height').value
+
+      if (!length || !width || !height) return
+
+      const factor = dimensionUnit === 'mm' ? 5000 : 5
+
+      const volumetricWeightUnit = document.getElementById('volumetric-weight-unit').value
+
+      const volumetricWeight = Math.round(length * width * height / factor)
+
+      const resultField = document.getElementById('volumetric-weight')
+
+      resultField.value = volumetricWeightUnit === 'grams'
+        ? volumetricWeight
+        : (volumetricWeight / 1000).toFixed(3)
+    }
+  </script>
+
+  <h4 style="color: white; font-weight: bold; background: #3a2efe;">Volumetric Weight Calculator</h4>
+
+  <div style="display: flex; align-items: center; flex-direction: column;">
+
+    <label for="dimension-unit" style="display: flex;">
+      Dimension unit:
+      <select id="dimension-unit" style="border-radius:5px; margin-bottom: 0px; margin-left: 5px; background: white; color: black;" onchange="calculate()">
+        <option value="mm">mm</option>
+        <option value="cm">cm</option>
+      </select>
+    </label>
+
+    <label for="length">Length</label>
+    <input style="color: black;" type="number" id="length">
+
+    <label for="width">Width</label>
+    <input style="color: black;" type="number" id="width">
+
+    <label for="height">Height</label>
+    <input style="color: black;" type="number" id="height">
+
+    <button style="margin: 13px 0; background: #fdb915; font-weight: bold; padding: 10px 20px; border-radius:5px" onclick="calculate()">Calculate</button>
+
+    <label style="display: flex; margin-bottom: 10px;" for="volumetric-weight">
+      Volumetric weight in
+      <select id="volumetric-weight-unit" style="border-radius:5px; background: white; color: black; margin-left: 5px; font-weight: 400; margin-bottom: 0;" onchange="calculate()">
+        <option value="grams">grams</option>
+        <option value="kg">KG</option>
+      </select>
+    </label>
+
+    <input style="color: black;" type="number" id="volumetric-weight" disabled>
+  </div>
+</div>
