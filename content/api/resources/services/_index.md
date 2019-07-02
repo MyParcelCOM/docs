@@ -19,8 +19,8 @@ delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery me
 uses_volumetric_weight | boolean | Whether the carrier also takes the shipment's volumetric weight into account when determining the price of the chosen service. | ✓ | 
 delivery_days   | array of string enum: `Monday`<br> `Tuesday`<br> `Wednesday`<br> `Thursday`<br> `Friday`<br> `Saturday`<br> `Sunday`  | Textual representation of days of the week this service delivers shipments.                                                                       | 
 transit_time    | [transit time](/api/resources/services/transit-time)                 | The minimum and maximum time it takes to deliver the shipment.                                 |
-regions_from    | array of [address rules](/api/resources/services/address-rule)    | [Address rules](/api/resources/services/address-rule) for where this service can ship from. | ✓       
-regions_to      | array of [address rules](/api/resources/services/address-rule)    | [Address rules](/api/resources/services/address-rule) for where this service can ship to.   | ✓  
+regions_from    | array of [address rules](/api/resources/services/address-rules)    | [Address rules](/api/resources/services/address-rules) for where this service can ship from. | ✓       
+regions_to      | array of [address rules](/api/resources/services/address-rules)    | [Address rules](/api/resources/services/address-rules) for where this service can ship to.   | ✓  
 
 Relationship | Type                                 | Description                                | Required
 ------------ | ------------------------------------ |------------------------------------------- | ---------------

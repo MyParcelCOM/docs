@@ -1,5 +1,5 @@
 +++
-title = "Address rule"
+title = "Address rules"
 description = "A list of requirements for matching an address."
 weight = 5
 +++
