@@ -1,4 +1,4 @@
-<section id="calculator">
+<section id="volumetric-weight-calculator">
   <script>
     function calculate () {
       const dimensionUnit = document.getElementById('dimension-unit').value
@@ -24,7 +24,7 @@
   </script>
 
   <style>
-    #calculator {
+    #volumetric-weight-calculator {
       display: flex;
       background: #3a2efe;
       color: white;
@@ -35,7 +35,7 @@
       border-radius: 8px;
     }
 
-    label {
+    #volumetric-weight-calculator label {
       color: white;
     }
 
@@ -43,16 +43,16 @@
       width: 25%;
     }
 
-    input {
+    #volumetric-weight-calculator input {
       color: black;
       font-weight: 400;
     }
 
-    .inline-select {
+    #volumetric-weight-calculator .inline-select {
       display: flex;
     }
 
-    select {
+    #volumetric-weight-calculator select {
       border-radius: 5px;
       background: white;
       color: black;
@@ -62,7 +62,7 @@
       padding: 2px;
     }
 
-    button {
+    #volumetric-weight-calculator button {
       margin: 13px 0;
       background: #fdb915;
       font-weight: bold;
@@ -82,13 +82,13 @@
       width: 50%;
     }
 
-    #calculator main {
+    #volumetric-weight-calculator > div {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    #calculator h4 {
+    #volumetric-weight-calculator > h4 {
       color: white;
       font-weight: bold;
     }
@@ -96,7 +96,7 @@
 
   <h4>Volumetric Weight Calculator</h4>
 
-  <main>
+  <div>
     <label for="dimension-unit" class="inline-select">
       Dimension unit:
       <select id="dimension-unit" onchange="calculate()">
@@ -134,5 +134,6 @@
     </label>
 
     <input type="number" id="volumetric-weight">
-  </main>
+  </div>
+
 </section>
