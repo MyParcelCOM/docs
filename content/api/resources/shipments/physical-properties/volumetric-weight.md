@@ -28,4 +28,13 @@ Use the calculator below to calculate the volumetric weight of your shipment.
 {{< volumetric-weight-calculator >}}
 
 ### Usage
-The volumetric weight of a shipment is automatically calculated and returned by the MyParcel.com API, provided that the [physical properties](/api/resources/shipments/physical-properties/)
+The volumetric weight of a shipment will be calculated in the MyParcel.com API upon shipment creation, 
+provided that the shipment request contains the required dimensions (length, width and height) in the [physical_properties](/api/resources/shipments/physical-properties/) attribute.
+If the posted [service](/api/resources/services/) uses volumetric weight, 
+the API will try to find a matching [service-rate](/api/resources/service-rates/) by matching the billable weight 
+(the higher value between the gross weight of the parcel and the volumetric weight), with the weight range of the service rate, thus determining the raw price of the service (the price is further influenced by any added [service-options](/api/resources/service-options/)).
+
+{{% notice warning %}} 
+The volumetric weight of a shipment is a read-only field and is automatically calculated in the MyParcel.com API.   
+It is not possible to provide the volumetric weight in a POST shipment request!
+{{% /notice %}}
