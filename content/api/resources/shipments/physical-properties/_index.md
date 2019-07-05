@@ -15,4 +15,4 @@ Information about the dimensions of the shipment.
 | width             | integer | Width in millimeters.                                                                           |
 | length            | integer | Length in millimeters.                                                                          |
 | volume            | float   | Volume in liters. (dm3)                                                                         |
-| volumetric_weight | integer | Volumetric weight in grams. This value is calculated by the API and cannot be sent by the user. | 
+| volumetric_weight | integer | [Volumetric weight](/api/resources/shipments/physical-properties/volumetric-weight/) in grams. This value is calculated by the API and cannot be sent by the user. | 

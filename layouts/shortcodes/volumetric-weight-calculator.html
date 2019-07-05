@@ -1,0 +1,141 @@
+<section id="volumetric-weight-calculator">
+  <script>
+    function calculate () {
+      const dimensionUnit = document.getElementById('dimension-unit').value
+
+      const length = document.getElementById('length').value
+      const width = document.getElementById('width').value
+      const height = document.getElementById('height').value
+
+      if (!length || !width || !height) return
+
+      const factor = dimensionUnit === 'mm' ? 5000 : 5
+
+      const volumetricWeightUnit = document.getElementById('volumetric-weight-unit').value
+
+      const volumetricWeight = Math.ceil(length * width * height / factor)
+
+      const resultField = document.getElementById('volumetric-weight')
+
+      resultField.value = volumetricWeightUnit === 'grams'
+        ? volumetricWeight
+        : volumetricWeight / 1000
+    }
+  </script>
+
+  <style>
+    #volumetric-weight-calculator {
+      display: flex;
+      background: #3a2efe;
+      color: white;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 40%;
+      min-width: 400px;
+      border-radius: 8px;
+    }
+
+    #volumetric-weight-calculator label {
+      color: white;
+    }
+
+    #dimensions label {
+      width: 25%;
+    }
+
+    #volumetric-weight-calculator input {
+      color: black;
+      font-weight: 400;
+    }
+
+    #volumetric-weight-calculator .inline-select {
+      display: flex;
+    }
+
+    #volumetric-weight-calculator select {
+      border-radius: 5px;
+      background: white;
+      color: black;
+      margin-left: 5px;
+      font-weight: 400;
+      margin-bottom: 0;
+      padding: 2px;
+    }
+
+    #volumetric-weight-calculator button {
+      margin: 13px 0;
+      background: #fdb915;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px
+    }
+
+    #dimensions {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #volumetric-weight {
+      margin-right: 20px;
+      margin-left: 20px;
+      display: inline-block;
+      width: 50%;
+      cursor: text;
+    }
+
+    #volumetric-weight-calculator > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #volumetric-weight-calculator > h4 {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+
+  <h4>Volumetric Weight Calculator</h4>
+
+  <div>
+    <label for="dimension-unit" class="inline-select">
+      Dimension unit:
+      <select id="dimension-unit" onchange="calculate()">
+        <option value="mm">mm</option>
+        <option value="cm">cm</option>
+      </select>
+    </label>
+
+    <div id="dimensions">
+      <label for="length">
+        Length
+        <input type="number" id="length">
+      </label>
+
+
+      <label for="width">
+        Width
+        <input type="number" id="width">
+      </label>
+
+      <label for="height">
+        Height
+        <input type="number" id="height">
+      </label>
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <label for="volumetric-weight" class="inline-select">
+      Volumetric weight in
+      <select id="volumetric-weight-unit" onchange="calculate()">
+        <option value="grams">grams</option>
+        <option value="kg">KG</option>
+      </select>
+    </label>
+
+    <input type="number" id="volumetric-weight" disabled>
+  </div>
+
+</section>
