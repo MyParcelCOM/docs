@@ -13,7 +13,7 @@
 
       const volumetricWeightUnit = document.getElementById('volumetric-weight-unit').value
 
-      const volumetricWeight = Math.round(length * width * height / factor)
+      const volumetricWeight = Math.ceil(length * width * height / factor)
 
       const resultField = document.getElementById('volumetric-weight')
 
@@ -32,6 +32,7 @@
       align-items: center;
       justify-content: center;
       width: 40%;
+      min-width: 400px;
       border-radius: 8px;
     }
 
