@@ -19,12 +19,20 @@ delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery me
 uses_volumetric_weight | boolean | Whether the carrier also takes the shipment's [volumetric weight](/api/resources/shipments/physical-properties/volumetric-weight) into account when determining the price of a shipment with the chosen service. | ✓ | 
 delivery_days   | array of string enum: `Monday`<br> `Tuesday`<br> `Wednesday`<br> `Thursday`<br> `Friday`<br> `Saturday`<br> `Sunday`  | Textual representation of days of the week this service delivers shipments.                                                                       | 
 transit_time    | [transit time](/api/resources/services/transit-time)                 | The minimum and maximum time it takes to deliver the shipment.                                 |
+regions_from    | array of [address rules](/api/resources/services/address-rules)    | [Address rules](/api/resources/services/address-rules) for where this service can ship from. | ✓       
+regions_to      | array of [address rules](/api/resources/services/address-rules)    | [Address rules](/api/resources/services/address-rules) for where this service can ship to.   | ✓  
 
 Relationship | Type                                 | Description                                | Required
 ------------ | ------------------------------------ |------------------------------------------- | ---------------
 carrier      | [carriers](/api/resources/carriers)  | Carrier offering the service.              | ✓
-region_from  | [regions](/api/resources/regions)    | Region in which this service is available. | ✓       
-region_to    | [regions](/api/resources/regions)    | Region where shipments can be delivered.   | ✓  
+⚠ region_from  | [regions](/api/resources/regions)    | Region in which this service is available. | ✓       
+⚠ region_to    | [regions](/api/resources/regions)    | Region where shipments can be delivered.   | ✓  
+
+
+{{% notice warning %}}
+⚠ The `region_from` and `region_to` relationships are deprecated and will be removed from the API response soon. <br>
+If you are using these relationships, make sure that you switch to using the attributes `regions_from` and `regions_to` instead.
+{{% /notice %}}
 
 ## Endpoints
 
@@ -87,7 +95,19 @@ Example: https://sandbox-api.myparcel.com/services
         },
         "handover_method": "drop-off",
         "delivery_method": "pick-up",
-        "uses_volumetric_weight": true
+        "uses_volumetric_weight": true,
+        "regions_from": [
+          {
+            "country_code": "GB",
+            "region_code": "ENG"
+          }
+        ],
+        "regions_to": [
+          {
+            "country_code": "GB",
+            "region_code": "ENG"
+          }
+        ]
       },
       "relationships": {
         "carrier": {
@@ -173,7 +193,19 @@ Example: https://sandbox-api.myparcel.com/service/175a235f-aff5-4e44-87b5-3657b7
       },
       "handover_method": "drop-off",
       "delivery_method": "pick-up",
-      "uses_volumetric_weight": true
+      "uses_volumetric_weight": true,
+      "regions_from": [
+        {
+          "country_code": "GB",
+          "region_code": "ENG"
+        }
+      ],
+      "regions_to": [
+        {
+          "country_code": "GB",
+          "region_code": "ENG"
+        }
+      ]
     },
     "relationships": {
       "carrier": {
