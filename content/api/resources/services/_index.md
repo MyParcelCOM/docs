@@ -31,7 +31,7 @@ carrier      | [carriers](/api/resources/carriers)  | Carrier offering the servi
 
 {{% notice warning %}}
 ⚠ The `region_from` and `region_to` relationships are deprecated and will be removed from the API response soon. <br>
-Make sure that if you are still using these that you switch to using the `service` attributes `regions_from` and `regions_to` instead.
+If you are using these relationships, make sure that you switch to using the attributes `regions_from` and `regions_to` instead.
 {{% /notice %}}
 
 ## Endpoints

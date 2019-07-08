@@ -10,10 +10,10 @@ They determine where a service can ship to and from, so if a service for instanc
 
 ## Attributes
 
-Attribute      | Type       | Description                                                          | Required   
----------------|------------|----------------------------------------------------------------------|------------
-country_code   | string    | The country codes to match in order to be accepted | ✓
-region_code    | string    | The region codes to match in order to be accepted | 
+Attribute    | Type   | Description                                       | Required
+-------------|--------|---------------------------------------------------|---------
+country_code | string | The country code to match in order to be accepted | ✓
+region_code  | string | The region code to match in order to be accepted  |
 
 ## Example
 
