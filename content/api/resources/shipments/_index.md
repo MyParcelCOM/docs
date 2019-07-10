@@ -139,7 +139,8 @@ Example: https://sandbox-api.myparcel.com/shipments
           "width": 300,
           "length": 500,
           "volume": 22.5,
-          "weight": 5000
+          "weight": 5000,
+          "volumetric_weight": 4500
         },
         "items": [
           {
@@ -304,7 +305,8 @@ Example: https://sandbox-api.myparcel.com/shipments
           "width": 300,
           "length": 500,
           "volume": 22.5,
-          "weight": 5000
+          "weight": 5000,
+          "volumetric_weight": 4500
         },
         "items": [
           {
@@ -501,7 +503,8 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "width": 300,
         "length": 500,
         "volume": 22.5,
-        "weight": 5000
+        "weight": 5000,
+        "volumetric_weight": 4500
       },
       "items": [
         {
@@ -832,7 +835,8 @@ Example: https://sandbox-api.myparcel.com/shipments
         "width": 300,
         "length": 500,
         "volume": 22.5,
-        "weight": 5000
+        "weight": 5000,
+        "volumetric_weight": 4500
       },
       "items": [
         {
@@ -1055,7 +1059,8 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "width": 300,
         "length": 500,
         "volume": 22.5,
-        "weight": 5000
+        "weight": 5000,
+        "volumetric_weight": 4500
       },
       "items": [
         {
