@@ -13,21 +13,21 @@ A user has access to service rates that are related to the contracts the user ha
 
 Attribute  |  Type   | Description                                              | Required
 ---------- | ------- | ------------------------------------------------------------------------------------------- | --------
-weight_min | integer | The minimum weight in grams a shipment should have for this service rate to apply to it     | ✓
-weight_max | integer | The maximum weight in grams a shipment should have for this service rate to apply to it     | ✓
-length_max | integer | The maximum length of the shipment in mm                                                    |
-width_max  | integer | The maximum width of the shipment in mm                                                     |
-height_max | integer | The maximum height of the shipment in mm                                                    |
-volume_max | float   | The maximum volume of the shipment in liters                                                |
-price      | [price](/api/resources/common-objects/prices/) | The price of the service in cents (where applicable) |
-step_size  | integer | When the service supports sending shipments that exceed the max weight, this indicates in what weight steps (in grams) the increments are calculated with |
-step_price | [price](/api/resources/common-objects/prices/) | The price per increment of `step_size` |
+weight_min | integer | The minimum weight in grams a shipment should have for this service rate to apply to it.     | ✓
+weight_max | integer | The maximum weight in grams a shipment should have for this service rate to apply to it.     | ✓
+length_max | integer | The maximum length of the shipment in mm.                                                    |
+width_max  | integer | The maximum width of the shipment in mm.                                                     |
+height_max | integer | The maximum height of the shipment in mm.                                                    |
+volume_max | float   | The maximum volume of the shipment in liters.                                                |
+price      | [price](/api/resources/common-objects/prices/) | The price of the service in cents (where applicable). |
+step_size  | integer | When the service supports sending shipments that exceed the max weight, this indicates in what weight steps (in grams) the increments are calculated with. |
+step_price | [price](/api/resources/common-objects/prices/) | The price per increment of `step_size`. |
 
 Relationship    | Type                                                                                                | Description                          | Required
 --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------ | --------
-contract        | [contracts](/api/resources/contracts)                  | The contract this rate belongs to    | ✓
-service         | [services](/api/resources/services/)                     | The service this rate belongs to     | ✓
-service_options | [service-options](/api/resources/service-options/) | The service service options that are available for this contract and service combination. The price and whether it is always included are available in the meta |
+contract        | [contracts](/api/resources/contracts)                  | The contract this rate belongs to.    | ✓
+service         | [services](/api/resources/services/)                     | The service this rate belongs to.     | ✓
+service_options | [service-options](/api/resources/service-options/) | The service service options that are available for this contract and service combination. The price and whether it is always included are available in the meta. |
 
 ## Endpoints
 
@@ -42,11 +42,12 @@ Any of the following scopes:
 **Request parameters**  
 For more specific requests, the following parameters can be included as query parameters.
 
-Parameter        | Type    | Description
----------------- | ------- | ------------
-filter[weight]   | integer | Weight in grams to filter on. This will only return service-rates for which the following is true `weight_min ≤ filter[weight] ≤ weight_max`
-filter[service]  | string  | Comma separated string of service ids to filter the service rates by
-filter[contract] | string  | Comma separated string of contract ids to filter the service rates by
+Parameter                   | Type    | Description
+--------------------------- | ------- | ------------
+filter[weight]              | integer | Weight in grams to filter on. This will only return service-rates for which the following is true `weight_min ≤ filter[weight] ≤ weight_max`.
+filter[volumetric_weight]   | integer | Volumetric weight in grams to filter on. Use together with weight filter for the most accurate results. This filter uses the same logic as the weight filter, but uses the higher value between the two sent filters to determine what weight range should be returned (only applies to service-rates for services that use [volumetric_weight](/api/resources/shipments/physical-properties/volumetric-weight)).
+filter[service]             | string  | Comma separated string of service ids to filter the service rates by.
+filter[contract]            | string  | Comma separated string of contract ids to filter the service rates by.
 
 **Request**
 ```http
