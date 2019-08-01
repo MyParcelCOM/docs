@@ -19,6 +19,7 @@ formats       | List of [Format](/api/resources/files/format) objects holding th
 If you request a file using the default Accept header `application/vnd.api+json`, you will get a list of the supported formats of that file. This list can contain the following mime types:
 
 - `application/pdf`
+- `application/zpl`
 - `image/png`
 
 ## Retrieve a file in a specific format
