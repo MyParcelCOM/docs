@@ -22,6 +22,7 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | customs             | [customs](/api/resources/shipments/customs/)                         | Information required for the shipment to pass customs.                                                                       | Required for international shipments                     |
 | channel             | string                                                               | Name of the application (and potentially version number) used to create the shipment.                                        |                                                          |
 | price               | [price](/api/resources/common-objects/prices/)                       | The price of the shipment.                                                                                                   |                                                          |
+| total_value         | [price](/api/resources/common-objects/prices/)                       | The total value of the shipment.                                                                                             |
 | barcode             | string                                                               | Textual representation of the barcode present on the label.                                                                  |                                                          |
 | tracking_code       | string                                                               | Used to request tracking status from the carrier.                                                                            |                                                          |
 | tracking_url        | string                                                               | Points to the tracking software of the carrier.                                                                              |                                                          |
@@ -129,6 +130,10 @@ Example: https://sandbox-api.myparcel.com/shipments
         "channel": "MyParcel.com Back Office",
         "price": {
           "amount": 995,
+          "currency": "EUR"
+        },
+        "total_value": {
+          "amount": 25000,
           "currency": "EUR"
         },
         "barcode": "3SABCD0123456789",
@@ -295,6 +300,10 @@ Example: https://sandbox-api.myparcel.com/shipments
         "channel": "MyParcel.com Back Office",
         "price": {
           "amount": 995,
+          "currency": "EUR"
+        },
+        "total_value": {
+          "amount": 25000,
           "currency": "EUR"
         },
         "barcode": "3SABCD0123456789",
@@ -533,6 +542,10 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "amount": 995,
         "currency": "EUR"
       },
+        "total_value": {
+          "amount": 25000,
+          "currency": "EUR"
+        },
       "barcode": "3SABCD0123456789",
       "tracking_code": "3SABCD0123456789",
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
@@ -865,6 +878,10 @@ Example: https://sandbox-api.myparcel.com/shipments
         "amount": 995,
         "currency": "EUR"
       },
+        "total_value": {
+          "amount": 25000,
+          "currency": "EUR"
+        },
       "barcode": "3SABCD0123456789",
       "tracking_code": "3SABCD0123456789",
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
@@ -1089,6 +1106,10 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "amount": 995,
         "currency": "EUR"
       },
+        "total_value": {
+          "amount": 25000,
+          "currency": "EUR"
+        },
       "barcode": "3SABCD0123456789",
       "tracking_code": "3SABCD0123456789",
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
