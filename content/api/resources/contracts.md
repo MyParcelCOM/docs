@@ -61,7 +61,7 @@ Example: https://sandbox-api.myparcel.com/contracts
             "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
           },
           "links": {
-            "related": "https://sandbox-api.myparcel.com/v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
+            "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
           }
         },
         "owner": {
@@ -70,7 +70,7 @@ Example: https://sandbox-api.myparcel.com/contracts
             "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
           },
           "links": {
-            "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+            "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
           }
         }
       }
@@ -81,11 +81,11 @@ Example: https://sandbox-api.myparcel.com/contracts
     "total_records": 373
   },
   "links": {
-    "self": "https://sandbox-api.myparcel.com/v1/contracts?page[number]=3&page[size]=30",
-    "first": "https://sandbox-api.myparcel.com/v1/contracts?page[number]=1&page[size]=30",
-    "prev": "https://sandbox-api.myparcel.com/v1/contracts?page[number]=2&page[size]=30",
-    "next": "https://sandbox-api.myparcel.com/v1/contracts?page[number]=4&page[size]=30",
-    "last": "https://sandbox-api.myparcel.com/v1/contracts?page[number]=13&page[size]=30"
+    "self": "https://sandbox-api.myparcel.com/contracts?page[number]=3&page[size]=30",
+    "first": "https://sandbox-api.myparcel.com/contracts?page[number]=1&page[size]=30",
+    "prev": "https://sandbox-api.myparcel.com/contracts?page[number]=2&page[size]=30",
+    "next": "https://sandbox-api.myparcel.com/contracts?page[number]=4&page[size]=30",
+    "last": "https://sandbox-api.myparcel.com/contracts?page[number]=13&page[size]=30"
   }
 }
 ```
@@ -130,7 +130,7 @@ Example: https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e
           "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
         },
         "links": {
-          "related": "https://sandbox-api.myparcel.com/v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
+          "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
         }
       },
       "owner": {
@@ -139,7 +139,123 @@ Example: https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e
           "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
         },
         "links": {
-          "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+        }
+      }
+    }
+  }
+}
+```
+
+{{% /expand %}}
+
+{{%expand "GET /carriers/{carrier_id}/contracts" %}}
+
+Get all contracts for a specific carrier.
+
+**Scope**
+
+Any of the following scopes:
+
+- `shipments.manage`
+- `organizations.manage`
+
+**Request parameters**
+
+For more specific requests, the following parameters can be included as query parameters.
+
+Parameter                          | Type    | Description
+-----------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------
+include                            | string  | Comma separated string of the relationship names you want to include the data of. The relationships that can be included are: `carrier` and `owner`.
+
+**Request**
+
+```http
+GET /carriers/{carrier_id}/contracts HTTP/1.1
+Accept: application/vnd.api+json
+Example: https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "contracts",
+      "id": "2cb32706-5762-4b96-9212-327e6afaeeff",
+      "attributes": {
+        "currency": "EUR",
+        "name": "My Custom Contract",
+        "status": "active",
+        "created_at": 1504801719
+      },
+      "relationships": {
+        "carrier": {
+          "data": {
+            "type": "carriers",
+            "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
+          },
+          "links": {
+            "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
+          }
+        },
+        "owner": {
+          "data": {
+            "type": "organizations",
+            "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          },
+          "links": {
+            "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          }
+        }
+      },
+      "links": {
+        "self": "https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e6afaeeff"
+      }
+    }
+  ],
+  "meta": {
+    "total_pages": 13,
+    "total_records": 373
+  },
+  "links": {
+    "self": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=3&page[size]=30",
+    "first": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=1&page[size]=30",
+    "prev": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=2&page[size]=30",
+    "next": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=4&page[size]=30",
+    "last": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=13&page[size]=30"
+  }
+}
+```
+
+**Response**
+
+```json
+{
+  "data": {
+    "type": "contracts",
+    "id": "2cb32706-5762-4b96-9212-327e6afaeeff",
+    "attributes": {
+      "name": "My Custom Contract",
+      "currency": "EUR",
+      "status": "inactive"
+    },
+    "relationships": {
+      "carrier": {
+        "data": {
+          "type": "carriers",
+          "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
+        },
+        "links": {
+          "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
+        }
+      },
+      "owner": {
+        "data": {
+          "type": "organizations",
+          "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
+        },
+        "links": {
+          "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
       }
     }
@@ -216,7 +332,7 @@ Example: https://sandbox-api.myparcel.com/contracts
           "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
         },
         "links": {
-          "related": "https://sandbox-api.myparcel.com/v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
+          "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
         }
       },
       "owner": {
@@ -225,7 +341,7 @@ Example: https://sandbox-api.myparcel.com/contracts
           "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
         },
         "links": {
-          "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
       }
     }
@@ -287,7 +403,7 @@ Example: https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e
           "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
         },
         "links": {
-          "related": "https://sandbox-api.myparcel.com/v1/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
+          "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
         }
       },
       "owner": {
@@ -296,7 +412,7 @@ Example: https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e
           "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
         },
         "links": {
-          "related": "https://sandbox-api.myparcel.com/v1/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
+          "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
       }
     }

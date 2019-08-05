@@ -631,6 +631,19 @@ Create a shipment.
 
 - `shipments.manage`
 
+**Meta data**
+
+The `POST /shipments` endpoint allows the user to send a `meta` property in addition to the main `data` attribute.
+In this `meta` property, the following properties can be included:
+
+| Property          | Type      | Description                                   | Required  | Default           |
+| --------          | --------- | --------------------------------------------- | --------- | ----------------- |
+| label_mime_type   | string    | Requested mime type for the shipment's label. |           | application/pdf   |
+
+{{% notice note %}}
+This meta information is not returned in the response.
+{{% /notice %}}
+
 **Request**
 ```http
 POST /shipments HTTP/1.1
@@ -767,6 +780,9 @@ Example: https://sandbox-api.myparcel.com/shipments
         }
       }
     }
+  },
+  "meta": {
+    "label_mime_type": "application/zpl"
   }
 }
 ```
@@ -966,6 +982,19 @@ Update an existing shipment.
 **Scope**
 
 - `shipments.manage`
+
+**Meta data**
+
+The `PATCH /shipments/{shipment_id}` endpoint allows the user to send a `meta` property in addition to the main `data` attribute.
+In this `meta` property, the following properties can be included:
+
+| Property          | Type      | Description                                   | Required      | Default           |
+| --------          | --------- | --------------------------------------------- | ------------- | ----------------- |
+| label_mime_type   | string    | Requested mime type for the shipment's label. |               | application/pdf   |
+
+{{% notice note %}}
+This meta information is not returned in the response.
+{{% /notice %}}
 
 **Request**
 
