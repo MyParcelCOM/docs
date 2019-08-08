@@ -36,8 +36,6 @@ If you are using these relationships, make sure that you switch to using the att
 
 ## Endpoints
 
-### Calculator
-
 {{%expand "GET /services" %}}
 Retrieving a list of services.
 
