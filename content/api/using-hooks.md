@@ -20,7 +20,7 @@ Creating a [hooks](/api/resources/hooks) resource can be complicated, but can be
 ### Triggers
 In order for a hook to trigger, specific conditions can be specified. 
 
-A hook for the example used above, would have to trigger when any shipment to England is created.
+A hook for the example used below, would have to trigger when any shipment to England is created.
 ```json
 {
   "resource_type": "shipments",
