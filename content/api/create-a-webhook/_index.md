@@ -10,7 +10,7 @@ With this [hook](/api/resources/hooks) resource you can describe an action on wh
 For more information about the possibilities with these triggers read the [hook trigger](/api/resources/hooks/triggers) page
 or go the the [using hooks](/api/using-hooks) page to get a guide on how to use the hooks in general.
 
-What is boils down to is when you create a hook and choose the [send-resource](/api/resources/hooks/action/#send-resource) action type you can choose a `url` where the data of the effected resource will be sent to. 
+Furthermore, when you create a hook and choose the [send-resource](/api/resources/hooks/action/#send-resource) action type you can choose a `url` where the data of the effected resource will be sent to. 
 
 #### Examples
 This example below will send the resource data of the newly created shipment with a POST request to your provided `url`. 
@@ -19,7 +19,7 @@ This example below will send the resource data of the newly created shipment wit
   "data": {
     "type": "hooks",
     "attributes": {
-      "name": "Send the shipment to my url it is created",
+      "name": "Send the shipment to my url when it is created",
       "order": 100,
       "active": true,
       "trigger": {
