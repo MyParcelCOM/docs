@@ -6,7 +6,7 @@ weight = 3
 
 The MyParcel.com API is built to communicate with many different carriers. 
 However, each carrier has their own restrictions and requirements for creating shipments. 
-Below you will find a list of every carrier specific requirement and restriction that the curently integrated carriers have for a shipment. 
+Below you will find a list of every carrier specific requirement and restriction that the currently integrated carriers have for a shipment. 
 
 ## Hermes
 Attribute                       | Restriction/Requirement           | When       

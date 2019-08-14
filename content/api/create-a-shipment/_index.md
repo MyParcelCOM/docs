@@ -58,7 +58,7 @@ A service rate can not be linked to a shipment directly, but should instead be u
 When shipping from one country to another, chances are that your parcel will have to go through customs. 
 The required customs information can be included in the shipment request. 
 Whenever the [customs](/api/resources/shipments#customs) object is present in the shipment request, the [items](/api/resources/shipments#items) object is also required.
-Futhermore, a `phone_number` of the recipient and `description` of the shipment are also required for customs related shipments.
+Furthermore, a `phone_number` of the recipient and `description` of the shipment are also required for customs related shipments.
 A customs declaration form will be automatically generated and returned when printing the label for this shipment.
 
 ## Registering your shipment with the carrier

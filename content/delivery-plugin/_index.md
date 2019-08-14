@@ -43,7 +43,7 @@ To open the popup, call the `window.myparcelcom.openDeliveryWindow()` method. It
 3) The third argument is the settings object for the popup. More on this below. 
 
 ```javascript
-var initialLocation = {
+let initialLocation = {
   countryCode: 'NL',
   postalCode: '2131BC'
 }
@@ -75,7 +75,7 @@ The key string you received from Google. See this [step](#google-maps-api-key)
 **Parameters**: None.
 
 ```javascript
-var settings = {
+let settings = {
   google_maps_key: 'your-google-maps-key',
   retrievePickupLocationsCallback: function(countryCode, postalCode) {
     // Use the country code and postal code to retrieve pickup locations from our API...

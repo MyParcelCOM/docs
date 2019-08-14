@@ -74,7 +74,7 @@ $createdShipment = $api->createShipment($shipment);
 Now that you've created a shipment, you should store its id (`$createdShipment->getId()`) somewhere so you can later retrieve any files associated with the shipment and check for status updates.
 
 ## Downloading the shipment label
-When you create a shipment, it's status will be `shipment_concept`. While the shipment has this status it can be modified. When you are ready to register the shipment with the carrier, you should set the `register_at` property. This can be set into the future if you want to schedule registering the shipment or you can use the current time to register it immediatly. This should normally not take more than a minute, but depending on the carrier, it can take a little bit longer.
+When you create a shipment, it's status will be `shipment_concept`. While the shipment has this status it can be modified. When you are ready to register the shipment with the carrier, you should set the `register_at` property. This can be set into the future if you want to schedule registering the shipment or you can use the current time to register it immediately. This should normally not take more than a minute, but depending on the carrier, it can take a little bit longer.
 
 ```php
 // Set register_at to now to have the shipment registered immediately.

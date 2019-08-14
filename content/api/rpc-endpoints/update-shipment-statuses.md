@@ -11,7 +11,7 @@ This endpoint is only available for the **sandbox** environment!
 {{% /notice %}}
 
 When implementing the MyParcel.com API using the sandbox environment, you might want to simulate realistic shipment behavior like changing a shipment's status.
-Because the sandbox environment doesn't actually allow users to send a shipment, shipments will never receive a status update from the carrier, indicating that it is on the way or has been delivered etc. To simulate this behavior, the sandbox enviroment describes an [RPC endpoint](/api/rpc-endpoints) that allows users to manually update the status of a shipment. 
+Because the sandbox environment doesn't actually allow users to send a shipment, shipments will never receive a status update from the carrier, indicating that it is on the way or has been delivered etc. To simulate this behavior, the sandbox environment describes an [RPC endpoint](/api/rpc-endpoints) that allows users to manually update the status of a shipment. 
 
 ## Request
 
