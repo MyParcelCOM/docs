@@ -329,7 +329,7 @@ Example: https://sandbox-api.myparcel.com/shops/35eddf50-1d84-47a3-8479-6bfda729
     "type": "shops",
     "id": "35eddf50-1d84-47a3-8479-6bfda729cd99",
     "attributes": {
-      "name": "Sherlock Holmes' trinkets",
+      "name": "Sherlock Holmes' trinkets"
     }
   }
 }

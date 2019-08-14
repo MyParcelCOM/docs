@@ -24,7 +24,7 @@ This example below will send the resource data of the newly created shipment wit
       "active": true,
       "trigger": {
         "resource_type": "shipments",
-        "resource_action": "create",
+        "resource_action": "create"
       },
       "action": {
         "action_type": "send-resource",
@@ -48,5 +48,5 @@ This example below will send the resource data of the newly created shipment wit
 ```
 {{% notice info %}}
 For more information about the hook actions, see the resource page on [send-resource action](/api/resources/hooks/action/#send-resource).
-and for more information about the hook trigger, see the resource page on [hooks trigger](/api/resources/hooks/trigger).
+And for more information about the hook trigger, see the resource page on [hooks trigger](/api/resources/hooks/trigger).
 {{% /notice %}}
