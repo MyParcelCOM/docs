@@ -24,7 +24,7 @@ ADD . /opt/hugo
 
 RUN hugo --baseURL "https://${DOMAIN}/"
 
-FROM nginx:1.15-alpine
+FROM nginx:1.16-alpine
 
 COPY --from=build /opt/hugo/public /usr/share/nginx/html
 
