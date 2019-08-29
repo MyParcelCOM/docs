@@ -48,6 +48,7 @@ filter[weight]              | integer | Weight in grams to filter on. This will 
 filter[volumetric_weight]   | integer | Volumetric weight in grams to filter on. Use together with weight filter for the most accurate results. This filter uses the same logic as the weight filter, but uses the higher value between the two sent filters to determine what weight range should be returned (only applies to service-rates for services that use [volumetric_weight](/api/resources/shipments/physical-properties/volumetric-weight)).
 filter[service]             | string  | Comma separated string of service ids to filter the service rates by.
 filter[contract]            | string  | Comma separated string of contract ids to filter the service rates by.
+filter[has_active_contract] | boolean | A `true` value will filter services-rates that have **active** [contract](/api/resources/contracts) associations. `false` will result in service-rates that do **not** have active contract associations. To retrieve **all** services regardless of contract, omit this filter.
 
 **Request**
 ```http
