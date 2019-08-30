@@ -5,11 +5,29 @@ weight = 3
 
 Before you can hand your shipment over to the carrier, the parcel must be provided with a label. In some cases customs documents should also be provided for passing customs. This section explains how to retrieve the available files and write them to your local file system.
 
-## Shipment registration required
+## Prerequisites
 
-Before you can retrieve files for your shipment, it first needs to be registered with the carrier that will ship the parcel. The MyParcel.com API can then retrieve or create the necessary files for you. Shipments that were just registered have a status with the code `shipment-registered`. But all shipments with a status of level `success` should have any necessary files available.
+{{% notice warning %}}
+Files are only available when a shipment is **successfully registered** with the carrier. Make sure you verify this before you request the files.<br>
+{{% /notice %}}
 
-You can learn more about [retrieving shipment statuses](/api/retrieve-shipment-statuses) and [registering a shipment](/api/create-a-shipment/#registering-your-shipment-with-the-carrier) at their corresponding sections.
+#### Shipment registration
+
+Before you can retrieve files for your shipment, it first needs to be [registered with the carrier](/api/create-a-shipment/#registering-your-shipment-with-the-carrier) that will ship the parcel. The MyParcel.com API can then retrieve and create the necessary files for you.
+
+#### Registered or failed
+
+After our background process is done registering a shipment, it will be updated with a new status:
+
+- `shipment-registered` if the carrier accepted the shipment and returned a label.
+- `shipment-registration-failed` if the carrier did not accept the shipment. No files will be available and the reason will be mentioned in the errors attached to the shipment-status.
+
+There are two ways to be informed about this new status:
+
+Method               | Description | Documentation
+-------------------- | ----------- | -------------
+Webhooks (preferred) | **our system** will notify **your system** as soon as the status is changed | [create a webhook](/api/create-a-webhook)
+Polling              | **your system** should retrieve the shipment statuses from **our system**<br>and retry this (after waiting 1 second) if the status is not yet updated | [retrieve current status](/api/retrieve-shipment-statuses/#current-status)
 
 ## Retrieving available files
 
