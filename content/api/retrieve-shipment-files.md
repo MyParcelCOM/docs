@@ -8,26 +8,34 @@ Before you can hand your shipment over to the carrier, the parcel must be provid
 ## Prerequisites
 
 {{% notice warning %}}
-Files are only available when a shipment is **successfully registered** with the carrier. Make sure you verify this before you request the files.<br>
+Files are only available when a shipment is **successfully registered** with the carrier. Make sure to verify this before requesting any shipment files.<br>
 {{% /notice %}}
 
 #### Shipment registration
 
 Before you can retrieve files for your shipment, it first needs to be [registered with the carrier](/api/create-a-shipment/#registering-your-shipment-with-the-carrier) that will ship the parcel. The MyParcel.com API can then retrieve and create the necessary files for you.
 
-#### Registered or failed
+#### Registered or registration failed
 
-After our background process is done registering a shipment, it will be updated with a new status:
+Registering a shipment with a carrier happens in a background process in the API and can take a few seconds to complete.
+After the API process is done registering a shipment, the shipment will be updated with a new status:
 
-- `shipment-registered` if the carrier accepted the shipment and returned a label.
-- `shipment-registration-failed` if the carrier did not accept the shipment. No files will be available and the reason will be mentioned in the errors attached to the shipment-status.
+- `shipment-registered` if the carrier accepted the shipment and returned a label. Files and optionally a tracking code are available (provided that the chosen service provides tracking).
+- `shipment-registration-failed` if the carrier did not accept the shipment. No files will be available and the reason for failing registration will be mentioned in the errors attached to the shipment-status.
 
 There are two ways to be informed about this new status:
 
 Method               | Description | Documentation
 -------------------- | ----------- | -------------
-Webhooks (preferred) | **our system** will notify **your system** as soon as the status is changed | [create a webhook](/api/create-a-webhook)
-Polling              | **your system** should retrieve the shipment statuses from **our system**<br>and retry this (after waiting 1 second) if the status is not yet updated | [retrieve current status](/api/retrieve-shipment-statuses/#current-status)
+Webhooks (preferred) | **Our system** will notify **your system** as soon as the status is changed. | [Create a webhook](/api/create-a-webhook)
+Polling              | **Your system** should retrieve the shipment statuses from **our system**<br>and retry this (after waiting 1 second) if the status is not yet updated. | [Retrieve current status](/api/retrieve-shipment-statuses/#current-status)
+
+{{% notice warning %}}
+In some exceptional cases, the status of a shipment will not change from `shipment-concept` to either `shipment-registered` or `shipment-registration-failed`, but rather stay `shipment-concept`. 
+This is the result of an internal error (or external in case the carrier's services are not available). 
+Our team will get notified of when this happens and try and resolve the issue as soon as possible.
+{{% /notice %}}
+
 
 ## Retrieving available files
 
