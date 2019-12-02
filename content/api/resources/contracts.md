@@ -17,10 +17,11 @@ Contracts define the service, service options and prices available for a carrier
 | credentials | See `credentials_format` for [carriers resource](http://localhost:1313/api/resources/carriers/) | The carriers resource has a `credentials_format` describing how the credentials for that specific carrier should be provided. Credentials will not be returned for a get request and are stored encrypted.                                          | ✓         |
 | status      | string enum: <br>`pending` <br>`active` <br>`inactive` <br>`invalid`                                | Newly created contracts are pending until verified. The user can manually switch between active and inactive once verified. After updating credentials, the contract goes back to pending. If verification fails, the contract will become invalid. | read-only |
 
-| Relationship | Type                                                                                       | Description                           | Required |
-|--------------|--------------------------------------------------------------------------------------------|---------------------------------------|----------|
-| carrier      | [carriers](/api/resources/carriers)                                                        | The carrier the contract is used for. | ✓        |
-| owner        | [brokers](/api/resources/brokers) <br>OR <br>[organizations](/api/resources/organizations) | The owner of the contract.            | ✓        |
+| Relationship          | Type                                                                                          | Description                                           | Required  |
+|-----------------------|-----------------------------------------------------------------------------------------------|-------------------------------------------------------|-----------|
+| carrier               | [carriers](/api/resources/carriers)                                                           | The carrier the contract is used for.                 | ✓         |
+| owner                 | [brokers](/api/resources/brokers) <br>OR <br>[organizations](/api/resources/organizations)    | The owner of the contract.                            | ✓         |
+| liability_coverages   | array of [liability coverages](/api/resources/liability-coverages)                            | The available liability coverages for this contract.  |           |
 
 ## Endpoints
 
@@ -72,6 +73,14 @@ Example: https://sandbox-api.myparcel.com/contracts
           "links": {
             "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
           }
+        },
+        "liability_coverages": {
+          "data": [
+            {
+              "type": "liability-coverages",
+              "id": "5a7ef73a-ddea-11e9-8a34-2a2ae2dbcce4"
+            }
+          ]
         }
       }
     }
@@ -141,6 +150,14 @@ Example: https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e
         "links": {
           "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
         }
+      },
+      "liability_coverages": {
+        "data": [
+          {
+            "type": "liability-coverages",
+            "id": "5a7ef73a-ddea-11e9-8a34-2a2ae2dbcce4"
+          }
+        ]
       }
     }
   }
@@ -176,6 +193,8 @@ Accept: application/vnd.api+json
 Example: https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts
 ```
 
+**Response**
+
 ```json
 {
   "data": [
@@ -206,7 +225,15 @@ Example: https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc20
           "links": {
             "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
           }
-        }
+        },
+        "liability_coverages": {
+          "data": [
+            {
+              "type": "liability-coverages",
+              "id": "5a7ef73a-ddea-11e9-8a34-2a2ae2dbcce4"
+            }
+          ]
+       }
       },
       "links": {
         "self": "https://sandbox-api.myparcel.com/contracts/2cb32706-5762-4b96-9212-327e6afaeeff"
@@ -223,42 +250,6 @@ Example: https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc20
     "prev": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=2&page[size]=30",
     "next": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=4&page[size]=30",
     "last": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/contracts?page[number]=13&page[size]=30"
-  }
-}
-```
-
-**Response**
-
-```json
-{
-  "data": {
-    "type": "contracts",
-    "id": "2cb32706-5762-4b96-9212-327e6afaeeff",
-    "attributes": {
-      "name": "My Custom Contract",
-      "currency": "EUR",
-      "status": "inactive"
-    },
-    "relationships": {
-      "carrier": {
-        "data": {
-          "type": "carriers",
-          "id": "be7f6752-34e0-49a1-a832-bcc209450ea9"
-        },
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/carriers/be7f6752-34e0-49a1-a832-bcc209450ea9"
-        }
-      },
-      "owner": {
-        "data": {
-          "type": "organizations",
-          "id": "9cdf86e8-333f-4ed9-bb31-4935c780c947"
-        },
-        "links": {
-          "related": "https://sandbox-api.myparcel.com/organizations/9cdf86e8-333f-4ed9-bb31-4935c780c947"
-        }
-      }
-    }
   }
 }
 ```
