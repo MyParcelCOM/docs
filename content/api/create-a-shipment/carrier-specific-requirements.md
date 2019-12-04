@@ -1,5 +1,5 @@
 +++
-title = "Carrier Specific Shipment Requirements"
+title = "Carrier specific requirements"
 description = "Carrier specific shipment requirements for all carriers."
 weight = 3
 +++
