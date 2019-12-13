@@ -24,7 +24,7 @@ physical_properties | [Physical properties](/api/resources/shipments#physical-pr
 
 {{% notice note %}}
 Depending on the carrier, additional information may be required. 
-For more information, see our page about **[carrier specific requirements](/api/carrier-specific-requirements)**.
+For more information, see our page about **[carrier specific requirements](/api/create-a-shipment/carrier-specific-requirements)**.
 {{% /notice %}}
 
 ### Relationships
@@ -53,6 +53,76 @@ Besides a service and a shop, a shipment needs a contract relationship. Contract
 
 #### Service rates
 A service rate can not be linked to a shipment directly, but should instead be used to consider which service or contract to use for a shipment. The service rate resource is a combination of a service and contract and details the specifics of said service and contract. It contains information on the price, maximum dimensions, weight range and lists which service options are available for this specific combination of service and contract. More information on service rates can be found on the [service rate resource page](/api/resources/service-rates).
+
+### Attaching a service and contract to the shipment
+Choosing a service and contract for your shipment and attaching them to the shipment can be quite confusing at first. 
+There are multiple ways to determine what service and contract to use, and also multiple ways of attaching them to a shipment.
+Below is an explanation of two recommended ways of doing so: 
+
+- [Retrieving services and contracts based on shipment](/api/create-a-shipment/#retrieving-services-and-contracts-based-on-shipment).
+- [Use the `service-code` meta property when posting a shipment](/api/create-a-shipment/#use-the-service-code-meta-property-to-let-the-api-determine-the-contract)
+
+#### Retrieving services and contracts based on shipment
+To ensure that a service can be used for a shipment, the services can be retrieved using information from the shipment. 
+Since services are destination- and origin-specific, it is wise to use the addresses of the shipment when retrieving services. 
+The filters on the `GET /services` endpoint can greatly reduce the amount of services returned when the endpoint is called.
+Using the following filters will result in services that are valid for the origin and destination of a shipment:
+
+- `filter[address_from][country_code]=...`
+- `filter[address_from][postal_code]=...`
+- `filter[address_to][country_code]=...`
+- `filter[address_to][postal_code]=...`
+
+Additionally, the `filter[has_active_contract]=true` query parameter should be added to only retrieve services for which the user has active contracts.
+
+{{% notice note %}}
+For an overview of all available filters, visit the [resource page on services](/api/resources/services#endpoints).
+{{% /notice %}}
+
+The retrieved services can be used to query the `GET /service-rates` endpoint using the `filter[service]` filter.
+Additionally, the `filter[weight]` query parameter should be used to ensure that the shipment's weight is supported with the chosen service.
+This should result in some [service rates](/api/resources/service-rates). 
+The returned service rates will contain information on the price, what [service options](/api/resources/service-options) are available, and what contract is linked to that price.
+When a desired service-rate is found, the related service-id and contract-id can be posted with the shipment in the respective relationship objects.
+
+#### Use the service-code meta property to let the API resolve the service and contract
+While the above mentioned way of retrieving services and contracts gives high confidence that the chosen service and contract can be used for the shipment, 
+it does require quite some requests to be made to the MyParcel.com API.  
+An alternative, more convenient but riskier way to attach a service and contract to a shipment, is by posting a service-code in the meta of the post body of the shipment.
+
+See the below example of what such a request body would look like.
+
+```json
+{
+  "data": {
+    "type": "shipments",
+    "attributes": {
+      "...": "..."
+    },
+    "relationships": {
+      "shop": {
+        "data": {
+          "type": "shops",
+          "id": "35eddf50-1d84-47a3-8479-6bfda729cd99"
+        }
+      }
+    }
+  },
+  "meta": {
+    "service_code": "dpd-classic"
+  }
+}
+```
+Note that in this example, no service and no contract relationships have been specified in the request body. 
+In this case, the user would already know what service they would like to use for the shipment. 
+The API will try to find a service and contract that match the shipment and service code and attach it to the shipment. 
+If successful, the API will then attach the found service and contract to the shipment, and the returned response should include the service and contract relationship objects.
+If however, the API cannot resolve the service-code into a valid service and contract, the shipment will be left without a service and contract relationship, 
+which means that they need to be set manually after the shipment has been created.
+
+{{% notice warning %}}
+If multiple contracts are found for a service, the API will find which contract results in a cheaper shipment and attach that contract to the shipment.
+{{% /notice %}}
 
 ### Customs information
 When shipping from one country to another, chances are that your parcel will have to go through customs. 
