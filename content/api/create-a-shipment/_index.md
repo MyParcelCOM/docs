@@ -88,7 +88,8 @@ When a desired service-rate is found, the related service-id and contract-id can
 #### Use the service-code meta property to let the API resolve the service and contract
 While the above mentioned way of retrieving services and contracts gives high confidence that the chosen service and contract can be used for the shipment, 
 it does require quite some requests to be made to the MyParcel.com API.  
-An alternative, more convenient but riskier way to attach a service and contract to a shipment, is by posting a service-code in the meta of the post body of the shipment.
+An alternative way to attach a service and contract to a shipment, is by posting a service-code in the meta of the post body of the shipment.
+This can be useful if a user knows for sure that a service exists for a certain service code and that the service can be used for this shipment.
 
 See the below example of what such a request body would look like.
 
@@ -117,7 +118,7 @@ Note that in this example, no service and no contract relationships have been sp
 In this case, the user would already know what service they would like to use for the shipment. 
 The API will try to find a service and contract that match the shipment and service code and attach it to the shipment. 
 If successful, the API will then attach the found service and contract to the shipment, and the returned response should include the service and contract relationship objects.
-If however, the API cannot resolve the service-code into a valid service and contract, the shipment will be left without a service and contract relationship, 
+If however, the API cannot resolve the service-code into a valid service and contract, the shipment will be created without a service and contract relationship, 
 which means that they need to be set manually after the shipment has been created.
 
 {{% notice warning %}}
