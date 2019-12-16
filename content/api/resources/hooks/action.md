@@ -66,7 +66,7 @@ The following example sets the service relationship of a shipment resource by se
 ```
 
 ### Converters
-In some scenario's, it might be desirable to not set an specific value, but rather a value that will convert into a specific value, based on resource context.
+In some scenario's, it might be desirable to not set a specific value, but rather a value that will convert into a specific value, based on resource context.
 To clarify, let's use the example of the currently only available value converter: the `service-code-to-id` converter.
 
 The `service-code-to-id` converter is only available when attempting to set a [service](/api/resources/services) on a [shipment](/api/resources/shipments), using the `update-resource` hook action.
