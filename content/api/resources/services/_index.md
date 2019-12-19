@@ -12,8 +12,9 @@ Services are provided by [carriers](/api/resources/carriers) and can be used to 
 
 Attribute       | Type              | Description                                                                                                                                       | Required
 --------------- |-------------------| -----------------------------------------------------------------------------------------------------------------------------------------------   | --------------
-name            | string            | Service name (eg. Next Day), useful for displaying to users.                                                                                                     | ✓
-package_type    | string enum: `parcel`<br> `letterbox`<br> `letter`<br> `unstamped`              | Type of package (eg. letter).                                                               | ✓
+name            | string            | Service name (eg. Next day), useful for displaying to users.                                                                                      | ✓
+code            | string            | Service code (eg. carrier-next-day), composed of the carrier name and the service name, lower cased.                                              | ✓
+package_type    | string enum: `parcel`<br> `letterbox`<br> `letter`<br> `unstamped`              | Type of package (eg. letter).                                                       | ✓
 handover_method | string enum: `collection`<br> `drop-off`                                    | Available methods to hand the shipment to the carrier. Value `collection` means the carrier will pick up the shipment at the shipment's sender address while drop-off means the sender has to drop the shipment at a pickup-dropoff-location.                                     | ✓
 delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery method for the carrier. Services with value `pick-up` means the carrier delivers the shipment at a pickup-dropoff-location while `delivery` means they deliver at the shipment's recipient address).   | ✓
 uses_volumetric_weight | boolean | Whether the carrier also takes the shipment's [volumetric weight](/api/resources/shipments/physical-properties/volumetric-weight) into account when determining the price of a shipment with the chosen service. | ✓ | 
@@ -78,7 +79,8 @@ Example: https://sandbox-api.myparcel.com/services
       "type": "services",
       "id": "175a235f-aff5-4e44-87b5-3657b75c1deb",
       "attributes": {
-        "name": "Parcel to Parcelshop",
+        "name": "Next day",
+        "code": "carrier-parcel-next-day",
         "package_type": "parcel",
         "delivery_days": [
           "Monday",
@@ -89,7 +91,7 @@ Example: https://sandbox-api.myparcel.com/services
         ],
         "transit_time": {
           "min": 1,
-          "max": 3
+          "max": 1
         },
         "handover_method": "drop-off",
         "delivery_method": "pick-up",
@@ -176,7 +178,8 @@ Example: https://sandbox-api.myparcel.com/service/175a235f-aff5-4e44-87b5-3657b7
     "type": "services",
     "id": "175a235f-aff5-4e44-87b5-3657b75c1deb",
     "attributes": {
-      "name": "Parcel to Parcelshop",
+      "name": "Next day",
+      "code": "carrier-parcel-next-day",
       "package_type": "parcel",
       "delivery_days": [
         "Monday",
@@ -187,7 +190,7 @@ Example: https://sandbox-api.myparcel.com/service/175a235f-aff5-4e44-87b5-3657b7
       ],
       "transit_time": {
         "min": 1,
-        "max": 3
+        "max": 1
       },
       "handover_method": "drop-off",
       "delivery_method": "pick-up",
