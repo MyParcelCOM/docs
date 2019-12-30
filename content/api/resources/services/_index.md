@@ -10,25 +10,24 @@ Services are provided by [carriers](/api/resources/carriers) and can be used to 
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Services)
 
-Attribute       | Type              | Description                                                                                                                                       | Required
---------------- |-------------------| -----------------------------------------------------------------------------------------------------------------------------------------------   | --------------
-name            | string            | Service name (eg. Next day), useful for displaying to users.                                                                                      | ✓
-code            | string            | Service code (eg. carrier-next-day), composed of the carrier name and the service name, lower cased.                                              | ✓
-package_type    | string enum: `parcel`<br> `letterbox`<br> `letter`<br> `unstamped`              | Type of package (eg. letter).                                                       | ✓
-handover_method | string enum: `collection`<br> `drop-off`                                    | Available methods to hand the shipment to the carrier. Value `collection` means the carrier will pick up the shipment at the shipment's sender address while drop-off means the sender has to drop the shipment at a pickup-dropoff-location.                                     | ✓
-delivery_method | string enum: `pick-up`<br> `delivery`            | Delivery method for the carrier. Services with value `pick-up` means the carrier delivers the shipment at a pickup-dropoff-location while `delivery` means they deliver at the shipment's recipient address).   | ✓
-uses_volumetric_weight | boolean | Whether the carrier also takes the shipment's [volumetric weight](/api/resources/shipments/physical-properties/volumetric-weight) into account when determining the price of a shipment with the chosen service. | ✓ | 
-delivery_days   | array of string enum: `Monday`<br> `Tuesday`<br> `Wednesday`<br> `Thursday`<br> `Friday`<br> `Saturday`<br> `Sunday`  | Textual representation of days of the week this service delivers shipments.                                                                       | 
-transit_time    | [transit time](/api/resources/services/transit-time)                 | The minimum and maximum time it takes to deliver the shipment.                                 |
-regions_from    | array of [address rules](/api/resources/services/address-rules)    | [Address rules](/api/resources/services/address-rules) for where this service can ship from. | ✓       
-regions_to      | array of [address rules](/api/resources/services/address-rules)    | [Address rules](/api/resources/services/address-rules) for where this service can ship to.   | ✓  
+Attribute              | Type                                                            | Description                                                                                                       | Required
+-----------------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|---------
+name                   | string                                                          | Service name (eg. Next day), useful for displaying to users.                                                      | ✓
+code                   | string                                                          | Service code (eg. carrier-parcel-next-day), often composed of the carrier name and the service name, lower cased. | ✓
+package_type           | string enum: `parcel`<br>`letterbox`<br>`letter`<br>`unstamped` | Type of package (eg. letter).                                                                                     | ✓
+handover_method        | string enum: `collection`<br>`drop-off`                         | Available methods to hand the shipment to the carrier. Value `collection` means the carrier will pick up the shipment at the shipment's sender address while drop-off means the sender has to drop the shipment at a pickup-dropoff-location. | ✓
+delivery_method        | string enum: `pick-up`<br>`delivery`                            | Delivery method for the carrier. Services with value `pick-up` means the carrier delivers the shipment at a pickup-dropoff-location while `delivery` means they deliver at the shipment's recipient address).    | ✓
+uses_volumetric_weight | boolean                                                         | Whether the carrier also takes the shipment's [volumetric weight](/api/resources/shipments/physical-properties/volumetric-weight) into account when determining the price of a shipment with the chosen service. | ✓
+delivery_days          | array of string enum: `Monday`<br>`Tuesday`<br>`Wednesday`<br>`Thursday`<br>`Friday`<br>`Saturday`<br>`Sunday`  | Textual representation of days of the week this service delivers shipments. |
+transit_time           | [transit time](/api/resources/services/transit-time)            | The minimum and maximum time it takes to deliver the shipment.                                                    |
+regions_from           | array of [address rules](/api/resources/services/address-rules) | [Address rules](/api/resources/services/address-rules) for where this service can ship from.                      | ✓
+regions_to             | array of [address rules](/api/resources/services/address-rules) | [Address rules](/api/resources/services/address-rules) for where this service can ship to.                        | ✓
 
-Relationship | Type                                 | Description                                | Required
------------- | ------------------------------------ |------------------------------------------- | ---------------
-carrier      | [carriers](/api/resources/carriers)  | Carrier offering the service.              | ✓
-⚠ region_from  | [regions](/api/resources/regions)    | Region in which this service is available. | ✓       
-⚠ region_to    | [regions](/api/resources/regions)    | Region where shipments can be delivered.   | ✓  
-
+Relationship  | Type                                | Description                                | Required
+------------- | ----------------------------------- | ------------------------------------------ | ---------------
+carrier       | [carriers](/api/resources/carriers) | Carrier offering the service.              | ✓
+⚠ region_from | [regions](/api/resources/regions)   | Region in which this service is available. | ✓
+⚠ region_to   | [regions](/api/resources/regions)   | Region where shipments can be delivered.   | ✓
 
 {{% notice warning %}}
 ⚠ The `region_from` and `region_to` relationships are deprecated and will be removed from the API response soon. <br>
@@ -62,7 +61,6 @@ filter[address_to][postal_code]    | string  | Retrieve services for which the g
 filter[has_active_contract]        | boolean | A `true` value will filter services that have **active** [contract](/api/resources/contracts) associations. `false` will result in services that do **not** have active contract associations. To retrieve **all** services regardless of contract, omit this filter.
 filter[delivery_method]            | string  | Using filter value `pick-up` will result in services that deliver to a [pickup-dropoff-location](/api/resources/carrier-pudo-locations/). Using `delivery` filters services for which the carrier delivers the shipment to the `recipient_address`.
 filter[code]                       | string  | Retrieve services for which the given filter 'code' corresponds to the code of the service.
-
 
 **Request**  
 ```http
