@@ -315,7 +315,7 @@ Content-Type: application/vnd.api+json
         "content_type": "merchandise",
         "invoice_number": "9000",
         "non_delivery": "return",
-        "incoterm": "DDU"
+        "incoterm": "DAP"
       },
       "register_at": 1504801719
     },
