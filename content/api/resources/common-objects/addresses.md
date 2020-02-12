@@ -12,7 +12,7 @@ street_1             | string  | First address line.                            
 street_2             | string  | Second address line.                                                       |
 street_number        | integer | House number                                                               |
 street_number_suffix | integer | House number suffix                                                        |
-postal_code          | string  | Postal code                                                                | ✓
+postal_code          | string  | Postal code                                                                |  
 city                 | string  | City                                                                       | ✓
 region_code          | string  | Code of a region ([see regions](/api/resources/regions))                   |
 country_code         | string  | Country code in ISO 3166-1 alpha-2 ([see regions](/api/resources/regions)) | ✓
