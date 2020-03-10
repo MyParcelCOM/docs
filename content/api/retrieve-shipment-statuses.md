@@ -35,6 +35,7 @@ shipment-delivered                  | success       | The shipment was delivered
 shipment-failed                     | failed        | The shipping process failed. The shipping process will not continue. The shipment has to be resend. Errors are available.
 shipment-created-without-tracking   | success       | The shipment was registered and has files available, but no further tracking is available.
 shipment-registration-failed        | failed        | The concept shipment was rejected by the carrier and might need to be updated before trying to register again.
+shipment-voided                     | cancelled     | The shipment was succesfully voided. The label is no longer downloadable or usable.
 
 {{% notice info %}}
 After initial shipment creation and shipment updates through PATCH requests, the shipment will get the status `shipment-processing`.
