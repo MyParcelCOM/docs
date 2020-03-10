@@ -31,7 +31,7 @@ When calling the /update-shipment-status endpoint, please make sure the posted s
 
 
 ```http
-POST /suggest-address HTTP/1.1
+POST /update-shipment-status HTTP/1.1
 Example: https://sandbox-api.myparcel.com/update-shipment-status
 ```
 
