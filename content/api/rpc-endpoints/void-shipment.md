@@ -22,7 +22,7 @@ it becomes unvoidable.
 {{% notice tip %}}
 As a rule of thumb, whenever a shipment has the `shipment-registered` status, it can be voided.
 Some exceptions exist of course, for example when the shipment was just handed over to the carrier and no status update has reached the MyParcel.com platform yet.
-The carrier will reject the shipment in such cases.
+The carrier will reject the request to void the shipment in such cases.
 {{% /notice %}}
 
 ## Request
