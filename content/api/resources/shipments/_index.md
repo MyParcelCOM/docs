@@ -17,12 +17,13 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | sender_address      | [address](/api/resources/common-objects/addresses/)                  | The address of the sender of the shipment.                                                                                   | ✓                                                        |
 | physical_properties | [physical-properties](/api/resources/shipments/physical-properties/) | Weight and dimensions of the shipment.                                                                                       | ✓                                                        |
 | pickup_location     | [pickup-dropoff-locations](/api/resources/carrier-pudo-locations/)   | The place where the recipient can pick up their shipment.                                                                    | Required when chosen service has delivery-method pick-up |
-| description         | string                                                               | Short custom description that will be printed on the label when possible.                                                    | Required for international shipments                     |
+| description         | string                                                               | Short custom description of the shipment that will be printed on the label when possible.                                    | Required for international shipments                     |
 | items               | array of [items](/api/resources/shipments/items)                     | The contents of the shipment.                                                                                                | Required for international shipments                     |
 | customs             | [customs](/api/resources/shipments/customs/)                         | Information required for the shipment to pass customs.                                                                       | Required for international shipments                     |
+| customer_reference  | string                                                               | Internal customer reference that can be used to identify shipments. This field is not communicated to the carrier.           |                                                          |
 | channel             | string                                                               | Name of the application (and potentially version number) used to create the shipment.                                        |                                                          |
 | price               | [price](/api/resources/common-objects/prices/)                       | The price of the shipment.                                                                                                   |                                                          |
-| total_value         | [price](/api/resources/common-objects/prices/)                       | The total value of the shipment.                                                                                             |
+| total_value         | [price](/api/resources/common-objects/prices/)                       | The total value of the shipment.                                                                                             |                                                          |
 | barcode             | string                                                               | Textual representation of the barcode present on the label.                                                                  |                                                          |
 | tracking_code       | string                                                               | Used to request tracking status from the carrier.                                                                            |                                                          |
 | tracking_url        | string                                                               | Points to the tracking software of the carrier.                                                                              |                                                          |
@@ -126,7 +127,8 @@ Example: https://sandbox-api.myparcel.com/shipments
             "phone_number": "+31 234 567 890"
           }
         },
-        "description": "Order #8008135",
+        "description": "Fidget spinners",
+        "customer_reference": "#8008135",
         "channel": "MyParcel.com Back Office",
         "price": {
           "amount": 995,
@@ -296,7 +298,8 @@ Example: https://sandbox-api.myparcel.com/shipments
             "phone_number": "+31 234 567 890"
           }
         },
-        "description": "Order #8008135",
+        "description": "Fidget spinners",
+        "customer_reference": "#8008135",
         "channel": "MyParcel.com Back Office",
         "price": {
           "amount": 995,
@@ -505,7 +508,8 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
           "phone_number": "+31 234 567 890"
         }
       },
-      "description": "Order #8008135",
+      "description": "Fidget spinners",
+      "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
@@ -719,7 +723,8 @@ Example: https://sandbox-api.myparcel.com/shipments
           "phone_number": "+31 234 567 890"
         }
       },
-      "description": "Order #8008135",
+      "description": "Fidget spinners",
+      "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
@@ -857,7 +862,8 @@ Example: https://sandbox-api.myparcel.com/shipments
           "phone_number": "+31 234 567 890"
         }
       },
-      "description": "Order #8008135",
+      "description": "Fidget spinners",
+      "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
@@ -1098,7 +1104,8 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
           "phone_number": "+31 234 567 890"
         }
       },
-      "description": "Order #8008135",
+      "description": "Fidget spinners",
+      "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
         "height": 150,
