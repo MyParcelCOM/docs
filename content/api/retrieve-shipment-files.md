@@ -30,13 +30,6 @@ Method               | Description | Documentation
 Webhooks (preferred) | **Our system** will notify **your system** as soon as the status is changed. | [Create a webhook](/api/create-a-webhook)
 Polling              | **Your system** should retrieve the shipment statuses from **our system**<br>and retry this (after waiting 1 second) if the status is not yet updated. | [Retrieve current status](/api/retrieve-shipment-statuses/#current-status)
 
-{{% notice warning %}}
-In some exceptional cases, the status of a shipment will not change from `shipment-concept` to either `shipment-registered` or `shipment-registration-failed`, but rather stay `shipment-concept`. 
-This is the result of an internal error (or external in case the carrier's services are not available). 
-Our team will get notified of when this happens and try and resolve the issue as soon as possible.
-{{% /notice %}}
-
-
 ## Retrieving available files
 
 Before you can download a file, you should check what files are available for the given shipment. To request the files, send a `GET` request to `/shipments/{shipment_id}/files`.

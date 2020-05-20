@@ -6,29 +6,29 @@ weight = 8
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/RPC/post_update_shipment_status)
 
-{{% notice warning %}}
-This endpoint is only available for the **sandbox** environment!
-{{% /notice %}}
+The `update-shipment-status` endpoint allows you to trigger an update of a shipment's status. The shipment will be synchronized with the carrier.
 
-When implementing the MyParcel.com API using the sandbox environment, you might want to simulate realistic shipment behavior like changing a shipment's status.
-Because the sandbox environment doesn't actually allow users to send a shipment, shipments will never receive a status update from the carrier, indicating that it is on the way or has been delivered etc. To simulate this behavior, the sandbox environment describes an [RPC endpoint](/api/rpc-endpoints) that allows users to manually update the status of a shipment. 
+### Sandbox environment
+
+Since our sandbox environment does not provide real shipments, they will never receive a status update from the carrier.
+To simulate a status update, you can provide a `status_id` in sandbox requests.
+This way you can simulate realistic shipment behavior and trigger webhooks to test your implementation.
+
+{{% notice warning %}}
+The MyParcel.com API contains several [status](/api/resources/statuses) resources that are not related to shipments. 
+When calling the /update-shipment-status endpoint, please make sure the posted status is a shipment related status (indicated by the `resource_type` attribute). 
+{{% /notice %}}
 
 ## Request
 
 **Required Scope:** `shipments.manage`
 
-| Attribute              | Type                     | Required |
-|------------------------|--------------------------|----------|
-| `shipment_id`          | uuid formatted string    | ✓        |
-| `status_id`            | uuid formatted string    | ✓        |
+| Attribute     | Type                                                                  | Required |
+|---------------|-----------------------------------------------------------------------|----------|
+| `shipment_id` | uuid formatted string                                                 | ✓        |
+| `status_id`   | uuid formatted string (only available on the **sandbox** environment) |          |
 
-This endpoint allows a user to create a new [shipment-status](/api/resources/shipment-statuses) consisting of the posted [shipment](/api/resources/shipments) and [status](/api/resources/statuses). 
-
-{{% notice warning %}}
-The MyParcel.com API contains several resources that are not related to shipments. 
-When calling the /update-shipment-status endpoint, please make sure the posted status is a shipment related status (indicated by the [status](/api/resources/statuses) `resource_type` attribute). 
-{{% /notice %}}
-
+Using this endpoint will result in a new [shipment-status](/api/resources/shipment-statuses) added to the posted [shipment](/api/resources/shipments), if the new status is different from the current status.
 
 ```http
 POST /update-shipment-status HTTP/1.1
