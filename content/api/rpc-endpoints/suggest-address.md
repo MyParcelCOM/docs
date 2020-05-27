@@ -6,7 +6,7 @@ weight = 7
 
 {{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/RPC/post_suggest_address)
 
-To make sure the correct address is being used for a shipment, the `suggest-address` endpoint allows you to verify and possibly suggest the address of a shipment. This endpoints differs a bit from the other endpoints, since it is an [RPC endpoint](/api/rpc-endpoints).
+To make sure the correct address is being used for a shipment, the `suggest-address` endpoint allows you to verify and possibly suggest the address of a shipment.
 
 {{% notice info %}}
 For now, the only supported country to suggest addresses for is the Netherlands (NL).
