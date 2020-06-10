@@ -8,7 +8,7 @@ Statuses are informative states which some resource can have attached as a relat
 
 ## Status
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Statuses)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Statuses)
 
 Attribute     | Description
 ------------- | -----------

@@ -8,7 +8,7 @@ Shipments are at the core of our API. They contain files such as labels and are 
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shipments)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shipments)
 
 | Attribute           | Type                                                                 | Description                                                                                                                  | Required                                                 |
 |---------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|

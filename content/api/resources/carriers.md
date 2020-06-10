@@ -9,7 +9,7 @@ Carriers are included as relationships of [services](/api/resources/services/), 
 
 ## Carrier
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Carriers)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Carriers)
 
 Attribute          | Type           | Description
 ------------------ | -------------- | -----------

@@ -9,7 +9,7 @@ A user has access to service rates that are related to the contracts the user ha
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shops)
 
 Attribute  |  Type   | Description                                              | Required
 ---------- | ------- | ------------------------------------------------------------------------------------------- | --------

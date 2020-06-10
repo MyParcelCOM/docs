@@ -8,7 +8,7 @@ Services are provided by [carriers](/api/resources/carriers) and can be used to 
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Services)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Services)
 
 Attribute              | Type                                                            | Description                                                                                                       | Required
 -----------------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|---------

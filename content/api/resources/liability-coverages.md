@@ -13,7 +13,7 @@ Liability coverages are currently not offered as a product on custom contracts.
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification/#/LiabilityCoverages)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/LiabilityCoverages)
 
 Attribute           | Type                                          | Description                                           | Required
 ------------------- | --------------------------------------------- | ----------------------------------------------------- | ----------

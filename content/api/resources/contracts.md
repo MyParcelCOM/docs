@@ -8,7 +8,7 @@ Contracts define the service, service options and prices available for a carrier
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Contracts)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Contracts)
 
 | Attribute   | Type                                                                                            | Description                                                                                                                                                                                                                                         | Required  |
 |-------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|

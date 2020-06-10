@@ -8,7 +8,7 @@ Service options can be added to a [shipment](/api/resources/shipments/) to add e
 
 ## Service Option
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/ServiceOptions)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/ServiceOptions)
 
 Attribute | Type                                                                    | Description                                                                                                               | Required
 --------- | ------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------- |----------------

@@ -9,7 +9,7 @@ is always associated with a shop.
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shops)
 
 Attribute      |  Type                                              | Description                                               | Required
 -------------- | --------------------------------------------------- | -------------------------------------------------------- | --------
@@ -21,7 +21,7 @@ created_at     | integer                                             | Unix time
 
 Relationship | Type                                                                                         | Description                          | Required
 ------------ | --------------------------------------------------------------------------------------------- | ------------------------------------ | --------
-organization | [organizations](https://docs.myparcel.com/api-specification/#/Organizations/get_organizations) | The organization the shop belongs to | ✓
+organization | [organizations](https://api-specification.myparcel.com/#tag/Organizations/paths/~1organizations/get) | The organization the shop belongs to | ✓
 
 ## Endpoints
 
