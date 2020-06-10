@@ -1,14 +1,14 @@
 +++
 title = "Regions"
 description = "All available regions with their region code and country code to easily filter available services."
-weight = 8
+weight = 14
 +++
 
 Regions are geographical areas arranged in a tree-like structure with "Earth" being the root region. Countries are regions with a non-empty `country_code`. Carriers can offer their services in any region. Shipment addresses should always contain a `country_code` and a `region_code` from a region defined as a country.
 
 ## Region
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Regions)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Regions)
 
 Attribute    | Description
 ------------ | -----------
@@ -25,7 +25,7 @@ parent       | The parent region in the region tree.
 ## Retrieve regions
 
 For an example request and response, check our API specification:<br>
-{{< icon fa-file-text-o >}}[GET /regions](https://docs.myparcel.com/api-specification#/Regions/get_regions)
+{{< icon fa-file-text-o >}}[GET /regions](https://api-specification.myparcel.com/#tag/Regions/paths/~1regions/get)
 
 ### Parameters
 

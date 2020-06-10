@@ -1,7 +1,7 @@
 +++
 title = "Address rules"
 description = "A list of requirements for matching an address."
-weight = 5
+weight = 1
 +++
 
 Address rules are objects that contain a list of requirements for matching an address in order to be able to use this service.
@@ -30,5 +30,5 @@ The regular expression in the example will match all postal codes for the Channe
 {{% /notice %}}
 
 {{% notice warning %}}
-Instead of fetching all services and using local functions to filter on the `postal_code` regex, you should use the address filters when calling the [GET /services](https://docs.myparcel.com/api-specification/#/Services/get_services) endpoint.
+Instead of fetching all services and using local functions to filter on the `postal_code` regex, you should use the address filters when calling the [GET /services](https://api-specification.myparcel.com/#tag/Services/paths/~1services/get) endpoint.
 {{% /notice %}}

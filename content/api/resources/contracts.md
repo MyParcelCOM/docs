@@ -1,14 +1,14 @@
 +++
 title = "Contracts"
 description = "Contracts define the service and prices available for a carrier."
-weight = 10
+weight = 6
 +++
 
 Contracts define the service, service options and prices available for a carrier. A contract might be available because it is shared with you or because you added your own contract (including API credentials for that carrier).
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Contracts)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Contracts)
 
 | Attribute   | Type                                                                                            | Description                                                                                                                                                                                                                                         | Required  |
 |-------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|

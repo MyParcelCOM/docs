@@ -1,14 +1,14 @@
 +++
 title = "Service Options"
 description = "Various options which are available for different carrier services in our API."
-weight = 13
+weight = 18
 +++
 
 Service options can be added to a [shipment](/api/resources/shipments/) to add extra's to the chosen service (if available). Options are a generic resource since many carriers offer the same options, like delivery in the weekend. The added price of the service option depends on the used [contract](/api/resources/contracts/) and [service](/api/resources/services/) and is described in the [service rate](/api/resources/service-rates/) that links the shipment's service and contract together.
 
 ## Service Option
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/ServiceOptions)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/ServiceOptions)
 
 Attribute | Type                                                                    | Description                                                                                                               | Required
 --------- | ------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------- |----------------

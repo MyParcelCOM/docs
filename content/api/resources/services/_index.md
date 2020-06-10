@@ -1,14 +1,14 @@
 +++
 title = "Services"
 description = "All services provided by the carriers, possibly filtered on a specific region."
-weight = 9
+weight = 16
 +++
 
 Services are provided by [carriers](/api/resources/carriers) and can be used to send [shipments](/api/resources/shipments). Services are offered from a specific region to a specific region. 
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Services)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Services)
 
 Attribute              | Type                                                            | Description                                                                                                       | Required
 -----------------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|---------

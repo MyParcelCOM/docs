@@ -3,7 +3,7 @@ title = "API"
 weight = 1
 +++
 
-This part of the documentation describes how to communicate directly with the MyParcel.com REST API. For convenience, it is advised that you use the [MyParcel.com PHP-SDK](/php-sdk) whenever possible. If you think you are ready to dive right in, but just want to see all the available resources in more detail you can look at the [API resources](/api/resources/). For more structural details and examples of the endpoints see the [MyParcel.com OpenAPI specification](https://docs.myparcel.com/api-specification).
+This part of the documentation describes how to communicate directly with the MyParcel.com REST API. For convenience, it is advised that you use the [MyParcel.com PHP-SDK](/php-sdk) whenever possible. If you think you are ready to dive right in, but just want to see all the available resources in more detail you can look at the [API resources](/api/resources/). For more structural details and examples of the endpoints see the [MyParcel.com OpenAPI specification](https://api-specification.myparcel.com).
 
 ## Getting Started
 This section is devoted to give you a little introduction to the [JSON API specification](http://jsonapi.org/format/). This specification defines how resources should be requested and responses should be formatted. In case you are not familiar with this specification, you will find a reference with some pointers as a quick crash course below.
@@ -34,7 +34,7 @@ Content-Type: application/vnd.api+json
         "status": "OK"
     },
     "links": {
-        "specification": "https://docs.myparcel.com/api-specification"
+        "specification": "https://api-specification.myparcel.com"
     }
 }
 ```
@@ -166,7 +166,7 @@ Error code                  | Error number | Description
 NOT_FOUND                   | 10000        | The requested endpoint could not be found.
 INTERNAL_SERVER_ERROR       | 10001        | An internal server error has occurred, this is usually a problem on the MyParcel.com end. Please contact support if it persists.
 RESOURCE_NOT_FOUND          | 10002        | The resource you are trying to get the data of could not be found.
-INVALID_JSON_SCHEMA         | 10003        | The request does not conform to the [MyParcel.com API specification](/api-specification).
+INVALID_JSON_SCHEMA         | 10003        | The request does not conform to the [MyParcel.com API specification](https://api-specification.myparcel.com).
 INVALID_REQUEST_HEADER      | 10004        | One or more of your request headers is invalid. 
 RESOURCE_CANNOT_BE_MODIFIED | 10005        | Either this resource can't be modified or you do not have permission to modify this resource.
 INVALID_ERROR_SCHEMA        | 10006        | An error was thrown during the request to an external source. No more information can be provided since the returned error was improperly formatted.
@@ -188,4 +188,4 @@ The error responses conform to the JSON API standard. For more information about
 If you would like to dive deep into the fundamentals of the JSON API specification or the MyParcel.com API specification, you can do so following the links below.
 
 - [JSON API specification](http://jsonapi.org/format/)
-- [MyParcel.com API specification](https://docs.myparcel.com/api-specification)
+- [MyParcel.com API specification](https://api-specification.myparcel.com)

@@ -4,7 +4,7 @@ description = "Void a shipment, making the label unable to be used"
 weight = 9
 +++
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/RPC/post_void_shipment)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/RPC/paths/~1void-shipment/post)
 
 Some carriers allow a user to void (cancel) a shipment if they have no intentions of using the label.
 Voiding the shipment renders its label invalid and can prevent costs if the carrier charges on label creation, rather than upon the first scan of the label.

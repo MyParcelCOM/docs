@@ -1,14 +1,14 @@
 +++
 title = "Shipment Statuses"
 description = "Statuses which are attached to shipments, containing carrier status details."
-weight = 14
+weight = 24
 +++
 
 A shipment status consists of one of our `Status` resources combined with one of the many carrier specific statuses.
 
 ## Shipment Status
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification/#/Shipments/get_shipments__shipment_id__statuses)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shipments/paths/~1shipments~1{shipment_id}~1statuses/get)
 
 Attribute                  | Description
 -------------------------- | -----------
