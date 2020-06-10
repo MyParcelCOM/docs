@@ -22,8 +22,8 @@ Most resources for working with this setup can be found in the theme documentati
 
 dependency                                             | version
 ------------------------------------------------------ | -------
-[Hugo](https://gohugo.io)                              | v0.46
-[Hugo docDock Theme](https://themes.gohugo.io/docdock) | v1
+[Hugo](https://gohugo.io)                              | v0.54
+[Hugo docDock Theme](https://themes.gohugo.io/docdock) | v1.1
 
 ## License
 All software by MyParcel.com is licensed under the [MyParcel.com general terms and conditions](https://www.myparcel.com/terms).

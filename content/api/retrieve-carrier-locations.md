@@ -34,7 +34,7 @@ The example below will retrieve locations for a carrier, with identifier `be7f67
 GET /carriers/be7f6752-34e0-49a1-a832-bcc209450ea9/pickup-dropoff-locations/GB/NW1%206XE?street=Baker%20Street&street_number=221B HTTP/1.1
 ```
 
-To retrieve locations for multiple carrier, separate calls can be made for each carrier, with their respective `carrier_id`. Check the [API Specification](https://docs.myparcel.com/api-specification/#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_) for a complete description of this endpoint.
+To retrieve locations for multiple carrier, separate calls can be made for each carrier, with their respective `carrier_id`. Check the [API Specification](https://api-specification.myparcel.com/#tag/Carriers/paths/~1carriers~1{carrier_id}~1pickup-dropoff-locations~1{country_code}~1{postal_code}/get) for a complete description of this endpoint.
 
 ## Drop-off locations
 

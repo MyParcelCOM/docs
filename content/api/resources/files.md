@@ -1,14 +1,14 @@
 +++
 title = "Files"
 description = "PDF labels and other file resources returned by the carriers."
-weight = 5
+weight = 8
 +++
 
 A file resource can represent all kinds of files like shipment labels, available in different file formats.
 
 ## File
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Files)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Files)
 
 Attribute     | Description
 ------------- | -----------
@@ -24,7 +24,7 @@ If you request a file using the default Accept header `application/vnd.api+json`
 
 ## Retrieve a file in a specific format
 
-{{< icon fa-file-text-o >}}[GET /files/{file_id}](https://docs.myparcel.com/api-specification#/Files/get_files__file_id_)
+{{< icon fa-file-text-o >}}[GET /files/{file_id}](https://api-specification.myparcel.com/#tag/Files/paths/~1files~1{file_id}/get)
 
 Use one of the available formats in the Accept header to retrieve the actual file as binary data. For example:
 

@@ -4,7 +4,7 @@ description = "Manually update the status of shipment"
 weight = 8
 +++
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/RPC/post_update_shipment_status)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/RPC/paths/~1update-shipment-status/post)
 
 The `update-shipment-status` endpoint allows you to trigger an update of a shipment's status. The shipment will be synchronized with the carrier.
 

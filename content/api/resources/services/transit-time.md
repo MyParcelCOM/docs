@@ -1,7 +1,7 @@
 +++
 title = "Transit time"
 description = "The time frame in which the shipment will be delivered with a service."
-weight = 4
+weight = 2
 +++
 
 The time frame in which the shipment will be delivered with a service.

@@ -4,7 +4,7 @@ description = "Retrieve address suggestions"
 weight = 7
 +++
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/RPC/post_suggest_address)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/RPC/paths/~1suggest-address/post)
 
 To make sure the correct address is being used for a shipment, the `suggest-address` endpoint allows you to verify and possibly suggest the address of a shipment.
 

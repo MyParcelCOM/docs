@@ -11,7 +11,7 @@ Carrier PUDO locations are locations where:
 
 ## Pickup Dropoff Location
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Carriers/get_carriers__carrier_id__pickup_dropoff_locations__country_code___postal_code_)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Carriers/paths/~1carriers~1{carrier_id}~1pickup-dropoff-locations~1{country_code}~1{postal_code}/get)
 
 Attribute     | Description
 ------------- | -----------

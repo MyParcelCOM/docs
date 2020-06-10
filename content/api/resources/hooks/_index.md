@@ -1,7 +1,7 @@
 +++
 title = "Hooks"
 description = "Hooks are there to automate processes on the API."
-weight = 6
+weight = 10
 +++
 
 Hooks are used to automate processes in the API.  
@@ -9,7 +9,7 @@ A hook listens to certain [triggers](/api/resources/hooks/trigger) and executes 
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](/api-specification#Hooks)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Hooks)
 
 | Attribute     | Type                                                                  | Description                                                                                                               | Required  |
 |---------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|

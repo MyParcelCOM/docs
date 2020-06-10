@@ -1,7 +1,7 @@
 +++
 title = "Shops"
 description = "A user needs at least one shop to be able to create shipments."
-weight = 16
+weight = 26
 +++
 
 A user can have one or more shops and be able to read or manage attached resources like shipments. A shipment
@@ -9,7 +9,7 @@ is always associated with a shop.
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shops)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shops)
 
 Attribute      |  Type                                              | Description                                               | Required
 -------------- | --------------------------------------------------- | -------------------------------------------------------- | --------
@@ -21,7 +21,7 @@ created_at     | integer                                             | Unix time
 
 Relationship | Type                                                                                         | Description                          | Required
 ------------ | --------------------------------------------------------------------------------------------- | ------------------------------------ | --------
-organization | [organizations](https://docs.myparcel.com/api-specification/#/Organizations/get_organizations) | The organization the shop belongs to | ✓
+organization | [organizations](https://api-specification.myparcel.com/#tag/Organizations/paths/~1organizations/get) | The organization the shop belongs to | ✓
 
 ## Endpoints
 

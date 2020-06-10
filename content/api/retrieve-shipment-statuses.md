@@ -43,7 +43,7 @@ This indicates that the shipment is undergoing internal processes, for example a
 The status will automatically update to `shipment-concept` when the internal processes are finished.
 {{% /notice %}}
 
-An up-to-date list of the generic statuses can be retrieved using the [GET /statuses endpoint](https://docs.myparcel.com/api-specification/#/Statuses/get_statuses).
+An up-to-date list of the generic statuses can be retrieved using the [GET /statuses endpoint](https://api-specification.myparcel.com/#tag/Statuses/paths/~1statuses/get).
 
 ## Carrier specific status
 
@@ -101,4 +101,4 @@ A complete list of all shipment statuses belonging to a shipment can be retrieve
 GET /shipments/7b808eee-bf1c-40cd-98f2-3c335a06417e/statuses HTTP/1.1
 ```
 
-Check the [MyParcel.com API Specification](https://docs.myparcel.com/api-specification/#/Shipments/get_shipments__shipment_id__statuses) for a complete description of this shipment status endpoint.
+Check the [MyParcel.com API Specification](https://api-specification.myparcel.com/#tag/Shipments/paths/~1shipments~1{shipment_id}~1statuses/get) for a complete description of this shipment status endpoint.

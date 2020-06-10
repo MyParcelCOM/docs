@@ -1,14 +1,14 @@
 +++
 title = "Shipments"
 description = "The main resource in our API containing shipment information, files and statuses."
-weight = 15
+weight = 22
 +++
 
 Shipments are at the core of our API. They contain files such as labels and are used to track the status of the physical shipment being delivered by the carrier.
 
 ## Attributes
 
-{{< icon fa-file-text-o >}}[API specification](https://docs.myparcel.com/api-specification#/Shipments)
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shipments)
 
 | Attribute           | Type                                                                 | Description                                                                                                                  | Required                                                 |
 |---------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
