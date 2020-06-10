@@ -1,7 +1,7 @@
 +++
 title = "Shipments"
 description = "The main resource in our API containing shipment information, files and statuses."
-weight = 15
+weight = 22
 +++
 
 Shipments are at the core of our API. They contain files such as labels and are used to track the status of the physical shipment being delivered by the carrier.

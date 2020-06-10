@@ -1,7 +1,7 @@
 +++
 title = "Address rules"
 description = "A list of requirements for matching an address."
-weight = 5
+weight = 1
 +++
 
 Address rules are objects that contain a list of requirements for matching an address in order to be able to use this service.

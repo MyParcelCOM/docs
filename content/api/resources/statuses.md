@@ -1,7 +1,7 @@
 +++
 title = "Statuses"
 description = "Various statuses which are available for different resources in our API."
-weight = 17
+weight = 28
 +++
 
 Statuses are informative states which some resource can have attached as a relationship. Our statuses are separate resources instead of an enumerable property on for example a shipment. This makes it possible to fetch an up to date list of all our statuses, including a description and level of success. If we used an enumerable property, adding a new status would require external code to be updated.

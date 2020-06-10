@@ -1,7 +1,7 @@
 +++
 title = "Service Rates"
 description = "Service rates determine the price and limitations for a given service."
-weight = 18
+weight = 20
 +++
 
 Service rates determine the price and maximum dimensions for a given service.

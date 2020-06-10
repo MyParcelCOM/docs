@@ -1,7 +1,7 @@
 +++
 title = "Regions"
 description = "All available regions with their region code and country code to easily filter available services."
-weight = 8
+weight = 14
 +++
 
 Regions are geographical areas arranged in a tree-like structure with "Earth" being the root region. Countries are regions with a non-empty `country_code`. Carriers can offer their services in any region. Shipment addresses should always contain a `country_code` and a `region_code` from a region defined as a country.

@@ -1,7 +1,7 @@
 +++
 title = "Files"
 description = "PDF labels and other file resources returned by the carriers."
-weight = 5
+weight = 8
 +++
 
 A file resource can represent all kinds of files like shipment labels, available in different file formats.

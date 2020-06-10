@@ -1,7 +1,7 @@
 +++
 title = "Liability Coverages"
 description = "Liability coverages that can be applied to a shipment."
-weight = 6
+weight = 12
 +++
 
 [Liability coverages](https://help.myparcel.com/support/solutions/articles/16000079653-can-i-insure-my-shipments-) can be added to a shipment to cover shipments that contain valuable items.

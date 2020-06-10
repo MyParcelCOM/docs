@@ -1,7 +1,7 @@
 +++
 title = "Hooks"
 description = "Hooks are there to automate processes on the API."
-weight = 6
+weight = 10
 +++
 
 Hooks are used to automate processes in the API.  

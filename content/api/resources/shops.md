@@ -1,7 +1,7 @@
 +++
 title = "Shops"
 description = "A user needs at least one shop to be able to create shipments."
-weight = 16
+weight = 26
 +++
 
 A user can have one or more shops and be able to read or manage attached resources like shipments. A shipment
