@@ -60,12 +60,21 @@ $shipment
     ->setShop($myShop)
     ->setWeight(500, PhysicalPropertiesInterface::WEIGHT_GRAM);
 
-// Get the available services for this shipment from the API.
-$services = $api->getServices($shipment);
+// Get the available service rates for this shipment from the API.
+$serviceRates = $api->getServiceRatesForShipment($shipment);
 
-// Choose a service and set it on the shipment. 
-// You can use the price calculator if you want to base your choice on the price.
-$shipment->setService($service);
+// Choose a service and set it on the shipment.
+foreach ($serviceRates as $serviceRate) {
+    if ($serviceRate->getService()->getCode() === 'dpd-classic') {
+        $shipment->setService($serviceRate->getService());
+        $shipment->setContract($serviceRate->getContract());
+    }
+}
+
+// NOTE: Instead of fetching the service rates for every shipment, you can set a hardcoded service code on the shipment.
+//       It will be evaluated upon saving the shipment and the service + contract of the cheapest rate will be selected.
+//       If there is no valid rate for the country or weight, the shipment will be saved as a concept without a service.
+$shipment->setServiceCode('dpd-classic');
 
 // Create the shipment.
 $createdShipment = $api->createShipment($shipment);
