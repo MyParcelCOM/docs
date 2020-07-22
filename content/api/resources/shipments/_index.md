@@ -31,6 +31,7 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | created_at          | integer                                                              | Unix timestamp for when the shipment was created.                                                                            |                                                          |
 | updated_at          | integer                                                              | Unix timestamp for when the shipment resource was last updated.                                                              |                                                          |
 | synced_at           | integer                                                              | Unix timestamp for when the shipment status was last checked with the carrier.                                               |                                                          |
+| tags                | array of strings or numbers                                          | User defined tags for the shipment.                                                                                          |                                                          |
 
 | Relationship    | Type                                                        | Description                                                                                                  | Required                                            |
 |-----------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
@@ -166,7 +167,8 @@ Example: https://sandbox-api.myparcel.com/shipments
         "register_at": 1504801719,
         "created_at": 1504801719,
         "updated_at": 1504801719,
-        "synced_at": 1504801719
+        "synced_at": 1504801719,
+        "tags": ["my", "personal", "tags"]
       },
       "relationships": {
         "service_options": {
@@ -337,7 +339,8 @@ Example: https://sandbox-api.myparcel.com/shipments
         "register_at": 1504801719,
         "created_at": 1504801719,
         "updated_at": 1504801719,
-        "synced_at": 1504801719
+        "synced_at": 1504801719,
+        "tags": ["my", "personal", "tags"]
       },
       "relationships": {
         "service_options": {
@@ -555,7 +558,8 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
       "created_at": 1504801719,
       "updated_at": 1504801719,
-      "synced_at": 1504801719
+      "synced_at": 1504801719,
+      "tags": ["my", "personal", "tags"]
     },
     "relationships": {
       "service_options": {
@@ -755,7 +759,8 @@ Example: https://sandbox-api.myparcel.com/shipments
         "license_number": "218532158",
         "certificate_number": "12122121"
       },
-      "register_at": 1504801719
+      "register_at": 1504801719,
+      "tags": ["my", "personal", "tags"]
     },
     "relationships": {
       "service_options": {
@@ -909,7 +914,8 @@ Example: https://sandbox-api.myparcel.com/shipments
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
       "created_at": 1504801719,
       "updated_at": 1504801719,
-      "synced_at": 1504801719
+      "synced_at": 1504801719,
+      "tags": ["my", "personal", "tags"]
     },
     "relationships": {
       "service_options": {
@@ -1151,7 +1157,8 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
       "created_at": 1504801719,
       "updated_at": 1504801719,
-      "synced_at": 1504801719
+      "synced_at": 1504801719,
+      "tags": ["my", "personal", "tags"]
     },
     "relationships": {
       "service_options": {
