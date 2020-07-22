@@ -14,10 +14,10 @@ thus eliminating a big part of the shipment creation process.
 ## Building a hook
 Creating a [hooks](/api/resources/hooks) resource can be complicated, but can be split up by asking two questions:
 
-- When should the hook be executed ([triggers](#triggers))?
-- What should happen when the hook is executed ([actions](#actions))?
+- When should the hook be executed ([trigger](#trigger))?
+- What should happen when the hook is executed ([action](#action))?
 
-### Triggers
+### Trigger
 In order for a hook to trigger, specific conditions can be specified. 
 
 A hook for the example used below, would have to trigger when any shipment to England is created.
@@ -27,13 +27,13 @@ A hook for the example used below, would have to trigger when any shipment to En
   "resource_action": "create",
   "predicates": [
     {
-      "operator": "==",
       "pointer": "/attributes/recipient_address/country_code",
+      "operator": "==",
       "value": "GB"
     },
     {
-      "operator": "==",
       "pointer": "/attributes/recipient_address/region_code",
+      "operator": "==",
       "value": "ENG"
     }
   ]
@@ -43,11 +43,23 @@ A hook for the example used below, would have to trigger when any shipment to En
 Looking at the hook trigger above, the `resource_type` and `resource_action` attributes indicate that the hook should trigger when a resource of type `shipments` is created.
 Furthermore, the predicates specify that this hook should only trigger when when the `country_code` and `region_code` of the shipment's `recipient_address` attribute are `GB` and `ENG` respectively.
 
+{{% notice tip %}}
+When creating a hook for shipments, the shipment's `tags` attribute can be used to create really flexible triggers!
+```json
+{
+  "pointer": "/attributes/tags",
+  "operator": "contains",
+  "value": "my-custom-tag"
+}
+```
+Be sure to use the `contains` [operator](/api/resources/hooks/trigger#predicate) when using tags as evaluated field, since `tags` is an array!
+{{% /notice %}}
+
 {{% notice info %}}
 For more information about triggers, see the resource page on [hook triggers](/api/resources/hooks/trigger).
 {{% /notice %}}
 
-### Actions
+### Action
 Looking at the example above, the actions for this hook would be to set a service and contract on the shipments resource when it is created.
 First, the uuid of the chosen service needs to be retrieved. In this case, an imaginary uuid will be used to represent the chosen service: `ea7bf0c0-2eb5-4348-b90d-2fabd03c424c`.
 
