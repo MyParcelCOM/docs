@@ -4,7 +4,7 @@ weight = 6
 +++
 
 ## Caching
-By default the SDK uses the filesystem to cache both resources and access tokens. To use another type of caching, any cache instance implementing `Psr\SimpleCache\CacheInterface` can be used. This instance should be supplied at construction of `MyParcelComApi` and `ClientCredentials`.
+By default, the SDK uses the filesystem to cache both resources and access tokens. To use another type of caching, any cache instance implementing `Psr\SimpleCache\CacheInterface` can be used. This instance should be supplied at construction of `MyParcelComApi` and `ClientCredentials`.
 
 ```php
 $redis = new RedisCache();
@@ -23,7 +23,7 @@ $authenticator = new \MyParcelCom\ApiSdk\Authentication\ClientCredentials(
 ```
 
 ## Configuring a different http client
-By default The SDK will try to use any of the installed Http clients, given that the client is an [implementation of php-http/httplug](https://packagist.org/providers/php-http/client-implementation).
+By default, the SDK will try to use any of the installed Http clients, given that the client is an [implementation of php-http/httplug](https://packagist.org/providers/php-http/client-implementation).
 To use a different HTTP client, either inject it through the constructor method, or use the `setHttpClient()` method. 
 
 ```php

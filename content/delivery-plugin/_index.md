@@ -71,7 +71,7 @@ The key string you received from Google. See this [step](#google-maps-api-key)
 **Parameters**: The original `pickupLocation` that was provided when retrieving pickup locations.
 
 #### `onCancelCallback`
-**Called**: When a the popup is closed without choosing a location. <br>
+**Called**: When the popup is closed without choosing a location. <br>
 **Parameters**: None.
 
 ```javascript

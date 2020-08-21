@@ -81,7 +81,7 @@ Always check the response for an authentication error. If for some reason your s
 {{% /notice %}}
 
 ## Expired access token
-Another way to handle expired access tokens (aside from periodically requesting a new one) is to queue the incoming requests when you application notices that the access token has expired. Below is an example flow of how you could set this up.
+Another way to handle expired access tokens (aside from periodically requesting a new one) is to queue the incoming requests when your application notices that the access token has expired. Below is an example flow of how you could set this up.
 {{< figure src="/images/client-credentials-queue-flow.png" title="Client Credentials queue flow" alt="The client credentials queue flow" >}}
 
 Since the access token is a JSON Web Token ([JWT](https://jwt.io)), you can simply parse it with your favourite [JWT](https://jwt.io) library and get the exact UNIX timestamp when the access token expires. This means that you could queue your requests either on the user's device (step 1) or on your server (step 2) while a side job requests a new access token. When the new access token is received by the server it can be attached to all queued requests before they are executed.

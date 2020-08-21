@@ -107,7 +107,7 @@ $api->getServiceRatesForShipment($shipment);
 $service->getServiceRates();
 ```
 
-Note that service rates can not be linked to a shipment directly. A service rate has a relation to a service resource, a contract resource and service option resources, and should only be used to determine which service, contract and service options to use when creating a shipment. 
+Note that service rates cannot be linked to a shipment directly. A service rate has a relation to a service resource, a contract resource and service option resources, and should only be used to determine which service, contract and service options to use when creating a shipment. 
 
 ### Service options
 Service options add extra's to a service, often against a higher price. Retrieving service options is done by requesting them from a service rate. Service options will be mapped to the `\MyParcelCom\ApiSdk\Resources\Interfaces\ServiceOptionInterface`.

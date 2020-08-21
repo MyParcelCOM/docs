@@ -20,7 +20,7 @@ curl -sSL https://get.docker.com/ | sh
 
 Then install Docker Compose by following the instructions [here](https://github.com/docker/compose/releases).
 
-Finally assign yourself to the Docker group:
+Finally, assign yourself to the Docker group:
 
 ```bash
 sudo usermod -aG docker $(whoami)

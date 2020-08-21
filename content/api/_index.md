@@ -40,7 +40,7 @@ Content-Type: application/vnd.api+json
 ```
 
 {{% notice note %}}
-The `data` and `errors` top level attributes cannot coexist in the same document.
+The `data` and `errors` top-level attributes cannot coexist in the same document.
 {{% /notice %}}
 
 ### Resource Object, Relationships and Links
@@ -152,14 +152,10 @@ Together, these parameters will cause the API to return a specific range of reso
 When an unsupported value (-1 for example) is used for one of the parameters the default value will be used instead. If a positive page number is used that is higher than the amount of existing pages, the API won't be able to find any records and will simply return an empty array.
 
 #### Max record size
-The default max record size is **30**. There are some resources listed below that override the default max record size with a different value:
-
-Resource                  | Max record size 
-------------------------- |-------------
-Regions                   | **500**     
+The default max record size is **100**.
 
 ### Errors
-If the top level `errors` attribute exists, it can contain one of the following errors:
+If the top-level `errors` attribute exists, it can contain one of the following errors:
 
 Error code                  | Error number | Description
 --------------------------- |:------------:|:-----------

@@ -32,5 +32,5 @@ If the service rate of the shipment itself or the service rate in the second par
 {{% /notice %}}
 
 {{% notice warning %}}
-If one of the options of the shipment has a price amount of `null` the price calculator will also return `null`, because in that case it can not calculate the correct total price.
+If one of the options of the shipment has a price amount of `null` the price calculator will also return `null`, because in that case it cannot calculate the correct total price.
 {{% /notice %}}
