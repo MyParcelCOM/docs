@@ -13,7 +13,45 @@ or go the the [using hooks](/api/using-hooks) page to get a guide on how to use 
 Furthermore, when you create a hook and choose the [send-resource](/api/resources/hooks/action/#send-resource) action type you can choose a `url` where the data of the effected resource will be sent to. 
 
 #### Examples
-This example below will send the resource data of the newly created shipment with a POST request to your provided `url`. 
+In this first example the API will send the resource data of the newly created shipment statuses (including the shipment details) with a POST request to your provided `url`. 
+```json
+{
+  "data": {
+    "type": "hooks",
+    "attributes": {
+        "name": "New shipment statuses webhook",
+        "order": 100,
+        "active": true,
+        "trigger": {
+          "resource_type": "shipment-statuses",
+          "resource_action": "create"
+        },
+        "action": {
+          "action_type": "send-resource",
+          "values": [
+            {
+              "url": "https://your.api.url",
+              "includes": [
+                "status",
+                "shipment"
+              ]
+            }
+          ]
+        }
+    },
+    "relationships": {
+      "owner": {
+        "data": {
+          "type": "shops",
+          "id": "1bb3e441-8a70-4be8-b910-1315460859f2"
+        }
+      }
+    }
+  }
+}
+```
+
+The second example below will send the resource data of the newly created shipment with a POST request to your provided `url`. 
 ```json
 {
   "data": {
