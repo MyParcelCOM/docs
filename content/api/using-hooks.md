@@ -41,7 +41,7 @@ A hook for the example used below, would have to trigger when any shipment to En
 ```
 
 Looking at the hook trigger above, the `resource_type` and `resource_action` attributes indicate that the hook should trigger when a resource of type `shipments` is created.
-Furthermore, the predicates specify that this hook should only trigger when when the `country_code` and `region_code` of the shipment's `recipient_address` attribute are `GB` and `ENG` respectively.
+Furthermore, the predicates specify that this hook should only trigger when the `country_code` and `region_code` of the shipment's `recipient_address` attribute are `GB` and `ENG` respectively.
 
 {{% notice tip %}}
 When creating a hook for shipments, the shipment's `tags` attribute can be used to create really flexible triggers!
@@ -67,7 +67,7 @@ Secondly, a contract should be retrieved to set on the shipment that contains pr
 An imaginary uuid is used again, this time to represent the contract id: `e04134d0-1a43-4b29-a5de-d6c63f8d4f1b`.
 
 {{% notice info %}}
-More information on [services](/api/resources/services) and [contracts](/api/resources/contracts) and how to retrieve them can be found on the their resource pages.
+More information on [services](/api/resources/services) and [contracts](/api/resources/contracts) and how to retrieve them can be found on their resource pages.
 {{% /notice %}}
 
 A hook action for the example used above would have to set the service and contract relationships on shipment creation. 
@@ -292,7 +292,7 @@ This contract will now be set for **all** shipments that are created with servic
 {{% /expand %}}
 
 In order for the second hook (to set the contract relationship) to trigger, the first hook needs to be executed first. 
-The `order` attribute of the hooks resource determines the priority of a hook when multiple hooks apply. 
+The `order` attribute of the hook resource determines the priority of a hook when multiple hooks apply. 
 A lower `order` means that it has higher priority.
 In this case, because the order of the first hook is lower (`100`) than the order of the second hook (`200`), the first hook is executed first. 
 

@@ -8,7 +8,7 @@ To create a webhook in our API you can use the [hook](/api/resources/hooks) reso
 
 With this [hook](/api/resources/hooks) resource you can describe an action on which a hook needs to trigger. 
 For more information about the possibilities with these triggers read the [hook trigger](/api/resources/hooks/trigger) page
-or go the the [using hooks](/api/using-hooks) page to get a guide on how to use the hooks in general.
+or go to the [using hooks](/api/using-hooks) page to get a guide on how to use the hooks in general.
 
 Furthermore, when you create a hook and choose the [send-resource](/api/resources/hooks/action/#send-resource) action type you can choose a `url` where the data of the effected resource will be sent to. 
 

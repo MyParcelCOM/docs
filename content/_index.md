@@ -10,7 +10,7 @@ Welcome to the documentation for the MyParcel.com API and related software.
 
 The API uses an OAuth 2.0 server for authentication. If you do not already possess valid credentials, the first step is requesting them by sending us an [email](http://myparcel.com/contact/).
 
-The quickest way to get started using our API is to implement our [PHP-SDK](/php-sdk). With just a few lines of code, you could be sending shipments using our platform. Of course you can also send requests to our API directly. For everything from authentication to each feature including a step by step guide, read the [API chapter](/api) of these docs.
+The quickest way to get started using our API is to implement our [PHP-SDK](/php-sdk). With just a few lines of code, you could be sending shipments using our platform. Of course, you can also send requests to our API directly. For everything from authentication to each feature including a step by step guide, read the [API chapter](/api) of these docs.
 
 ### Delivery Plugin
 

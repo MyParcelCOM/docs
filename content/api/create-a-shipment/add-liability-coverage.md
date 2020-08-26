@@ -6,10 +6,10 @@ weight = 4
 
 Liability coverage can be added to a shipment to insure valuable goods when sending them through the MyParcel.com API.
 It is important to cover the contents of a package to their actual value. 
-Because of this, whenever liabilty coverage is available for a contract, it will often be available for different "value groups", covering a higher value for a higher price.
+Because of this, whenever liability coverage is available for a contract, it will often be available for different "value groups", covering a higher value for a higher price.
 
 ## When is liability coverage available?
-At this moment, liabilty coverage is only available for contracts provided by MyParcel.com and not custom contracts.
+At this moment, liability coverage is only available for contracts provided by MyParcel.com and not custom contracts.
 To find out if liability coverage is available for a shipment and up to how much value can be covered, 
 a call to the `GET /contracts/{contract_id}` endpoint should be made to retrieve the [contract](/api/resources/contracts) you intend to use with your shipment.
 The API will respond with the contracts resource and if the contract has liability coverage available, 
@@ -66,7 +66,7 @@ Note that only one liability coverage resource can be attached to a shipment at 
 It is therefore important to choose the correct liability coverage for the value of your shipment.
 
 {{% notice warning %}}
-When attaching liability coverage to a `shipment`, make sure that the `contract` relationship on the `liability coverage` corresponds to the `contract` relationship on the to-be-created `shipment`.
+When attaching liability coverage to a `shipment`, make sure the `contract` relationship on the `liability coverage` corresponds to the `contract` relationship on the to-be-created `shipment`.
 {{% /notice %}}
 
 ```json

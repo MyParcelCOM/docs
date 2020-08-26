@@ -19,7 +19,7 @@ Attribute           | Type                                          | Descriptio
 ------------------- | --------------------------------------------- | ----------------------------------------------------- | ----------
 name                | string                                        | Name of the liability coverage.                       | ✓
 price               | [price](/api/resources/common-objects/prices) | How much this particular liability coverage costs.    | ✓
-coverage_max        | [price](/api/resources/common-objects/prices) | Maximumum value coverage of this liability coverage.  | ✓
+coverage_max        | [price](/api/resources/common-objects/prices) | Maximum value coverage of this liability coverage.    | ✓
 
 Relationship        | Type                                          | Description                                                       | Required
 ------------------- | --------------------------------------------- | ----------------------------------------------------------------- | ----------

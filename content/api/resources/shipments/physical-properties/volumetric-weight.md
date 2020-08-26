@@ -7,7 +7,7 @@ weight = 1
 The volumetric weight of a shipment represents the amount of space it takes up in an aircraft/vehicle. 
 Some carriers use volumetric weight to determine the cost for a shipment, while others use only the gross weight.
 Carriers that do use volumetric weight to calculate the cost of a shipment will take the higher value between the gross weight and the volumetric weight to determine the billable weight (or chargeable weight).
-Some of the carriers integrated in the MyParcel.com API consider volumetric weight (also known as dimensional weight) when determining the cost of a shipment.
+Some carriers integrated in the MyParcel.com API consider volumetric weight (also known as dimensional weight) when determining the cost of a shipment.
 
 {{% notice note %}}
 Even if a carrier uses volumetric weight, they might not use it for all their services.

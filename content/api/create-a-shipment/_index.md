@@ -38,7 +38,7 @@ shop                | A [shop](/api/resources/shops) relationship object contain
 service             | A [service](/api/resources/services) relationship object containing the uuid of the desired service.
 contract            | A [contract](/api/resources/contracts) relationship object containing the uuid of the desired contract.
 
-Additionally you could add a `service_options` relationship if you would like to add service options to the shipment. For more information, see the [service options resource page](/api/resources/service-options).
+Additionally, you could add a `service_options` relationship if you would like to add service options to the shipment. For more information, see the [service options resource page](/api/resources/service-options).
 
 #### Shop relationship
 A shipment is always created for a shop. The shop's `uuid` should therefore always be included the shipment request. 
@@ -49,14 +49,14 @@ You can then include the desired shop's `uuid` in the shipment request. For an o
 Carriers often have different services available to ship parcels with. These are defined in the MyParcel.com API and should be included as a relationship when creating a shipment. Since services are [region](/api/resources/regions) specific they should be chosen with the shipments `sender_address` and `recipient_address` attributes in mind. A shipment from England to England will not be valid if the chosen service only has Spain as destination. For an overview of the service resource, its attributes and relationships and how to retrieve them, visit the [resource page on services](/api/resources/services). 
 
 #### Contract relationship
-Besides a service and a shop, a shipment needs a contract relationship. Contracts are used to communicate to the carrier which party is making the request. The carrier then bills that party accordingly. Different contracts can have different credentials, rates and even services, so it might be the case that a service is available for two different prices or it might not be available at all. This is what the contracts relationship is for. To create a valid shipment, the related contract of a shipment should be for the same carrier as the chosen service. For an overview of the contract resource, it's attributes and relationships and how to retrieve them, visit the [resource page on contracts](/api/resources/contracts).
+Besides a service and a shop, a shipment needs a contract relationship. Contracts are used to communicate to the carrier which party is making the request. The carrier then bills that party accordingly. Different contracts can have different credentials, rates and even services, so it might be the case that a service is available for two different prices, or it might not be available at all. This is what the contracts relationship is for. To create a valid shipment, the related contract of a shipment should be for the same carrier as the chosen service. For an overview of the contract resource, it's attributes and relationships and how to retrieve them, visit the [resource page on contracts](/api/resources/contracts).
 
 #### Service rates
-A service rate can not be linked to a shipment directly, but should instead be used to consider which service or contract to use for a shipment. The service rate resource is a combination of a service and contract and details the specifics of said service and contract. It contains information on the price, maximum dimensions, weight range and lists which service options are available for this specific combination of service and contract. More information on service rates can be found on the [service rate resource page](/api/resources/service-rates).
+A service rate cannot be linked to a shipment directly, but should instead be used to consider which service or contract to use for a shipment. The service rate resource is a combination of a service and contract and details the specifics of said service and contract. It contains information on the price, maximum dimensions, weight range and lists which service options are available for this specific combination of service and contract. More information on service rates can be found on the [service rate resource page](/api/resources/service-rates).
 
 ### Attaching a service and contract to the shipment
 Choosing a service and contract for your shipment and attaching them to the shipment can be quite confusing at first. 
-There are multiple ways to determine what service and contract to use, and also multiple ways of attaching them to a shipment.
+There are multiple ways to determine what service and contract to use, and multiple ways of attaching them to a shipment.
 Below is an explanation of two recommended ways of doing so: 
 
 - [Retrieving services and contracts based on shipment](/api/create-a-shipment/#retrieving-services-and-contracts-based-on-shipment).
@@ -89,7 +89,7 @@ When a desired service-rate is found, the related service-id and contract-id can
 While the above mentioned way of retrieving services and contracts gives high confidence that the chosen service and contract can be used for the shipment, 
 it does require quite some requests to be made to the MyParcel.com API.  
 An alternative way to attach a service and contract to a shipment, is by posting a service-code in the meta of the post body of the shipment.
-This can be useful if a user knows for sure that a service exists for a certain service code and that the service can be used for this shipment.
+This can be useful if a user knows for sure a service exists for a certain service code and that the service can be used for this shipment.
 
 See the below example of what such a request body would look like.
 

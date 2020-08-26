@@ -7,4 +7,4 @@ weight = 5
 Our projects are hosted on [GitHub](https://github.com/MyParcelCOM).
 
 ## Docker
-We use [Docker](/projects/docker) to run our applications in software containers.
+We use [Docker](/development/docker) to run our applications in software containers.
