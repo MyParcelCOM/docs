@@ -14,7 +14,7 @@ A hook log specifies what happened when the hook was executed.
 | errors        | array of strings | An array of strings containing the error that was encountered while trying to run this hook. |          |
 
 {{% notice warning %}}
-This resource is still experimental so it requires the `experimental` scope and might still change in the future.
+This resource is still experimental, so it requires the `experimental` scope and might still change in the future.
 {{% /notice %}}
 
 ## Retrieve hook logs

@@ -35,7 +35,7 @@ shipment-delivered                  | success       | The shipment was delivered
 shipment-failed                     | failed        | The shipping process failed. The shipping process will not continue. The shipment has to be resend. Errors are available.
 shipment-created-without-tracking   | success       | The shipment was registered and has files available, but no further tracking is available.
 shipment-registration-failed        | failed        | The concept shipment was rejected by the carrier and might need to be updated before trying to register again.
-shipment-voided                     | cancelled     | The shipment was succesfully voided. The label is no longer downloadable or usable.
+shipment-voided                     | cancelled     | The shipment was successfully voided. The label is no longer downloadable or usable.
 
 {{% notice info %}}
 After initial shipment creation and shipment updates through PATCH requests, the shipment will get the status `shipment-processing`.
@@ -47,7 +47,7 @@ An up-to-date list of the generic statuses can be retrieved using the [GET /stat
 
 ## Carrier specific status
 
-Every carrier has their own list of statuses for the different events happening in their network. 
+Every carrier has its own list of statuses for the different events happening in their network. 
 All of those carrier statuses are mapped to one of the [generic statuses](#generic-status) mentioned above. 
 Information about the carrier specific status is present in the shipment status resource in the following attributes:
 

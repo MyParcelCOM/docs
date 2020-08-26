@@ -66,7 +66,7 @@ The following example sets the service relationship of a shipment resource by se
 ```
 
 ### Converters
-In some scenario's, it might be desirable to not set a specific value, but rather a value that will convert into a specific value, based on resource context.
+In some scenarios, it might be desirable to not set a specific value, but rather a value that will convert into a specific value, based on resource context.
 To clarify, let's use the example of the currently only available value converter: the `service-code-to-id` converter.
 
 The `service-code-to-id` converter is only available when attempting to set a [service](/api/resources/services) on a [shipment](/api/resources/shipments), using the `update-resource` hook action.
@@ -99,7 +99,7 @@ The example shown in the below code block shows a hook action that utilizes a co
 }
 ```
 
-When this hook is active and a shipment is created that complies to the hook's [triggers](/api/resources/hooks/trigger) and does not already have a service,
+When this hook is active while a shipment is created that complies to the hook's [triggers](/api/resources/hooks/trigger) and does not already have a service,
 the API will try to find a `DPD Classic` service that matches the shipment's origin and destination and is available for the used contract. 
 If a matching service is found, the service's UUID is set on the `/relationships/service/data/id` pointer. 
 If no service is found, nothing will happen, and a [hook_log](/api/resources/hooks/logs) resource, with additional information will be available.
