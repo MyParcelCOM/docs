@@ -71,7 +71,7 @@ To clarify, let's use the example of the currently only available value converte
 
 The `service-code-to-id` converter is only available when attempting to set a [service](/api/resources/services) on a [shipment](/api/resources/shipments), using the `update-resource` hook action.
 By using a service code as the value for the relationship's `id` property and specifying that the `service-code-to-id` converter should be used,
-the API will attempt to convert the specified service code to a `UUID` that belongs to a service which matches the shipment. 
+the API will attempt to convert the specified service code to a `UUID` that belongs to a service that matches the shipment. 
 
 This is useful when the same service is desired for shipments that go to different destinations. 
 In the MyParcel.com API, multiple services can have the same `name` and `code`, but still have different `UUID`'s
