@@ -112,10 +112,28 @@ The format for a value object for `action_type` `send-resource` is shown in the 
 | Attribute | Type                                              | Description                                                                                                                       | Required  |
 | --------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | url       | string                                            | The url where the resource POST request is send to.                                                                               | ✓         | 
-| secret    | string                                            | A secret string that will be send in the `X-MYPARCELCOM-SIGNATURE` header with every POST request .                               |           |
+| secret    | string                                            | A secret string used to HMAC SHA-256 sign every POST request via the `X-MYPARCELCOM-SIGNATURE` header. More information below.    |           |
 | includes  | array                                             | An array of include keys that will be added to the resource body.                                                                 |           |
 
-#### Examples
+### Verifying requests
+Use the `secret` attribute to set a key which is used to sign every POST request. The generated signature is HMAC SHA-256 authentication code which is unique for each request.
+The message used to generate the HMAC code is the raw JSON request body. 
+
+#### HMAC SHA-256 verification (PHP)
+With PHP you can verify the validity of the request using the `hmac_hash` function:
+```php
+// where $body is the request json encoded raw body (as string) and APP_KEY is the secret key
+$isTrusted = hash_hmac('sha256', $body, APP_KEY) === $_SERVER['HTTP_MYPARCELCOM_SIGNATURE'];
+```
+
+#### HMAC SHA-256 verification (JavaScript)
+With JavaScript you can use the [crypto-js](http://code.google.com/p/crypto-js/) library:
+```javascript
+// where body is the request json encoded raw body (as string) and appKey is the secret key
+const isTruested = CryptoJS.HmacSHA256(body, appKey) === request.headers.get('X-MYPARCELCOM-SIGNATURE');
+```
+
+### Examples
 The example hook action below will send the data of the target resource with a POST request to your provided `url`. 
 ```json
 {
@@ -160,7 +178,7 @@ The following example will add the data of `service` and `contract` relationship
 ```
  
 Furthermore, it is also possible to add a secret to the hook action in order to perform validation that the requests come from a trusted sender.
-The `secret` string will than be send with every POST request as `X-MYPARCELCOM-SIGNATURE` header. 
+The `secret` string will be used to sign every POST request from MyParcel.com's side and pass the signature in the `X-MYPARCELCOM-SIGNATURE` header. 
 ```json
 {
   "action_type": "send-resource",
