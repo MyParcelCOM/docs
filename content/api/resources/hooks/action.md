@@ -116,7 +116,7 @@ The format for a value object for `action_type` `send-resource` is shown in the 
 | includes  | array                                             | An array of include keys that will be added to the resource body.                                                                 |           |
 
 ### Verifying requests
-Use the `secret` attribute to set a key which is used to sign every POST request. The generated signature is HMAC SHA-256 authentication code which is unique for each request.
+Use the `secret` attribute to set a key which is used to sign every POST request. The generated signature is an HMAC SHA-256 authentication code which is unique for each request.
 The message used to generate the HMAC code is the raw JSON request body. 
 
 #### HMAC SHA-256 verification (PHP)
@@ -130,7 +130,7 @@ $isTrusted = hash_hmac('sha256', $body, APP_KEY) === $_SERVER['HTTP_MYPARCELCOM_
 With JavaScript you can use the [crypto-js](http://code.google.com/p/crypto-js/) library:
 ```javascript
 // where body is the request json encoded raw body (as string) and appKey is the secret key
-const isTruested = CryptoJS.HmacSHA256(body, appKey) === request.headers.get('X-MYPARCELCOM-SIGNATURE');
+const isTrusted = CryptoJS.HmacSHA256(body, appKey) === request.headers.get('X-MYPARCELCOM-SIGNATURE');
 ```
 
 ### Examples
