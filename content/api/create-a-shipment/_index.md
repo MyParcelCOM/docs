@@ -60,7 +60,7 @@ There are multiple ways to determine what service and contract to use, and multi
 Below is an explanation of two recommended ways of doing so: 
 
 - [Retrieving services and contracts based on shipment](/api/create-a-shipment/#retrieving-services-and-contracts-based-on-shipment).
-- [Use the `service-code` meta property when posting a shipment](/api/create-a-shipment/#use-the-service-code-meta-property-to-let-the-api-determine-the-contract)
+- [Use the `service-code` meta property when posting a shipment](/api/create-a-shipment/#use-the-service-code-meta-property-to-let-the-api-resolve-the-service-and-contract)
 
 #### Retrieving services and contracts based on shipment
 To ensure that a service can be used for a shipment, the services can be retrieved using information from the shipment. 
