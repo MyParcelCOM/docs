@@ -154,6 +154,7 @@ Example: https://sandbox-api.myparcel.com/shipments
           {
             "sku": "123456789",
             "description": "OnePlus X",
+            "image_url": "https://some.image.url/file.png",
             "item_value": {
               "amount": 995,
               "currency": "EUR"
@@ -326,6 +327,7 @@ Example: https://sandbox-api.myparcel.com/shipments
           {
             "sku": "123456789",
             "description": "OnePlus X",
+            "image_url": "https://some.image.url/file.png",
             "item_value": {
               "amount": 995,
               "currency": "EUR"
@@ -526,6 +528,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         {
           "sku": "123456789",
           "description": "OnePlus X",
+          "image_url": "https://some.image.url/file.png",
           "item_value": {
             "amount": 995,
             "currency": "EUR"
@@ -741,6 +744,7 @@ Example: https://sandbox-api.myparcel.com/shipments
         {
           "sku": "123456789",
           "description": "OnePlus X",
+          "image_url": "https://some.image.url/file.png",
           "item_value": {
             "amount": 995,
             "currency": "EUR"
@@ -882,6 +886,7 @@ Example: https://sandbox-api.myparcel.com/shipments
         {
           "sku": "123456789",
           "description": "OnePlus X",
+          "image_url": "https://some.image.url/file.png",
           "item_value": {
             "amount": 995,
             "currency": "EUR"
@@ -1125,6 +1130,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         {
           "sku": "123456789",
           "description": "OnePlus X",
+          "image_url": "https://some.image.url/file.png",
           "item_value": {
             "amount": 995,
             "currency": "EUR"
