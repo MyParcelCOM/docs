@@ -13,7 +13,7 @@ Reports are user generated collections of their shipments, generated based on a 
 Attribute  | Type    | Description
 ---------- | ------- | -----------
 name       | string  | User defined name to identify the report,
-filters    | object  | List of filter criteria to determine the shipments represented in the CSV. Required properties are `date_from` and `date_to`.
+filters    | object  | List of filter criteria to determine the shipments represented in the CSV. Required properties are `date_from` and `date_to`. All filter properties can be found in the [API specification](https://api-specification.myparcel.com/#tag/Reports/paths/~1reports/post).
 created_at | integer | Unix timestamp when the report was created.
 
 Relationship | Type                                 | Description
