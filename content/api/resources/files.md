@@ -21,6 +21,7 @@ If you request a file using the default `Accept` header `application/vnd.api+jso
 - `application/pdf`
 - `application/zpl`
 - `image/png`
+- `text/csv`
 
 ## Retrieve a file in a specific format
 
