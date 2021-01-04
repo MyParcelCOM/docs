@@ -12,9 +12,9 @@ A user can have one or more organizations and be able to read or manage attached
 
 Attribute                   | Type                                                | Description                                                                | Required
 --------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------- | --------
-name                        | string                                              | Name of the business.                                                      | ✓
-company_registration_number | string                                              | Chamber of Commerce number of the business.                                |
-vat_number                  | string                                              | VAT identification number of the business.                                 |
+name                        | string                                              | Name of the organization.                                                  | ✓
+company_registration_number | string                                              | Chamber of Commerce number of the organization.                            |
+vat_number                  | string                                              | VAT identification number of the organization.                             |
 eori_number                 | string                                              | EORI number used as `sender_tax_number` when creating shipments to the EU. |
 voec_number                 | string                                              | VOEC number used as `sender_tax_number` when creating shipments to Norway. |
 currency                    | string                                              | Currency for invoicing purposes.                                           |
