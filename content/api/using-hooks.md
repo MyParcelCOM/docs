@@ -5,9 +5,9 @@ weight = 5
 +++
 
 Hooks are used to automate processes on the API. They decrease the amount of manual actions a user performs.  
-  
+
 An example use case for hooks would be to automatically set a service and contract on a shipment when it is created.
-This use case could be interesting for an England based business that ships most of its products to England (and therefore always uses the same service).
+This use case could be interesting for an England based organization that ships most of its products to England (and therefore always uses the same service).
 A hook could be created to automatically set the desired service and contract when a shipment to England is created, 
 thus eliminating a big part of the shipment creation process.
 
