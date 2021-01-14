@@ -546,6 +546,10 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "invoice_number": "9000",
         "non_delivery": "return",
         "incoterm": "DAP",
+        "shipping_value": {
+          "amount": 995,
+          "currency": "EUR"
+        },
         "license_number": "218532158",
         "certificate_number": "12122121"
       },
@@ -762,6 +766,10 @@ Example: https://sandbox-api.myparcel.com/shipments
         "invoice_number": "9000",
         "non_delivery": "return",
         "incoterm": "DAP",
+        "shipping_value": {
+          "amount": 995,
+          "currency": "EUR"
+        },
         "license_number": "218532158",
         "certificate_number": "12122121"
       },
@@ -904,6 +912,10 @@ Example: https://sandbox-api.myparcel.com/shipments
         "invoice_number": "9000",
         "non_delivery": "return",
         "incoterm": "DAP",
+        "shipping_value": {
+          "amount": 995,
+          "currency": "EUR"
+        },
         "license_number": "218532158",
         "certificate_number": "12122121"
       },
@@ -1148,6 +1160,10 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "invoice_number": "9000",
         "non_delivery": "return",
         "incoterm": "DAP",
+        "shipping_value": {
+          "amount": 995,
+          "currency": "EUR"
+        },
         "license_number": "218532158",
         "certificate_number": "12122121"
       },
