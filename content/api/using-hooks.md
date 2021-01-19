@@ -11,6 +11,11 @@ This use case could be interesting for an England based organization that ships 
 A hook could be created to automatically set the desired service and contract when a shipment to England is created, 
 thus eliminating a big part of the shipment creation process.
 
+- [Building a hook](#building-a-hook) helps you to create a hook, explaining [triggers](#trigger) and [actions](#action).
+- [Chaining hooks and ordering](#chaining-hooks-and-ordering) helps you to work with multiple hooks.
+- [Hook logs](#hook-logs) help you to see what a hook did or didn't do (and why).
+
+
 ## Building a hook
 Creating a [hooks](/api/resources/hooks) resource can be complicated, but can be split up by asking two questions:
 
@@ -298,4 +303,17 @@ In this case, because the order of the first hook is lower (`100`) than the orde
 
 {{% notice tip %}}
 Using multiplications of 100 for the `order` attribute makes it easier to "insert" new hooks before existing ones without having to update all of the existing hook's `order` attributes. 
+{{% /notice %}}
+
+## Hook logs
+Every time a hook is triggered, the result will be available as a [hook log](/api/resources/hooks/logs).
+These logs will help you check:
+
+- what's being changed when it was activated
+- what caused the hook to not change anything
+
+Check the `HookLog` resource page to see how to [retrieve all logs for a specific hook](/api/resources/hooks/logs/#retrieve-all-logs-for-a-specific-hook).
+
+{{% notice info %}}
+Shipments which have hooks triggered upon their creation have these listed in their `hook_log` relationship, which you can include in the shipment `GET` requests.
 {{% /notice %}}
