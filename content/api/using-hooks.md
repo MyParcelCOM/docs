@@ -306,11 +306,11 @@ Using multiplications of 100 for the `order` attribute makes it easier to "inser
 {{% /notice %}}
 
 ## Hook logs
-Every time a hook is triggered, the result will be available as a [hook log](/api/resources/hooks/logs).
+Every time a hook is finished processing, a [hook log](/api/resources/hooks/logs) containing process information will be available.
 These logs will help you check:
 
-- what's being changed when it was activated
-- what caused the hook to not change anything
+- what changed when the hook successfully processed
+- what failed when the hook did not process anything
 
 Check the `HookLog` resource page to see how to [retrieve all logs for a specific hook](/api/resources/hooks/logs/#retrieve-all-logs-for-a-specific-hook).
 
