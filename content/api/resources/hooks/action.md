@@ -1,7 +1,7 @@
 +++
 title = "Hook action"
 description = "Hook action."
-weight = 2
+weight = 1
 +++
 
 A hook action specifies what should happen when a hook is executed.
