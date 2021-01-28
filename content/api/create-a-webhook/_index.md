@@ -85,6 +85,8 @@ The second example below will send the resource data of the newly created shipme
 }
 ```
 {{% notice info %}}
-For more information about the hook actions, see the resource page on [send-resource action](/api/resources/hooks/action/#send-resource).
-And for more information about the hook trigger, see the resource page on [hooks trigger](/api/resources/hooks/trigger).
+For more information about the hook actions, see the resource page on [send-resource action](/api/resources/hooks/action/#send-resource).   
+This page contains information on how to handle webhook retries, and using hashed secrets for more secure requests.
+
+For more information about the hook trigger, see the resource page on [hooks trigger](/api/resources/hooks/trigger).
 {{% /notice %}}
