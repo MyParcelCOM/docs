@@ -1,7 +1,7 @@
 +++
 title = "Hook action"
 description = "Hook action."
-weight = 2
+weight = 1
 +++
 
 A hook action specifies what should happen when a hook is executed.
@@ -109,11 +109,13 @@ When a `hook_action` is performed the `send-resource` `action_type` is used to s
 This `action_type` will send the resource that triggered the hook to the specified `url` through a POST request.
 The format for a value object for `action_type` `send-resource` is shown in the table below.
 
-| Attribute | Type                                              | Description                                                                                                                       | Required  |
-| --------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| url       | string                                            | The url where the resource POST request is send to.                                                                               | ✓         | 
-| secret    | string                                            | A secret string used to HMAC SHA-256 sign every POST request via the `X-MYPARCELCOM-SIGNATURE` header. More information below.    |           |
-| includes  | array                                             | An array of include keys that will be added to the resource body.                                                                 |           |
+| Attribute     | Type                                              | Description                                                                                                                       | Required  |
+| ------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| url           | string                                            | The url where the resource POST request is send to.                                                                               | ✓         | 
+| secret        | string                                            | A secret string used to HMAC SHA-256 sign every POST request via the `X-MYPARCELCOM-SIGNATURE` header. More information below.    |           |
+| includes      | array                                             | An array of include keys that will be added to the resource body.                                                                 |           |
+| tries         | integer                                           | The number of times this action should be attempted, should it fail the first time. By default this is 3, and the max is 24.      |           |
+| retry_delay   | integer                                           | The number of seconds that should be in between two attempts. By default this is 600 (10 minutes), and the max is 3600 (1 hour).  |           |
 
 ### Verifying requests
 Use the `secret` attribute to set a key which is used to sign every POST request. The generated signature is an HMAC SHA-256 authentication code which is unique for each request.
@@ -190,3 +192,20 @@ The `secret` string will be used to sign every POST request from MyParcel.com's 
   ]
 }
 ```
+
+Finally, it's possible to specify how often the MyParcel.com should try sending the request, in case of a failed request (non 2xx status).
+The following example will cause the MyParcel.com API to send another request after 30 minutes (1800 seconds), until it succeeds or has been attempted 4 times. 
+```json
+{
+  "action_type": "send-resource",
+  "values": [
+    {
+      "url": "https://your.api.url",
+      "tries": 4,
+      "retry_delay": 1800
+    }
+  ]
+}
+```
+
+Each time a request fails, a [hook log](/api/resources/hooks/logs) is generated with an `errors` attribute, which contains the error message, response body and an attempt counter.

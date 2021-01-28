@@ -12,12 +12,31 @@ A hook log specifies what happened when the hook was executed.
 | ------------- | ---------------- | -------------------------------------------------------------------------------------------- | -------- |
 | resource_diff | object           | An object of the changes done on this resource.                                              |          |
 | errors        | array of strings | An array of strings containing the error that was encountered while trying to run this hook. |          |
+| created_at    | integer          | Unix timestamp for when the log was created.                                                 |          |
 
-{{% notice warning %}}
-This resource is still experimental, so it requires the `experimental` scope and might still change in the future.
-{{% /notice %}}
+## Retrieve all logs for a specific hook
 
-## Retrieve hook logs
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Hooks/paths/~1hooks~1{hook_id}~1logs/get)
+
+**Request parameters**  
+For more specific requests, the following parameters can be included as query parameters.
+
+Parameter                     | Type    | Description
+----------------------------- | ------- | ------------
+filter[created_at][date_from] | string  | Date in ISO 8601 date format (YYYY-MM-DD). Only resources created >= this date will be returned.
+filter[created_at][date_to]   | string  | Date in ISO 8601 date format (YYYY-MM-DD). Only resources created <= this date will be returned.
+filter[has_errors]            | boolean | `true` will only return logs **with** errors<br>`false` will only return logs **without** errors.<br>Omit this filter if you want to retrieve all logs, regardless of errors.
+
+**Request**
+```http
+GET /hooks/{hook_id}/logs HTTP/1.1
+Accept: application/vnd.api+json
+Example: https://sandbox-api.myparcel.com/hooks/be7f6752-34e0-49a1-a832-bcc209450ea9/logs?filter[created_at][date_from]=2021-01-21
+```
+
+## Retrieve a hook log
+
+{{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/HookLogs)
 
 **Request**
 ```http
@@ -26,7 +45,7 @@ Accept: application/vnd.api+json
 Example: https://sandbox-api.myparcel.com/hook-logs/8e141db6-d638-9ae0-e33d-8e97469b10ce
 ```
 
-**Successful hooks response example**
+**Successful hook log response example**
 ```json
 {
   "data": {
@@ -42,7 +61,8 @@ Example: https://sandbox-api.myparcel.com/hook-logs/8e141db6-d638-9ae0-e33d-8e97
             }
           }
         }
-      }
+      },
+      "created_at": 1504801719
     },
     "relationships": {
       "hook": {
@@ -68,7 +88,7 @@ Example: https://sandbox-api.myparcel.com/hook-logs/8e141db6-d638-9ae0-e33d-8e97
 }
 ```
 
-**Failed hooks response example**
+**Failed hook log response example**
 ```json
 {
   "data": {
@@ -77,7 +97,8 @@ Example: https://sandbox-api.myparcel.com/hook-logs/8e141db6-d638-9ae0-e33d-8e97
     "attributes": {
       "errors": [
         "Applying the hook failed because the desired service was not available for the shipment contract."
-      ]
+      ],
+      "created_at": 1504801719
     },
     "relationships": {
       "hook": {
