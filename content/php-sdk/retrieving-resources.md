@@ -52,31 +52,6 @@ To only retrieve pick-up/drop-off locations for carriers for which the authentic
 $locations = $api->getPickUpDropOffLocations('GB', 'NW1 6XE', 'Baker Street', 221, null, true);
 ```
 
-### Regions
-The API supports sending parcels from one country/state/province to another. These are split up into `regions` in the API. These are mostly used to define which services are available between what regions. A list of these regions as defined by the API can be retrieved through the SDK. Regions should implement the `\MyParcelCom\ApiSdk\Resources\Interfaces\RegionInterface`.
-
-```php
-// Get all the regions.
-$api->getRegions();
-
-// Get all the regions in the United Kingdom.
-$api->getRegions([
-    'country_code' => 'GB'
-]);
-
-// Get the region for the Scottish Highlands.
-$api->getRegions([
-    'country_code' => 'GB', 
-    'region_code'  => 'SCH'
-]);
-
-// Get the region for a specific postal code
-$api->getRegions([
-    'country_code' => 'GB', 
-    'postal_code'  => 'NW1 6XE'
-]);
-```
-
 ### Services
 The services (eg 'DPD next day') available in the API can be retrieved using the SDK. There are three ways to retrieve them. Either get all available services, the services available for a specific shipment, or all available services from a specific carrier. Services will be mapped to the `\MyParcelCom\ApiSdk\Resources\Interfaces\ServiceInterface`.
 
@@ -138,7 +113,6 @@ $recipient
     ->setFirstName('Sherlock')
     ->setLastName('Holmes')
     ->setCountryCode('GB')
-    ->setRegionCode('ENG')
     ->setEmail('s.holmes@holmesinvestigations.com');
 
 // Create the shipment and set required parameters.
