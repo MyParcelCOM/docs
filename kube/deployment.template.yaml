@@ -19,12 +19,10 @@ spec:
     spec:
       containers:
         - name: ${CIRCLE_PROJECT_REPONAME}
-          image: myparcelcom/docs:${IMAGE_TAG}
+          image: ${ECR_REGISTRY}/myparcelcom/docs:${IMAGE_TAG}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: docker-hub
   strategy:
     type: RollingUpdate
     rollingUpdate:
