@@ -4,18 +4,19 @@ jobs:
     docker:
       - image: myparcelcom/build-utils
         auth:
-          username: ${DOCKER_USER}
-          password: ${DOCKER_PASSWORD}
+          username: ${DOCKER_CLOUD_USER}
+          password: ${DOCKER_CLOUD_PASSWORD}
     working_directory: ~/project
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: AWS ECR login
+          command: ecr-login
       - run:
           name: Authenticate AWS
-          command: |
-            export AWS_ACCESS_KEY=${AWS_ACCESS_KEY_ID}
-            export AWS_SECRET_KEY=${AWS_SECRET_ACCESS_KEY}
-            aws-login
+          command: aws-login
       - run:
           name: Building and Pushing Docker images
           command: |
@@ -23,18 +24,17 @@ jobs:
             eval $(aws-ssm-params ${NS}/${CIRCLE_PROJECT_REPONAME}) # fetch project settings
             IMAGE_TAG=$(image_tag)
             docker build \
-              -t myparcelcom/docs:${IMAGE_TAG} \
+              -t ${ECR_REGISTRY}/myparcelcom/docs:${IMAGE_TAG} \
               --build-arg DOMAIN=${APP_DOMAIN} \
               -f docker/build/Dockerfile .
-            docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
-            docker push myparcelcom/docs:${IMAGE_TAG}
+            docker push ${ECR_REGISTRY}/myparcelcom/docs:${IMAGE_TAG}
 
   deploy:
     docker:
       - image: myparcelcom/build-utils
         auth:
-          username: ${DOCKER_USER}
-          password: ${DOCKER_PASSWORD}
+          username: ${DOCKER_CLOUD_USER}
+          password: ${DOCKER_CLOUD_PASSWORD}
     parameters:
       is_sandbox:
         type: string
@@ -45,11 +45,7 @@ jobs:
       - checkout
       - run:
           name: Bootstrap AWS EKS and kubectl
-          command: |
-            export CLUSTER=$(cluster_name)
-            export AWS_ACCESS_KEY=${AWS_ACCESS_KEY_ID}
-            export AWS_SECRET_KEY=${AWS_SECRET_ACCESS_KEY}
-            bootstrap
+          command: kubectl-config
       - run:
           name: Process templates
           command: |
@@ -70,6 +66,7 @@ workflows:
   deploy:
     jobs:
       - build:
+          context: [ "aws", "docker_cloud" ]
           filters:
             branches:
               only:
@@ -78,6 +75,7 @@ workflows:
             tags:
               only: /^v\d+\.\d+\.\d+$/
       - deploy:
+          context: [ "aws", "docker_cloud" ]
           requires:
             - build
           filters:
