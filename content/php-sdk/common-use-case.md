@@ -20,6 +20,7 @@ This behavior is not a problem for when you only have one shop and don't mind wh
 ```php
 use MyParcelCom\ApiSdk\Resources\Address;
 use MyParcelCom\ApiSdk\Resources\Shipment;
+use MyParcelCom\ApiSdk\Resources\PhysicalProperties;
 use MyParcelCom\ApiSdk\Resources\Interfaces\PhysicalPropertiesInterface;
 
 // Define the sender address.
@@ -45,7 +46,6 @@ $recipient
     ->setCountryCode('GB')
     ->setEmail('s.holmes@holmesinvestigations.com');
 
-
 // Get your shops from the api.
 $shops = $api->getShops();
 
@@ -58,7 +58,9 @@ $shipment
     ->setSenderAddress($sender)
     ->setRecipientAddress($recipient)
     ->setShop($myShop)
-    ->setWeight(500, PhysicalPropertiesInterface::WEIGHT_GRAM);
+    ->setPhysicalProperties(
+        (new PhysicalProperties())->setWeight(500, PhysicalPropertiesInterface::WEIGHT_GRAM)
+    );
 
 // Get the available service rates for this shipment from the API.
 $serviceRates = $api->getServiceRatesForShipment($shipment);
@@ -80,7 +82,32 @@ $shipment->setServiceCode('dpd-classic');
 $createdShipment = $api->createShipment($shipment);
 ```
 
-Now that you've created a shipment, you should store its id (`$createdShipment->getId()`) somewhere, so you can later retrieve any files associated with the shipment and check for status updates.
+Now that you've created a shipment, you should store its `$createdShipment->getId()` somewhere, so you can later retrieve any files associated with the shipment and check for status updates.
+
+## International shipments require items and customs
+
+```php
+use MyParcelCom\ApiSdk\Resources\Customs;
+use MyParcelCom\ApiSdk\Resources\ShipmentItem;
+
+$shipment
+    ->setItems([
+        (new ShipmentItem())
+            ->setQuantity(1)
+            ->setDescription('Product 1')
+            ->setItemWeight(123),
+        (new ShipmentItem())
+            ->setQuantity(2)
+            ->setDescription('Product 2')
+            ->setItemWeight(456),
+    ])
+    ->setCustoms(
+        (new Customs())
+            ->setContentType('gifts')
+            ->setShippingValueAmount(999)
+            ->setShippingValueCurrency('EUR')
+    );
+```
 
 ## Downloading the shipment label
 When you create a shipment, it's status will be `shipment_concept`. While the shipment has this status it can be modified. When you are ready to register the shipment with the carrier, you should set the `register_at` property. This can be set into the future if you want to schedule registering the shipment, or you can use the current time to register it immediately. This should normally not take more than a minute, but depending on the carrier, it can take a little bit longer.
