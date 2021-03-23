@@ -87,6 +87,7 @@ Now that you've created a shipment, you should store its `$createdShipment->getI
 ## International shipments require items and customs
 
 ```php
+use MyParcelCom\ApiSdk\Resources\Interfaces\CustomsInterface;
 use MyParcelCom\ApiSdk\Resources\Customs;
 use MyParcelCom\ApiSdk\Resources\ShipmentItem;
 
@@ -95,16 +96,23 @@ $shipment
         (new ShipmentItem())
             ->setQuantity(1)
             ->setDescription('Product 1')
-            ->setItemWeight(123),
+            ->setOriginCountryCode('NL')
+            ->setItemValue(123)
+            ->setCurrency('EUR'),
         (new ShipmentItem())
             ->setQuantity(2)
             ->setDescription('Product 2')
-            ->setItemWeight(456),
+            ->setOriginCountryCode('NL')
+            ->setItemValue(456)
+            ->setCurrency('EUR'),
     ])
     ->setCustoms(
         (new Customs())
-            ->setContentType('gifts')
-            ->setShippingValueAmount(999)
+            ->setContentType(CustomsInterface::CONTENT_TYPE_MERCHANDISE)
+            ->setInvoiceNumber('90019001')
+            ->setNonDelivery(CustomsInterface::NON_DELIVERY_RETURN)
+            ->setIncoterm(CustomsInterface::INCOTERM_DAP)
+            ->setShippingValueAmount(123)
             ->setShippingValueCurrency('EUR')
     );
 ```
