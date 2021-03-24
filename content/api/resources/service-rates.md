@@ -11,22 +11,23 @@ A user has access to service rates that are related to the contracts the user ha
 
 {{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/Shops)
 
-Attribute  |  Type   | Description                                              | Required
----------- | ------- | ------------------------------------------------------------------------------------------- | --------
-weight_min | integer | The minimum weight in grams a shipment should have for this service rate to apply to it.     | ✓
-weight_max | integer | The maximum weight in grams a shipment should have for this service rate to apply to it.     | ✓
-length_max | integer | The maximum length of the shipment in mm.                                                    |
-width_max  | integer | The maximum width of the shipment in mm.                                                     |
-height_max | integer | The maximum height of the shipment in mm.                                                    |
-volume_max | float   | The maximum volume of the shipment in liters.                                                |
-price      | [price](/api/resources/common-objects/prices/) | The price of the service in cents (where applicable). |
-step_size  | integer | When the service supports sending shipments that exceed the max weight, this indicates in what weight steps (in grams) the increments are calculated with. |
-step_price | [price](/api/resources/common-objects/prices/) | The price per increment of `step_size`. |
+Attribute      |  Type   | Description                                                                                   | Required
+-------------- | ------- | --------------------------------------------------------------------------------------------- | --------
+weight_min     | integer | The minimum weight in grams a shipment should have for this service rate to apply to it.      | ✓
+weight_max     | integer | The maximum weight in grams a shipment should have for this service rate to apply to it.      | ✓
+length_max     | integer | The maximum length of the shipment in mm.                                                     |
+width_max      | integer | The maximum width of the shipment in mm.                                                      |
+height_max     | integer | The maximum height of the shipment in mm.                                                     |
+volume_max     | float   | The maximum volume of the shipment in liters.                                                 |
+price          | [price](/api/resources/common-objects/prices/) | The price of the service in cents.                     |
+fuel_surcharge | [price](/api/resources/common-objects/prices/) | The additional fuel surcharge of the service in cents (not included in `price`). |
+step_size      | integer | When the service supports sending shipments that exceed the max weight, this indicates in what weight steps (in grams) the increments are calculated with. |
+step_price     | [price](/api/resources/common-objects/prices/) | The price per increment of `step_size`.                |
 
-Relationship    | Type                                                                                                | Description                          | Required
---------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------ | --------
-contract        | [contracts](/api/resources/contracts)                  | The contract this rate belongs to.    | ✓
-service         | [services](/api/resources/services/)                     | The service this rate belongs to.     | ✓
+Relationship    | Type                                               | Description                        | Required
+--------------- | -------------------------------------------------- | ---------------------------------- | --------
+contract        | [contracts](/api/resources/contracts)              | The contract this rate belongs to. | ✓
+service         | [services](/api/resources/services/)               | The service this rate belongs to.  | ✓
 service_options | [service-options](/api/resources/service-options/) | The service service options that are available for this contract and service combination. The price and whether it is always included are available in the meta. |
 
 ## Endpoints
