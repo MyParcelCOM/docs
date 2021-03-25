@@ -558,10 +558,10 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "amount": 995,
         "currency": "EUR"
       },
-        "total_value": {
-          "amount": 25000,
-          "currency": "EUR"
-        },
+      "total_value": {
+        "amount": 25000,
+        "currency": "EUR"
+      },
       "barcode": "3SABCD0123456789",
       "tracking_code": "3SABCD0123456789",
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
@@ -924,10 +924,10 @@ Example: https://sandbox-api.myparcel.com/shipments
         "amount": 995,
         "currency": "EUR"
       },
-        "total_value": {
-          "amount": 25000,
-          "currency": "EUR"
-        },
+      "total_value": {
+        "amount": 25000,
+        "currency": "EUR"
+      },
       "barcode": "3SABCD0123456789",
       "tracking_code": "3SABCD0123456789",
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
@@ -1172,10 +1172,10 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "amount": 995,
         "currency": "EUR"
       },
-        "total_value": {
-          "amount": 25000,
-          "currency": "EUR"
-        },
+      "total_value": {
+        "amount": 25000,
+        "currency": "EUR"
+      },
       "barcode": "3SABCD0123456789",
       "tracking_code": "3SABCD0123456789",
       "tracking_url": "https://tracker.carrier.com/3SABCD0123456789",
