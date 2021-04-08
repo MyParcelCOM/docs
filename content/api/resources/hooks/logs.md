@@ -8,11 +8,11 @@ A hook log specifies what happened when the hook was executed.
 
 ## Attributes
 
-| Attribute     | Type             | Description                                                                                  | Required |
-| ------------- | ---------------- | -------------------------------------------------------------------------------------------- | -------- |
-| resource_diff | object           | An object of the changes done on this resource.                                              |          |
-| errors        | array of strings | An array of strings containing the error that was encountered while trying to run this hook. |          |
-| created_at    | integer          | Unix timestamp for when the log was created.                                                 |          |
+| Attribute     | Type             | Description                                                                            | Required |
+| ------------- | ---------------- | -------------------------------------------------------------------------------------- | -------- |
+| resource_diff | object           | An object of the changes done on this resource.                                        |          |
+| errors        | array of strings | An array of strings containing the error(s) encountered while trying to run this hook. |          |
+| created_at    | integer          | Unix timestamp for when the log was created.                                           |          |
 
 ## Retrieve all logs for a specific hook
 
