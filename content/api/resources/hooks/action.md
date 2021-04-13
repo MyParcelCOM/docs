@@ -7,13 +7,13 @@ weight = 1
 A hook action specifies what should happen when a hook is executed.
 
 ## Attributes
-| Attribute    | Type                                            | Description                                                                   | Required |
-| ------------ | ----------------------------------------------- | ----------------------------------------------------------------------------- | -------- |
-| action_type  | string enum: `update-resource`, `send-resource` | The type of action that should be performed when a hook is triggered.         | ✓        |
-| values       | array of objects                                | An array of objects containing specific data depending on the `action_type`.  | ✓        |
+| Attribute   | Type                                                 | Description                                                                  | Required |
+| ----------- | ---------------------------------------------------- | ---------------------------------------------------------------------------- | -------- |
+| action_type | string enum:<br>`update-resource`<br>`send-resource` | The type of action that should be performed when a hook is triggered.        | ✓        |
+| values      | array of objects                                     | An array of objects containing specific data depending on the `action_type`. | ✓        |
 
 {{% notice info %}}
-Different `action_types` might require differently formatted objects as `values` in the future when more `action_types` are supported.  
+Different action types might require differently formatted objects as `values`.
 {{% /notice %}}
 
 ## Update resource
