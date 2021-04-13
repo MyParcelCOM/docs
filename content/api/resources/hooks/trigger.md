@@ -8,14 +8,18 @@ A hook trigger contains the criteria for when a hook should trigger.
 It determines what resource and action should trigger the hook.
 
 ## Attributes
-| Attribute         | Type                                                      | Description                                                           | Required  |
-| ----------------- | --------------------------------------------------------- | --------------------------------------------------------------------- | --------- |
-| resource_type     | string                                                    | The type of resource that causes the hook to trigger.                 | ✓         |
-| resource_action   | string enum: <br> `create` <br> `update` <br> `delete`    | The resource action that should trigger the hook.                     | ✓         |
-| predicates        | array of [predicate](#predicate) objects                  | Used to more specifically trigger hooks based on the target resource. |           |
+| Attribute       | Type                                     | Description                                                           | Required |
+| --------------- | ---------------------------------------- | --------------------------------------------------------------------- | -------- |
+| resource_type   | string                                   | The type of resource that causes the hook to trigger.                 | ✓        |
+| resource_action | string enum: <br> `create` <br> `update` | The resource action that should trigger the hook.                     | ✓        |
+| predicates      | array of [predicate](#predicate) objects | Used to more specifically trigger hooks based on the target resource. |          |
 
 {{% notice info %}}
-At this time, only hooks that are triggered by the `shipments` and `shipment-statuses` are supported as `resource_type`.
+At this time, the only supported combinations of `resource_action` and `resource_type` are:
+
+- `create` + `shipments` = used to modify shipment attributes or relationships when creating shipments
+- `create` + `shipment-statuses` = used to trigger webhooks to inform external systems of new [shipment-statuses](/api/resources/shipment-statuses)
+- `update` + `shipment-statuses` = used next to `create` if you want to receive (redundant) carrier-statuses added to the same shipment-status
 {{% /notice %}}
 
 ### Predicate
@@ -30,12 +34,12 @@ If all predicates resolve to `true` the [hook action](/api/resources/hooks/actio
 | value     | string, float or integer                                                          | The value to compare the resource property indicated by the `pointer` attribute to.                                                                                               | ✓         |
 
 ## Examples
-The trigger listed below, will cause a hook to activate whenever any shipment is updated.
+The trigger below will cause a hook to activate whenever any shipment is updated with a new status.
 
 ```json
 {
-  "resource_type": "shipments",
-  "resource_action": "updated"
+  "resource_type": "shipment-statuses",
+  "resource_action": "update"
 }
 ``` 
 
@@ -44,7 +48,7 @@ The following trigger contains predicates and will cause its associated hook to 
 ```json
 {
   "resource_type": "shipments",
-  "resource_action": "created",
+  "resource_action": "create",
   "predicates": [
     {
       "operator": "<",
@@ -61,7 +65,7 @@ The below trigger will cause a hook to trigger when a shipment is created that w
 ```json
 {
   "resource_type": "shipments",
-  "resource_action": "created",
+  "resource_action": "create",
   "predicates": [
     {
       "operator": "<",
