@@ -1,10 +1,10 @@
 +++
 title = "Adding liability coverage"
-description = "How to add liability coverage to insure your parcel."
+description = "How to add liability coverage to cover damage or loss of your parcel."
 weight = 4
 +++
 
-Liability coverage can be added to a shipment to insure valuable goods when sending them through the MyParcel.com API.
+Liability coverage can be added to a shipment to cover damage or loss of valuable goods when sending them through the MyParcel.com API.
 It is important to cover the contents of a package to their actual value. 
 Because of this, whenever liability coverage is available for a contract, it will often be available for different "value groups", covering a higher value for a higher price.
 
@@ -12,9 +12,7 @@ Because of this, whenever liability coverage is available for a contract, it wil
 At this moment, liability coverage is only available for contracts provided by MyParcel.com and not custom contracts.
 To find out if liability coverage is available for a shipment and up to how much value can be covered, 
 a call to the `GET /contracts/{contract_id}` endpoint should be made to retrieve the [contract](/api/resources/contracts) you intend to use with your shipment.
-The API will respond with the contracts resource and if the contract has liability coverage available, 
-it will be listed in the relationships in the response of the retrieved contract. 
-For more general information about liability coverage, visit the MyParcel.com [knowledge base](https://help.myparcel.com/support/solutions/articles/16000079653-can-i-insure-my-shipments-).
+The API will respond with the contracts resource and if the contract has liability coverage available, it will be listed in the relationships of the retrieved response.
 
 ```json
 {
