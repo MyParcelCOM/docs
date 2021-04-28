@@ -103,7 +103,7 @@ HTTP/1.1 200 OK
 Content-Disposition: attachment; filename="download.pdf"
 Content-Type: application/pdf
 
-data:application/pdf;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACA...
+%PDF-1.4 [...] %%EOF
 ```
 
 You can then store the file wherever you want. If you would like to serve the file directly to the user, check out [this](https://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server) StackOverflow thread for inspiration.
