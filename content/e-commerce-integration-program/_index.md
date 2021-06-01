@@ -14,14 +14,14 @@ We have started the e-commerce integration program as an initiative to make it e
 ### Getting Started
 #### Theory of operation
 The diagram below shows how MyParcel.com would get shipments from a remote API (in this example the trading API of eBay):
-{{< figure src="/images/e-com-integration-flow.png" title="The order in which hooks are executed" alt="e-Commerce Integration Flow" >}}
+{{< figure src="/images/e-com-integration-flow.png" title="e-Commerce Integration flow example for getting shipments from eBay Trading API" alt="e-Commerce Integration Flow" >}}
 
 The following steps are executed:
 
-1. MyParcel.com platform asks the integration for shipments
-2. Integration asks remote API for orders
-3. Remote API responds with list of orders
-4. Integration transforms orders into MyParcel.com compatible shipments and responds with them
+1. MyParcel.com platform asks the integration for shipments (GET `/shipments`)
+2. Integration asks remote API for orders (SOAP call `GetOrders`)
+3. Remote API responds with list of orders (xml response)
+4. Integration transforms orders into MyParcel.com compatible shipments and responds with them (json-api formatted response)
 
 #### PHP Skeleton based on Laravel
 We have created a Laravel-based [skeleton application](https://github.com/MyParcelCOM/integration-skeleton) for PHP developers.
