@@ -14,9 +14,10 @@ Attribute                   | Type                                              
 --------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------- | --------
 name                        | string                                              | Name of the organization.                                                  | ✓
 company_registration_number | string                                              | Chamber of Commerce number of the organization.                            |
-vat_number                  | string                                              | VAT identification number of the organization.                             |
-eori_number                 | string                                              | EORI number used as `sender_tax_number` when creating shipments to the EU. |
-voec_number                 | string                                              | VOEC number used as `sender_tax_number` when creating shipments to Norway. |
+~~vat_number~~                  | ~~string~~                                              | ~~VAT identification number of the organization.~~                             | **Deprecated**. Use `tax_identification_numbers` instead.
+~~eori_number~~                 | ~~string~~                                              | ~~EORI number used as `sender_tax_number` when creating shipments to the EU.~~ | **Deprecated**. Use `tax_identification_numbers` instead.
+~~voec_number~~                 | ~~string~~                                              | ~~VOEC number used as `sender_tax_number` when creating shipments to Norway.~~ | **Deprecated**. Use `tax_identification_numbers` instead.
+tax_identification_numbers  | array of [tax-identification-numbers](/api/resources/common-objects/tax-identification-numbers) | Default sender tax ID numbers to use when sending an international shipment. Any numbers passed on the shipment will overwrite numbers of the same `type` and `country_code`. | 
 currency                    | string                                              | Currency for invoicing purposes.                                           |
 billing_address             | [address](/api/resources/common-objects/addresses/) | The address used for invoicing purposes.                                   |
 created_at                  | integer                                             | Unix timestamp when the organization was created.                          |

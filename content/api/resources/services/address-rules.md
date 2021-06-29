@@ -13,7 +13,7 @@ They determine where a service can ship to and from, so if a service for instanc
 Attribute     | Type   | Description                                                                          | Required
 --------------|--------|--------------------------------------------------------------------------------------|---------
 country_code  | string | The country code to match in order to be accepted                                    | ✓
-⚠ region_code | string | The region code to match in order to be accepted (⚠ deprecated)                      |
+~~region_code~~ | ~~string~~ | ~~The region code to match in order to be accepted~~                           | **Deprecated**. Everything is based on the `postal_code` regular expression.
 postal_code   | string | The postal codes to match in order to be accepted, presented as a regular expression |
 
 ## Example
