@@ -28,7 +28,7 @@ The `country_code` property is used to decide which numbers to use when sending 
 
 There will be scenarios where a shipment needs a tax ID number that is different from the one defined on the organization (e.g. when selling via eBay).
 This is why the `sender_tax_identification_numbers` defined on the shipment have priority over the `tax_identification_numbers` defined on the organization.
-This prioritization is done using the `type` and `country_code`, which overwrite the organization's tax ID number in case they are similar.
+This prioritization is done using the `type` and `country_code` properties. If they are the same the shipment's tax ID number will overwrite the organization's tax ID number with the same `type` and `country_code`.
 
 #### Example
 Imagine an organization with the following substructure:
