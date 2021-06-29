@@ -26,13 +26,8 @@ regions_to             | array of [address rules](/api/resources/services/addres
 Relationship  | Type                                | Description                                | Required
 ------------- | ----------------------------------- | ------------------------------------------ | ---------------
 carrier       | [carriers](/api/resources/carriers) | Carrier offering the service.              | ✓
-⚠ region_from | [regions](/api/resources/regions)   | Region in which this service is available. | ✓
-⚠ region_to   | [regions](/api/resources/regions)   | Region where shipments can be delivered.   | ✓
-
-{{% notice warning %}}
-⚠ The `region_from` and `region_to` relationships are deprecated and will be removed from the API response soon. <br>
-If you are using these relationships, make sure you switch to using the attributes `regions_from` and `regions_to` instead.
-{{% /notice %}}
+~~region_from~~ | ~~[regions](/api/resources/regions)~~   | ~~Region in which this service is available.~~ | **Deprecated**. Use `regions_from` attribute instead.
+~~region_to~~   | ~~[regions](/api/resources/regions)~~   | ~~Region where shipments can be delivered.~~   | **Deprecated**. Use `regions_to` attribute instead.
 
 ## Endpoints
 

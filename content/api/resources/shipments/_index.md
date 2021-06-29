@@ -20,8 +20,10 @@ Shipments are at the core of our API. They contain files such as labels and are 
 | description          | string                                                               | Short description of the shipment that will be printed on the label when possible.                                           | Required for international shipments
 | items                | array of [items](/api/resources/shipments/items)                     | The contents of the shipment.                                                                                                | Required for international shipments
 | customs              | [customs](/api/resources/shipments/customs/)                         | Information required for the shipment to pass customs.                                                                       | Required for international shipments
-| sender_tax_number    | string                                                               | Tax number of sender e.g. EORI or VOEC number. Taken from [organization](/api/resources/organizations/) if not specified.    |
-| recipient_tax_number | string                                                               | Tax number of recipient.                                                                                                     |
+| ~~sender_tax_number~~  | string                                                             | ~~Tax number of sender e.g. EORI or VOEC number. Taken from [organization](/api/resources/organizations/) if not specified.~~| **Deprecated**. Use `sender_tax_identification_numbers` instead.
+| ~~recipient_tax_number~~ | string                                                           | ~~Tax number of recipient.~~                                                                                                 | **Deprecated**. Use `recipient_tax_identification_numbers` instead.
+| sender_tax_identification_numbers | array of [tax-identification-numbers](/api/resources/common-objects/tax-identification-numbers) | Tax ID numbers of the sender. Any numbers passed on the shipment will overwrite numbers of the same `type` and `country_code` defined on the [organization](/api/resources/organizations/) of this shipment's shop during registration. |
+| recipient_tax_identification_numbers | array of [tax-identification-numbers](/api/resources/common-objects/tax-identification-numbers) | Tax ID numbers of the recipient.                                                     | 
 | customer_reference   | string                                                               | Internal customer reference that can be used to identify shipments. This field is not communicated to the carrier.           |
 | channel              | string                                                               | Name of the application or integration (and potentially version number) used to create the shipment.                         |
 | price                | [price](/api/resources/common-objects/prices/)                       | The price of the shipment.                                                                                                   |
@@ -453,14 +455,11 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
     "id": "7b808eee-bf1c-40cd-98f2-3c335a06417e",
     "attributes": {
       "recipient_address": {
-        "street_1": "Baker Street",
-        "street_2": "Marylebone",
-        "street_number": 221,
-        "street_number_suffix": "B",
-        "postal_code": "NW1 6XE",
-        "city": "London",
-        "region_code": "ENG",
-        "country_code": "GB",
+        "street_1": "Hoofdweg 679",
+        "street_number": 679,
+        "postal_code": "2131BC",
+        "city": "Amsterdam",
+        "country_code": "NL",
         "first_name": "Sherlock",
         "last_name": "Holmes",
         "company": "Holmes Investigations",
@@ -497,25 +496,7 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "email": "s.holmes@holmesinvestigations.com",
         "phone_number": "+31 234 567 890"
       },
-      "pickup_location": {
-        "code": "205604",
-        "address": {
-          "street_1": "Baker Street",
-          "street_2": "Marylebone",
-          "street_number": 221,
-          "street_number_suffix": "B",
-          "postal_code": "NW1 6XE",
-          "city": "London",
-          "region_code": "ENG",
-          "country_code": "GB",
-          "first_name": "Sherlock",
-          "last_name": "Holmes",
-          "company": "Holmes Investigations",
-          "email": "s.holmes@holmesinvestigations.com",
-          "phone_number": "+31 234 567 890"
-        }
-      },
-      "description": "Fidget spinners",
+      "description": "Phones",
       "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
@@ -526,6 +507,28 @@ Example: https://sandbox-api.myparcel.com/shipments/7b808eee-bf1c-40cd-98f2-3c33
         "weight": 5000,
         "volumetric_weight": 4500
       },
+      "sender_tax_identification_numbers": [
+        {
+          "type": "ioss",
+          "country_code": "GB",
+          "description": "My IOSS number for GB",
+          "number": "1055405334"
+        },
+        {
+          "type": "eori",
+          "country_code": "GB",
+          "description": "My GB EORI number",
+          "number": "XI459273951"
+        }
+      ],
+      "recipient_tax_identification_numbers": [
+        {
+          "type": "vat",
+          "country_code": "NL",
+          "description": "VAT number for NL",
+          "number": "123abc456"
+        }
+      ],
       "items": [
         {
           "sku": "123456789",
@@ -674,14 +677,11 @@ Example: https://sandbox-api.myparcel.com/shipments
     "type": "shipments",
     "attributes": {
       "recipient_address": {
-        "street_1": "Baker Street",
-        "street_2": "Marylebone",
-        "street_number": 221,
-        "street_number_suffix": "B",
-        "postal_code": "NW1 6XE",
-        "city": "London",
-        "region_code": "ENG",
-        "country_code": "GB",
+        "street_1": "Hoofdweg 679",
+        "street_number": 679,
+        "postal_code": "2131BC",
+        "city": "Amsterdam",
+        "country_code": "NL",
         "first_name": "Sherlock",
         "last_name": "Holmes",
         "company": "Holmes Investigations",
@@ -736,7 +736,7 @@ Example: https://sandbox-api.myparcel.com/shipments
           "phone_number": "+31 234 567 890"
         }
       },
-      "description": "Fidget spinners",
+      "description": "Phones",
       "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
@@ -759,6 +759,28 @@ Example: https://sandbox-api.myparcel.com/shipments
           "hs_code": "8517.12.00",
           "origin_country_code": "GB",
           "nett_weight": 135
+        }
+      ],
+      "sender_tax_identification_numbers": [
+        {
+          "type": "ioss",
+          "country_code": "GB",
+          "description": "My IOSS number for GB",
+          "number": "1055405334"
+        },
+        {
+          "type": "eori",
+          "country_code": "GB",
+          "description": "My GB EORI number",
+          "number": "XI459273951"
+        }
+      ],
+      "recipient_tax_identification_numbers": [
+        {
+          "type": "vat",
+          "country_code": "NL",
+          "description": "VAT number for NL",
+          "number": "123abc456"
         }
       ],
       "customs": {
@@ -819,14 +841,11 @@ Example: https://sandbox-api.myparcel.com/shipments
     "id": "7b808eee-bf1c-40cd-98f2-3c335a06417e",
     "attributes": {
       "recipient_address": {
-        "street_1": "Baker Street",
-        "street_2": "Marylebone",
-        "street_number": 221,
-        "street_number_suffix": "B",
-        "postal_code": "NW1 6XE",
-        "city": "London",
-        "region_code": "ENG",
-        "country_code": "GB",
+        "street_1": "Hoofdweg 679",
+        "street_number": 679,
+        "postal_code": "2131BC",
+        "city": "Amsterdam",
+        "country_code": "NL",
         "first_name": "Sherlock",
         "last_name": "Holmes",
         "company": "Holmes Investigations",
@@ -881,7 +900,7 @@ Example: https://sandbox-api.myparcel.com/shipments
           "phone_number": "+31 234 567 890"
         }
       },
-      "description": "Fidget spinners",
+      "description": "Phones",
       "customer_reference": "#8008135",
       "channel": "MyParcel.com Back Office",
       "physical_properties": {
@@ -905,6 +924,28 @@ Example: https://sandbox-api.myparcel.com/shipments
           "hs_code": "8517.12.00",
           "origin_country_code": "GB",
           "nett_weight": 135
+        }
+      ],
+      "sender_tax_identification_numbers": [
+        {
+          "type": "ioss",
+          "country_code": "GB",
+          "description": "My IOSS number for GB",
+          "number": "1055405334"
+        },
+        {
+          "type": "eori",
+          "country_code": "GB",
+          "description": "My GB EORI number",
+          "number": "XI459273951"
+        }
+      ],
+      "recipient_tax_identification_numbers": [
+        {
+          "type": "vat",
+          "country_code": "NL",
+          "description": "VAT number for NL",
+          "number": "123abc456"
         }
       ],
       "customs": {
