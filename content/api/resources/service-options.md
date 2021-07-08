@@ -10,11 +10,12 @@ Service options can be added to a [shipment](/api/resources/shipments/) to add e
 
 {{< icon fa-file-text-o >}}[API specification](https://api-specification.myparcel.com/#tag/ServiceOptions)
 
-Attribute | Type                                                                    | Description                                                                                                               | Required
---------- | ------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------- |----------------
-name      | string                                                                  | Option name, useful for displaying to users.                                                                              | ✓
-code      | string                                                                  | Option code, which will be used in the request to the carrier.                                                            | ✓
-category  | string enum: `delivery-window`<br> `handover-method`<br> `proof-of-delivery`  | The category in which a service option belongs. Note that only one service option per category can be set on a shipment.  |
+Attribute       | Type                                                                            | Description                                                                                                               | Required
+--------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |----------------
+name            | string                                                                          | Option name, useful for displaying to users.                                                                              | ✓
+code            | string                                                                          | Option code, which will be used in the request to the carrier.                                                            | ✓
+category        | string enum: `delivery-window`<br> `handover-method`<br> `proof-of-delivery`    | The category in which a service option belongs. Note that only one service option per category can be set on a shipment.  |
+values_format   | object                                                                          | The format of additional values required for this service option using [JSON Schema](https://json-schema.org/). e.g. price input for Cash on Delivery options. | 
 
 ## Endpoints
 
